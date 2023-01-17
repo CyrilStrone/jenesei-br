@@ -1,0 +1,66 @@
+.HeaderMenu {
+  position: absolute;
+  top: 70px;
+  right: 0;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-decoration: none;
+  color: #000000;
+  white-space: nowrap;
+  transition-duration: 0.5s;
+  cursor: pointer;
+  width: 50%;
+  user-select: none;
+  background-color: white;
+  box-shadow: 0 0 64px 0 rgb(0 0 0 / 24%), 0 0 4px 0 rgb(0 0 0 / 24%);
+  padding: 10px;
+  border-radius: 10px;
+  z-index: 1;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+  max-width: 200px;
+}
+.HeaderMenu a {
+  margin-bottom: 5px;
+}
+.HeaderMenu a:hover {
+ color: #0e8ac3;
+}
+.HeaderMenu a:last-child {
+  margin-bottom: 5px;
+}
+.HeaderMenu_ActualPage {
+  user-select: none;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+  text-decoration: none;
+  color: #000000;
+  white-space: nowrap;
+  transition-duration: 0.5s;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.HeaderMenu_ActualPage_Title {
+  user-select: none;
+  margin-left: -8px;
+}
+.HeaderMenu_ActualPage_Title:hover {
+  color: #0e8ac3;
+}
+@media (orientation: landscape) {
+  .HeaderMenu_ActualPage {
+    display: none !important;
+  }
+  .HeaderMenu {
+    display: none !important;
+  }
+}

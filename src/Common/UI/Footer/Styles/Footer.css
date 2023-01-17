@@ -1,0 +1,141 @@
+.Footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 10%;
+  border-top: 2px solid rgba(169, 124, 85, 0.1);
+}
+.FooterGeneral_Logo_Pictures{
+  display: none;
+}
+.FooterGeneral {
+  height: 200px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 60%;
+    margin-top: 40px;
+}
+.FooterGeneral_Logo{
+  display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.FooterGeneral_Logo_Title_Style-BLue {
+  font-family: "Inter" !important;
+  font-style: normal !important;
+  font-weight: 800  !important;
+  font-size: 22px !important;
+  line-height: 72.02% !important;
+  color: #0a78ac !important;
+}
+.FooterGeneral_Logo_Title_Style-Black {
+  font-family: "Inter" !important;
+  font-style: normal !important;
+  font-weight: 800  !important;
+  font-size: 22px !important;
+  line-height: 72.02% !important;
+  color: #000000 !important;
+  margin-top: 10px;
+}
+@media (max-width: 1920px) {
+  .FooterGeneral {
+    width: 80%;
+  }
+}
+
+
+.FooterGeneral_Navs {
+  display: flex;
+  flex-direction: column;
+}
+.FooterGeneral_User_Navs {
+  display: flex;
+  flex-direction: column;
+}
+.FooterGeneral_Navs a{
+  margin-bottom: 10px;
+}
+.FooterGeneral_User_Navs a{
+  margin-bottom: 10px;
+}
+.FooterGeneral_Navs a:nth-child(){
+  margin-bottom: 0px;
+}
+.FooterGeneral_User_Navs a:nth-child(){
+  margin-bottom: 0px;
+}
+.FooterGeneral_About div{
+  margin-bottom: 10px;
+}
+.FooterGeneral_About div:nth-child(){
+  margin-bottom: 0px;
+}
+.FooterGeneral a {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 18px;
+  text-transform: uppercase;
+
+  text-decoration: none;
+  color: #0a142f;
+}
+.FooterGeneral_About{
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 18px;
+  text-transform: uppercase;
+
+  text-decoration: none;
+  color: #0a142f;
+}
+@media (max-width: 730px) {
+  .FooterGeneral {
+    padding-left: 2%;
+    padding-right: 2%;
+  }
+}
+@media (orientation: portrait) {
+  .FooterGeneral {
+    width: 96%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin-top: 20px;
+    height: 300px;
+  }
+  .FooterGeneral_Logo{
+    width: 50%;
+  }
+  .FooterGeneral_Navs{
+    width: 50%;
+  }
+  .FooterGeneral_User_Navs{
+    width: 50%;
+  }
+  .FooterGeneral_About{
+    width: 50%;
+  }
+  .FooterGeneral_Logo_Pictures{
+    display: block !important;
+  }
+  .FooterGeneral_Logo_Pictures{
+    width: 50%;
+  }
+  .FooterGeneral_Logo_Pictures img{
+    object-fit: contain;
+    height: 100%;
+  }
+  .FooterGeneral_Logo_Pictures a{
+    height: 30%;
+    display: flex;
+    justify-content: flex-start;
+    background-size: cover;
+    object-fit: cover;
+  }
+}

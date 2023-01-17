@@ -1,0 +1,13 @@
+.AnotherUserContent_FullDescriptionAnotherUser{
+   /* margin-top: 1em; */
+   height: 100%;
+    width: 100%;
+}
+.AnotherUserContent_FullDescriptionAnotherUser_Title{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1em;
+    line-height: 19px;
+    color: #000000;
+}

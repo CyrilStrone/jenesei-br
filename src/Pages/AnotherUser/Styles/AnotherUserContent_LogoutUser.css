@@ -1,0 +1,42 @@
+.AnotherUserContentLogout_Buttom {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 1em;
+}
+.AnotherUserContentLogout_Buttom-Block {
+  border: 1px solid #9500b9;
+  border-radius: 5px;
+  padding: 10px 20px;
+  gap: 10px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+  background-color: transparent;
+  text-decoration: none;
+  color: #9500b9;
+}
+.AnotherUserContentLogout_Buttom-Block a {
+  text-decoration: none;
+}
+.AnotherUserContentLogout_Buttom-Block_2{
+    border: 1px solid #9500b9;
+    border-radius: 5px;
+    padding: 10px 20px;
+    gap: 10px;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    background-color: #9500b9;
+    text-decoration: none;
+    color: white;
+    margin-right: 1em;
+}
+.AnotherUserContentLogout_Buttom-Block_2 a{
+    text-decoration: none;
+
+}
