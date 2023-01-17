@@ -1,7 +1,7 @@
 import React from "react";
 import "../Styles/Major.css";
 import { Link } from "react-router-dom";
-import Picture from '../../../Common/Assets/Major/Uncle with dog.svg';
+import Picture from '../../../Common/Assets/Major/Man.png';
 
 export const Major = () => {
 
