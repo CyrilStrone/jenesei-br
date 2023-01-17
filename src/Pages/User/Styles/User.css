@@ -1,0 +1,140 @@
+.User {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+}
+.User_Contents {
+  background: rgba(120, 118, 230, 0.18);
+  backdrop-filter: blur(7.5px);
+  border-radius: 15px;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 0.5fr 1fr 1fr;
+  padding: 1em;
+  padding-right: 0;
+  box-sizing: border-box;
+}
+.UserContent {
+}
+
+.UserContentPicture_Name {
+  width: 100%;
+  font-family: "San Francisco";
+  font-weight: 600;
+  font-size: 2.4vh;
+  line-height: 26px;
+  text-decoration: none;
+
+  color: black;
+  display: flex;
+  justify-content: center;
+}
+.UserContent_PictureUser {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 1;
+}
+.UserContent_JobNameUser {
+  grid-column-start: 2;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 1;
+}
+.UserContent_StackesUser {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+.UserContent_ShortDescriptionUser {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 3;
+  grid-row-end: 4;
+}
+.UserContent_FullDescriptionUser {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 4;
+  grid-row-end: 5;
+}
+.UserContent_SocialNetworksUser {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 5;
+  grid-row-end: 6;
+}
+.UserContent_Authorization {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.UserContent_LogoutUser {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 6;
+  grid-row-end: 7;
+}
+/* @media (orientation: portrait) {
+  .User_Contents {
+    grid-template-columns: 1fr 1fr;
+  }
+  .UserContent_PictureUser {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 3;
+  }
+  .UserContent_JobNameUser {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
+  .UserContent_StackesUser {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+  }
+  .UserContent_ShortDescriptionUser {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 4;
+  }
+  .UserContent_FullDescriptionUser {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 4;
+    grid-row-end: 5;
+  }
+  .UserContent_SocialNetworksUser {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 5;
+    grid-row-end: 6;
+  }
+  .UserContent_Authorization {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .UserContent_LogoutUser {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 6;
+    grid-row-end: 7;
+  }
+} */

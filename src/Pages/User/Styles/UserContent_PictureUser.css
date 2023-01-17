@@ -1,0 +1,22 @@
+.UserContentPicture_Picture img{
+    height: 100%;
+    background-size: cover;
+    min-width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-shrink: 0;
+    background-position: center;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.UserContentPicture_Picture{
+    height: 13em;
+    width: 13rem;
+}
+.UserContent_PictureUser {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}

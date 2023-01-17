@@ -1,0 +1,103 @@
+.HomePast {
+  width: 100%;
+  padding-top: 1em;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: stretch;
+  box-sizing: border-box;
+  align-items: stretch;
+}
+.HomePastBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* width: max-content; */
+  /* margin: 1em; */
+  background: rgba(120, 118, 230, 0.18);
+  backdrop-filter: blur(7.5px);
+  border-radius: 15px;
+  box-sizing: content-box;
+  padding: 1em;
+  padding-right: 0;
+  /* box-sizing: border-box; */
+  /* height: 100%; */
+  margin-bottom: 1em;
+  margin-right: 1em;
+}
+.HomePast :nth-child(3n + 3) {
+  margin-right: 0;
+}
+.HomePastBlock_Picture-Job {
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+}
+.HomePastBlock_Picture img {
+  height: 100%;
+  max-width: 100%;
+  border-radius: 5px;
+}
+.HomePastBlock_Picture {
+  height: 10em;
+  display: flex;
+  justify-content: flex-start;
+}
+.HomePastBlock_Name {
+  display: flex;
+  justify-content: flex-start;
+  font-family: "Inter";
+  font-weight: 800;
+  line-height: 26px;
+  text-decoration: none;
+  opacity: 0.8;
+  margin-top: 0.5em;
+
+  font-size: 1.1em;
+}
+.HomePastBlock_Job {
+  font-family: "Inter";
+  font-weight: 700;
+  text-decoration: none;
+  opacity: 0.8;
+  align-self: flex-end;
+  background: #7876e6;
+  border-radius: 8.41667px 0px 0px 8.41667px;
+  padding-left: 0.4rem;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+  padding-right: 0.3rem;
+  color: white;
+  display: flex;
+  font-size: 1.1em;
+  align-self: flex-start;
+  margin-left: 1em;
+}
+.HomePastBlock_Stackes{
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: flex-start;
+  padding-right: 1em;
+  padding-top: 1em;
+}
+.HomePastBlock_Stackes-Stacke{
+  font-family: "Inter";
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 26px;
+    text-decoration: none;
+    color: white;
+    background-color: #7876e6;
+    opacity: 0.8;
+    background-clip: border-box;
+    margin-right: 2vw;
+    border-radius: 8px;
+    width: 80px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

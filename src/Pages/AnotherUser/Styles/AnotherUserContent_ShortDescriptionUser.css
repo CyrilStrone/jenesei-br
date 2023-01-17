@@ -1,0 +1,13 @@
+.AnotherUserContent_ShortDescriptionAnotherUser{
+    padding: 5%;
+    padding-bottom: 0%;
+    padding-top: 2%;
+}
+.AnotherUserContent_ShortDescriptionAnotherUser_Title{
+    font-family: "San Francisco";
+    font-weight: 500;
+    font-size: 2vh;
+    line-height: 26px;
+    text-decoration: none;
+    color: black;
+}
