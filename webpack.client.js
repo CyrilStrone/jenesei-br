@@ -2,6 +2,8 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const WebpackNotifierPlugin = require("webpack-notifier");
 const TerserPlugin = require("terser-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
+
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const webpackConfig = require("./webpack.config");
 
@@ -32,10 +34,12 @@ module.exports = (env, argv) => {
   return {
     devServer: {
       static: {
-        directory: path.join(__dirname, "dist/"),
+        directory: path.join(__dirname, './public'),
       },
-      port: 80,
-      hot: "only",
+      port: 9000,
+      open: true,
+      liveReload: true,
+      historyApiFallback: true,
     },
     resolve: config.resolve,
     module: {
@@ -53,6 +57,14 @@ module.exports = (env, argv) => {
         template: "./src/Html/Browser.html", // Скармливаем наш HTML-темплейт
       }),
       new WebpackNotifierPlugin({ alwaysNotify: false }),
+      new CopyWebpackPlugin({
+        patterns: [
+          {
+            from: "./public/",
+            to: "public/",
+          },
+        ],
+      })
     ],
     entry: {
       main: "./src/Client.tsx", // Энтрипоинт-файл, с которого и начнется наша сборка
@@ -64,9 +76,9 @@ module.exports = (env, argv) => {
       path: path.resolve(__dirname, "dist"), // Весь наш результат складываем в папку dist
       publicPath: "/",
     },
-    performance: {
-      hints: false,
-    },
+    // performance: {
+    //   hints: false,
+    // },
     devtool: "source-map",
     optimization: optimizations,
   };

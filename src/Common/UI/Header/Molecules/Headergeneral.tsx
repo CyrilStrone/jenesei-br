@@ -17,7 +17,7 @@ import { HeaderMenu } from "../Atoms/Headermenu";
 export const HeaderGeneral = () => {
   // const menuBurger = useStore($menuBurger);
   const HeaderlogoArray: IHeaderlogo[] = [
-    { link: "Home", indexlink: "0", class: "Headerlogo_Elem", img: logo },
+    { link: "/Home/Top", indexlink: "0", class: "Headerlogo_Elem", img: logo },
   ];
 
   let HeaderNavArrayUser: IHeaderNav[] = [];
@@ -37,7 +37,7 @@ export const HeaderGeneral = () => {
       },
   );
   HeaderNavArrayCenter.push(
-    { link: "/Home", class: "HeaderNav_Elem", text: "Главная" },
+    { link: "/Home/Top", class: "HeaderNav_Elem", text: "Главная" },
     { link: "/Chat", class: "HeaderNav_Elem", text: "Чат" },
     { link: "/Search", class: "HeaderNav_Elem", text: "Поиск" },
   );

@@ -4,28 +4,31 @@
   display: flex;
   align-items: flex-start;
   margin-top: 1em;
-  background: rgba(120, 118, 230, 0.18);
   backdrop-filter: blur(7.5px);
-  padding: 1em;
   padding-right: 0;
   border-radius: 15px 15px 0px 0px;
-  flex-direction: column;
-  justify-content: flex-start;
+  flex-direction: row;
+  justify-content: space-between;
   box-sizing: border-box;
 }
-.HomeTop_Top {
+.HomeTop_Block {
   display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  flex-direction: row;
-  width: 100%;
-  height: 100%;
+    align-items: stretch;
+    justify-content: flex-start;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    margin-top: 15px;
+    background: #ffffff;
+    border-radius: 8px;
 }
-
+.HomeTop_Oops{
+  width: 50px;
+}
 .HomeTopPicture img {
   height: 100%;
   max-width: 100%;
-  border-radius: 10px;
+  border-radius: 100px;
 }
 .HomeTopPicture {
   max-height: 300px;
@@ -33,74 +36,100 @@
   box-sizing: border-box;
   justify-content: flex-start;
   width: max-content;
+  border: 25px solid #ffffff;
 }
 .HomeTopInfo {
   width: 100%;
-  height: 100%;
   display: flex;
   align-items: stretch;
   flex-direction: column;
   justify-content: space-between;
-  padding-left: 1em;
   box-sizing: border-box;
-
 }
 .HomeTopInfo_JobAndName {
   font-family: "Inter";
   font-style: normal;
   font-weight: 600;
-  color: white;
   font-size: 1.4rem;
   line-height: 30px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+  flex-direction: column;
 }
 .HomeTopInfo_JobAndName_Name {
-  padding-right: 30px;
+  height: 38px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 103.01%;
+  display: flex;
+  align-items: center;
   color: #000000;
 }
 .HomeTopInfo_JobAndName_Job {
-  background: #7876e6;
-  border-radius: 8.41667px 0px 0px 8.41667px;
-  padding-left: 0.5rem;
-  padding-top: 0.2rem;
-  padding-bottom: 0.2rem;
-  padding-right: 0.3rem;
-}
-.HomeTopInfo_ShortDescription {
+  width: 399px;
+  height: 14px;
   font-family: "Inter";
   font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 19px;
-  height: 100%;
-  margin-top: 1em;
-  text-decoration: none;
-  opacity: 0.8;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 103.01%;
+  display: flex;
+  align-items: center;
   color: #000000;
 }
-.HomeTopInfo_SocialNetworks {
+.HomeTopInfo_ShortDescription {
+  height: 60px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 103.01%;
+  margin-top: 8px;
+  color: #3c3c3c;
+}
+.HomeTopInfo_Stackes {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-top: 1em;
+  margin-bottom: 25px;
+  background: linear-gradient(
+    90deg,
+    rgba(14, 138, 195, 0.12) 0%,
+    rgba(14, 138, 195, 0) 100%
+  );
 }
-.HomeTopInfo_SocialNetworks_Network {
-  font-family: "Inter";
-  font-weight: 600;
-  font-size: 1rem;
-  line-height: 26px;
-  text-decoration: none;
-  color: white;
-  background-color: #7876e6;
-  opacity: 0.8;
-  background-clip: border-box;
-  margin-right: 2vw;
-  border-radius: 8px;
-  width: 80px;
+.HomeTopInfo_Stackes img {
+  width: 30px;
   height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin-right: 10px;
+}
+.HomeTopInfo_Stackes img:last-child {
+  margin-right: 0px;
+}
+.HomeTopVeryDay {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 103.01%;
+  color: #000000;
+}
+.HomeTopVeryDay_BR {
+  display: inline;
+  font-weight: 700;
+}
+.HomeTopVeryMounth {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 103.01%;
+  color: #000000;
+}
+.HomeTopVeryMounth_BR {
+  display: inline;
+  font-weight: 700;
 }

@@ -21,6 +21,9 @@ export const $userTopHomeJob= createStore<string>("Front End Engineer")
 export const setuserTopHomeJob = createEvent<string>()
 $userTopHomeJob.on(setuserTopHomeJob, (_,val)=> val);
 
+export const $userTopHomeStackes= createStore<string[]>(["Figma","Adobe Illustrator","Adobe Photoshop"])  
+export const setuserTopHomeStackes = createEvent<string[]>()
+$userTopHomeStackes.on(setuserTopHomeStackes, (_,val)=> val);
 
 export const $userTopHomeSocialNetworks= createStore<string[]>(["Vk","Twitter","GitHub"])  
 export const setuserTopHomeSocialNetworks = createEvent<string[]>()

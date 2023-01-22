@@ -1,14 +1,13 @@
 import { useStore } from "effector-react";
 import React from "react";
-import { $userTopHomeJob } from "../../../Common/hooksHome";
-import { $userTopHomeSocialNetworks } from "../../../Common/hooksHome";
+import { $userTopHomeJob, $userTopHomeStackes } from "../../../Common/hooksHome";
 import { $userTopHomeShortDescription } from "../../../Common/hooksHome";
 import { $userTopHomeName } from "../../../Common/hooksHome";
 
 export const HomeTopInfo = () => {
   const userTopHomeName = useStore($userTopHomeName);
   const userTopHomeJob = useStore($userTopHomeJob);
-  const userTopHomeSocialNetworks = useStore($userTopHomeSocialNetworks);
+  const userTopHomeStackes = useStore($userTopHomeStackes);
   const userTopHomeShortDescription = useStore($userTopHomeShortDescription);
 
   return (
@@ -26,9 +25,9 @@ export const HomeTopInfo = () => {
         {userTopHomeShortDescription}
       </div>
 
-      <div className="HomeTopInfo_SocialNetworks">
-        {userTopHomeSocialNetworks.map((e, i) => (
-          <div key={i} className="HomeTopInfo_SocialNetworks_Network">{e}</div>
+      <div className="HomeTopInfo_Stackes">
+        {userTopHomeStackes.map((e, i) => (
+          <img src={"../../public/Icons/Design/"+e+".svg"} alt="" />
         ))}
       </div>
     </div>

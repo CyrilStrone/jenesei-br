@@ -88,6 +88,7 @@ module.exports = (env) => {
       // Тут тот же момент, что и в tsconfig.json, чтобы Webpack смог понять ссылки на директории
       App: path.resolve(__dirname, "src/App/"),
       Pages: path.resolve(__dirname, "src/Pages/"),
+      Public: path.resolve(__dirname, "public/"),
     },
   };
 

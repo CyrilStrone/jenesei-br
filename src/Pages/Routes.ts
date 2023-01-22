@@ -8,7 +8,7 @@ import { Registration } from './Registration/Organoids/Registration'
 
 export const Pages = [
     {
-        link: 'Home',
+        link: '/Home/Top',
         title: 'Главная',
         component: Home,
     },

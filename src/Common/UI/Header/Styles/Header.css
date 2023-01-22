@@ -47,6 +47,7 @@
   display: flex;
 }
 .Header {
+  background-color: #ffffff;
   display: flex;
   justify-content: center;
 }

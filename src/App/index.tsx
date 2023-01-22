@@ -42,6 +42,9 @@ export function App() {
         <Routes>
           <Route path="/" element={<Major />}></Route>
           <Route path="/Home" element={<Home />}></Route>
+          <Route path="/Home/Recommendations" element={<Home />}/>
+          <Route path="/Home/Top" element={<Home />}/>
+          <Route path="/Home/Subscriptions" element={<Home />}/>
           <Route path="/Login" element={<Login />}></Route>
           <Route path="/Registration" element={<Registration />}></Route>
           {/* <Route path="/User" element={<User />}></Route> */}
