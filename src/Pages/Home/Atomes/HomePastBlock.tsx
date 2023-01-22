@@ -28,8 +28,8 @@ export const HomePastBlock = (params: IHomePastBlock) => {
         <div className="HomePastBlock_Job">{params.Job}</div>
       </div>
       <div className="HomePastBlock_Name">{params.Name}</div>
-      <div className="HomePastBlock_Stackes">{params.Stackes.map((e:any) => (
-        <div className="HomePastBlock_Stackes-Stacke">
+      <div className="HomePastBlock_Stackes">{params.Stackes.map((e:any,i:any) => (
+        <div key={i} className="HomePastBlock_Stackes-Stacke">
             {e}
         </div>
       ))}</div>

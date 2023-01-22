@@ -25,22 +25,29 @@ export const HeaderMenu = () => {
   HeaderNavArrayCenter.push(
     { link: "Home", class: "", text: "Главная" },
     { link: "Chat", class: "", text: "Чат" },
-    { link: "Search", class: "", text: "Поиск" },
+    { link: "Search", class: "", text: "Поиск" }
   );
   return (
     <>
-      <div className={`HeaderMenu_ActualPage`} onClick={() => {
-            setmenuFlag(!menuFlag);
-          }}>
-        <Hamburger hideOutline={false} size={20} color="#0E8AC3" toggled={menuFlag}  />
+      <div
+        className={`HeaderMenu_ActualPage`}
+        onClick={() => {
+          setmenuFlag(!menuFlag);
+        }}
+      >
+        <Hamburger
+          hideOutline={false}
+          size={20}
+          color="#0E8AC3"
+          toggled={menuFlag}
+        />
         <div
           className={`HeaderMenu_ActualPage_Title`}
-          style={menuFlag ? {color: "#0e8ac3"} : {color: "#000000"}}
+          style={menuFlag ? { color: "#0e8ac3" } : { color: "#000000" }}
         >
           {actualPage}
         </div>
       </div>
-
       <div
         className={`HeaderMenu`}
         style={menuFlag ? { display: "block" } : { display: "none" }}
@@ -48,6 +55,7 @@ export const HeaderMenu = () => {
         <div className={`HeaderMenu_General`}>
           {HeaderNavArrayCenter.map((e, i) => (
             <Link
+              key={e.link + i}
               to={`${e.link}`}
               className={`${e.class} `}
               onClick={() => {
@@ -62,6 +70,7 @@ export const HeaderMenu = () => {
         <div className={`HeaderMenu_User`}>
           {HeaderNavArrayUser.map((e, i) => (
             <Link
+              key={e.link + i + e.class}
               to={`${e.link}`}
               className={`${e.class} `}
               onClick={() => {

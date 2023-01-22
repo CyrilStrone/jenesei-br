@@ -33,8 +33,8 @@ export const SearchPastBlock = (params: ISearchPastBlock) => {
       </div>
       <div className="SearchPastBlock_Name">{params.Name}</div>
       <div className="SearchPastBlock_Stackes">
-        {params.Stackes.map((e: any) => (
-          <div className="SearchPastBlock_Stackes-Stacke">{e}</div>
+        {params.Stackes.map((e: any,i:any) => (
+          <div key={i} className="SearchPastBlock_Stackes-Stacke">{e}</div>
         ))}
       </div>
     </div>

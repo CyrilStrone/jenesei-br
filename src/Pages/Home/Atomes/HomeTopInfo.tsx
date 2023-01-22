@@ -28,7 +28,7 @@ export const HomeTopInfo = () => {
 
       <div className="HomeTopInfo_SocialNetworks">
         {userTopHomeSocialNetworks.map((e, i) => (
-          <div className="HomeTopInfo_SocialNetworks_Network">{e}</div>
+          <div key={i} className="HomeTopInfo_SocialNetworks_Network">{e}</div>
         ))}
       </div>
     </div>

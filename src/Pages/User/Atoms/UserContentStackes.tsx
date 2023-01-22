@@ -24,7 +24,7 @@ export const UserContentStackes = (params: IUserContentStackes) => {
       </div>
       <div className="UserContent_StackesUser_Stackes">
       {userStackes.map((e, i) => (
-        <div className="UserContent_StackesUser_Stacke">{e}</div>
+        <div key={i} className="UserContent_StackesUser_Stacke">{e}</div>
       ))}
       </div>
     </>

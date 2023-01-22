@@ -19,7 +19,7 @@ export const UserContentSocialNetworks = (params: IUserContentSocialNetworks) =>
 
   return (
     <>
-    {userSocialNetworks.map((e,i)=><div className="UserContent_SocialNetworksUser_Network">{e}</div>)}
+    {userSocialNetworks.map((e,i)=><div key={i} className="UserContent_SocialNetworksUser_Network">{e}</div>)}
 
     
    </>

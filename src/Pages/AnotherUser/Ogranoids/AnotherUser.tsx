@@ -47,7 +47,7 @@ export const AnotherUser = (params:IAnotherUser) => {
     <div className={`AnotherUser`}>
       <div className={`AnotherUser_Contents`}>
         {AnotherUserContentArray.map((e, i) => (
-          <AnotherUserContent class={e.class} Component={e.Component} />
+          <AnotherUserContent key={i} class={e.class} Component={e.Component} />
         ))
         }
       </div>

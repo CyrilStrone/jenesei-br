@@ -46,6 +46,7 @@ export const HeaderGeneral = () => {
       <div className={`HeaderGeneral_Logo`}>
         {HeaderlogoArray.map((e, i) => (
           <Headerlogo
+            key={e.indexlink}
             link={e.link}
             indexlink={e.indexlink}
             class={e.class}
@@ -61,12 +62,12 @@ export const HeaderGeneral = () => {
       </div>
       <div className={`HeaderGeneral_Navs__Style-Center`}>
         {HeaderNavArrayCenter.map((e, i) => (
-          <HeaderNav class={e.class} text={e.text} link={e.link} />
+          <HeaderNav key={e.link} class={e.class} text={e.text} link={e.link} />
         ))}
       </div>
       <div className={`HeaderGeneral_Navs`}>
         {HeaderNavArrayUser.map((e, i) => (
-          <HeaderNav class={e.class} text={e.text} link={e.link} />
+          <HeaderNav key={e.link} class={e.class} text={e.text} link={e.link} />
         ))}
       </div>
       <HeaderMenu/>

@@ -13,7 +13,7 @@ export const SearchPast = () => {
     <div className="SearchPast">
       {
         SearchPastArray.map((e, i) => (
-          <SearchPastBlock Picture={e.Picture} Name={e.Name} Job={e.Job} Stackes={e.Stackes} id={e.id}/>
+          <SearchPastBlock key={e.id} Picture={e.Picture} Name={e.Name} Job={e.Job} Stackes={e.Stackes} id={e.id}/>
         ))
       }
     </div>

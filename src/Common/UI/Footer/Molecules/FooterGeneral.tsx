@@ -54,6 +54,7 @@ export const FooterGeneral = () => {
       <div className={`FooterGeneral_Navs`}>
         {FooterNavArray.map((e, i) => (
           <FooterNav
+            key={e.indexlink}
             link={e.link}
             indexlink={e.indexlink}
             class={e.class}
@@ -65,6 +66,7 @@ export const FooterGeneral = () => {
       <div className={`FooterGeneral_User_Navs`}>
         {FooterNavUserArray.map((e, i) => (
           <FooterNav
+            key={e.indexlink}
             link={e.link}
             indexlink={e.indexlink}
             class={e.class}

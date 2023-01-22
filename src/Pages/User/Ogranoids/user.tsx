@@ -48,7 +48,7 @@ export const User = () => {
       <div className={`User_Contents`}>
         {userAuthorization
           ? UserContentArray.map((e, i) => (
-            <UserContent class={e.class} Component={e.Component} />
+            <UserContent key={i} class={e.class} Component={e.Component} />
           ))
           : null}
       </div>

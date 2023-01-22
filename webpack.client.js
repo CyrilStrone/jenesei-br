@@ -67,6 +67,7 @@ module.exports = (env, argv) => {
     performance: {
       hints: false,
     },
+    devtool: "source-map",
     optimization: optimizations,
   };
 };

@@ -19,7 +19,7 @@ export const AnotherUserContentSocialNetworks = (params: IAnotherUserContentSoci
 
   return (
     <>
-    {AnotheUserSocialNetworks.map((e,i)=><div className="AnotherUserContent_SocialNetworksAnotherUser_Network">{e}</div>)}
+    {AnotheUserSocialNetworks.map((e,i)=><div key={i} className="AnotherUserContent_SocialNetworksAnotherUser_Network">{e}</div>)}
 
     
    </>

@@ -24,7 +24,7 @@ export const AnotherUserContentStackes = (params: IAnotherUserContentStackes) =>
       </div>
       <div className="AnotherUserContent_StackesAnotherUser_Stackes">
       {AnotheUserStackes.map((e, i) => (
-        <div className="AnotherUserContent_StackesAnotherUser_Stacke">{e}</div>
+        <div key={i} className="AnotherUserContent_StackesAnotherUser_Stacke">{e}</div>
       ))}
       </div>
     </>

@@ -13,7 +13,7 @@ export const HomePast = () => {
     <div className="HomePast">
       {
         HomePastArray.map((e, i) => (
-          <HomePastBlock Picture={e.Picture} Name={e.Name} Job={e.Job} Stackes={e.Stackes} id={e.id}/>
+          <HomePastBlock key={e.id} Picture={e.Picture} Name={e.Name} Job={e.Job} Stackes={e.Stackes} id={e.id}/>
         ))
       }
     </div>
