@@ -13,12 +13,18 @@
   font-weight: 500;
   font-size: 15px;
   line-height: 103.01%;
-  margin-right: 25px;
   border: 1px solid #0e8ac3;
   transition-duration: 0.2s;
+  margin: 10px;
 }
-.HomeMenu a:last-child {
-  margin-right: 0;
+.HomeMenu a:nth-child(2) {
+  /* margin-right: 0;
+  margin-bottom: 10px; */
+}
+.HomeMenu :last-child {
+  /* margin-right: 0;
+  margin-bottom: 0;
+  margin-left: 25px; */
 }
 .HomeMenu a:hover {
   color: #0e8ac3 !important;
@@ -36,4 +42,10 @@
   flex-direction: row;
   flex-wrap: wrap;
   align-self: flex-start;
+}
+@media (orientation: portrait) {
+  .HomeMenu {
+    justify-content: space-between;
+}
+.HomeMenu a{}
 }

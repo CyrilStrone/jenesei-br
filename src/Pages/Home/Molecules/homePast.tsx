@@ -5,6 +5,7 @@ import { HomePastBlock, IHomePastBlock } from "../Atomes/HomePastBlock";
 
 export const HomePast = () => {
   const usersPastTop = useStore($usersPastTop);
+
   let HomePastArray: IHomePastBlock[] = [];
   usersPastTop.map((e: any) => {
     HomePastArray.push({ Picture: e.picture, Name: e.name, Job: e.job, Stackes: e.Stackes ,id:(e.id)},)

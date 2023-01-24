@@ -2,7 +2,7 @@ import React from "react";
 
 // import {  Footerlogo, IFooterlogo } from "../Atoms/FooterLogo";
 import { Pages, PagesUser } from "../../../../Pages/Routes";
-import { $userAuthorization } from "../../../hooks";
+import { $userAuthorization } from "../../../hooksUser";
 import { useStore } from "effector-react";
 // import ikit from '../../../Assets/Search/ikit.jpg';
 // import logo from '../../../Assets/Logo/LogoBig.svg';

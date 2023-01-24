@@ -1,7 +1,7 @@
 import { useStore } from "effector-react";
 import React from "react";
 // import { Link } from "react-router-dom";
-import {  $userPicture } from "../../../Common/hooks";
+import {  $userPicture } from "../../../Common/hooksUser";
 
 export interface IUserContentPicture {
   id?: string;

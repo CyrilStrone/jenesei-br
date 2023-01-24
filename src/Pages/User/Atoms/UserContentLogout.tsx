@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import {
   $userAuthorization,
   setuserAuthorization,
-} from "../../../Common/hooks";
+} from "../../../Common/hooksUser";
 
 export interface IUserContentLogout {
   id?: string;

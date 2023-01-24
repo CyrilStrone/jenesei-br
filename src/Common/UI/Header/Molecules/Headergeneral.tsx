@@ -53,10 +53,10 @@ export const HeaderGeneral = () => {
             img={e.img}
           />
         ))}
-        <Link to={`Home`} className={`HeaderGeneral_Navs_Title_Style-BLue`}>
+        <Link to={`/Home/Top`} className={`HeaderGeneral_Navs_Title_Style-BLue`}>
           Business
         </Link>
-        <Link to={`Home`} className={`HeaderGeneral_Navs_Title_Style-Black`}>
+        <Link to={`/Home/Top`} className={`HeaderGeneral_Navs_Title_Style-Black`}>
           Roulette
         </Link>
       </div>

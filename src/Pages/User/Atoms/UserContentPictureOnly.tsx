@@ -1,6 +1,6 @@
 import { useStore } from "effector-react";
 import React from "react";
-import { $userPicture } from "../../../Common/hooks";
+import { $userPicture } from "../../../Common/hooksUser";
 
 export interface IUserContentPictureOnly {
   id?: string;

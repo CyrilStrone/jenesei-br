@@ -38,6 +38,7 @@ module.exports = (env, argv) => {
       },
       port: 9000,
       open: true,
+      hot: true,
       liveReload: true,
       historyApiFallback: true,
     },
@@ -76,9 +77,11 @@ module.exports = (env, argv) => {
       path: path.resolve(__dirname, "dist"), // Весь наш результат складываем в папку dist
       publicPath: "/",
     },
-    // performance: {
-    //   hints: false,
-    // },
+    performance: {
+      hints: false,
+      maxEntrypointSize: 512000,
+      maxAssetSize: 512000
+  },
     devtool: "source-map",
     optimization: optimizations,
   };

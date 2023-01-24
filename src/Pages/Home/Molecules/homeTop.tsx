@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 import {
   $userTopHomeId,
   $userTopHomeName,
-} from "../../../../src/Common/hooksHome";
-import { setAnotheUserId } from "../../../../src/Common/hooksAnotherUser";
+} from "../../../Common/hooksHome";
+import { setAnotheUserId } from "../../../Common/hooksAnotherUser";
 import { HomeTopInfo } from "../Atomes/HomeTopInfo";
 import { HomeTopPicture } from "../Atomes/HomeTopPicture";
 import { HomeTopVeryDay } from "../Atomes/HomeTopVeryDay";
@@ -31,7 +31,7 @@ export const HomeTop = () => {
           <HomeTopInfo />
         </div>
       </div>
-      <div className="HomeTop_Oops"></div>
+      {/* <div className="HomeTop_Oops"></div> */}
       <div className="HomeTop_Mounth">
         <HomeTopVeryMounth />
         <div className="HomeTop_Block">

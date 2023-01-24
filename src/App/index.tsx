@@ -17,14 +17,14 @@ export interface IRoute {
 import "../Common/Assets/Logo/LogoMin.png";
 import "../Common/Assets/Logo/LogoMin.jpg";
 import { Major } from "Pages/Major/Ogranoids/Major";
-import { Home } from "Pages/Home/Ogranoids/home";
+import { Home } from "Pages/Home/Ogranoids/Home";
 import { Registration } from "Pages/Registration/Organoids/Registration";
 import { Login } from "Pages/Login/Organoids/Login";
 import { AnotherUser } from "Pages/AnotherUser/Ogranoids/AnotherUser";
 import { Forgot } from "Pages/Forgot/Organoids/Forgot";
 import { User } from "Pages/User/Ogranoids/User";
 import { Search } from "Pages/Search/Ogranoids/Search";
-import { $userName } from "../Common/hooks";
+import { $userName } from "../Common/hooksUser";
 import { useStore } from "effector-react";
 import { $AnotheUserName } from "../Common/hooksAnotherUser";
 import { Chat } from "Pages/Chat/Ogranoids/Chat";

@@ -1,7 +1,7 @@
 import { useStore } from "effector-react";
 import React from "react";
 // import { Link } from "react-router-dom";
-import { $userStackes } from "../../../Common/hooks";
+import { $userStackes } from "../../../Common/hooksUser";
 
 export interface IUserContentStackes {
   id?: string;

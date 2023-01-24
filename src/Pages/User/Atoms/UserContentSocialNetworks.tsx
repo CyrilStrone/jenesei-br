@@ -1,7 +1,7 @@
 import { useStore } from "effector-react";
 import React from "react";
 // import { Link } from "react-router-dom";
-import {  $userSocialNetworks } from "../../../Common/hooks";
+import {  $userSocialNetworks } from "../../../Common/hooksUser";
 
 export interface IUserContentSocialNetworks {
   id?: string;

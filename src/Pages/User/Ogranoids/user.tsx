@@ -16,7 +16,7 @@ import { UserContentFullDescription } from "../Atoms/UserContentFullDescription"
 // import { UserContentShortDescription } from "../Atoms/UserContentShortDescription";
 import { UserContentSocialNetworks } from "../Atoms/UserContentSocialNetworks";
 import { Link } from "react-router-dom";
-import { $userAuthorization, setuserAuthorization } from "../../../Common/hooks";
+import { $userAuthorization, setuserAuthorization } from "../../../Common/hooksUser";
 UserContentSocialNetworks;
 export const User = () => {
   const userAuthorization = useStore($userAuthorization);

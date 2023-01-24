@@ -15,17 +15,17 @@ export const HeaderMenu = () => {
   let HeaderNavArrayUser: IHeaderNav[] = [];
   let HeaderNavArrayCenter: IHeaderNav[] = [];
   HeaderNavArrayUser.push(
-    { link: "Login", class: "", text: "Вход" },
+    { link: "/Login", class: "", text: "Вход" },
     {
-      link: "Registration",
+      link: "/Registration",
       class: "",
       text: "Регистрация",
     }
   );
   HeaderNavArrayCenter.push(
-    { link: "Home", class: "", text: "Главная" },
-    { link: "Chat", class: "", text: "Чат" },
-    { link: "Search", class: "", text: "Поиск" }
+    { link: "/Home/Top", class: "", text: "Главная" },
+    { link: "/Chat", class: "", text: "Чат" },
+    { link: "/Search", class: "", text: "Поиск" }
   );
   return (
     <>
@@ -60,7 +60,7 @@ export const HeaderMenu = () => {
               className={`${e.class} `}
               onClick={() => {
                 setmenuFlag(false);
-                setactualPage(e.link);
+                setactualPage(e.text);
               }}
             >
               {e.text}
@@ -75,7 +75,7 @@ export const HeaderMenu = () => {
               className={`${e.class} `}
               onClick={() => {
                 setmenuFlag(false);
-                setactualPage(e.link);
+                setactualPage(e.text);
               }}
             >
               {e.text}

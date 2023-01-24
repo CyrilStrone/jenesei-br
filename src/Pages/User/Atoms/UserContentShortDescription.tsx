@@ -1,7 +1,7 @@
 import { useStore } from "effector-react";
 import React from "react";
 // import { Link } from "react-router-dom";
-import {  $userShortDescription } from "../../../Common/hooks";
+import {  $userShortDescription } from "../../../Common/hooksUser";
 
 export interface IUserContentShortDescription {
   id?: string;

@@ -1,5 +1,5 @@
 
-import { Home } from './Home/Ogranoids/home'
+import { Home } from './Home/Ogranoids/Home'
 import { User } from './User/Ogranoids/User'
 import { Search } from './Search/Ogranoids/Search'
 import { Chat } from './Chat/Ogranoids/Chat'

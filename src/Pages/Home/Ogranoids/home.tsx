@@ -1,27 +1,28 @@
-import React from "react";
-import { HomePast } from "../Molecules/homePast";
-import { HomeTop } from "../Molecules/homeTop";
+import React, { useState } from "react";
+// import { HomePast } from "../Molecules/HomePast";
+import { HomeTop } from "../Molecules/HomeTop";
 import "../Styles/Home.css";
 import "../Styles/HomeTop.css";
 import "../Styles/HomePast.css";
-import "../Styles/HomeMenu.css"
+import "../Styles/HomeMenu.css";
+import "../Styles/HomeListSkill.css";
 
 import { HomeMenu } from "../Molecules/homeMenu";
+import { HomeListSkill } from "../Atomes/HomeListSkill";
 
 export const Home = () => {
-  // require('./index.styl')
-//   const monthNames = ["ЯНВАРЯ", "ФЕВРАЛЯ", "МАРТА", "АПРЕЛЯ", "МАЯ", "ИЮНЯ",
-//   "ИЮЛЯ", "АВГУСТА", "СЕНЯТБРЯ", "ОКТЯБРЯ", "НОЯБРЯ", "ДЕКАБРЯ"
-// ];
+  const [disabled1, setDisabled1] = useState(false);
+  const [disabled2, setDisabled2] = useState(false);
 
-  // let DATE = (new Date).getDate() + (" " + monthNames[(new Date()).getMonth()]);
+  //onClick={()=>disabled == true ? setDisabled(false) : null}
   return (
-    <div className="Home">
-      {/* <div className="Home_VeryPeople">Топ пользователей</div> */}
-      <HomeMenu/>
-      <HomeTop/>
-      <div className="Home_VeryPeople_Past">Рекомендации</div>
-      <HomePast/>
+    <div className="Home" >
+      <HomeMenu />
+      <HomeTop />
+      <HomeListSkill setDisabled1={setDisabled1}
+        disabled1={disabled1} setDisabled2={setDisabled2}
+        disabled2={disabled2}/>
+      {/* <HomePast /> */}
     </div>
   );
 };

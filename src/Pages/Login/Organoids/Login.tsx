@@ -6,7 +6,7 @@ import {
   $userName,
   // $userAuthorization,
   setuserAuthorization,
-} from "../../../Common/hooks";
+} from "../../../Common/hooksUser";
 import "../Styles/Login.css";
 import Picture from '../../../Common/Assets/Login/LoginPicture.png';
 import { useStore } from "effector-react";

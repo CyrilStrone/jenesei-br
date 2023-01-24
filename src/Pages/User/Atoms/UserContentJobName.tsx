@@ -1,7 +1,7 @@
 import { useStore } from "effector-react";
 import React from "react";
 // import { Link } from "react-router-dom";
-import { $userJob, $userName, $userShortDescription } from "../../../Common/hooks";
+import { $userJob, $userName, $userShortDescription } from "../../../Common/hooksUser";
 
 export interface IUserContentJobName {
   id?: string;
