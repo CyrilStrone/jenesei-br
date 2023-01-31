@@ -11,7 +11,7 @@ export const Major = () => {
         <div className="Major">
             <div className="Major-Block">
                 <div className="Major-Block__Title">
-                    БизнесРулет - Станьте успешнее вместе с нами
+                    BusinessRoulette - Станьте успешнее вместе с нами
                 </div>
                 <div className="Major-Block__Input-MailOrPhone">
                     <input type={"text"} value="Адрес эл. почты или телефон" defaultValue="Адрес эл. почты или телефон"/>
