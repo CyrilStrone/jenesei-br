@@ -188,7 +188,7 @@
 
 @media (orientation: portrait) {
     .Major {
-
+        justify-content: center;
     }
 
     .Major-Block {
