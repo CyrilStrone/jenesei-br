@@ -3,7 +3,7 @@ body {
   padding: 0;
 }
 .App_Actual {
-  padding-top: 44px;
+  padding-top: 18px;
   height: 100%;
   width: 60%;
   display: flex;
@@ -18,10 +18,9 @@ body {
 }
 .App {
   display: flex;
-  /* background-color: beige; */
   flex-direction: column;
   flex-wrap: nowrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   height: max-content;
   min-height: 100vh;
   background: #F4F4F4;
