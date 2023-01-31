@@ -1,6 +1,13 @@
 .Major {
     display: flex;
     width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Major-First {
+    display: flex;
+    width: 100%;
 }
 
 .Major-Block {
@@ -79,10 +86,11 @@
     position: absolute;
     top: 16px;
     right: 12px;
-    user-select:none;
+    user-select: none;
     cursor: pointer;
 }
-.Major-Block__Input-Password__AnShow{
+
+.Major-Block__Input-Password__AnShow {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
@@ -96,9 +104,10 @@
     padding-right: 6px;
     padding-top: 3px;
     padding-bottom: 3px;
-    user-select:none;
+    user-select: none;
     background: rgba(0, 0, 0, 0.05);
 }
+
 .Major-Block__Button-Forgot {
     margin-top: 16px;
     font-family: 'Inter';
@@ -180,9 +189,9 @@
     margin-left: 17px;
 }
 
-.Major_Picture img {
-    width: 88%;
-    padding: 12%;
+.Major_Picture {
+    width: 75%;
+    padding: 8%;
     box-sizing: border-box;
 }
 
@@ -192,7 +201,6 @@
     }
 
     .Major-Block {
-        margin-bottom: 100px;
         margin-top: 10px;
     }
 
@@ -244,7 +252,7 @@
 
     }
 
-    .Major_Picture img {
+    .Major_Picture {
         display: none;
     }
 }
