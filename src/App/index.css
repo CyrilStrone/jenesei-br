@@ -23,7 +23,7 @@ body {
   justify-content: flex-start;
   height: max-content;
   min-height: 100vh;
-  background: #F4F4F4;
+/*  background: #F4F4F4;*/
 
 }
 @media (max-width: 730px) {
