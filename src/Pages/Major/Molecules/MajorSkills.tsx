@@ -10,7 +10,7 @@ export const MajorSkills = () => {
     return (
         <div className="MajorSkills">
             <div className="MajorSkills__Title">
-                Осуществляйте поиск специалистов, по подходящим Вам компетенциям
+                Найдтие подходящего специалиста
             </div>
             <div className="MajorSkills__Block">
                 <div className="MajorSkills__Block__Title">

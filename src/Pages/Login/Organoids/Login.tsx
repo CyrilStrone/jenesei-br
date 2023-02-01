@@ -1,15 +1,11 @@
-// import { useStore } from "effector-react";
-// import { PagesLogin } from "../../Routes";
-import React from "react";
-import { Link } from "react-router-dom";
-import {
-  $userName,
-  // $userAuthorization,
-  setuserAuthorization,
-} from "../../../Common/hooksUser";
+import React, {useEffect, useState} from "react";
+import {Link} from "react-router-dom";
 import "../Styles/Login.css";
-import Picture from '../../../Common/Assets/Login/LoginPicture.png';
-import { useStore } from "effector-react";
+import Picture from '../../../Common/Assets/Major/Mans.svg';
+import PictureGoogle from '../../../Common/Assets/Major/GoogleLogo.png';
+import {setcheckLoginPage} from "../../../Common/hooksHome";
+import {$userName, setuserAuthorization} from "../../../Common/hooksUser";
+import {useStore} from "effector-react";
 
 
 // export interface ILoginArray {
@@ -23,55 +19,64 @@ import { useStore } from "effector-react";
 //   Component?:JSX.Element;
 // }
 export const Login = () => {
-  // const userAuthorization = useStore($userAuthorization);
-  const userName = useStore($userName);
-  var newuserName = userName.replace(/ /g, "-");
-  let handleClick = () => {
-    // if (userAuthorization) {
-    //   setuserAuthorization(false);
-    // } else {
-      setuserAuthorization(true);
-    // }
-  };
-
-  const soldCheckbox = () => {};
-  return (
-    <>
-      <div className={`Login`}>
-      <div className="Login_Picture">
-        <img src={Picture} alt="Картинка" />
+    const [passwordCheck, setPasswordCheck] = useState(false);
+    const userName = useStore($userName);
+    let newuserName = userName.replace(/ /g, "-");
+    useEffect(() => {
+        newuserName = userName.replace(/ /g, "-");
+    }, [userName])
+    useEffect(() => {
+        setcheckLoginPage(false)
+    }, [])
+    return (
+        <div className="Major">
+            <div className="Major-First">
+                <div className="Major-Block">
+                    <div className="Major-Block__Title">
+                        BusinessRoulette - Станьте успешнее вместе с нами
+                    </div>
+                    <div className="Major-Block__Input-MailOrPhone">
+                        <input type={"text"} value="Адрес эл. почты или телефон"
+                               defaultValue="Адрес эл. почты или телефон"/>
+                    </div>
+                    <div className="Major-Block__Input-Password">
+                        <input type={passwordCheck ? "text" : "password"} value="Пароль" defaultValue="Пароль"/>
+                        {!passwordCheck ? <div onClick={() => {
+                                setPasswordCheck(true)
+                            }} className="Major-Block__Input-Password__Show">
+                                Показать
+                            </div> :
+                            <div onClick={() => {
+                                setPasswordCheck(false)
+                            }} className="Major-Block__Input-Password__AnShow">
+                                Скрыть
+                            </div>}
+                    </div>
+                    <div className="Major-Block__Button-Forgot">
+                        Забыли пароль?
+                    </div>
+                    <Link
+                        className={`Major-Block__Login__Style-Standart`}
+                        to={`/User/${newuserName}`}
+                        onClick={() => setuserAuthorization(true)}
+                    >
+                        Войти
+                    </Link>
+                    <div className="Major-Block__OR">
+                        Или
+                    </div>
+                    <Link
+                        className={`Major-Block__Login__Style-Google`}
+                        to={"/Home/Top"}
+                    >
+                        <img src={PictureGoogle} alt="Картинка"/>
+                        <div className={`Major-Block__Login__Style-Google__Text`}>
+                            Войти, используя Google
+                        </div>
+                    </Link>
+                </div>
+                <img src={Picture} className="Major_Picture" alt="Картинка"/>
+            </div>
         </div>
-        
-        <div className="Login_Block">
-          <div className="Login_Block-Title">Вход</div>
-          <div className="Login_Block-Mail">
-            <input type="email" value="Email" />
-          </div>
-          <div className="Login_Block-Password">
-            <input type="password" value="Пароль" />
-            <Link className="Login_Block-Password_Forgot" to={"/Forgot"}>
-              Забыли?
-            </Link>
-          </div>
-          <div className="Login_Block-Check">
-            <input
-              type="checkbox"
-              className="checkbox"
-              onChange={soldCheckbox}
-            />
-            Запомнить меня
-          </div>
-          <div className="Login_Block-Login">
-            <Link to={`/User/${newuserName}`} onClick={handleClick}>
-              Войти
-            </Link>
-          </div>
-          <div className="Login_Block-Registration">
-            У вас еще нет аккаунта?
-            <Link to={"/Registration"}>Зарегистрироваться!</Link>
-          </div>
-        </div>
-      </div>
-    </>
-  );
+    );
 };

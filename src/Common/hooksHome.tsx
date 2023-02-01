@@ -5,6 +5,10 @@ export const $actualPage= createStore<string>("Главная")
 export const setactualPage = createEvent<string>()
 $actualPage.on(setactualPage, (_,val)=> val);
 
+export const $checkLoginPage= createStore<boolean>(false)
+export const setcheckLoginPage = createEvent<boolean>()
+$checkLoginPage.on(setcheckLoginPage, (_,val)=> val);
+
 export const $userTopHomeId= createStore<number>(13123)  
 export const setuserTopHomeId = createEvent<number>()
 $userTopHomeId.on(setuserTopHomeId, (_,val)=> val);

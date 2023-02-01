@@ -4,74 +4,113 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
-  }
-  .Registration_Picture img{
-    width: 450px;
-  }
-  .Registration_Block_Style{
+    position: relative;
+}
+
+.Registration_Picture {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    bottom: 0;
+    max-height: 100%;
+    height: 100%;
+    width: 100%;
     display: flex;
-  }
-  .Registration_Block {
-    padding-top: 24px;
-    padding-bottom: 24px;
-    width: 300px;
-  
-    padding-left: 37px;
-    padding-right: 37px;
-    background-color: white;
-    border-radius: 5px;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+}
+
+.Registration_Picture img {
+    width: 100%;
+}
+
+.Registration_Block_Style {
+    display: flex;
+}
+
+.Registration_Block {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-  }
-  .Registration_Block-Title {
-    font-family: "Inter";
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    background-color: white;
+    z-index: 2;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 30px;
+    padding-bottom: 52px;
+}
+
+.Registration_Block-Title {
+    font-family: 'Inter';
     font-style: normal;
-    font-weight: 500;
-    font-size: 24px;
-    line-height: 29px;
-    /* identical to box height */
-  
-    letter-spacing: 0.03em;
-  
+    font-weight: 300;
+    font-size: 40px;
+    line-height: 55px;
     color: #000000;
-  }
-  .Registration_Block-Mail {
+}
+
+.Registration_Block-Mail {
+    margin-top: 33px;
     width: 100%;
-  
-    margin-top: 16px;
-  }
-  .Registration_Block-Mail input {
-    width: 100%;
-    border: 1px solid rgba(0, 0, 0, 0.25);
-    filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.05));
-    border-radius: 5px;
-    padding-left: 16px;
-    padding-top: 9px;
-    padding-bottom: 8px;
-    outline: none;
-  }
-  .Registration_Block-name{
-    width: 100%;
-  
-    margin-top: 16px;
-  }
-  .Registration_Block-name input{
-    width: 100%;
-    border: 1px solid rgba(0, 0, 0, 0.25);
-    filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.05));
-    border-radius: 5px;
-    padding-left: 16px;
-    padding-top: 9px;
-    padding-bottom: 8px;
-    outline: none;
-  }
-  .Registration_Block-Password {
-    width: 100%;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 19px;
     position: relative;
-    margin-top: 16px;
-  }
-  .Registration_Block-Password_Forgot {
+}
+
+.Registration_Block-Mail input {
+    height: 50px;
+    width: 100%;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    padding-left: 14px;
+    transition-duration: 0.5s;
+    outline: none;
+}
+.Registration_Block-Mail input:hover {
+    border: 1px solid #0E8AC3;
+}
+.Registration_Block-name {
+    margin-top: 33px;
+    width: 100%;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 19px;
+    position: relative;
+}
+
+.Registration_Block-name input {
+    height: 50px;
+    width: 100%;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    padding-left: 14px;
+    transition-duration: 0.5s;
+    outline: none;
+}
+.Registration_Block-name input:hover {
+    border: 1px solid #0E8AC3;
+}
+.Registration_Block-Password {
+    margin-top: 33px;
+    width: 100%;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 19px;
+    position: relative;
+}
+
+.Registration_Block-Password_Forgot {
     position: absolute;
     right: 0;
     height: 100%;
@@ -84,67 +123,114 @@
     line-height: 15px;
     letter-spacing: 0.03em;
     padding-right: 10px;
-  
+
     color: #636364;
     text-decoration: none;
-  }
-  .Registration_Block-Check {
+}
+
+.Registration_Block-Check {
     margin-top: 24px;
     display: flex;
     align-items: center;
     font-family: "Inter";
     font-style: normal;
-font-weight: 500;
-font-size: 11px;
-line-height: 13px;
-letter-spacing: 0.03em;
-  
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 13px;
+    letter-spacing: 0.03em;
     color: #181818;
-  }
-  .Registration_Block-Check_Style{
-    align-items: flex-start;
+}
 
-  }
-  .Registration_Block-Check input {
+.Registration_Block-Check_Style {
+    align-items: center;
+    margin-right: auto;
+}
+
+.Registration_Block-Check input {
     margin-right: 10px;
     border: 1px solid rgba(0, 0, 0, 0.25);
     border-radius: 4px;
     content: "";
-  }
-  .Registration_Block-Password input {
+}
+.Registration_Block-Check input:hover {
+    border: 1px solid #0E8AC3;
+}
+.Registration_Block-Password input {
+    height: 50px;
     width: 100%;
-    border: 1px solid rgba(0, 0, 0, 0.25);
-    filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.05));
-    border-radius: 5px;
-    padding-left: 16px;
-    padding-top: 9px;
-    padding-bottom: 8px;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    padding-left: 14px;
+    transition-duration: 0.5s;
     outline: none;
-  }
-  .Registration_Block-Registration a {
-    font-family: "Inter";
+}
+.Registration_Block-Password input:hover {
+    border: 1px solid #0E8AC3;
+}
+.Registration_Block-Registration {
+    margin-top: 56px;
+    height: 50px;
+    width: 100%;
+    background: #0E8AC3;
+    border-radius: 25px;
+    font-family: 'Inter';
     font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 21px;
-    text-align: center;
-    letter-spacing: 0.03em;
-    text-decoration: none;
-    color: #ffffff;
-  }
-  .Registration_Block-Registration {
-    margin-top: 16px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
     display: flex;
     align-items: center;
+    text-align: center;
+    color: #FFFFFF;
     justify-content: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+
+.Registration_Block__OR {
+    margin-top: 12px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+}
+
+.Registration_Block__Style-Google {
+    height: 50px;
     width: 100%;
-    height: 41px;
-    color: #ffffff;
-    background: #ea454c;
-    box-shadow: 0px 4px 10px rgba(233, 68, 75, 0.25);
-    border-radius: 5px;
-  }
-  .Registration_Block-Login {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: 11px;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    border-radius: 25px;
+    transition-duration: 0.5s;
+}
+.Registration_Block__Style-Google:hover{
+    background: rgba(0, 0, 0, 0.05);
+}
+.Registration_Block__Style-Google__Text {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #000000;
+    margin-left: 17px;
+}
+
+.Registration_Block__Style-Google img {
+    width: 27px;
+    height: 27px;
+}
+
+.Registration_Block-Login {
     margin-top: 16px;
     font-family: "Inter";
     font-style: normal;
@@ -155,9 +241,60 @@ letter-spacing: 0.03em;
     letter-spacing: 0.03em;
     width: 100%;
     color: #595959;
-  }
-  .Registration_Block-Login a {
+}
+
+.Registration_Block-Login a {
     text-decoration: none;
-    color: #ea454c;
-  }
-  
+    color: #0E8AC3;
+    margin-left: 5px;
+}
+.Registration_Block-Registration:hover {
+    background: #0D719E;
+}
+.Registration_Block-Password__Show {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    position: absolute;
+    top: 16px;
+    right: 12px;
+    user-select: none;
+    cursor: pointer;
+}
+
+.Registration_Block-Password__AnShow {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    position: absolute;
+    top: 13px;
+    right: 12px;
+    cursor: pointer;
+    padding-left: 7px;
+    padding-right: 6px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    user-select: none;
+    background: rgba(0, 0, 0, 0.05);
+}
+@media (orientation: portrait) {
+    .Registration_Block {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    background-color: white;
+    z-index: 2;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 0px;
+    padding-bottom: 50px;
+    }
+}
+

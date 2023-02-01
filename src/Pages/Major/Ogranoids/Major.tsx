@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import "../Styles/Major.css";
 import "../Styles/MajorScroll.css";
 import "../Styles/MajorUser.css";
@@ -9,10 +9,20 @@ import Picture from '../../../Common/Assets/Major/Mans.svg';
 import PictureGoogle from '../../../Common/Assets/Major/GoogleLogo.png';
 import { MajorScroll } from "../Molecules/MajorScroll";
 import { MajorSkills } from "../Molecules/MajorSkills";
+import {setcheckLoginPage} from "../../../Common/hooksHome";
+import {$userName, setuserAuthorization} from "../../../Common/hooksUser";
+import {useStore} from "effector-react";
 
 export const Major = () => {
     const [passwordCheck, setPasswordCheck] = useState(false);
-
+    const userName = useStore($userName);
+    let newuserName = userName.replace(/ /g, "-");
+    useEffect(() => {
+        newuserName = userName.replace(/ /g, "-");
+        }, [userName])
+    useEffect(() => {
+        setcheckLoginPage(false)
+    }, [])
     return (
         <div className="Major">
             <div className="Major-First">
@@ -42,7 +52,8 @@ export const Major = () => {
                     </div>
                     <Link
                         className={`Major-Block__Login__Style-Standart`}
-                        to={"/Home/Top"}
+                        to={`/User/${newuserName}`}
+                        onClick={()=>setuserAuthorization(true)}
                     >
                         Войти
                     </Link>

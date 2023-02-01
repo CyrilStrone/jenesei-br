@@ -1,7 +1,7 @@
 import { createEvent, createStore } from "effector";
 import UserPicture from "../Common/Assets/User/UserPicture.jpg"
 
-export const $userAuthorization = createStore<boolean>(true)  
+export const $userAuthorization = createStore<boolean>(false)
 export const setuserAuthorization = createEvent<boolean>()
 $userAuthorization.on(setuserAuthorization, (_,val)=> val);
 
