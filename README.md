@@ -13,7 +13,7 @@ git push -uf origin main
 <p align="center">
   <a href="https://businessroulette.ru" target="blank"><img src="https://media.discordapp.net/attachments/647684321326661663/1054868328281288754/image.png" width="130" alt="" /></a>
 </p>
-<div align="center">
+<div >
 <h3>
   <p>
     <a href="https://businessroulette.ru" align="center">
