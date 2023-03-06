@@ -5,6 +5,8 @@
   border-top: 2px solid rgba(169, 124, 85, 0.1);
   background-color: #ffffff;
   margin-top: auto;
+  flex-direction: column;
+  align-items: center;
 }
 .FooterGeneral_Logo_Pictures{
   display: none;
@@ -39,6 +41,10 @@
   line-height: 72.02% !important;
   color: #000000 !important;
   margin-top: 10px;
+}
+.Footer__JenLogo{
+  width: 100px;
+  padding-bottom: 100px;
 }
 @media (max-width: 1920px) {
   .FooterGeneral {
@@ -102,6 +108,9 @@
   }
 }
 @media (orientation: portrait) {
+  .Footer__JenLogo{
+    padding-top: 100px;
+  }
   .FooterGeneral {
     width: 96%;
     display: flex;
