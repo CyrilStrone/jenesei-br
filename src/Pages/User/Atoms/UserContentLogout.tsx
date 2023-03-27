@@ -1,9 +1,8 @@
 import { useStore } from "effector-react";
 import React from "react";
-import { Link } from "react-router-dom";
+import { UserLogout } from "../../../Common/accessToken";
 import {
   $userAuthorization,
-  setuserAuthorization,
 } from "../../../Common/hooksUser";
 
 export interface IUserContentLogout {
@@ -15,17 +14,9 @@ export interface IUserContentLogout {
 export const UserContentLogout = (params: IUserContentLogout) => {
   const userAuthorization = useStore($userAuthorization);
 
-  let handleClick = () => {
-    if (userAuthorization) {
-      setuserAuthorization(false);
-    } else {
-      setuserAuthorization(true);
-    }
-  };
-
   return (
-    <button className={`UserContentLogout_Buttom`} onClick={handleClick}>
-      {userAuthorization ? <Link to={"/Login"}>Выход</Link> : <a>Вход</a>}
+    <button className={`UserContentLogout_Buttom`} >
+      {userAuthorization ? <div onClick={UserLogout}>Выход</div> : <div>Вход</div>}
     </button>
   );
 };

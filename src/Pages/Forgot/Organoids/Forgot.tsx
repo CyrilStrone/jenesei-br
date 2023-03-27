@@ -7,7 +7,6 @@ import "../Styles/Forgot.css";
 // import { Link } from "react-router-dom";
 // import {
 //   $userAuthorization,
-//   setuserAuthorization,
 // } from "../../../Common/hooks";
 
 // export interface ILoginArray {
@@ -21,15 +20,6 @@ import "../Styles/Forgot.css";
 //   Component?:JSX.Element;
 // }
 export const Forgot = () => {
-  //   const userAuthorization = useStore($userAuthorization);
-
-  //   let handleClick = () => {
-  //     if (userAuthorization) {
-  //       setuserAuthorization(false);
-  //     } else {
-  //       setuserAuthorization(true);
-  //     }
-  //   };
 
   return (
     // <button className={`Login`} onClick={handleClick}>

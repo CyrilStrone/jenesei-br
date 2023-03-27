@@ -1,9 +1,9 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 
 // import { Pages, PagesAnotherUser } from "Pages/Routes";
 // import { PagesLogin } from "Pages/Routes";
 
-import React from "react";
+import React, { useEffect } from "react";
 import { Header } from "../Common/UI/Header/Organoids/Header";
 import "./index.css";
 import "./font.css";
@@ -29,12 +29,28 @@ import { useStore } from "effector-react";
 import { $AnotheUserName } from "../Common/hooksAnotherUser";
 import { Chat } from "Pages/Chat/Ogranoids/Chat";
 
+import { $accessToken, setaccessToken } from "../Common/accessToken";
+import { accessTokenName } from "../Common/axiosInstance";
+
 export function App() {
-  // require('./index.styl')
+  let navigate = useNavigate();
   const userName = useStore($userName);
   const AnotheUserName = useStore($AnotheUserName);
+  const accessToken = useStore($accessToken);
 
-  
+  useEffect(()=>{
+    if (!localStorage.getItem(accessTokenName)?.length) {
+    }else{
+      setaccessToken(localStorage.getItem(accessTokenName))
+    }
+  },[])
+
+  useEffect(()=>{
+    if(userName && accessToken){
+      navigate(`/User/${userName}`);
+    }
+  },[accessToken, userName])
+
   return (
     <div className="App">
       <Header />

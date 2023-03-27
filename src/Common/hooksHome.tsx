@@ -37,6 +37,6 @@ export const $userTopHomeShortDescription= createStore<string>("Очень ко�
 export const setuserTopHomeShortDescription = createEvent<string>()
 $userTopHomeShortDescription.on(setuserTopHomeShortDescription, (_,val)=> val);
 
-export const $usersPastTop= createStore<any>([{picture:UserTopHomePicture,name:"Даня Булгаков",job:"шмэкэндер",Stackes:["React","TS","HTML"],id:123123},{picture:UserTopHomePicture,name:"Николай Булгаков",job:"шмэкэндер",Stackes:["React","TS","HTML"],id:123173},{picture:UserTopHomePicture,name:"Бабушников Даня",job:"шмэкэндер",Stackes:["React","TS","HTML"],id:123523},{picture:UserTopHomePicture,name:"Бабушников Даня",job:"шмэкэндер",Stackes:["React","TS","HTML"],id:103523}])  
+export const $usersPastTop= createStore<any>([])  
 export const setusersPastTop = createEvent<any>()
 $usersPastTop.on(setusersPastTop, (_,val)=> val);

@@ -1,5 +1,7 @@
 import { createEvent, createStore } from "effector";
 import UserPicture from "../Common/Assets/User/UserPicture.jpg"
+import { $accessToken } from "./accessToken";
+import { accessTokenName } from "./axiosInstance";
 
 export const $userAuthorization = createStore<boolean>(false)
 export const setuserAuthorization = createEvent<boolean>()
@@ -36,3 +38,11 @@ $userShortDescription.on(setuserShortDescription, (_,val)=> val);
 export const $userFullDescription= createStore<string>("Очень длинное описание")  
 export const setuserFullDescription = createEvent<string>()
 $userFullDescription.on(setuserFullDescription, (_,val)=> val);
+
+$accessToken.updates.watch((token) => {
+    if (!localStorage.getItem(accessTokenName)?.length) {
+        setuserAuthorization(false)
+      }else{
+        setuserAuthorization(true)
+      }
+});

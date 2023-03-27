@@ -1,19 +1,17 @@
-import { useStore } from "effector-react";
 import React from "react";
-import { $usersPastTop } from "../../../Common/hooksHome";
-import { SearchPastBlock, ISearchPastBlock } from "../Atomes/SearchPastBlock";
+import { SearchPastBlock } from "../Atomes/SearchPastBlock";
 
-export const SearchPast = () => {
-  const usersPastTop = useStore($usersPastTop);
-  let SearchPastArray: ISearchPastBlock[] = [];
-  usersPastTop.map((e: any) => {
-    SearchPastArray.push({ Picture: e.picture, Name: e.name, Job: e.job, Stackes: e.Stackes ,id:(e.id)},)
-  })
+interface ISearchPast{
+  userList:any
+}
+
+export const SearchPast = (params:ISearchPast) => {
+ 
   return (
     <div className="SearchPast">
-      {
-        SearchPastArray.map((e, i) => (
-          <SearchPastBlock key={e.id} Picture={e.Picture} Name={e.Name} Job={e.Job} Stackes={e.Stackes} id={e.id}/>
+      {params.userList && 
+        params.userList.map((e:any, i:any) => (
+          <SearchPastBlock firstName={e.firstName} lastName={e.lastName} email={e.email} id={e.id}/>
         ))
       }
     </div>

@@ -9,20 +9,26 @@ import Picture from '../../../Common/Assets/Major/Mans.svg';
 import PictureGoogle from '../../../Common/Assets/Major/GoogleLogo.png';
 import { MajorScroll } from "../Molecules/MajorScroll";
 import { MajorSkills } from "../Molecules/MajorSkills";
-import {setcheckLoginPage} from "../../../Common/hooksHome";
-import {$userName, setuserAuthorization} from "../../../Common/hooksUser";
-import {useStore} from "effector-react";
+import { setcheckLoginPage } from "../../../Common/hooksHome";
+import { ILoginUser, loginUser } from "Pages/Login/Logics/loginUser";
 
 export const Major = () => {
-    const [passwordCheck, setPasswordCheck] = useState(false);
-    const userName = useStore($userName);
-    let newuserName = userName.replace(/ /g, "-");
-    useEffect(() => {
-        newuserName = userName.replace(/ /g, "-");
-        }, [userName])
     useEffect(() => {
         setcheckLoginPage(false)
     }, [])
+    const [passwordCheck, setPasswordCheck] = useState(false);
+    const [loginValue, setLoginValue] = useState<ILoginUser>({ email: "", password: "" });
+    const requestLogin = async () => {
+        await loginUser(loginValue);
+    }
+
+    let handleClick = () => {
+        if (loginValue.email && loginValue.password) {
+            requestLogin()
+        } else {
+            console.log("Данных нет")
+        }
+    };
     return (
         <div className="Major">
             <div className="Major-First">
@@ -31,11 +37,10 @@ export const Major = () => {
                         BusinessRoulette - Станьте успешнее вместе с нами
                     </div>
                     <div className="Major-Block__Input-MailOrPhone">
-                        <input type={"text"} value="Адрес эл. почты или телефон"
-                               defaultValue="Адрес эл. почты или телефон"/>
+                        <input type={"email"} placeholder="Адрес эл. почты" value={loginValue.email} onChange={(event: any) => { setLoginValue({ ...loginValue, "email": event.target.value }) }} />
                     </div>
                     <div className="Major-Block__Input-Password">
-                        <input type={passwordCheck ? "text" : "password"} value="Пароль" defaultValue="Пароль"/>
+                        <input type={passwordCheck ? "text" : "password"} placeholder="Пароль" value={loginValue.password} onChange={(event: any) => { setLoginValue({ ...loginValue, "password": event.target.value }) }}/>
                         {!passwordCheck ? <div onClick={() => {
                                 setPasswordCheck(true)
                             }} className="Major-Block__Input-Password__Show">
@@ -50,13 +55,12 @@ export const Major = () => {
                     <div className="Major-Block__Button-Forgot">
                         Забыли пароль?
                     </div>
-                    <Link
+                    <div
                         className={`Major-Block__Login__Style-Standart`}
-                        to={`/User/${newuserName}`}
-                        onClick={()=>setuserAuthorization(true)}
+                        onClick={handleClick}
                     >
                         Войти
-                    </Link>
+                    </div>
                     <div className="Major-Block__OR">
                         Или
                     </div>

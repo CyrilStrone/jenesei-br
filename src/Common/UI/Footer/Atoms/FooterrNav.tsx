@@ -16,14 +16,13 @@ export interface IFooterNav {
 export const FooterNav = (params: IFooterNav) => {
   const userAuthorization = useStore($userAuthorization);
   const userName = useStore($userName);
-  var newuserName = userName.replace(/ /g, "-");
   return (
     <>
       {params.link == "User" ? (
         userAuthorization ? (
           <Link
             className={`${params.class} FooterNav`}
-            to={`${params.link}/${newuserName}`}
+            to={`${params.link}/${userName}`}
             key={params.indexlink}
             style={params.authorization == false ? { display: "none" } : {}}
           >

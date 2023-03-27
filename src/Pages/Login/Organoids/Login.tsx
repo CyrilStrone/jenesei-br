@@ -1,33 +1,29 @@
-import React, {useEffect, useState} from "react";
-import {Link} from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "../Styles/Login.css";
 import Picture from '../../../Common/Assets/Major/Mans.svg';
 import PictureGoogle from '../../../Common/Assets/Major/GoogleLogo.png';
-import {setcheckLoginPage} from "../../../Common/hooksHome";
-import {$userName, setuserAuthorization} from "../../../Common/hooksUser";
-import {useStore} from "effector-react";
+import { setcheckLoginPage } from "../../../Common/hooksHome";
+import { ILoginUser, loginUser } from "../Logics/loginUser";
 
-
-// export interface ILoginArray {
-//   id?: string;
-//   text?: string;
-//   value?: string;
-//   class?: string;
-//   authorization?: boolean;
-//   link?: string;
-//   indexlink?: string;
-//   Component?:JSX.Element;
-// }
 export const Login = () => {
-    const [passwordCheck, setPasswordCheck] = useState(false);
-    const userName = useStore($userName);
-    let newuserName = userName.replace(/ /g, "-");
-    useEffect(() => {
-        newuserName = userName.replace(/ /g, "-");
-    }, [userName])
     useEffect(() => {
         setcheckLoginPage(false)
     }, [])
+
+    const [passwordCheck, setPasswordCheck] = useState(false);
+    const [loginValue, setLoginValue] = useState<ILoginUser>({ email: "", password: "" });
+    const requestLogin = async () => {
+        await loginUser(loginValue);
+    }
+    let handleClick = () => {
+        if (loginValue.email && loginValue.password) {
+            requestLogin()
+        } else {
+            console.log("Данных нет")
+        }
+    };
+
     return (
         <div className="Major">
             <div className="Major-First">
@@ -36,16 +32,15 @@ export const Login = () => {
                         BusinessRoulette - Станьте успешнее вместе с нами
                     </div>
                     <div className="Major-Block__Input-MailOrPhone">
-                        <input type={"text"} value="Адрес эл. почты или телефон"
-                               defaultValue="Адрес эл. почты или телефон"/>
+                        <input type={"email"} placeholder="Адрес эл. почты" value={loginValue.email} onChange={(event: any) => { setLoginValue({ ...loginValue, "email": event.target.value }) }} />
                     </div>
                     <div className="Major-Block__Input-Password">
-                        <input type={passwordCheck ? "text" : "password"} value="Пароль" defaultValue="Пароль"/>
+                        <input type={passwordCheck ? "text" : "password"} placeholder="Пароль" value={loginValue.password} onChange={(event: any) => { setLoginValue({ ...loginValue, "password": event.target.value }) }} />
                         {!passwordCheck ? <div onClick={() => {
-                                setPasswordCheck(true)
-                            }} className="Major-Block__Input-Password__Show">
-                                Показать
-                            </div> :
+                            setPasswordCheck(true)
+                        }} className="Major-Block__Input-Password__Show">
+                            Показать
+                        </div> :
                             <div onClick={() => {
                                 setPasswordCheck(false)
                             }} className="Major-Block__Input-Password__AnShow">
@@ -55,13 +50,12 @@ export const Login = () => {
                     <div className="Major-Block__Button-Forgot">
                         Забыли пароль?
                     </div>
-                    <Link
-                        className={`Major-Block__Login__Style-Standart`}
-                        to={`/User/${newuserName}`}
-                        onClick={() => setuserAuthorization(true)}
+                    <div
+                        className={`Major-Block__Login__Style-Standart`} 
+                        onClick={handleClick}
                     >
                         Войти
-                    </Link>
+                    </div>
                     <div className="Major-Block__OR">
                         Или
                     </div>
@@ -69,13 +63,13 @@ export const Login = () => {
                         className={`Major-Block__Login__Style-Google`}
                         to={"/Home/Top"}
                     >
-                        <img src={PictureGoogle} alt="Картинка"/>
+                        <img src={PictureGoogle} alt="Картинка" />
                         <div className={`Major-Block__Login__Style-Google__Text`}>
                             Войти, используя Google
                         </div>
                     </Link>
                 </div>
-                <img src={Picture} className="Major_Picture" alt="Картинка"/>
+                <img src={Picture} className="Major_Picture" alt="Картинка" />
             </div>
         </div>
     );
