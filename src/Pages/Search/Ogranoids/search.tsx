@@ -8,14 +8,16 @@ import { $usersPastTop } from "../../../Common/hooksHome";
 import { useStore } from "effector-react";
 import { SearchUser } from "../Logics/SearchUser";
 
+export const requestSearchUser = async () => {
+    await SearchUser();
+}
+
 export const Search = () => {
     const usersPastTop = useStore($usersPastTop);
     const [usersPastTopDublicat, setUsersPastTopDublicat] = useState<any>([])
     const [value, setValue] = useState<any>({ text: "" });
 
-    const requestSearchUser = async () => {
-      await SearchUser();
-  }
+    
     useEffect(()=>{
       requestSearchUser()
     },[])

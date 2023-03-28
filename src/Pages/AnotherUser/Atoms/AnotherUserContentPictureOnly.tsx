@@ -1,6 +1,5 @@
-import { useStore } from "effector-react";
 import React from "react";
-import { $AnotheUserPicture } from "../../../../src/Common/hooksAnotherUser";
+import AnotheUserPicture from "../../../Common/Assets/User/UserPicture.jpg"
 
 export interface IAnotherUserContentPictureOnly {
   id?: string;
@@ -9,15 +8,6 @@ export interface IAnotherUserContentPictureOnly {
   typeBlock?: string;
 }
 export const AnotherUserContentPictureOnly = (params: IAnotherUserContentPictureOnly) => {
-  const AnotheUserPicture = useStore($AnotheUserPicture);
-
-  // let handleClick = () => {
-  //   <Link to={params.link} key={params.indexlink} className={`${params.class} Footerlogo`}>
-  
-  //   </Link>
-  // };
- 
-
   return (
     <div>
       <img src={AnotheUserPicture} alt="Картинка" />

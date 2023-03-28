@@ -1,7 +1,5 @@
-import { useStore } from "effector-react";
 import React from "react";
 // import { Link } from "react-router-dom";
-import {  $AnotheUserShortDescription } from "../../../../src/Common/hooksAnotherUser";
 
 export interface IAnotherUserContentShortDescription {
   id?: string;
@@ -10,7 +8,6 @@ export interface IAnotherUserContentShortDescription {
   typeBlock?: string;
 }
 export const AnotherUserContentShortDescription = (params: IAnotherUserContentShortDescription) => {
-  const AnotheUserShortDescription = useStore($AnotheUserShortDescription);
   // let handleClick = () => {
   //   <Link to={params.link} key={params.indexlink} className={`${params.class} Footerlogo`}>
 
@@ -19,7 +16,7 @@ export const AnotherUserContentShortDescription = (params: IAnotherUserContentSh
 
   return (
     <>
-      <div className="AnotherUserContent_ShortDescriptionAnotherUser_Title">{AnotheUserShortDescription}</div>
+      <div className="AnotherUserContent_ShortDescriptionAnotherUser_Title">{}</div>
     </>
   );
 };

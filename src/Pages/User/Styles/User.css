@@ -5,15 +5,18 @@
   flex-direction: column;
 }
 .User_Contents {
-  background: rgba(120, 118, 230, 0.18);
-  backdrop-filter: blur(7.5px);
-  border-radius: 15px;
+  background: #FFFFFF;
+  border: 1px solid #E0DFDC;
+  border-radius: 14px;
+
   width: 100%;
   height: 100%;
+
   display: grid;
   grid-template-columns: 0.5fr 1fr 1fr;
-  padding: 1em;
-  padding-right: 0;
+
+  padding: 16px;
+
   box-sizing: border-box;
 }
 .UserContent {

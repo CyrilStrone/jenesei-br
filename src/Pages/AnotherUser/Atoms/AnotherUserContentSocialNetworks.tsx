@@ -1,7 +1,7 @@
-import { useStore } from "effector-react";
+// import { useStore } from "effector-react";
 import React from "react";
 // import { Link } from "react-router-dom";
-import {  $AnotheUserSocialNetworks } from "../../../../src/Common/hooksAnotherUser";
+// import {  $AnotheUserSocialNetworks } from "../../../../src/Common/hooksAnotherUser";
 
 export interface IAnotherUserContentSocialNetworks {
   id?: string;
@@ -10,7 +10,7 @@ export interface IAnotherUserContentSocialNetworks {
   typeBlock?: string;
 }
 export const AnotherUserContentSocialNetworks = (params: IAnotherUserContentSocialNetworks) => {
-  const AnotheUserSocialNetworks = useStore($AnotheUserSocialNetworks);
+  // const AnotheUserSocialNetworks = useStore($AnotheUserSocialNetworks);
   // let handleClick = () => {
   //   <Link to={params.link} key={params.indexlink} className={`${params.class} Footerlogo`}>
 
@@ -19,7 +19,7 @@ export const AnotherUserContentSocialNetworks = (params: IAnotherUserContentSoci
 
   return (
     <>
-    {AnotheUserSocialNetworks.map((e,i)=><div key={i} className="AnotherUserContent_SocialNetworksAnotherUser_Network">{e}</div>)}
+    {/* {AnotheUserSocialNetworks.map((e,i)=><div key={i} className="AnotherUserContent_SocialNetworksAnotherUser_Network">{e}</div>)} */}
 
     
    </>

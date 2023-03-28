@@ -26,16 +26,17 @@ import { User } from "Pages/User/Ogranoids/User";
 import { Search } from "Pages/Search/Ogranoids/Search";
 import { $userName } from "../Common/hooksUser";
 import { useStore } from "effector-react";
-import { $AnotheUserName } from "../Common/hooksAnotherUser";
+import { $anotheUserName } from "../Common/hooksAnotherUser";
 import { Chat } from "Pages/Chat/Ogranoids/Chat";
 
 import { $accessToken, setaccessToken } from "../Common/accessToken";
 import { accessTokenName } from "../Common/axiosInstance";
+import { ChangeUser } from "Pages/ChangeUser/Organoids/ChangeUser";
 
 export function App() {
   let navigate = useNavigate();
   const userName = useStore($userName);
-  const AnotheUserName = useStore($AnotheUserName);
+  const anotheUserName = useStore($anotheUserName);
   const accessToken = useStore($accessToken);
 
   useEffect(()=>{
@@ -50,6 +51,12 @@ export function App() {
       navigate(`/User/${userName}`);
     }
   },[accessToken, userName])
+
+  useEffect(()=>{
+    if(anotheUserName){
+      navigate(`/AnotherUser/${anotheUserName}`);
+    }
+  },[anotheUserName])
 
   return (
     <div className="App">
@@ -81,12 +88,23 @@ export function App() {
           />
            <Route
             element={<AnotherUser />}
-            path="/AnotherUser/:userName"
+            path="/AnotherUser/:AnotheUserName"
             loader={async ({ params }) => {
-              return AnotheUserName;
+              return anotheUserName;
             }}
             action={async ({ request }) => {
-              return AnotheUserName;
+              return anotheUserName;
+            }}
+            errorElement={<Major />}
+          />
+          <Route
+            element={<ChangeUser />}
+            path="/ChangeUser/:AnotheUserName"
+            loader={async ({ params }) => {
+              return anotheUserName;
+            }}
+            action={async ({ request }) => {
+              return anotheUserName;
             }}
             errorElement={<Major />}
           />

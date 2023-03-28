@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { AnotherUserContentJobName } from "../Atoms/AnotherUserContentJobName";
 import { AnotherUserContentPicture } from "../Atoms/AnotherUserContentPicture";
 import { IAnotherUserContent, AnotherUserContent } from "../Molecules/AnotherUserContent";
@@ -13,7 +13,8 @@ import "../Styles/AnotherUserContent_SocialNetworksUser.css";
 import { AnotherUserContentStackes } from "../Atoms/AnotherUserContentStackes";
 import { AnotherUserContentFullDescription } from "../Atoms/AnotherUserContentFullDescription";
 import { AnotherUserContentSocialNetworks } from "../Atoms/AnotherUserContentSocialNetworks";
-import { $AnotheUserId } from "../../../../src/Common/hooksAnotherUser";
+import { $anotheUserName, setAnotheUserName } from "../../../../src/Common/hooksAnotherUser";
+import { useNavigate } from "react-router-dom";
 import { useStore } from "effector-react";
 
 export interface IAnotherUser {
@@ -21,24 +22,27 @@ export interface IAnotherUser {
 }
 
 export const AnotherUser = (params:IAnotherUser) => {
-  // setAnotheUserId(params.id)
-  const AnotheUserId = useStore($AnotheUserId);
+  let navigate = useNavigate();
+  const anotheUserName = useStore($anotheUserName);
+  const [changeCheck, setChangeCheck] = useState(false);
+  const [anotheUserNameLocal, setAnotheUserNameLocal] = useState("");
 
   useEffect(()=>{
-    console.log(AnotheUserId)
+    setAnotheUserNameLocal(anotheUserName)
+    setAnotheUserName("")
+  },[])
 
-  },[AnotheUserId])
+  useEffect(()=>{
+    if(changeCheck){
+      navigate(`/ChangeUser/${anotheUserNameLocal}`);
+    }
+  },[changeCheck])
   const AnotherUserContentArray: IAnotherUserContent[] = [
     { class: "AnotherUserContent_PictureAnotherUser", Component: <AnotherUserContentPicture /> },
     { class: "AnotherUserContent_JobNameAnotherUser", Component: <AnotherUserContentJobName /> },
-    { class: "AnotherUserContent_StackesAnotherUser", Component: <AnotherUserContentStackes /> },
-    {
-      class: "AnotherUserContent_FullDescriptionAnotherUser",
-      Component: <AnotherUserContentFullDescription />,
-    },
-    {
-      class: "AnotherUserContent_SocialNetworksAnotherUser",
-      Component: <AnotherUserContentSocialNetworks />,
+    { class: "AnotherUserContent_StackesAnotherUser", Component: <AnotherUserContentStackes setChangeCheck={setChangeCheck} changeCheck={changeCheck}/> },
+    { class: "AnotherUserContent_FullDescriptionAnotherUser", Component: <AnotherUserContentFullDescription />},
+    { class: "AnotherUserContent_SocialNetworksAnotherUser", Component: <AnotherUserContentSocialNetworks />,
     },
   ];
 

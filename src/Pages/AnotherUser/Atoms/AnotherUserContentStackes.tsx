@@ -1,16 +1,18 @@
-import { useStore } from "effector-react";
+// import { useStore } from "effector-react";
 import React from "react";
 // import { Link } from "react-router-dom";
-import { $AnotheUserStackes } from "../../../../src/Common/hooksAnotherUser";
+// import { $AnotheUserStackes } from "../../../../src/Common/hooksAnotherUser";
 
 export interface IAnotherUserContentStackes {
   id?: string;
   class?: string;
   authorization?: boolean;
   typeBlock?: string;
+  setChangeCheck?: React.Dispatch<React.SetStateAction<boolean>>;
+  changeCheck?:boolean
 }
 export const AnotherUserContentStackes = (params: IAnotherUserContentStackes) => {
-  const AnotheUserStackes = useStore($AnotheUserStackes);
+  // const AnotheUserStackes = useStore($AnotheUserStackes);
   // let handleClick = () => {
   //   <Link to={params.link} key={params.indexlink} className={`${params.class} Footerlogo`}>
 
@@ -18,15 +20,8 @@ export const AnotherUserContentStackes = (params: IAnotherUserContentStackes) =>
   // };
 
   return (
-    <>
-      <div className="AnotherUserContent_StackesAnotherUser_Title">
-        Стэк
-      </div>
-      <div className="AnotherUserContent_StackesAnotherUser_Stackes">
-      {AnotheUserStackes.map((e, i) => (
-        <div key={i} className="AnotherUserContent_StackesAnotherUser_Stacke">{e}</div>
-      ))}
-      </div>
-    </>
+    <div className="AnotherUserContentStackes" onClick={()=>{params.setChangeCheck(!params.changeCheck)}}>
+        изменить
+    </div>
   );
 };

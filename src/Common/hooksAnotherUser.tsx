@@ -1,38 +1,46 @@
 import { createEvent, createStore } from "effector";
-import AnotheUserPicture from "../Common/Assets/User/UserPicture.jpg"
+import { GetAnotherUser } from "../Pages/AnotherUser/Logics/getAnotherUser";
 
-export const $AnotheUserId = createStore<number>(0)  
+export const $AnotheUserId = createStore<number>(0)
 export const setAnotheUserId = createEvent<number>()
-$AnotheUserId.on(setAnotheUserId, (_,val)=> val);
+$AnotheUserId.on(setAnotheUserId, (_, val) => val);
 
-export const $menuBurger = createStore<boolean>(false)  
+const requestAnotherUser= async (id:number) => {
+    await GetAnotherUser({id:id});
+}
+
+$AnotheUserId.updates.watch((id) => {
+    requestAnotherUser(id)
+});
+
+export const $menuBurger = createStore<boolean>(false)
 export const setmenuBurger = createEvent<boolean>()
-$menuBurger.on(setmenuBurger, (_,val)=> val);
+$menuBurger.on(setmenuBurger, (_, val) => val);
 
-export const $AnotheUserPicture = createStore<string>(AnotheUserPicture)  
-export const setAnotheUserPicture = createEvent<string>()
-$AnotheUserPicture.on(setAnotheUserPicture, (_,val)=> val);
 
-export const $AnotheUserName= createStore<string>("Даня Булгаков")  
+export const $anotheUserName = createStore<string>("")
 export const setAnotheUserName = createEvent<string>()
-$AnotheUserName.on(setAnotheUserName, (_,val)=> val);
+$anotheUserName.on(setAnotheUserName, (_, val) => val);
 
-export const $AnotheUserJob= createStore<string>("Front End Engineer")  
-export const setAnotheUserJob = createEvent<string>()
-$AnotheUserJob.on(setAnotheUserJob, (_,val)=> val);
-
-export const $AnotheUserStackes= createStore<string[]>(["JavaScript","TypeScript","React","Webpack","HTML","CSS"])  
-export const setAnotheUserStackes = createEvent<string[]>()
-$AnotheUserStackes.on(setAnotheUserStackes, (_,val)=> val);
-
-export const $AnotheUserSocialNetworks= createStore<string[]>(["Vk","Twitter","GitHub"])  
-export const setAnotheUserSocialNetworks = createEvent<string[]>()
-$AnotheUserSocialNetworks.on(setAnotheUserSocialNetworks, (_,val)=> val);
-
-export const $AnotheUserShortDescription= createStore<string>("Очень короткое описание")  
-export const setAnotheUserShortDescription = createEvent<string>()
-$AnotheUserShortDescription.on(setAnotheUserShortDescription, (_,val)=> val);
-
-export const $AnotheUserFullDescription= createStore<string>("Очень длинное описание")  
-export const setAnotheUserFullDescription = createEvent<string>()
-$AnotheUserFullDescription.on(setAnotheUserFullDescription, (_,val)=> val);
+export interface IAnotheUserValue {
+    id: number
+    email: string
+    firstName: string
+    lastName: string
+    patronymic: string
+    birthDate: string
+    isVerified: boolean
+    createdDate: string
+}
+export const $anotheUserValue = createStore<IAnotheUserValue>({
+    id: null,
+    email: null,
+    firstName: null,
+    lastName: null,
+    patronymic: null,
+    birthDate: null,
+    isVerified: null,
+    createdDate: null
+})
+export const setAnotheUserValue = createEvent<any>()
+$anotheUserValue.on(setAnotheUserValue, (_, val) => val);
