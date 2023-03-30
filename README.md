@@ -1,93 +1,46 @@
-# Business Roulette
-## Добавьте свои файлы
+# Getting Started with Create React App
 
-```
-cd businessroulette
-git remote add origin https://gitlab.com/jenesei/businessroulette/frontend.git
-git branch -M main
-git push -uf origin main
-```
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Available Scripts
 
+In the project directory, you can run:
 
-<p align="center">
-  <a href="https://businessroulette.ru" target="blank"><img src="https://media.discordapp.net/attachments/647684321326661663/1054868328281288754/image.png" width="130" alt="" /></a>
-</p>
-<div >
-<h3>
-  <p>
-    <a href="https://businessroulette.ru" align="center">
-      Roulette
-    </a>
-  </p>
-</h3>
-<p>
-Социальная сеть для молниеносного поиска и установления деловых контактов
-</p>
-</div>
+### `npm start`
 
-## Проблема
-<p>
-Рекрутинговые сайты переполнены лишней информацией, как для специалиста, так и для работодателя, каждому нужно тратить много времени чтобы найти друг друга и связаться.
-Хорошие специалисты не могут найти работу, потому что не понимают подход рекрутингового сайта к заполнению информации, не могут подобрать ключевую информацию и нужные слова для резюме. 
-Огромное множество заполненных полей не способствуют поиску нужного специалиста для работодателя. 
-Все решается на собеседованиях, время от верно заполненного резюме до отклика от компании неоправданно долгое.
-</p>
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-## Цель проекта
-<ul>
-    <li> 
-        Индивидуальный подход для создания резюме
-    </li>
-    <li> 
-        Возможность заполнения резюме исключительно важной информации, в последствии минимизация информации в резюме специалиста
-    </li>
-    <li> 
-        Поиск специалистов и работодателей по специализированному интерфейсу
-    </li>
-    <li> 
-        Разрушение барьера между работодателем и специалистом
-    </li>
-    <li> 
-        Легкий и удобный интерфейс чата
-    </li>
-    <li> 
-        Отказ от откликов и идеи размещения вакансий. Стремление к живому общению 
-    </li>
-    <li> 
-        Создание инструмента для размещения только живых и актуальных аккаунтов специалистов и работодателей
-    </li>
-</ul>
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-### Со стороны клиента приложение должно выполнять следующие задачи:
-1. Поиск специалиста/работодателя
-2. Создание учетных записей специалиста/работодателя
-3. Чат между пользователями
+### `npm test`
 
-### Дочерние функции:
-1. Категоризация специалиста/работодателя
-2. Предосталвение полной информации о специалисте/работодателе
-3. Главная страница с интересными резюме и рекомендованными специалистами/работодателями
-4. Возможность доказать свои возможности с помощью специализированных тестов
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
+### `npm run build`
 
-## Дорожная карта клиентской части
-- [x] Выбор технологий для разработки
-- [x] Организация и распределение задач
-- [x] Разработка дизайна основных страниц
-- [x] Верстка дизайна основных страниц
-- [ ] Верстка сопутствующий страниц
-- [ ] Работа с API и доработка функционала
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-## Авторы
-<ul>
- <li> Кобус Виктория - дизайнер </li>
- <li> Востроженко Кирилл - фронтенд разработчик </li>
- <li> Булгаков Данил - бэкенд разработчик </li>
-</ul>
+### `npm run eject`
 
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).

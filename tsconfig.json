@@ -1,19 +1,24 @@
 {
-    "compilerOptions": {
-        "target": "es5",
-        "jsx": "react",
-        "noEmitOnError": true,
-        "noUnusedLocals": true,
-        "removeComments": true,
-        "noImplicitAny": true,
-        "esModuleInterop": true,
-        "baseUrl": "./",
-        "paths": { // Указываем ссылки до директорий в проекте, чтобы каждый раз в импортах не писать относительные пути
-            "App": ["src/App"],
-            "Pages/*": ["src/Pages/*"],
-        }
-    },
-    "exclude": [
-        "node_modules"
-    ]
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "paths": {
+      "Common/*": [".src/common/*"],
+      "Pages/*": [".src/pages/*"]
+    }
+  },
+  "include": ["src"]
 }
