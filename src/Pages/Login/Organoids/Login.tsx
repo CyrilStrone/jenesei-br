@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "../Styles/Login.css";
-import Picture from '../../../Common/Assets/Major/Mans.svg';
-import PictureGoogle from '../../../Common/Assets/Major/GoogleLogo.png';
-import { setcheckLoginPage } from "../../../Common/hooksHome";
-import { ILoginUser, loginUser } from "../Logics/loginUser";
+import "../styles/Login.css";
+import Picture from '../../../common/assets/major/Mans.svg';
+import PictureGoogle from '../../../common/assets/major/GoogleLogo.png';
+import { ILoginUser, loginUser } from "../logics/loginUser";
+import { setcheckLoginPage } from "../../../common/HomeHooks";
 
 export const Login = () => {
     useEffect(() => {
@@ -51,7 +51,7 @@ export const Login = () => {
                         Забыли пароль?
                     </div>
                     <div
-                        className={`Major-Block__Login__Style-Standart`} 
+                        className={`Major-Block__Login__Style-Standart`}
                         onClick={handleClick}
                     >
                         Войти

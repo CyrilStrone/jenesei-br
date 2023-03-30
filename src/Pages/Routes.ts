@@ -1,10 +1,10 @@
+import { Chat } from "./chat/ogranoids/Chat"
+import { Home } from "./home/ogranoids/Home"
+import { Login } from "./login/organoids/Login"
+import { Registration } from "./registration/organoids/Registration"
+import { Search } from "./search/ogranoids/Search"
+import { User } from "./user/ogranoids/user"
 
-import { Home } from './Home/Ogranoids/Home'
-import { User } from './User/Ogranoids/User'
-import { Search } from './Search/Ogranoids/Search'
-import { Chat } from './Chat/Ogranoids/Chat'
-import { Login } from './Login/Organoids/Login'
-import { Registration } from './Registration/Organoids/Registration'
 
 export const Pages = [
     {

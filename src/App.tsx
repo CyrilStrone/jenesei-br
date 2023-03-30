@@ -1,48 +1,41 @@
-import { Route, Routes, useNavigate } from "react-router-dom";
-
-// import { Pages, PagesAnotherUser } from "Pages/Routes";
-// import { PagesLogin } from "Pages/Routes";
-
-import React, { useEffect } from "react";
-import { Header } from "../Common/UI/Header/Organoids/Header";
 import "./index.css";
+import "./App.css";
 import "./font.css";
-import { Footer } from "../Common/UI/Footer/Organoids/Footer";
+import { Route, Routes, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { useStore } from "effector-react";
+import { $userName } from "./common/UserHooks";
+import { $userAnotherName } from "./common/UserAnotherHooks";
+import { $accessToken } from "./common/AccessToken";
+import { accessTokenName } from "./common/AxiosInstance";
+import { Header } from "./ui/header/organoids/Header";
+import { Footer } from "./ui/footer/organoids/Footer";
+import { Major } from "./pages/major/ogranoids/Major";
+import { Home } from "./pages/home/ogranoids/Home";
+import { Registration } from "./pages/registration/organoids/Registration";
+import { Login } from "./pages/login/organoids/Login";
+import { Forgot } from "./pages/forgot/organoids/Forgot";
+import { Chat } from "./pages/chat/ogranoids/Chat";
+import { User } from "./pages/user/ogranoids/user";
+import { Search } from "./pages/search/ogranoids/Search";
+import { AnotherUser } from "./pages/useranother/ogranoids/AnotherUser";
+import { ChangeUser } from "./pages/userchange/organoids/ChangeUser";
 export interface IRoute {
   link: string;
   title: string;
   component: JSX.Element;
 }
 
-import "../Common/Assets/Logo/LogoMin.png";
-import "../Common/Assets/Logo/LogoMin.jpg";
-import { Major } from "Pages/Major/Ogranoids/Major";
-import { Home } from "Pages/Home/Ogranoids/Home";
-import { Registration } from "Pages/Registration/Organoids/Registration";
-import { Login } from "Pages/Login/Organoids/Login";
-import { AnotherUser } from "Pages/AnotherUser/Ogranoids/AnotherUser";
-import { Forgot } from "Pages/Forgot/Organoids/Forgot";
-import { User } from "Pages/User/Ogranoids/User";
-import { Search } from "Pages/Search/Ogranoids/Search";
-import { $userName } from "../Common/hooksUser";
-import { useStore } from "effector-react";
-import { $anotheUserName } from "../Common/hooksAnotherUser";
-import { Chat } from "Pages/Chat/Ogranoids/Chat";
-
-import { $accessToken, setaccessToken } from "../Common/accessToken";
-import { accessTokenName } from "../Common/axiosInstance";
-import { ChangeUser } from "Pages/ChangeUser/Organoids/ChangeUser";
-
 export function App() {
   let navigate = useNavigate();
   const userName = useStore($userName);
-  const anotheUserName = useStore($anotheUserName);
+  const UserAnotherName = useStore($userAnotherName);
   const accessToken = useStore($accessToken);
 
   useEffect(()=>{
     if (!localStorage.getItem(accessTokenName)?.length) {
     }else{
-      setaccessToken(localStorage.getItem(accessTokenName))
+      // setAccessToken(localStorage.getItem(accessTokenName))
     }
   },[])
 
@@ -53,10 +46,10 @@ export function App() {
   },[accessToken, userName])
 
   useEffect(()=>{
-    if(anotheUserName){
-      navigate(`/AnotherUser/${anotheUserName}`);
+    if(UserAnotherName){
+      navigate(`/AnotherUser/${UserAnotherName}`);
     }
-  },[anotheUserName])
+  },[UserAnotherName])
 
   return (
     <div className="App">
@@ -70,9 +63,7 @@ export function App() {
           <Route path="/Home/Subscriptions" element={<Home />}/>
           <Route path="/Login" element={<Login />}></Route>
           <Route path="/Registration" element={<Registration />}></Route>
-          {/* <Route path="/User" element={<User />}></Route> */}
           <Route path="/Forgot" element={<Forgot />}></Route>
-          {/* <Route path="/AnotherUser" element={<AnotherUser />}></Route> */}
           <Route path="/Chat" element={<Chat />}></Route>
           <Route path="/Search" element={<Search />}></Route>
           <Route
@@ -88,28 +79,27 @@ export function App() {
           />
            <Route
             element={<AnotherUser />}
-            path="/AnotherUser/:AnotheUserName"
+            path="/AnotherUser/:UserAnotherName"
             loader={async ({ params }) => {
-              return anotheUserName;
+              return UserAnotherName;
             }}
             action={async ({ request }) => {
-              return anotheUserName;
+              return UserAnotherName;
             }}
             errorElement={<Major />}
           />
           <Route
             element={<ChangeUser />}
-            path="/ChangeUser/:AnotheUserName"
+            path="/ChangeUser/:UserAnotherName"
             loader={async ({ params }) => {
-              return anotheUserName;
+              return UserAnotherName;
             }}
             action={async ({ request }) => {
-              return anotheUserName;
+              return UserAnotherName;
             }}
             errorElement={<Major />}
           />
         </Routes>
-       
       </div>
       <Footer />
     </div>

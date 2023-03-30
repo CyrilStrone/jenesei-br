@@ -1,5 +1,3 @@
-import React from "react";
-
 export const HomeTopVeryMounth = () => {
   let dateMonth = new Date().getMonth();
   let Mount = [
@@ -37,7 +35,7 @@ export const HomeTopVeryMounth = () => {
     <div className="HomeTopVeryMounth">
       {"В "}
       {Mount[dateMonth] + " "}
-      {CoolPrases[getRandomInt(0,CoolPrases.length-1)]+" "}
+      {CoolPrases[getRandomInt(0, CoolPrases.length - 1)] + " "}
       {"по версии "}
       <div className="HomeTopVeryMounth_BR">Business Roulette</div>
     </div>

@@ -1,16 +1,16 @@
-import React, {useEffect, useState} from "react";
-import "../Styles/Major.css";
-import "../Styles/MajorScroll.css";
-import "../Styles/MajorUser.css";
-import "../Styles/MajorSkills.css";
+import {useEffect, useState} from "react";
+import "../styles/Major.css";
+import "../styles/MajorScroll.css";
+import "../styles/MajorUser.css";
+import "../styles/MajorSkills.css";
 
 import {Link} from "react-router-dom";
-import Picture from '../../../Common/Assets/Major/Mans.svg';
-import PictureGoogle from '../../../Common/Assets/Major/GoogleLogo.png';
-import { MajorScroll } from "../Molecules/MajorScroll";
-import { MajorSkills } from "../Molecules/MajorSkills";
-import { setcheckLoginPage } from "../../../Common/hooksHome";
-import { ILoginUser, loginUser } from "Pages/Login/Logics/loginUser";
+import Picture from '../../../common/assets/major/Mans.svg';
+import PictureGoogle from '../../../common/assets/major/GoogleLogo.png';
+import { setcheckLoginPage } from "../../../common/HomeHooks";
+import { MajorScroll } from "../molecules/MajorScroll";
+import { MajorSkills } from "../molecules/MajorSkills";
+import { ILoginUser, loginUser } from "../../login/logics/loginUser";
 
 export const Major = () => {
     useEffect(() => {

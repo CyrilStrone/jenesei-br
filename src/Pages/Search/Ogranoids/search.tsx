@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { SearchPast } from "../Molecules/SearchPast";
-import "../Styles/Search.css";
-import "../Styles/SearchPast.css";
-import SearchPicture from "../../../Common/Assets/Search/Search.svg";
-import FilterPicture from "../../../Common/Assets/Search/Filter.svg";
-import { $usersPastTop } from "../../../Common/hooksHome";
+import { useEffect, useState } from "react";
+import "../styles/Search.css";
+import "../styles/SearchPast.css";
+import SearchPicture from "../../../common/assets/search/Search.svg";
+import FilterPicture from "../../../common/assets/search/Filter.svg";
 import { useStore } from "effector-react";
-import { SearchUser } from "../Logics/SearchUser";
+import { $usersPastTop } from "../../../common/HomeHooks";
+import { SearchUser } from "../logics/SearchUser";
+import { SearchPast } from "../molecules/SearchPast";
 
 export const requestSearchUser = async () => {
     await SearchUser();

@@ -1,5 +1,5 @@
-import { axiosInstance } from "../../../Common/axiosInstance";
-import { requestSearchUser } from "../Ogranoids/Search";
+import { axiosInstance } from "../../../common/AxiosInstance";
+import { requestSearchUser } from "../ogranoids/Search";
 export interface IGetDeleteUser {
     id: number
 }

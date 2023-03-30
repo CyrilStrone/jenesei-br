@@ -1,7 +1,6 @@
 import { useStore } from "effector-react";
-import React from "react";
-import { $usersPastTop } from "../../../Common/hooksHome";
-import { HomePastBlock, IHomePastBlock } from "../Atomes/HomePastBlock";
+import { $usersPastTop } from "../../../common/HomeHooks";
+import { HomePastBlock, IHomePastBlock } from "../atomes/HomePastBlock";
 
 export const HomePast = () => {
   const usersPastTop = useStore($usersPastTop);

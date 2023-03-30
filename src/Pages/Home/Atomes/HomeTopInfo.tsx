@@ -1,8 +1,5 @@
 import { useStore } from "effector-react";
-import React from "react";
-import { $userTopHomeJob, $userTopHomeStackes } from "../../../Common/hooksHome";
-import { $userTopHomeShortDescription } from "../../../Common/hooksHome";
-import { $userTopHomeName } from "../../../Common/hooksHome";
+import { $userTopHomeJob, $userTopHomeName, $userTopHomeShortDescription, $userTopHomeStackes } from "../../../common/HomeHooks";
 
 export const HomeTopInfo = () => {
   const userTopHomeName = useStore($userTopHomeName);

@@ -1,5 +1,7 @@
-import { setaccessToken } from "../../../Common/accessToken";
-import { axiosInstance } from "../../../Common/axiosInstance";
+import { setAccessToken } from "../../../common/AccessToken"
+import { axiosInstance } from "../../../common/AxiosInstance"
+
+
 export interface IRegistrationUser {
     email: string
     password: string
@@ -15,8 +17,8 @@ export const registrationUser = async (params: IRegistrationUser) => {
         "lastName": params.lastName,
         "birthDate": "2023-01-31T16:45:18.818Z"
     })
-        .then((res: any) => { setaccessToken(res.data.token) })
+        .then((res: any) => { setAccessToken(res.data.token) })
         .catch(() => {
-            setaccessToken("")
+            setAccessToken("")
         })
 }

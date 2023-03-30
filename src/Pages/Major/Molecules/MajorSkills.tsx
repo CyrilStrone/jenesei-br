@@ -1,7 +1,6 @@
-import React from "react";
 import {useStore} from "effector-react";
-import {$generalSkill} from "../../../Common/hooksGeneral";
 import { Link } from "react-router-dom";
+import { $generalSkill } from "../../../common/GeneralHooks";
 
 export const MajorSkills = () => {
     //    const [passwordCheck, setPasswordCheck] = useState(false);

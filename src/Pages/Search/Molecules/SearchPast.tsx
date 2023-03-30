@@ -1,5 +1,4 @@
-import React from "react";
-import { SearchPastBlock } from "../Atomes/SearchPastBlock";
+import { SearchPastBlock } from "../atomes/SearchPastBlock";
 
 interface ISearchPast{
   userList:any

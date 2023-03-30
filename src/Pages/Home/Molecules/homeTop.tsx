@@ -1,15 +1,11 @@
 import { useStore } from "effector-react";
-import React from "react";
 import { useNavigate } from "react-router-dom";
-import {
-  $userTopHomeId,
-  $userTopHomeName,
-} from "../../../Common/hooksHome";
-import { setAnotheUserId } from "../../../Common/hooksAnotherUser";
-import { HomeTopInfo } from "../Atomes/HomeTopInfo";
-import { HomeTopPicture } from "../Atomes/HomeTopPicture";
-import { HomeTopVeryDay } from "../Atomes/HomeTopVeryDay";
-import { HomeTopVeryMounth } from "../Atomes/HomeTopVeryMounth";
+import { $userTopHomeId, $userTopHomeName } from "../../../common/HomeHooks";
+import { setUserAnotherId } from "../../../common/UserAnotherHooks";
+import { HomeTopInfo } from "../atomes/HomeTopInfo";
+import { HomeTopPicture } from "../atomes/HomeTopPicture";
+import { HomeTopVeryDay } from "../atomes/HomeTopVeryDay";
+import { HomeTopVeryMounth } from "../atomes/HomeTopVeryMounth";
 
 export const HomeTop = () => {
   const userTopHomeName = useStore($userTopHomeName);
@@ -17,7 +13,7 @@ export const HomeTop = () => {
 
   let navigate = useNavigate();
   let handleClick = () => {
-    setAnotheUserId(userTopHomeId);
+    setUserAnotherId(userTopHomeId);
     var newuserName = userTopHomeName.replace(/ /g, "-");
     navigate(`/AnotherUser/${newuserName}`);
   };
@@ -31,7 +27,6 @@ export const HomeTop = () => {
           <HomeTopInfo />
         </div>
       </div>
-      {/* <div className="HomeTop_Oops"></div> */}
       <div className="HomeTop_Mounth">
         <HomeTopVeryMounth />
         <div className="HomeTop_Block">

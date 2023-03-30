@@ -1,6 +1,6 @@
-import React from "react";
-import { setAnotheUserId, setAnotheUserName } from "../../../Common/hooksAnotherUser";
-import { GetDeleteUser } from "../Logics/DeleteUser";
+import { setUserAnotherId, setUserAnotherName } from "../../../common/UserAnotherHooks";
+import { GetDeleteUser } from "../logics/DeleteUser";
+
 
 export interface ISearchPastBlock {
   Name?: string;
@@ -18,8 +18,8 @@ export interface ISearchPastBlock {
 
 export const SearchPastBlock = (params: ISearchPastBlock) => {
   let handleClick = () => {
-    setAnotheUserId(params.id)
-    setAnotheUserName(params.firstName + " " + (params.lastName))
+    setUserAnotherId(params.id)
+    setUserAnotherName(params.firstName + " " + (params.lastName))
   };
   const requestDeleteUser= async (id:number) => {
     await GetDeleteUser({id:id});

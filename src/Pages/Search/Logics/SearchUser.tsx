@@ -1,11 +1,12 @@
-import { setusersPastTop } from "../../../Common/hooksHome";
-import { axiosInstance } from "../../../Common/axiosInstance";
+import { axiosInstance } from "../../../common/AxiosInstance"
+import { setUsersPastTop } from "../../../common/HomeHooks"
+
 
 export const SearchUser = async () => {
     return axiosInstance.get(
         'user')
-        .then((res: any) => { setusersPastTop(res.data) })
+        .then((res: any) => { setUsersPastTop(res.data) })
         .catch(() => {
-            setusersPastTop([])
+            setUsersPastTop([])
         })
 }

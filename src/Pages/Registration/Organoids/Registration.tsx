@@ -1,13 +1,12 @@
 // import { useStore } from "effector-react";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "../Styles/Registration.css";
-import Picture from '../../../Common/Assets/Major/Mans.svg';
-import PictureGoogle from '../../../Common/Assets/Major/GoogleLogo.png';
-import {
-    IRegistrationUser, registrationUser,
-} from "../Logics/registrationUser";
-import { setcheckLoginPage } from "../../../Common/hooksHome";
+import "../styles/Registration.css";
+import Picture from '../../../common/assets/major/Mans.svg';
+import PictureGoogle from '../../../common/assets/major/GoogleLogo.png';
+import { IRegistrationUser, registrationUser } from "../logics/registrationUser";
+import { setcheckLoginPage } from "../../../common/HomeHooks";
+
 
 export const Registration = () => {
     useEffect(() => {
@@ -98,7 +97,7 @@ export const Registration = () => {
                             <input
                                 type="checkbox"
                                 className="checkbox"
-                                value={personalData && "checked"}
+                                value={personalData ? "checked" : ""}
                                 onChange={() => { setPersonalData(!personalData); personalData == false && setPersonalDataMismatch(false) }}
                             />
                             Даю согласие на обработку персональных данных

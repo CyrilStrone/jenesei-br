@@ -1,5 +1,6 @@
-import { setaccessToken } from "../../../Common/accessToken";
-import { axiosInstance } from "../../../Common/axiosInstance";
+import { setAccessToken } from "../../../common/AccessToken"
+import { axiosInstance } from "../../../common/AxiosInstance"
+
 export interface ILoginUser {
     email: string
     password: string
@@ -10,8 +11,8 @@ export const loginUser = async (params: ILoginUser) => {
         "email": params.email,
         "password": params.password,
     })
-        .then((res: any) => { setaccessToken(res.data.token) })
+        .then((res: any) => { setAccessToken(res.data.token) })
         .catch(() => {
-            setaccessToken("")
+            setAccessToken("")
         })
 }

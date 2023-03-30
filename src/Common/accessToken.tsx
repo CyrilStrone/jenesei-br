@@ -1,10 +1,11 @@
 import { createEvent, createStore } from "effector"
-import { accessTokenName } from "./axiosInstance";
-import { setuserAuthorization } from "./hooksUser";
+import { accessTokenName } from "./AxiosInstance";
+import { setUserAuthorization } from "./UserHooks";
+
 
 export const $accessToken = createStore("")
-export const setaccessToken = createEvent<string>()
-$accessToken.on(setaccessToken, (_, val) => val)
+export const setAccessToken = createEvent<string>()
+$accessToken.on(setAccessToken, (_, val) => val)
 
 $accessToken.updates.watch((token) => {
     localStorage.setItem(accessTokenName, token);
@@ -12,5 +13,5 @@ $accessToken.updates.watch((token) => {
   
 export const UserLogout =()=>{
     localStorage.setItem(accessTokenName, "");
-    setuserAuthorization(false)
+    setUserAuthorization(false)
 }

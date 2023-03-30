@@ -1,9 +1,6 @@
-import React from "react";
-import { MajorUser } from "../Atoms/MajorUser";
+import { MajorUser } from "../atomes/MajorUser";
 
 export const MajorScroll = () => {
-//    const [passwordCheck, setPasswordCheck] = useState(false);
-
     return (
             <div className="MajorScroll">
                 <div className="MajorScroll__Title">

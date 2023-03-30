@@ -1,6 +1,6 @@
 import { useStore } from "effector-react";
-import React, { useEffect, useState } from "react";
-import { $generalSkill, $generalSkillTime } from "../../../Common/hooksGeneral";
+import { useEffect, useState } from "react";
+import { $generalSkill, $generalSkillTime } from "../../../common/GeneralHooks";
 
 export interface IHomeListSkill {
   setDisabled1: React.Dispatch<React.SetStateAction<boolean>>;
@@ -15,9 +15,11 @@ export const HomeListSkill = (params: IHomeListSkill) => {
 
   const generalSkill = useStore($generalSkill);
   const generalSkillTime = useStore($generalSkillTime);
+
   useEffect(() => {
     setSkillSelect(generalSkill[0]);
   }, [generalSkill]);
+
   useEffect(() => {
     setSkillSelectTime(generalSkillTime[0]);
   }, [generalSkillTime]);
@@ -25,7 +27,7 @@ export const HomeListSkill = (params: IHomeListSkill) => {
   return (
     <div className="HomeListSkill">
       <div className="HomeListSkill_Choice">
-      <div className="HomeListSkill_Choice__Title__Black">Топ</div>
+        <div className="HomeListSkill_Choice__Title__Black">Топ</div>
         <div
           className={params.disabled1 ? "HomeListSkill_Choice__Title HomeListSkill_Choice__Title__Active" : "HomeListSkill_Choice__Title"}
           onClick={() => {
@@ -33,7 +35,7 @@ export const HomeListSkill = (params: IHomeListSkill) => {
             params.setDisabled2(false);
           }}
         >
-         {skillSelect}
+          {skillSelect}
         </div>
         {params.disabled1 && (
           <div
@@ -59,8 +61,7 @@ export const HomeListSkill = (params: IHomeListSkill) => {
         )}
       </div>
       <div className="HomeListSkill_Choice_Time">
-      <div className="HomeListSkill_Choice__Title__Black">за</div>
-
+        <div className="HomeListSkill_Choice__Title__Black">за</div>
         <div
           className={params.disabled2 ? "HomeListSkill_Choice__Title HomeListSkill_Choice_Time__Title HomeListSkill_Choice__Title__Active" : "HomeListSkill_Choice__Title HomeListSkill_Choice_Time__Title"}
           onClick={() => {

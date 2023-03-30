@@ -1,5 +1,3 @@
-import React from "react";
-
 export const HomeTopVeryDay = () => {
   let dateDay = new Date().getDate();
   let dateMonth = new Date().getMonth();
@@ -38,7 +36,7 @@ export const HomeTopVeryDay = () => {
     <div className="HomeTopVeryDay">
       {dateDay + " "}
       {Mount[dateMonth] + " "}
-      {CoolPrases[getRandomInt(0,CoolPrases.length-1)]+" "}
+      {CoolPrases[getRandomInt(0, CoolPrases.length - 1)] + " "}
       {"по версии "}
       <div className="HomeTopVeryDay_BR">Business Roulette</div>
     </div>
