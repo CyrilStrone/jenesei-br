@@ -17,18 +17,18 @@ export const FooterNav = (params: IFooterNav) => {
   const userName = useStore($userName);
   return (
     <>
-      {params.link == "User" ? (
+      {params.link === "User" ? (
         userAuthorization ? (
           <Link
             className={`${params.class} FooterNav`}
             to={`${params.link}/${userName}`}
             key={params.indexlink}
-            style={params.authorization == false ? { display: "none" } : {}}
+            style={params.authorization === false ? { display: "none" } : {}}
           >
             {params.text}
           </Link>
         ) : null
-      ) : params.link == "Login" ? (
+      ) : params.link === "Login" ? (
         userAuthorization ? null : (
           <Link
             className={`${params.class} FooterNav`}
@@ -38,7 +38,7 @@ export const FooterNav = (params: IFooterNav) => {
             {params.text}
           </Link>
         )
-      ) : params.link == "Registration" ? (
+      ) : params.link === "Registration" ? (
         userAuthorization ? null : (
           <Link
             className={`${params.class} FooterNav`}

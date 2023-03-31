@@ -13,7 +13,7 @@ export const Home = () => {
   const [disabled1, setDisabled1] = useState(false);
   const [disabled2, setDisabled2] = useState(false);
 
-  //onClick={()=>disabled == true ? setDisabled(false) : null}
+  //onClick={()=>disabled === true ? setDisabled(false) : null}
   return (
     <div className="Home" >
       <HomeMenu />

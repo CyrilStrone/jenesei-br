@@ -26,15 +26,15 @@ export const HeaderNav = (params: IHeaderNav) => {
                     {params.text}
                 </Link> :
                 params.userAuthorization ?
-                    params.userAuthorization == userAuthorization ?
+                    params.userAuthorization === userAuthorization ?
                         <Link to={`${params.link}`} className={`${params.class} HeaderNav`}>
                             {params.text}
                         </Link>
                         : null
                     :
-                    userAuthorization == true ?
+                    userAuthorization === true ?
                         null
-                        : checkLoginPage == params.checkLoginPage ?
+                        : checkLoginPage === params.checkLoginPage ?
                             <Link to={`${params.link}`} className={`${params.class} HeaderNav`}>
                                 {params.text}
                             </Link> : null

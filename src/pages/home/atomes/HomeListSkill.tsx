@@ -45,7 +45,7 @@ export const HomeListSkill = (params: IHomeListSkill) => {
             {generalSkill.map((e: any) => (
               <div
                 className={
-                  skillSelect == e
+                  skillSelect === e
                     ? " HomeListSkill_Choice__List_Item__Choise HomeListSkill_Choice__List_Item"
                     : "HomeListSkill_Choice__List_Item"
                 }
@@ -76,7 +76,7 @@ export const HomeListSkill = (params: IHomeListSkill) => {
             {generalSkillTime.map((e: any) => (
               <div
                 className={
-                  skillSelectTime == e
+                  skillSelectTime === e
                     ? " HomeListSkill_Choice__List_Item__Choise HomeListSkill_Choice__List_Item"
                     : "HomeListSkill_Choice__List_Item"
                 }

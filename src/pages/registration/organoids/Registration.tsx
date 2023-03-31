@@ -28,13 +28,13 @@ export const Registration = () => {
 
     let handleClick = () => {
         if (registrationValue.email && registrationValue.password && registrationValue.firstName && registrationValue.lastName) {
-            if (registrationValue.password == resetPassword.password && personalData) {
+            if (registrationValue.password === resetPassword.password && personalData) {
                 console.log("Все ок")
                 requestRegistration()
-            } else if (registrationValue.password == resetPassword.password && personalData == false) {
+            } else if (registrationValue.password === resetPassword.password && personalData === false) {
                 console.log("personalData не ок")
                 setPersonalDataMismatch(true)
-            } else if (personalData == true) {
+            } else if (personalData === true) {
                 console.log("password не ок")
                 setPasswordMismatch(true)
             } else {
@@ -98,7 +98,7 @@ export const Registration = () => {
                                 type="checkbox"
                                 className="checkbox"
                                 value={personalData ? "checked" : ""}
-                                onChange={() => { setPersonalData(!personalData); personalData == false && setPersonalDataMismatch(false) }}
+                                onChange={() => { setPersonalData(!personalData); personalData === false && setPersonalDataMismatch(false) }}
                             />
                             Даю согласие на обработку персональных данных
                         </div>

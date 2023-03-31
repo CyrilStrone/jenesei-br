@@ -54,7 +54,7 @@ export const Search = () => {
     };
 
     useEffect(() => {
-        if (value.text == '') {
+        if (value.text === '') {
             setUsersPastTopDublicat(usersPastTop)
         } else {
             handleSearch()
