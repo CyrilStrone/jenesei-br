@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useStore } from "effector-react";
-import { $userAuthorization } from "../../../common/UserHooks";
-import { $checkLoginPage } from "../../../common/HomeHooks";
+import { $userAuthorization } from "../../../scommon/UserHooks";
+import { $checkLoginPage } from "../../../scommon/HomeHooks";
 export interface IHeaderNav {
     id?: string;
     text?: string;

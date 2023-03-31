@@ -1,6 +1,6 @@
 import { useStore } from "effector-react";
 import { Link } from "react-router-dom";
-import { $userAuthorization, $userName } from "../../../common/UserHooks";
+import { $userAuthorization, $userName } from "../../../scommon/UserHooks";
 
 export interface IFooterNav {
   id?: string;

@@ -14,11 +14,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx",
-    "paths": {
-      "Common/*": [".src/common/*"],
-      "Pages/*": [".src/pages/*"]
-    }
+    "jsx": "react-jsx"
   },
   "include": ["src"]
 }

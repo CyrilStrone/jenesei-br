@@ -1,9 +1,6 @@
-import { HeaderGeneral } from "../molecules/Headergeneral";
 import "../styles/Header.css"
 import "../styles/Burger.css"
-
-
-
+import { HeaderGeneral } from "../molecules/HeaderGeneral";
 
 export const Header = () => {
   return (

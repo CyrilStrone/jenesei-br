@@ -4,10 +4,10 @@ import "./font.css";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useStore } from "effector-react";
-import { $userName } from "./common/UserHooks";
-import { $userAnotherName } from "./common/UserAnotherHooks";
-import { $accessToken } from "./common/AccessToken";
-import { accessTokenName } from "./common/AxiosInstance";
+import { $userName } from "./scommon/UserHooks";
+import { $userAnotherName } from "./scommon/UserAnotherHooks";
+import { $accessToken } from "./scommon/AccessToken";
+import { accessTokenName } from "./scommon/AxiosInstance";
 import { Header } from "./ui/header/organoids/Header";
 import { Footer } from "./ui/footer/organoids/Footer";
 import { Major } from "./pages/major/ogranoids/Major";
@@ -27,7 +27,7 @@ export interface IRoute {
 }
 
 export function App() {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   const userName = useStore($userName);
   const UserAnotherName = useStore($userAnotherName);
   const accessToken = useStore($accessToken);

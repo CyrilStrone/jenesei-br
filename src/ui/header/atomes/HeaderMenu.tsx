@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { IHeaderNav } from "./HeaderNav";
 import "../styles/HeaderMenu.css";
 import { Cross as Hamburger } from "hamburger-react";
-import { $actualPage, setActualPage } from "../../../common/HomeHooks";
+import { $actualPage, setActualPage } from "../../../scommon/HomeHooks";
 
 export const HeaderMenu = () => {
   const actualPage = useStore($actualPage);

@@ -1,6 +1,6 @@
 import logo from "../../../common/assets/logo/LogoMin.jpg";
 import { useStore } from "effector-react";
-import { $userName } from "../../../common/UserHooks";
+import { $userName } from "../../../scommon/UserHooks";
 import { Headerlogo, IHeaderlogo } from "../atomes/HeaderLogo";
 import { HeaderNav, IHeaderNav } from "../atomes/HeaderNav";
 import { Link } from "react-router-dom";
