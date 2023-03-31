@@ -1,6 +1,21 @@
 import { createEvent, createStore } from "effector";
 
 export const $generalSkill = createStore<string[]>([
+  "CSharp",
+  "TypeScript",
+  "JavaScript",
+]);
+export const setGeneralSkill = createEvent<string[]>();
+$generalSkill.on(setGeneralSkill, (_, val) => val);
+
+export const $generalCountry = createStore<string[]>([
+  "Russia",
+  "USA",
+]);
+export const setGeneralCountry = createEvent<string[]>();
+$generalCountry.on(setGeneralCountry, (_, val) => val);
+
+export const $generalSpeciality = createStore<string[]>([
   "Business Analyst",
   "Database Analyst",
   "Data Analyst",
@@ -30,11 +45,13 @@ export const $generalSkill = createStore<string[]>([
   "Mobile application developer",
   "Designer",
 ]);
-export const setGeneralSkill = createEvent<string[]>();
-$generalSkill.on(setGeneralSkill, (_, val) => val);
-export const $generalSkillTime = createStore<string[]>(["Все время","Месяц","Неделю"]);
-  export const setGeneralSkillTime = createEvent<string[]>();
-  $generalSkillTime.on(setGeneralSkillTime, (_, val) => val);
+export const setgeneralSpeciality = createEvent<string[]>();
+$generalSpeciality.on(setgeneralSpeciality, (_, val) => val);
+
+export const $generalSpecialityTime = createStore<string[]>(["Все время", "Месяц", "Неделю"]);
+export const setgeneralSpecialityTime = createEvent<string[]>();
+$generalSpecialityTime.on(setgeneralSpecialityTime, (_, val) => val);
+
 export const $generalPrograms = createStore<string[]>([
   //Web Servers
   "Apache",
@@ -65,6 +82,6 @@ export const $generalPrograms = createStore<string[]>([
 export const setGeneralPrograms = createEvent<string[]>();
 $generalPrograms.on(setGeneralPrograms, (_, val) => val);
 
-export const $menuBurger = createStore<boolean>(false)  
+export const $menuBurger = createStore<boolean>(false)
 export const setMenuBurger = createEvent<boolean>()
-$menuBurger.on(setMenuBurger, (_,val)=> val);
+$menuBurger.on(setMenuBurger, (_, val) => val);

@@ -1,0 +1,9 @@
+.HomeRecommendationUserCard {
+  width: 100%;
+  min-height: 400px;
+  border-radius: 14px;
+  background: #ffffff;
+  border: 1px solid #e0dfdc;
+  padding: 26px;
+  box-sizing: border-box;
+}

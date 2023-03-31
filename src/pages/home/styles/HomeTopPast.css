@@ -1,0 +1,7 @@
+.HomeTopPast {
+  width: 100%;
+  display: flex;
+  gap: 8px;
+  flex-direction: row;
+  flex-wrap: wrap;
+}

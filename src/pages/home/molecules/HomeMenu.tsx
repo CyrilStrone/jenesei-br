@@ -1,4 +1,6 @@
-import { Link } from "react-router-dom";
+import "../styles/HomeMenu.css";
+
+import { NavLink } from "react-router-dom";
 export const HomeMenu = (props: any) => {
   interface IHomeMenuArray {
     Title: string;
@@ -22,12 +24,13 @@ export const HomeMenu = (props: any) => {
   return (
     <div className="HomeMenu">
       {HomeMenuArray.map((e: IHomeMenuArray) => (
-        <Link
+        <NavLink
           key={e.Link}
           to={e.Link}
+          className={(navData) => navData.isActive ? "HomeMenu__Active" : "" }
         >
           {e.Title}
-        </Link>
+        </NavLink>
       ))}
     </div>
   );

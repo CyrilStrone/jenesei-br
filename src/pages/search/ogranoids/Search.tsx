@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 import "../styles/Search.css";
 import "../styles/SearchPast.css";
-import SearchPicture from "../../../common/assets/search/Search.svg";
-import FilterPicture from "../../../common/assets/search/Filter.svg";
 import { useStore } from "effector-react";
 import { $usersPastTop } from "../../../common/HomeHooks";
 import { SearchUser } from "../logics/SearchUser";
 import { SearchPast } from "../molecules/SearchPast";
+import { SearchBar } from "../molecules/SearchBar";
 
 export const requestSearchUser = async () => {
     await SearchUser();
@@ -16,7 +15,6 @@ export const Search = () => {
     const usersPastTop = useStore($usersPastTop);
     const [usersPastTopDublicat, setUsersPastTopDublicat] = useState<any>([])
     const [value, setValue] = useState<any>({ text: "" });
-
     
     useEffect(()=>{
       requestSearchUser()
@@ -33,12 +31,6 @@ export const Search = () => {
     },[usersPastTopDublicat])
     
 
-    const handleTextChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setValue((prevPerson: any) => ({
-            ...prevPerson,
-            text: event.target.value
-        }));
-    };
 
     const handleSearch = () => {
         let NewCodeItemsDublicat: any[] = [];
@@ -63,15 +55,7 @@ export const Search = () => {
     
     return (
         <div className="Search">
-            <div className="Search-input">
-                <img src={SearchPicture} />
-                <input type="search" placeholder={"Поиск пользователей"} value={value.text} onChange={(event: any) => handleTextChange(event)} />
-                <div className="Search-input_Filter">
-                    <img src={FilterPicture} />
-
-                </div>
-            </div>
-            <div className="Search_VeryPeople_Past">Пользователи</div>
+            <SearchBar value={value} setValue={setValue}/>
             <SearchPast userList={usersPastTopDublicat} />
         </div>
     );

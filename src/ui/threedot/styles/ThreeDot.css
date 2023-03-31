@@ -1,0 +1,10 @@
+.ThreeDot {
+    display: flex;
+    gap: 4px;
+    width: 100%;
+    justify-content: center;
+}
+.ThreeDot img {
+  width: 6px;
+  height: 6px;
+}

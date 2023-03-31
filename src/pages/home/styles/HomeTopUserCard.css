@@ -1,0 +1,18 @@
+.HomeTopUserCard {
+  width: 364px;
+  padding: 26px;
+  background: #ffffff;
+  border: 1px solid #e0dfdc;
+  border-radius: 14px;
+  min-height: 180px;
+  box-sizing: border-box;
+}
+.HomeTopUserCardZero {
+  width: 464px;
+  padding: 26px;
+  background: #ffffff;
+  border: 1px solid #e0dfdc;
+  border-radius: 14px;
+  min-height: 180px;
+  box-sizing: border-box;
+}

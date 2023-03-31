@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useStore } from "effector-react";
 import { $userAuthorization } from "../../../common/UserHooks";
 import { $checkLoginPage } from "../../../common/HomeHooks";
@@ -22,9 +22,9 @@ export const HeaderNav = (params: IHeaderNav) => {
     return (
         <>
             {!params.authorization ?
-                <Link to={`${params.link}`} className={`${params.class} HeaderNav`}>
+                <NavLink className={(navData) => navData.isActive ? `HeaderNav__Active ${params.class} HeaderNav` : `${params.class} HeaderNav` } to={`${params.link}`}>
                     {params.text}
-                </Link> :
+                </NavLink> :
                 params.userAuthorization ?
                     params.userAuthorization === userAuthorization ?
                         <Link to={`${params.link}`} className={`${params.class} HeaderNav`}>

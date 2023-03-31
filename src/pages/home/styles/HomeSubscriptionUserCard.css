@@ -1,0 +1,9 @@
+.HomeSubscriptionUserCard{
+    width: 520px;
+    padding: 26px;
+    background: #ffffff;
+    border: 1px solid #e0dfdc;
+    border-radius: 14px;
+    min-height: 280px;
+    box-sizing: border-box;
+}

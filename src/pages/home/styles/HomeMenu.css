@@ -1,39 +1,22 @@
 .HomeMenu a {
-  width: 150px;
-  height: 38px;
+  background: #ffffff;
+  border-radius: 25px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  color: #ffffff;
-  background: #0e8ac3;
-  border-radius: 6px;
+  color: #0e8ac3;
+  padding: 8px 40px 8px 40px;
   text-decoration: none;
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 15px;
-  line-height: 103.01%;
-  border: 1px solid #0e8ac3;
-  transition-duration: 0.2s;
-  margin: 10px;
-}
-.HomeMenu a:nth-child(2) {
-  /* margin-right: 0;
-  margin-bottom: 10px; */
-}
-.HomeMenu :last-child {
-  /* margin-right: 0;
-  margin-bottom: 0;
-  margin-left: 25px; */
-}
-.HomeMenu a:hover {
-  color: #0e8ac3 !important;
-  background: #ffffff !important;
   border: 1px solid #0e8ac3 !important;
+  transition-duration: 0.2s;
 }
 .HomeMenu__Active {
-  color: #0e8ac3 !important;
-  background: #ffffff !important;
+  color: #ffffff !important;
+  background: #0e8ac3 !important;
   border: 1px solid #0e8ac3 !important;
 }
 .HomeMenu {
@@ -42,10 +25,10 @@
   flex-direction: row;
   flex-wrap: wrap;
   align-self: flex-start;
+  gap: 20px;
 }
 @media (orientation: portrait) {
   .HomeMenu {
     justify-content: space-between;
 }
-.HomeMenu a{}
 }

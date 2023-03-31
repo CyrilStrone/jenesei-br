@@ -1,0 +1,7 @@
+.HomeRecommendation{
+    width: 100%;
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}

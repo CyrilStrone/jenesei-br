@@ -17,7 +17,6 @@
 }
 
 .MajorScroll__Block {
-    max-height: 420px;
     overflow: hidden;
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -25,6 +24,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    gap: 25px;
 }
 
 .MajorScroll__Block__Picture__Absolute {
@@ -33,8 +33,7 @@
     left: 0;
     bottom: 0;
     right: 0;
-    max-height: 420px;
-    width: 100%;
+height: 100%;    width: 100%;
 }
 
 .MajorScroll__Block__Picture__Relative {

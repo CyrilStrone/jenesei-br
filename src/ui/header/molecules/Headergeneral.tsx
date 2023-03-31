@@ -8,9 +8,7 @@ import { HeaderMenu } from "../atomes/HeaderMenu";
 
 export const HeaderGeneral = () => {
     const userName = useStore($userName);
-    const HeaderlogoArray: IHeaderlogo[] = [
-        { link: "/Home/Top", indexlink: "0", class: "Headerlogo_Elem", img: logo },
-    ];
+    const HeaderlogoArray: IHeaderlogo = { link: "/Home/Top", indexlink: "0", class: "Headerlogo_Elem", img: logo };
 
     let HeaderNavArrayUser: IHeaderNav[] = [];
     let HeaderNavArrayCenter: IHeaderNav[] = [];
@@ -51,15 +49,13 @@ export const HeaderGeneral = () => {
     return (
         <div className={`HeaderGeneral`}>
             <div className={`HeaderGeneral_Logo`}>
-                {HeaderlogoArray.map((e, i) => (
-                    <Headerlogo
-                        key={e.indexlink}
-                        link={e.link}
-                        indexlink={e.indexlink}
-                        class={e.class}
-                        img={e.img}
-                    />
-                ))}
+                <Headerlogo
+                    key={HeaderlogoArray.indexlink}
+                    link={HeaderlogoArray.link}
+                    indexlink={HeaderlogoArray.indexlink}
+                    class={HeaderlogoArray.class}
+                    img={HeaderlogoArray.img}
+                />
                 <Link to={`/Home/Top`} className={`HeaderGeneral_Navs_Title_Style-BLue`}>
                     Business
                 </Link>

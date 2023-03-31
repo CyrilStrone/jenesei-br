@@ -1,10 +1,10 @@
 import {useStore} from "effector-react";
 import { Link } from "react-router-dom";
-import { $generalSkill } from "../../../common/GeneralHooks";
+import { $generalSpeciality } from "../../../common/GeneralHooks";
 
 export const MajorSkills = () => {
     //    const [passwordCheck, setPasswordCheck] = useState(false);
-    const generalSkill = useStore($generalSkill);
+    const generalSpeciality = useStore($generalSpeciality);
 
     return (
         <div className="MajorSkills">
@@ -16,7 +16,7 @@ export const MajorSkills = () => {
                     ПРЕДЛАГАЕМЫЕ ЗАПРОСЫ ПОИСКА
                 </div>
                 <div className="MajorSkills__Block__Skills">
-                    {generalSkill.map((e: any, id: any) =>
+                    {generalSpeciality.map((e: any, id: any) =>
                         id < 7 && <div className="MajorSkills__Block__Skills__Block">{e}</div>
                     )}
                 </div>

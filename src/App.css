@@ -3,7 +3,8 @@ body {
   padding: 0;
 }
 .App_Actual {
-  padding-top: 18px;
+  padding-top: 34px;
+  padding-bottom: 34px;
   height: 100%;
   width: 60%;
   display: flex;
@@ -15,7 +16,7 @@ body {
 }
 @media (max-width: 1920px) {
   .App_Actual {
-    width: 80%;
+    width: 1200px;
   }
 }
 .App {
@@ -28,7 +29,19 @@ body {
   background: #F3F2EF;
 
 }
-@media (max-width: 730px) {
+.App:has(.Major) {
+  background: #fff;
+
+}
+.App:has(.Registration) {
+  background: #fff;
+
+}
+.App:has(.Major) {
+  background: #fff;
+
+}
+@media (max-width: 1200px) {
   .App_Actual {
     width: 96%;
   }

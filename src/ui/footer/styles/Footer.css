@@ -46,12 +46,6 @@
   width: 100px;
   padding-bottom: 100px;
 }
-@media (max-width: 1920px) {
-  .FooterGeneral {
-    width: 80%;
-  }
-}
-
 
 .FooterGeneral_Navs {
   display: flex;
@@ -100,6 +94,16 @@
 
   text-decoration: none;
   color: #0a142f;
+}
+@media (max-width: 1920px) {
+  .FooterGeneral {
+    width: 1200px;
+  }
+}
+@media (max-width: 1200px) {
+  .FooterGeneral {
+    width: 96%;
+  }
 }
 @media (max-width: 730px) {
   .FooterGeneral {

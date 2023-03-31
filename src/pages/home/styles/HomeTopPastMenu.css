@@ -1,0 +1,11 @@
+.HomeTopPastMenu {
+  width: 100%;
+  display: flex;
+  gap: 18px;
+  padding: 18px;
+  height: 112px;
+  background: #ffffff;
+  border: 1px solid #e0dfdc;
+  border-radius: 14px;
+  box-sizing: border-box;
+}

@@ -1,220 +1,225 @@
 .HeaderGeneral {
-    display: flex;
-    height: 60px;
-    align-items: center;
-    justify-content: center;
-    width: 60%;
-    position: relative;
+  display: flex;
+  height: 60px;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+  position: relative;
 }
 
 .HeaderGeneral a {
-    font-family: "Inter";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 22px;
-    text-decoration: none;
-    color: #000000;
-    display: block;
-    white-space: nowrap;
-    transition-duration: 0.5s;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  text-decoration: none;
+  color: #000000;
+  display: block;
+  white-space: nowrap;
+  transition-duration: 0.5s;
 }
 
+.HeaderNav__Active {
+  color: #0e8ac3 !important;
+}
 .HeaderNav_Registration {
-    background: #0E8AC3;
-    border-radius: 6px;
-    color: white !important;
-    padding-left: 20px;
-    padding-top: 8px;
-    padding-bottom: 10px;
-    padding-right: 20px;
+  background: #0e8ac3;
+  border-radius: 6px;
+  color: white !important;
+  padding-left: 20px;
+  padding-top: 8px;
+  padding-bottom: 10px;
+  padding-right: 20px;
 }
 
 .HeaderNav_Registration:hover {
-    background: none;
-    color: #0E8AC3 !important;
+  background: none;
+  color: #0e8ac3 !important;
 }
-
 .HeaderGeneral_Navs__Style-Center a {
-    margin-right: 15px;
+  margin-right: 15px;
 }
 
 .HeaderGeneral_Navs__Style-Center a:last-child {
-    margin-right: 0px;
+  margin-right: 0px;
 }
 
 .HeaderGeneral_Navs__Style-Center a:hover {
-    color: #0E8AC3;
+  color: #0e8ac3;
 }
 
 .HeaderGeneral_Navs__Style-Center a:active {
-    color: #0E8AC3;
+  color: #0e8ac3;
 }
 
 .HeaderGeneral_Navs__Style-Center {
-    display: flex;
+  display: flex;
 }
 
 .Header {
-    background-color: #ffffff;
-    display: flex;
-    justify-content: center;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
 }
 
 .Headerlogo_Elem img {
-    height: 80%;
+  height: 80%;
 }
 
 .HeaderGeneral_Navs {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    box-sizing: border-box;
-    /* width: 100%; */
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  box-sizing: border-box;
+  /* width: 100%; */
 }
 
 .HeaderGeneral_Navs_Title_Style-BLue {
-    margin-left: 10px;
-    font-family: "Inter" !important;
-    font-style: normal !important;
-    font-weight: 600 !important;
-    font-size: 16px !important;
-    line-height: 72.02% !important;
-    color: #0a78ac !important;
+  margin-left: 10px;
+  font-family: "Inter" !important;
+  font-style: normal !important;
+  font-weight: 600 !important;
+  font-size: 16px !important;
+  line-height: 72.02% !important;
+  color: #0a78ac !important;
 }
 
 .HeaderGeneral_Navs_Title_Style-Black {
-    margin-left: 2px;
-    font-family: "Inter" !important;
-    font-style: normal !important;
-    font-weight: 600 !important;
-    font-size: 16px !important;
-    line-height: 72.02% !important;
-    color: #000000 !important;
+  margin-left: 2px;
+  font-family: "Inter" !important;
+  font-style: normal !important;
+  font-weight: 600 !important;
+  font-size: 16px !important;
+  line-height: 72.02% !important;
+  color: #000000 !important;
 }
 
 .HeaderGeneral_Navs a {
-    margin-right: 15px;
+  margin-right: 15px;
 }
 
 .HeaderGeneral_Navs a:hover {
-    color: #0E8AC3;
+  color: #0e8ac3;
 }
 
 .HeaderGeneral_Navs a:active {
-    color: #0E8AC3;
+  color: #0e8ac3;
 }
 
 .HeaderGeneral_Navs a:last-child {
-    margin-right: 0px;
-
+  margin-right: 0px;
 }
 
 .HeaderGeneral_Logo {
-    display: flex;
-    align-items: center;
-    height: 100%;
-    position: absolute;
-    left: 0;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  position: absolute;
+  left: 0;
 }
 
 .HeaderGeneral_Logo:hover .HeaderGeneral_Navs_Title_Style-BLue {
-    color: #000000 !important;
+  color: #000000 !important;
 }
 
 .HeaderGeneral_Logo:hover .HeaderGeneral_Navs_Title_Style-Black {
-    color: #0a78ac !important;
+  color: #0a78ac !important;
 }
 
 .HeaderGeneral_Burger {
-    position: relative !important;
+  position: relative !important;
 }
 
 .HeaderGeneral_Burger {
-    display: none;
+  display: none;
 }
 
 .HeaderGeneral_Title {
-    display: none;
+  display: none;
 }
 
 .HeaderNav_User {
-    padding-left: 26px !important;
-    padding-right: 26px !important;
-    background: #0E8AC3 !important;
-    border-radius: 25px !important;
-    font-family: 'Inter' !important;
-    font-style: normal !important;
-    font-weight: 500 !important;
-    font-size: 16px !important;
-    line-height: 24px !important;
-    height: 42px;
-    display: flex !important;
-    align-items: center !important;
-    text-align: center !important;
-    color: white !important;
-    position: absolute;
-    right: 0;
+  padding-left: 26px !important;
+  padding-right: 26px !important;
+  background: #0e8ac3 !important;
+  border-radius: 25px !important;
+  font-family: "Inter" !important;
+  font-style: normal !important;
+  font-weight: 500 !important;
+  font-size: 16px !important;
+  line-height: 24px !important;
+  height: 42px;
+  display: flex !important;
+  align-items: center !important;
+  text-align: center !important;
+  color: white !important;
+  position: absolute;
+  right: 0;
 }
 .HeaderNav_User:hover {
-    background: #0D719E !important;
+  background: #0d719e !important;
 }
 .HeaderNav_Picture {
-    background: #ffffff;
-    box-shadow: 0px 4.15001px 4.15001px rgba(0, 0, 0, 0.15),
+  background: #ffffff;
+  box-shadow: 0px 4.15001px 4.15001px rgba(0, 0, 0, 0.15),
     inset 0px -1.44768px 2.89536px rgba(0, 0, 0, 0.25);
-    border-radius: 25px;
+  border-radius: 25px;
 }
 
 .HeaderNav_Picture img {
-    padding: 9px !important;
-    padding-right: 8px !important;
-    padding-top: 8px !important;
+  padding: 9px !important;
+  padding-right: 8px !important;
+  padding-top: 8px !important;
 }
 
 @media (max-width: 1920px) {
-    .HeaderGeneral {
-        width: 80%;
-    }
+  .HeaderGeneral {
+    width: 1200px;
+  }
 }
-
+@media (max-width: 1200px) {
+  .HeaderGeneral {
+    width: 96%;
+  }
+}
 @media (orientation: portrait) {
-    .HeaderGeneral_Navs_Title_Style-BLue {
-        display: none !important;
-    }
+  .HeaderGeneral_Navs_Title_Style-BLue {
+    display: none !important;
+  }
 
-    .HeaderGeneral_Navs_Title_Style-Black {
-        display: none !important;
-    }
+  .HeaderGeneral_Navs_Title_Style-Black {
+    display: none !important;
+  }
 
-    .HeaderGeneral_Title {
-        display: block;
-        font-family: "San Francisco";
-        font-weight: 700;
-        font-size: 18px;
-        line-height: 26px;
-        color: #ffffff;
-    }
+  .HeaderGeneral_Title {
+    display: block;
+    font-family: "San Francisco";
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 26px;
+    color: #ffffff;
+  }
 
-    .HeaderGeneral_Navs__Style-Center {
-        display: none !important;
-    }
+  .HeaderGeneral_Navs__Style-Center {
+    display: none !important;
+  }
 
-    .HeaderGeneral_Navs {
-        display: none !important;
-    }
+  .HeaderGeneral_Navs {
+    display: none !important;
+  }
 
-    .HeaderGeneral {
-        width: 96%;
-        justify-content: flex-end;
-    }
+  .HeaderGeneral {
+    width: 96%;
+    justify-content: flex-end;
+  }
 
-    .HeaderGeneral_Navs {
-        /* display: none; */
-    }
+  .HeaderGeneral_Navs {
+    /* display: none; */
+  }
 
-    .HeaderGeneral_Burger {
-        display: flex;
-        flex-direction: column;
-    }
+  .HeaderGeneral_Burger {
+    display: flex;
+    flex-direction: column;
+  }
 }
