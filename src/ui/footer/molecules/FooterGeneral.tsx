@@ -2,7 +2,7 @@ import logo from "../../../common/assets/logo/LogoMin.png";
 
 import { useStore } from "effector-react";
 import { Link } from "react-router-dom";
-import { $userAuthorization } from "../../../scommon/UserHooks";
+import { $userAuthorization } from "../../../common/UserHooks";
 import { FooterNav, IFooterNav } from "../atomes/FooterrNav";
 import { Pages, PagesUser } from "../../../pages/Routes";
 
