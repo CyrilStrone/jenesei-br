@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
 import "../styles/Search.css";
 import "../styles/SearchPast.css";
+import { useEffect, useState } from "react";
 import { useStore } from "effector-react";
 import { $usersPastTop } from "../../../common/HomeHooks";
 import { SearchUser } from "../logics/SearchUser";
@@ -13,27 +13,11 @@ export const requestSearchUser = async () => {
 
 export const Search = () => {
     const usersPastTop = useStore($usersPastTop);
-    const [usersPastTopDublicat, setUsersPastTopDublicat] = useState<any>([])
+    const [usersPastTopDuplicate, setUsersPastTopDuplicate] = useState<any>([])
     const [value, setValue] = useState<any>({ text: "" });
-    
-    useEffect(()=>{
-      requestSearchUser()
-    },[])
-
-    useEffect(()=>{
-        if(usersPastTop){
-            setUsersPastTopDublicat(usersPastTop)
-        }
-    },[usersPastTop])
-    
-    useEffect(()=>{
-        console.log("usersPastTopDublicat",usersPastTopDublicat)
-    },[usersPastTopDublicat])
-    
-
-
     const handleSearch = () => {
         let NewCodeItemsDublicat: any[] = [];
+        // eslint-disable-next-line array-callback-return
         usersPastTop.map((e: any) => {
             for (let key in e) {
                 if (e[key] && e[key].toString().toLowerCase().includes(value.text.toLowerCase())) {
@@ -42,21 +26,32 @@ export const Search = () => {
                 }
             }
         })
-        setUsersPastTopDublicat(NewCodeItemsDublicat ? NewCodeItemsDublicat : null);
+        setUsersPastTopDuplicate(NewCodeItemsDublicat ? NewCodeItemsDublicat : null);
     };
+
+    useEffect(()=>{
+      requestSearchUser()
+    },[])
+
+    useEffect(()=>{
+        if(usersPastTop){
+            setUsersPastTopDuplicate(usersPastTop)
+        }
+    },[usersPastTop])
 
     useEffect(() => {
         if (value.text === '') {
-            setUsersPastTopDublicat(usersPastTop)
+            setUsersPastTopDuplicate(usersPastTop)
         } else {
             handleSearch()
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [value])
     
     return (
         <div className="Search">
             <SearchBar value={value} setValue={setValue}/>
-            <SearchPast userList={usersPastTopDublicat} />
+            <SearchPast userList={usersPastTopDuplicate} />
         </div>
     );
 };

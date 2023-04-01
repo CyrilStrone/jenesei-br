@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import { useStore } from "effector-react";
 import { $userName } from "./common/UserHooks";
 import { $userAnotherName } from "./common/UserAnotherHooks";
-import { $accessToken } from "./common/AccessToken";
+import { $accessToken, setAccessToken } from "./common/AccessToken";
 import { accessTokenName } from "./common/AxiosInstance";
 import { Header } from "./ui/header/organoids/Header";
 import { Footer } from "./ui/footer/organoids/Footer";
@@ -35,7 +35,8 @@ export function App() {
   useEffect(()=>{
     if (!localStorage.getItem(accessTokenName)?.length) {
     }else{
-      // setAccessToken(localStorage.getItem(accessTokenName))
+      const item = JSON.parse(localStorage.getItem(accessTokenName) || "");
+      setAccessToken(item)
     }
   },[])
 

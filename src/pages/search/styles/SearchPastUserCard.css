@@ -1,0 +1,58 @@
+.SearchPastUserCard {
+  width: 364px;
+  padding: 26px;
+  background: #ffffff;
+  border: 1px solid #e0dfdc;
+  border-radius: 14px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 10px;
+}
+.SearchPastUserCard__PictureBlock {
+}
+.SearchPastUserCard__PictureBlock img {
+  width: 92px;
+  height: 92px;
+}
+.SearchPastUserCard__InfoBlock {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  max-height: 92px;
+}
+.SearchPastUserCard__Name__firstName {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 20px;
+  color: #000000;
+  padding-bottom: 3px;
+}
+.SearchPastUserCard__Name__lastName {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 18px;
+  color: #585c60;
+}
+.SearchPastUserCard__id {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 135%;
+  color: #666666;
+}
+@media (orientation: portrait) {
+    .SearchPastUserCard{
+        width: 100%;
+    }
+}

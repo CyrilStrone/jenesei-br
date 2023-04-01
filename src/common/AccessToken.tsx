@@ -8,7 +8,7 @@ export const setAccessToken = createEvent<string>()
 $accessToken.on(setAccessToken, (_, val) => val)
 
 $accessToken.updates.watch((token) => {
-    localStorage.setItem(accessTokenName, token);
+    localStorage.setItem(accessTokenName, JSON.stringify(token));
 });
   
 export const UserLogout =()=>{

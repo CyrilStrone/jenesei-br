@@ -118,15 +118,14 @@ export const Registration = () => {
                     <div className="Registration_Block__OR">
                         Или
                     </div>
-                    <Link
+                    <div
                         className={`Registration_Block__Style-Google`}
-                        to={"/Home/Top"}
                     >
                         <img src={PictureGoogle} alt="Картинка" />
                         <div className={`Registration_Block__Style-Google__Text`}>
                             Войти, используя Google
                         </div>
-                    </Link>
+                    </div>
                     <div className="Registration_Block-Login">
                         У вас уже есть аккаунт?
                         <Link to={"/Login"}>Войти!</Link>

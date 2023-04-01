@@ -64,15 +64,14 @@ export const Major = () => {
                     <div className="Major-Block__OR">
                         Или
                     </div>
-                    <Link
+                    <div
                         className={`Major-Block__Login__Style-Google`}
-                        to={"/Home/Top"}
                     >
                         <img src={PictureGoogle} alt="Картинка"/>
                         <div className={`Major-Block__Login__Style-Google__Text`}>
                             Войти, используя Google
                         </div>
-                    </Link>
+                    </div>
                 </div>
                     <img src={Picture}  className="Major_Picture" alt="Картинка"/>
             </div>
