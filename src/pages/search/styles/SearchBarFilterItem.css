@@ -1,0 +1,30 @@
+.SearchBarFilterItem {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  color: #0e8ac3;
+  padding: 6px 8px 6px 8px;
+  background: #ffffff;
+  border: 1px solid #0e8ac3;
+  border-radius: 6px;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition-duration: 0.5s;
+}
+.SearchBarFilterItem:hover {
+  color: #ffffff;
+  background: #0e8ac3;
+}
+.SearchBarFilterItem__Active {
+  color: #ffffff;
+  background: #0e8ac3;
+}
+.SearchBarFilterItem__Count{
+    padding-left: 4px;
+    width: 6px;
+    display: flex;
+    align-items: center;
+}
