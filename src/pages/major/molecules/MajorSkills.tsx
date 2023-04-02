@@ -17,7 +17,7 @@ export const MajorSkills = () => {
                 </div>
                 <div className="MajorSkills__Block__Skills">
                     {generalSpeciality.map((e: any, id: any) =>
-                        id < 7 && <div className="MajorSkills__Block__Skills__Block">{e}</div>
+                        id < 7 && <div className="MajorSkills__Block__Skills__Block">{e.name}</div>
                     )}
                 </div>
                 <Link
