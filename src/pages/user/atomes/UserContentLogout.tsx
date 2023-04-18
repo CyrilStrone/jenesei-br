@@ -1,6 +1,6 @@
 import { useStore } from "effector-react";
 import { UserLogout } from "../../../common/AccessToken";
-import { $userAuthorization } from "../../../common/UserHooks";
+import { $userAuthorization } from "../../../common/Hooks";
 export interface IUserContentLogout {
   id?: string;
   class?: string;

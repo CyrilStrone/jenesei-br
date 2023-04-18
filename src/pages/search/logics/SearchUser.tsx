@@ -1,12 +1,11 @@
 import { axiosInstance } from "../../../common/AxiosInstance"
-import { setUsersPastTop } from "../../../common/HomeHooks"
 
 
 export const SearchUser = async () => {
     return axiosInstance.get(
         'user')
-        .then((res: any) => { setUsersPastTop(res.data) })
+        .then((res: any) => { return (res.data) })
         .catch(() => {
-            setUsersPastTop([])
+            console.log("SearchUser error")
         })
 }

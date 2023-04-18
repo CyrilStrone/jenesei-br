@@ -1,18 +1,13 @@
 // import { useStore } from "effector-react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/Registration.css";
 import Picture from '../../../common/assets/major/Mans.svg';
 import PictureGoogle from '../../../common/assets/major/GoogleLogo.png';
 import { IRegistrationUser, registrationUser } from "../logics/registrationUser";
-import { setcheckLoginPage } from "../../../common/HomeHooks";
 
 
-export const Registration = () => {
-    useEffect(() => {
-        setcheckLoginPage(true)
-    }, [])
-    
+export const Registration = () => { 
     const [passwordCheck1, setPasswordCheck1] = useState(true);
     const [passwordCheck2, setPasswordCheck2] = useState(true);
     const [passwordMismatch, setPasswordMismatch] = useState(false);

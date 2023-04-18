@@ -4,14 +4,13 @@ import "./font.css";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useStore } from "effector-react";
-import { $userName } from "./common/UserHooks";
+import { $userName } from "./common/Hooks";
 import { $userAnotherName } from "./common/UserAnotherHooks";
 import { $accessToken, setAccessToken } from "./common/AccessToken";
 import { accessTokenName } from "./common/AxiosInstance";
 import { Header } from "./ui/header/organoids/Header";
 import { Footer } from "./ui/footer/organoids/Footer";
 import { Major } from "./pages/major/ogranoids/Major";
-import { Home } from "./pages/home/ogranoids/Home";
 import { Registration } from "./pages/registration/organoids/Registration";
 import { Login } from "./pages/login/organoids/Login";
 import { Forgot } from "./pages/forgot/organoids/Forgot";
@@ -20,11 +19,9 @@ import { User } from "./pages/user/ogranoids/user";
 import { Search } from "./pages/search/ogranoids/Search";
 import { AnotherUser } from "./pages/useranother/ogranoids/AnotherUser";
 import { ChangeUser } from "./pages/userchange/organoids/ChangeUser";
-export interface IRoute {
-  link: string;
-  title: string;
-  component: JSX.Element;
-}
+import { HomeTop } from "./pages/home/ogranoids/HomeTop";
+import { HomeRecommendation } from "./pages/home/ogranoids/HomeRecommendation";
+import { HomeSubscription } from "./pages/home/ogranoids/HomeSubscription";
 
 export function App() {
   const navigate = useNavigate();
@@ -58,10 +55,10 @@ export function App() {
       <div className="App_Actual">
         <Routes>
           <Route path="/" element={<Major />}></Route>
-          <Route path="/Home" element={<Home />}></Route>
-          <Route path="/Home/Recommendations" element={<Home />}/>
-          <Route path="/Home/Top" element={<Home />}/>
-          <Route path="/Home/Subscriptions" element={<Home />}/>
+          <Route path="/Home" element={<HomeTop />}></Route>
+          <Route path="/Home/Recommendations" element={<HomeRecommendation />}/>
+          <Route path="/Home/Top" element={<HomeTop />}/>
+          <Route path="/Home/Subscriptions" element={<HomeSubscription />}/>
           <Route path="/Login" element={<Login />}></Route>
           <Route path="/Registration" element={<Registration />}></Route>
           <Route path="/Forgot" element={<Forgot />}></Route>

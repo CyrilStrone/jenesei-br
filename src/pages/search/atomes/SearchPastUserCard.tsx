@@ -1,5 +1,4 @@
 import { setUserAnotherId, setUserAnotherName } from "../../../common/UserAnotherHooks";
-import { GetDeleteUser } from "../logics/DeleteUser";
 import '../styles/SearchPastUserCard.css'
 import DefaultAva from "../../../common/assets/search/DefaultAva.png"
 export interface ISearchPastUserCard {
@@ -21,9 +20,7 @@ export const SearchPastUserCard = (params: ISearchPastUserCard) => {
     setUserAnotherId(params.id)
     setUserAnotherName(params.firstName + " " + (params.lastName))
   };
-  const requestDeleteUser = async (id: number) => {
-    await GetDeleteUser({ id: id });
-  }
+
   return (
     <div
       className="SearchPastUserCard"
@@ -41,7 +38,7 @@ export const SearchPastUserCard = (params: ISearchPastUserCard) => {
         <div className="SearchPastUserCard__id">
           id:{params.id}
         </div>
-        <div className="SearchPastUserCard__id" onClick={() => requestDeleteUser(params.id)}>
+        <div className="SearchPastUserCard__id">
           Удалить
         </div>
       </div>

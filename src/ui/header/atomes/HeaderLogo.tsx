@@ -1,20 +1,20 @@
 import { Link } from "react-router-dom";
+import '../styles/HeaderLogo.css'
+import logo from "../../../common/assets/logo/LogoMin.jpg";
 
-export interface IHeaderlogo {
-  id?: string;
-  class?: string;
-  link?: string;
-  indexlink?: string;
-  img?: string
-}
-export const Headerlogo = (params: IHeaderlogo) => {
+
+export const HeaderLogo = () => {
   return (
-    <Link to={params.link || ""} key={params.indexlink}>
-      {
-        <div className={`${params.class} Headerlogo`} >
-          <img src={params.img} alt="Картинка" />
+    <Link to={`/Home/Top`} className={`HeaderLogo`}>
+      <img src={logo} className={`HeaderLogo__Image`} alt="" />
+      <div className="HeaderLogo__Title">
+        <div className="HeaderLogo__Title__BLue">
+          Business
         </div>
-      }
+        <div className="HeaderLogo__Title__Black">
+          Roulette
+        </div>
+      </div>
     </Link>
   );
 };

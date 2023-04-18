@@ -1,0 +1,26 @@
+.HeaderLogo {
+  display: flex;
+  text-decoration: none;
+  align-items: center;
+  gap: 10px;
+}
+.HeaderLogo__Image {
+  width: 32px;
+  height: 32px;
+  display: flex;
+}
+.HeaderLogo__Title {
+  display: flex;
+  text-decoration: none;
+  align-items: center;
+  gap: 4px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+}
+.HeaderLogo__Title__BLue {
+  color: #0e8ac3;
+}
+.HeaderLogo__Title__Black {
+  color: #000000;
+}

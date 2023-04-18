@@ -1,6 +1,6 @@
 import { createEvent, createStore } from "effector"
 import { accessTokenName } from "./AxiosInstance";
-import { setUserAuthorization } from "./UserHooks";
+import { setUserAuthorization } from "./Hooks";
 
 
 export const $accessToken = createStore("")

@@ -1,5 +1,5 @@
 import { Chat } from "./chat/ogranoids/Chat"
-import { Home } from "./home/ogranoids/Home"
+import { HomeTop } from "./home/ogranoids/HomeTop"
 import { Login } from "./login/organoids/Login"
 import { Registration } from "./registration/organoids/Registration"
 import { Search } from "./search/ogranoids/Search"
@@ -10,7 +10,7 @@ export const Pages = [
     {
         link: '/Home/Top',
         title: 'Главная',
-        component: Home,
+        component: HomeTop,
     },
     {
         link: 'Search',

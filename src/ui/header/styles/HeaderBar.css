@@ -1,0 +1,44 @@
+.HeaderBar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.HeaderBar__Item {
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  cursor: pointer;
+  width: 38px;
+  height: 38px;
+}
+.HeaderBar__Avatar{
+    padding: 4px;
+}
+.HeaderBar__Item:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+.HeaderBar__Block {
+  position: relative;
+}
+.HeaderBar__Example__Bar {
+  position: absolute;
+  overflow: hidden;
+  top: 44px;
+  right: 0;
+  padding: 14px;
+  background-color: #fff;
+  min-width: 200px;
+  background: #fff;
+  -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  box-sizing: content-box;
+  flex-direction: column;
+  align-items: flex-start;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-size: 17px;
+}

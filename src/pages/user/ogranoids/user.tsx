@@ -9,7 +9,7 @@ import "../styles/UserContent_ShortDescriptionUser.css";
 import "../styles/UserContent_FullDescriptionUser.css";
 import "../styles/UserContent_SocialNetworksUser.css";
 import { useNavigate } from "react-router-dom";
-import { $userAuthorization } from "../../../common/UserHooks";
+import { $userAuthorization } from "../../../common/Hooks";
 import { UserLogout } from "../../../common/AccessToken";
 import { IUserContent, UserContent } from "../molecules/UserContent";
 import { UserContentPicture } from "../atomes/UserContentPicture";

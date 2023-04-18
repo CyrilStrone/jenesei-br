@@ -1,5 +1,5 @@
 import { useStore } from "effector-react";
-import { $userName } from "../../../common/UserHooks";
+import { $userName } from "../../../common/Hooks";
 // import { Link } from "react-router-dom";
 
 export interface IUserContentJobName {

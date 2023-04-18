@@ -1,16 +1,10 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
 import "../styles/Login.css";
 import Picture from '../../../common/assets/major/Mans.svg';
 import PictureGoogle from '../../../common/assets/major/GoogleLogo.png';
 import { ILoginUser, loginUser } from "../logics/loginUser";
-import { setcheckLoginPage } from "../../../common/HomeHooks";
 
 export const Login = () => {
-    useEffect(() => {
-        setcheckLoginPage(false)
-    }, [])
-
     const [passwordCheck, setPasswordCheck] = useState(false);
     const [loginValue, setLoginValue] = useState<ILoginUser>({ email: "", password: "" });
     const requestLogin = async () => {

@@ -22,7 +22,7 @@ export interface IAnotherUser {
 }
 
 export const AnotherUser = (params:IAnotherUser) => {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   const UserAnotherName = useStore($userAnotherName);
   const [changeCheck, setChangeCheck] = useState(false);
   const [UserAnotherNameLocal, setUserAnotherNameLocal] = useState("");

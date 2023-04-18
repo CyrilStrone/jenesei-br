@@ -1,0 +1,54 @@
+.HeaderBar__Profile {
+  gap: 8px;
+  padding: 0;
+}
+.HeaderBarProfile__Title {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background-color: rgba(170, 170, 174, 0.15);
+  width: 100%;
+  padding: 14px 14px 14px 14px;
+  border-bottom: 1px solid rgba(170, 170, 174, 0.3);
+}
+.HeaderBarProfile__Title__Header {
+  font-size: 100%;
+  font-weight: 700;
+}
+.HeaderBarProfile__Title__Mail {
+  font-size: 85%;
+  font-weight: 500;
+}
+.HeaderBarProfile__List {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-right: 14px;
+  padding-left: 14px;
+  padding-bottom: 14px;
+  box-sizing: border-box;
+}
+.HeaderBarProfile__List__Logout{
+    color: #eb0c00 !important;
+    font-weight: 500 !important;
+}
+.HeaderBarProfile__List a {
+  text-decoration: none;
+  width: 100%;
+  padding: 3%;
+  box-sizing: border-box;
+  font-size: 90%;
+  font-weight: 400;
+  color: #000;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.HeaderBarProfile__List a:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+.HeaderBarProfile__List__Image {
+  width: 20px;
+  height: 20px;
+}

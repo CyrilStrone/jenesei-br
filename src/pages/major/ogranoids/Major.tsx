@@ -1,21 +1,16 @@
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import "../styles/Major.css";
 import "../styles/MajorScroll.css";
 import "../styles/MajorUser.css";
 import "../styles/MajorSkills.css";
 
-import {Link} from "react-router-dom";
 import Picture from '../../../common/assets/major/Mans.svg';
 import PictureGoogle from '../../../common/assets/major/GoogleLogo.png';
-import { setcheckLoginPage } from "../../../common/HomeHooks";
 import { MajorScroll } from "../molecules/MajorScroll";
 import { MajorSkills } from "../molecules/MajorSkills";
 import { ILoginUser, loginUser } from "../../login/logics/loginUser";
 
 export const Major = () => {
-    useEffect(() => {
-        setcheckLoginPage(false)
-    }, [])
     const [passwordCheck, setPasswordCheck] = useState(false);
     const [loginValue, setLoginValue] = useState<ILoginUser>({ email: "", password: "" });
     const requestLogin = async () => {
