@@ -3,21 +3,16 @@ body {
   padding: 0;
 }
 .App_Actual {
-  padding-top: 34px;
+  padding-top: 78px;
   padding-bottom: 34px;
   height: 100%;
-  width: 60%;
+  width: 1400px;
   display: flex;
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
   position: relative;
   
-}
-@media (max-width: 1920px) {
-  .App_Actual {
-    width: 1200px;
-  }
 }
 .App {
   display: flex;
@@ -26,20 +21,6 @@ body {
   justify-content: flex-start;
   height: max-content;
   min-height: 100vh;
-  background: #F3F2EF;
-
-}
-.App:has(.Major) {
-  background: #fff;
-
-}
-.App:has(.Registration) {
-  background: #fff;
-
-}
-.App:has(.Major) {
-  background: #fff;
-
 }
 @media (max-width: 1200px) {
   .App_Actual {

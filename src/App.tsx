@@ -37,17 +37,17 @@ export function App() {
     }
   },[])
 
-  useEffect(()=>{
-    if(userName && accessToken){
-      navigate(`/User/${userName}`);
-    }
-  },[accessToken, userName])
+  // useEffect(()=>{
+  //   if(userName && accessToken){
+  //     navigate(`/User/${userName}`);
+  //   }
+  // },[accessToken, userName])
 
-  useEffect(()=>{
-    if(UserAnotherName){
-      navigate(`/AnotherUser/${UserAnotherName}`);
-    }
-  },[UserAnotherName])
+  // useEffect(()=>{
+  //   if(UserAnotherName){
+  //     navigate(`/AnotherUser/${UserAnotherName}`);
+  //   }
+  // },[UserAnotherName])
 
   return (
     <div className="App">

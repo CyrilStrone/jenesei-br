@@ -1,77 +1,42 @@
-import {useState} from "react";
 import "../styles/Major.css";
-import "../styles/MajorScroll.css";
-import "../styles/MajorUser.css";
-import "../styles/MajorSkills.css";
+import BigLogo from '../../../common/assets/major/BigLogo.png';
+import { NavLink } from "react-router-dom";
 
-import Picture from '../../../common/assets/major/Mans.svg';
-import PictureGoogle from '../../../common/assets/major/GoogleLogo.png';
-import { MajorScroll } from "../molecules/MajorScroll";
-import { MajorSkills } from "../molecules/MajorSkills";
-import { ILoginUser, loginUser } from "../../login/logics/loginUser";
 
 export const Major = () => {
-    const [passwordCheck, setPasswordCheck] = useState(false);
-    const [loginValue, setLoginValue] = useState<ILoginUser>({ email: "", password: "" });
-    const requestLogin = async () => {
-        await loginUser(loginValue);
-    }
 
-    let handleClick = () => {
-        if (loginValue.email && loginValue.password) {
-            requestLogin()
-        } else {
-            console.log("Данных нет")
-        }
-    };
     return (
         <div className="Major">
-            <div className="Major-First">
-                <div className="Major-Block">
-                    <div className="Major-Block__Title">
-                        BusinessRoulette - Станьте успешнее вместе с нами
+            <div className="Major__Animated">
+                <img src={BigLogo} className="Major__Animated__Logo" alt="" />
+            </div>
+            <div className="Major__Name">
+                Business Roulette
+            </div>
+            <NavLink to={"/Login"} className="Major__Login">
+                Вход
+            </NavLink>
+            <div className="Major__Description">
+                Лучшая социальная сеть для молниеносного поиска и установления деловых контактов.
+            </div>
+            <div className="Major__BestFeatures">
+                <div className="Major__BestFeatures__Item">
+                    <div className="Major__BestFeatures__Item__Title">
+                        Easily access apps and data from your iPhone on the web
                     </div>
-                    <div className="Major-Block__Input-MailOrPhone">
-                        <input type={"email"} placeholder="Адрес эл. почты" value={loginValue.email} onChange={(event: any) => { setLoginValue({ ...loginValue, "email": event.target.value }) }} />
-                    </div>
-                    <div className="Major-Block__Input-Password">
-                        <input type={passwordCheck ? "text" : "password"} placeholder="Пароль" value={loginValue.password} onChange={(event: any) => { setLoginValue({ ...loginValue, "password": event.target.value }) }}/>
-                        {!passwordCheck ? <div onClick={() => {
-                                setPasswordCheck(true)
-                            }} className="Major-Block__Input-Password__Show">
-                                Показать
-                            </div> :
-                            <div onClick={() => {
-                                setPasswordCheck(false)
-                            }} className="Major-Block__Input-Password__AnShow">
-                                Скрыть
-                            </div>}
-                    </div>
-                    <div className="Major-Block__Button-Forgot">
-                        Забыли пароль?
-                    </div>
-                    <div
-                        className={`Major-Block__Login__Style-Standart`}
-                        onClick={handleClick}
-                    >
-                        Войти
-                    </div>
-                    <div className="Major-Block__OR">
-                        Или
-                    </div>
-                    <div
-                        className={`Major-Block__Login__Style-Google`}
-                    >
-                        <img src={PictureGoogle} alt="Картинка"/>
-                        <div className={`Major-Block__Login__Style-Google__Text`}>
-                            Войти, используя Google
-                        </div>
+                    <div className="Major__BestFeatures__Item__Description">
+                        iCloud is essential for keeping personal information from your devices safe, up to date, and available wherever you are. At iCloud.com, you can access your photos, files, and more from any web browser. Changes you make will sync to your iPhone and other devices, so you’re always up to date.
                     </div>
                 </div>
-                    <img src={Picture}  className="Major_Picture" alt="Картинка"/>
+                <div className="Major__BestFeatures__Item">
+                    <div className="Major__BestFeatures__Item__Title">
+                        More storage plus additional features to protect your privacy
+                    </div>
+                    <div className="Major__BestFeatures__Item__Description">
+                        Upgrade to iCloud+ to get more storage and additional features like iCloud Private Relay, Hide My Email, and HomeKit Secure Video. You can even share your subscription with your family. Learn more at apple.com/icloud.
+                    </div>
+                </div>
             </div>
-            <MajorScroll/>
-            <MajorSkills/>
         </div>
     );
 };

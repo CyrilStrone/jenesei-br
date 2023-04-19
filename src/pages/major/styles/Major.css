@@ -3,258 +3,64 @@
   width: 100%;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 200px;
+  font-family: "Inter";
+  font-style: normal;
+  font-size: 60px;
 }
-
-.Major-First {
-  display: flex;
-  width: 100%;
+.Major__Animated {
 }
-
-.Major-Block {
+.Major__Animated__Logo {
+  width: 320px;
+  height: 320px;
+}
+.Major__Name {
+  font-weight: 600;
+  font-size: 100%;
+  color: #000000;
+  margin-top: 38px;
+}
+.Major__Login {
+  font-weight: 600;
+  font-size: 42%;
+  width: 164px;
+  height: 50px;
   display: flex;
+  background: #000000;
+  border-radius: 54px;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-top: 38px;
+  text-decoration: none;
+}
+.Major__Description {
+  font-weight: 500;
+  font-size: 65%;
+  color: #000000;
+  margin-top: 38px;
+  width: 700px;
+  text-align: center;
+}
+.Major__BestFeatures{
+  display: flex;
+  gap: 50px;
+  margin-top: 72px;
+}
+.Major__BestFeatures__Item{
+  width: 650px;
+  border-radius: 16px;
+  box-shadow: 17px 20px 40px rgba(0,0,0,.21);
+  display: flex;
+  padding: 40px;
   flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: center;
-  width: 400px;
+  gap: 20px;
 }
-
-.Major-Block__Title {
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 300;
-  font-size: 40px;
-  line-height: 55px;
-  color: #000000;
+.Major__BestFeatures__Item__Title{
+  font-weight: 600;
+  font-size: 48%;
 }
-
-.Major-Block__Input-MailOrPhone {
-  margin-top: 33px;
-  width: 100%;
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 300;
-  font-size: 16px;
-  line-height: 19px;
-}
-
-.Major-Block__Input-MailOrPhone input {
-  height: 50px;
-  width: 100%;
-  background: #ffffff;
-  border: 1px solid #000000;
-  padding-left: 14px;
-  transition-duration: 0.5s;
-  outline: none;
-}
-
-.Major-Block__Input-MailOrPhone input:active,
-.Major-Block__Input-MailOrPhone input:hover,
-.Major-Block__Input-MailOrPhone input:focus {
-  border: 1px solid #0e8ac3;
-}
-
-.Major-Block__Input-Password {
-  margin-top: 25px;
-  width: 100%;
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 300;
-  font-size: 16px;
-  line-height: 19px;
-  position: relative;
-}
-
-.Major-Block__Input-Password input {
-  height: 50px;
-  width: 100%;
-  background: #ffffff;
-  border: 1px solid #000000;
-  padding-left: 14px;
-  transition-duration: 0.5s;
-  outline: none;
-}
-
-.Major-Block__Input-Password input:active,
-.Major-Block__Input-Password input:hover,
-.Major-Block__Input-Password input:focus {
-  border: 1px solid #0e8ac3;
-}
-
-.Major-Block__Input-Password__Show {
-  font-family: "Inter";
-  font-style: normal;
+.Major__BestFeatures__Item__Description{
   font-weight: 400;
-  font-size: 16px;
-  line-height: 19px;
-  position: absolute;
-  top: 16px;
-  right: 12px;
-  user-select: none;
-  cursor: pointer;
-}
-
-.Major-Block__Input-Password__AnShow {
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 19px;
-  position: absolute;
-  top: 13px;
-  right: 12px;
-  cursor: pointer;
-  padding-left: 7px;
-  padding-right: 6px;
-  padding-top: 3px;
-  padding-bottom: 3px;
-  user-select: none;
-  background: rgba(0, 0, 0, 0.05);
-}
-
-.Major-Block__Button-Forgot {
-  margin-top: 16px;
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 19px;
-  color: #000000;
-  margin-right: auto;
-  cursor: pointer;
-}
-
-.Major-Block__Login__Style-Standart {
-  margin-top: 56px;
-  height: 50px;
-  width: 100%;
-  background: #0e8ac3;
-  border-radius: 25px;
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 19px;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  color: #ffffff;
-  justify-content: center;
-  text-decoration: none;
-  cursor: pointer;
-  transition-duration: 0.5s;
-}
-
-.Major-Block__Login__Style-Standart :active,
-.Major-Block__Login__Style-Standart:hover,
-.Major-Block__Login__Style-Standart:focus {
-  background: #0d719e;
-}
-
-.Major-Block__OR {
-  margin-top: 12px;
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 17px;
-}
-
-.Major-Block__Login__Style-Google {
-  height: 50px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  justify-content: center;
-  text-decoration: none;
-  cursor: pointer;
-  margin-top: 11px;
-  background: #ffffff;
-  border: 1px solid #000000;
-  border-radius: 25px;
-  transition-duration: 0.5s;
-}
-
-.Major-Block__Login__Style-Google :active,
-.Major-Block__Login__Style-Google:hover,
-.Major-Block__Login__Style-Google:focus {
-  background: rgba(0, 0, 0, 0.05);
-}
-
-.Major-Block__Login__Style-Google img {
-  width: 27px;
-  height: 27px;
-}
-
-.Major-Block__Login__Style-Google__Text {
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 19px;
-  color: #000000;
-  margin-left: 17px;
-}
-
-.Major_Picture {
-  width: 75%;
-  padding: 8%;
-  box-sizing: border-box;
-}
-
-@media (orientation: portrait) {
-  .Major {
-    justify-content: center;
-    padding-bottom: 100px;
-  }
-  .Major-First {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-  }
-  .Major-Block {
-    margin-top: 10px;
-  }
-
-  .Major-Block__Title {
-  }
-
-  .Major-Block__Input-MailOrPhone {
-  }
-
-  .Major-Block__Input-MailOrPhone input {
-  }
-
-  .Major-Block__Input-Password {
-  }
-
-  .Major-Block__Input-Password input {
-  }
-
-  .Major-Block__Input-Password__Show {
-  }
-
-  .Major-Block__Button-Forgot {
-  }
-
-  .Major-Block__Login__Style-Standart {
-  }
-
-  .Major-Block__OR {
-  }
-
-  .Major-Block__Login__Style-Google {
-  }
-
-  .Major-Block__Login__Style-Google img {
-  }
-
-  .Major-Block__Login__Style-Google__Text {
-  }
-
-  .Major_Picture {
-    display: none;
-  }
+  font-size: 42%;
 }

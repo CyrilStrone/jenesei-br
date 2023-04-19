@@ -28,10 +28,6 @@
   padding-bottom: 14px;
   box-sizing: border-box;
 }
-.HeaderBarProfile__List__Logout{
-    color: #eb0c00 !important;
-    font-weight: 500 !important;
-}
 .HeaderBarProfile__List a {
   text-decoration: none;
   width: 100%;
@@ -44,11 +40,33 @@
   align-items: center;
   gap: 6px;
 }
+
 .HeaderBarProfile__List a:hover {
   background-color: rgba(0, 0, 0, 0.1);
   border-radius: 8px;
 }
+.HeaderBarProfile__List__Logout {
+  color: #eb0c00 !important;
+  font-weight: 500 !important;
+}
+.HeaderBarProfile__List__Settings{
+  color: #0e8ac3  !important;
+  font-weight: 500 !important;
+}
 .HeaderBarProfile__List__Image {
   width: 20px;
   height: 20px;
+}
+.HeaderBarProfile__List__Title{
+  text-decoration: none;
+  width: 100%;
+  padding: 3%;
+  padding-left: 0;
+  box-sizing: border-box;
+  font-size: 95%;
+  font-weight: 500;
+  color: #000;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }

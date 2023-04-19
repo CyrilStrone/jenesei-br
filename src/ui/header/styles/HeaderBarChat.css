@@ -1,0 +1,66 @@
+.HeaderBar__Chat {
+  padding: 14px;
+  width: 300px;
+  gap: 8px;
+}
+.HeaderBarChat__Title {
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 100%;
+  font-weight: 700;
+}
+.HeaderBarChat__List {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  box-sizing: border-box;
+}
+.HeaderBarChat__List a {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-decoration: none;
+  gap: 6px;
+  width: 100%;
+  font-size: 90%;
+  font-weight: 400;
+  padding-right: 6px;
+  box-sizing: border-box;
+  color: #000;
+}
+.HeaderBarChat__List__Line {
+  border-bottom: 1px solid rgba(170, 170, 174, 0.3);
+  width: 100%;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+.HeaderBarChat__List a:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+.HeaderBarChat__List a:last-child {
+  border-bottom: none;
+}
+.HeaderBarChat__List__Avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  cursor: pointer;
+  width: 38px;
+  height: 38px;
+  padding: 4px;
+}
+.HeaderBarChat__List__Message {
+  margin-left: auto;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  background: #0e8ac3;
+  border-radius: 50px;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
