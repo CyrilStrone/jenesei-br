@@ -14,9 +14,9 @@ export const Search = () => {
     const requestSearchUser = async () => {
         await setUsersPastTopDuplicate(SearchUser());
     }
-    useEffect(()=>{
-        requestSearchUser();
-    },[])
+    // useEffect(()=>{
+    //     requestSearchUser();
+    // },[])
     return (
         <div className="Search">
             <SearchBar value={value} setValue={setValue}/>
