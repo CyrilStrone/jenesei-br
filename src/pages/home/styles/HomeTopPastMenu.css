@@ -5,7 +5,9 @@
   padding: 18px;
   height: 112px;
   background: #ffffff;
-  border: 1px solid #e0dfdc;
-  border-radius: 14px;
   box-sizing: border-box;
+
+  background-color: hsla(0, 0%, 100%, 0.3);
+  -webkit-backdrop-filter: blur(15px) saturate(86%);
+  backdrop-filter: blur(15px) saturate(86%);
 }

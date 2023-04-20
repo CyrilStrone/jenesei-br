@@ -14,6 +14,7 @@ export const HomeTopPast = () => {
       <HomeTopUserCard id={6}/>
       <HomeTopUserCard id={7}/>
       <HomeTopUserCard id={8}/>
+      <HomeTopUserCard id={9}/>
     </div>
   );
 };

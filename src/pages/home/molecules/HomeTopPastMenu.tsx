@@ -4,8 +4,8 @@ export const HomeTopPastMenu = (props: any) => {
 
 
   return (
-    <div className="HomeTopPastMenu">
-    
+    <div className="HomeTopPastMenu Home__Block__NonActive">
+
     </div>
   );
 };

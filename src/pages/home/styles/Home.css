@@ -5,4 +5,46 @@
   flex-direction: column;
   align-items: center;
   gap: 20px;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-size: 48px;
+}
+.Home__Block__Active {
+  -webkit-transition: -webkit-box-shadow 0.2s cubic-bezier(0.32, 0.08, 0.24, 1),
+    -webkit-transform 0.2s cubic-bezier(0.32, 0.08, 0.24, 1);
+  transition: -webkit-box-shadow 0.2s cubic-bezier(0.32, 0.08, 0.24, 1),
+    -webkit-transform 0.2s cubic-bezier(0.32, 0.08, 0.24, 1);
+  transition: box-shadow 0.2s cubic-bezier(0.32, 0.08, 0.24, 1),
+    transform 0.2s cubic-bezier(0.32, 0.08, 0.24, 1);
+  transition: box-shadow 0.2s cubic-bezier(0.32, 0.08, 0.24, 1),
+    transform 0.2s cubic-bezier(0.32, 0.08, 0.24, 1),
+    -webkit-box-shadow 0.2s cubic-bezier(0.32, 0.08, 0.24, 1),
+    -webkit-transform 0.2s cubic-bezier(0.32, 0.08, 0.24, 1);
+  border-radius: 16px;
+  box-shadow: 17px 20px 40px rgba(0, 0, 0, 0.21);
+  image-rendering: optimizeQuality;
+  z-index: 1;
+}
+.Home__Block__NonActive {
+  -webkit-transition: -webkit-box-shadow 0.2s cubic-bezier(0.32, 0.08, 0.24, 1),
+    -webkit-transform 0.2s cubic-bezier(0.32, 0.08, 0.24, 1);
+  transition: -webkit-box-shadow 0.2s cubic-bezier(0.32, 0.08, 0.24, 1),
+    -webkit-transform 0.2s cubic-bezier(0.32, 0.08, 0.24, 1);
+  transition: box-shadow 0.2s cubic-bezier(0.32, 0.08, 0.24, 1),
+    transform 0.2s cubic-bezier(0.32, 0.08, 0.24, 1);
+  transition: box-shadow 0.2s cubic-bezier(0.32, 0.08, 0.24, 1),
+    transform 0.2s cubic-bezier(0.32, 0.08, 0.24, 1),
+    -webkit-box-shadow 0.2s cubic-bezier(0.32, 0.08, 0.24, 1),
+    -webkit-transform 0.2s cubic-bezier(0.32, 0.08, 0.24, 1);
+  border-radius: 16px;
+  box-shadow: 17px 20px 40px rgba(0, 0, 0, 0.21);
+  image-rendering: optimizeQuality;
+  z-index: 1;
+}
+.Home__Block__Active:hover {
+  -webkit-box-shadow: 20px 20px 41px rgba(10, 10, 10, 0.32);
+  box-shadow: 20px 20px 41px rgba(10, 10, 10, 0.32);
+  -webkit-transform: scale(1.019);
+  transform: scale(1.019);
+  z-index: 1;
 }

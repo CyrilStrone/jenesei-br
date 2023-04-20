@@ -1,5 +1,6 @@
 .HeaderBar__Menu {
   gap: 8px;
+  z-index: 3;
 }
 .HeaderBarMenu__Title {
   font-size: 100%;

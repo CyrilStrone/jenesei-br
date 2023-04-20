@@ -13,6 +13,8 @@ export const HomeRecommendation = () => {
       <div className="HomeRecommendation" >
         <HomeRecommendationUserCard />
         <HomeRecommendationUserCard />
+        <HomeRecommendationUserCard />
+        <HomeRecommendationUserCard />
       </div>
       <ThreeDot dotCheck={dotCheck} setDotCheck={setDotCheck} />
     </div>

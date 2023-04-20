@@ -1,18 +1,43 @@
 .HomeTopUserCard {
-  width: 364px;
-  padding: 26px;
-  background: #ffffff;
-  border: 1px solid #e0dfdc;
-  border-radius: 14px;
-  min-height: 180px;
+  width: 352px;
+  height: 180px;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 }
 .HomeTopUserCardZero {
   width: 464px;
-  padding: 26px;
-  background: #ffffff;
-  border: 1px solid #e0dfdc;
-  border-radius: 14px;
-  min-height: 180px;
+  height: 180px;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+.HomeTopUserCard__Header{
+  border-radius: 16px 16px 0 0;
+  min-height: 44px;
+  background-color: rgba(248, 248, 252, 0.85);
+  -webkit-backdrop-filter: blur(15px) saturate(86%);
+  backdrop-filter: blur(15px) saturate(86%);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 37%;
+  font-weight: 500;
+  padding: 28px;
+  box-sizing: border-box;
+  user-select: none;
+}
+.HomeTopUserCard__Info{
+  border-radius: 0 0 16px 16px;
+  background: #ffffff;
+  width: 100%;
+  height: -webkit-fill-available;
+}
+@media (orientation: portrait) {
+  .HomeTopUserCard {
+    width: 100%;
+  }
+  .HomeTopUserCardZero{
+    width: 100%;
+  }
 }
