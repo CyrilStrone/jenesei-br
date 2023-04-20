@@ -22,6 +22,7 @@ import { ChangeUser } from "./pages/userchange/organoids/ChangeUser";
 import { HomeTop } from "./pages/home/ogranoids/HomeTop";
 import { HomeRecommendation } from "./pages/home/ogranoids/HomeRecommendation";
 import { HomeSubscription } from "./pages/home/ogranoids/HomeSubscription";
+import Wallpaper from './common/assets/home/wallpaper.svg'
 
 export function App() {
   const navigate = useNavigate();
@@ -50,7 +51,7 @@ export function App() {
   // },[UserAnotherName])
 
   return (
-    <div className="App">
+    <div className="App" style={{backgroundImage:`url(${Wallpaper})`}}>
       <Header />
       <div className="App_Actual">
         <Routes>

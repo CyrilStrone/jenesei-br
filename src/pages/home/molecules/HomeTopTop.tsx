@@ -1,7 +1,6 @@
 import { HomeTopUserBestCard } from "../atomes/HomeTopUserBestCard";
 import "../styles/HomeTopTop.css";
 
-
 export const HomeTopTop = () => {
  
 

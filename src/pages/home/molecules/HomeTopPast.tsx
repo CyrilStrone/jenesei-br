@@ -4,7 +4,7 @@ import "../styles/HomeTopPast.css";
 export const HomeTopPast = () => {
   
   return (
-    <div className="HomeTopPast">
+    <div className="HomeTopPast" >
       <HomeTopUserCard id={0}/>
       <HomeTopUserCard id={1}/>
       <HomeTopUserCard id={2}/>

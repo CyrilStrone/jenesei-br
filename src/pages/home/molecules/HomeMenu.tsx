@@ -1,37 +1,39 @@
 import "../styles/HomeMenu.css";
 
-import { NavLink } from "react-router-dom";
-export const HomeMenu = (props: any) => {
-  interface IHomeMenuArray {
-    Title: string;
-    Link: string;
-  }
-
-  let HomeMenuArray: IHomeMenuArray[] = [
-    {
-      Title: "Топ",
-      Link: "/Home/Top",
-    },
-    {
-      Title: "Рекомендации",
-      Link: "/Home/Recommendations",
-    },
-    {
-      Title: "Подписки",
-      Link: "/Home/Subscriptions",
-    }
-  ];
+import { NavLink, useLocation } from "react-router-dom";
+export const HomeMenu = () => {
+  const location = useLocation();
   return (
     <div className="HomeMenu">
-      {HomeMenuArray.map((e: IHomeMenuArray) => (
+      <div className="HomeMenu__Navs">
         <NavLink
-          key={e.Link}
-          to={e.Link}
-          className={(navData) => navData.isActive ? "HomeMenu__Active" : "" }
+          to={"/Home/Top"}
+          className={(navData) => navData.isActive ? "HomeMenu__Navs__Active" : ""}
         >
-          {e.Title}
+          Топ
         </NavLink>
-      ))}
+        <NavLink
+          to={"/Home/Recommendations"}
+          className={(navData) => navData.isActive ? "HomeMenu__Navs__Active" : ""}
+        >
+          Рекомендации
+        </NavLink>
+        <NavLink
+          to={"/Home/Subscriptions"}
+          className={(navData) => navData.isActive ? "HomeMenu__Navs__Active" : ""}
+        >
+          Подписки
+        </NavLink>
+        <div className="HomeMenu__Line">
+        </div>
+      </div>
+      <div className="HomeMenu__Title">
+        {location.pathname === '/Home/Top' ?
+          "Топ" : location.pathname === '/Home/Recommendations' ?
+            "Рекомендации" : location.pathname === '/Home/Subscriptions' ?
+              "Подписки" : null
+        }
+      </div>
     </div>
   );
 };
