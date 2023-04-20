@@ -8,7 +8,6 @@
   font-family: "Montserrat";
   font-style: normal;
   font-size: 48px;
-  overflow: hidden;
 }
 .Home__Block__Active {
   -webkit-transition: -webkit-box-shadow 0.2s cubic-bezier(0.32, 0.08, 0.24, 1),
