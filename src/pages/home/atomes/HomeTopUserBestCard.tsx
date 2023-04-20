@@ -8,7 +8,7 @@ export const HomeTopUserBestCard = (params: IHomeTopUserBestCard) => {
 
 
   return (
-    <div className="HomeTopUserBestCard Home__Block__Active" >
+    <div className="HomeTopUserBestCard Block__Active" >
       <div className="HomeTopUserBestCard__Header" >
         Самый активный пользователь 
       </div>

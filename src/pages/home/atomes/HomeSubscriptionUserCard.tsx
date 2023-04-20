@@ -4,7 +4,7 @@ interface IHomeSubscriptionUserCard {
 }
 export const HomeSubscriptionUserCard = (params: IHomeSubscriptionUserCard) => {
   return (
-    <div className={params.id == 0 ? "HomeSubscriptionUserCardZero Home__Block__Active" : "HomeSubscriptionUserCard Home__Block__Active"} >
+    <div className={params.id == 0 ? "HomeSubscriptionUserCardZero Block__Active" : "HomeSubscriptionUserCard Block__Active"} >
       <div className="HomeSubscriptionUserCard__Header" >
         Дядя
       </div>
