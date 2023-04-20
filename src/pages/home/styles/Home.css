@@ -9,3 +9,8 @@
   font-style: normal;
   font-size: 48px;
 }
+@media (orientation: portrait) {
+  .Home {
+    font-size: 36px;
+  }
+}

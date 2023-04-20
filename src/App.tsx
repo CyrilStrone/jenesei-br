@@ -22,21 +22,25 @@ import { ChangeUser } from "./pages/userchange/organoids/ChangeUser";
 import { HomeTop } from "./pages/home/ogranoids/HomeTop";
 import { HomeRecommendation } from "./pages/home/ogranoids/HomeRecommendation";
 import { HomeSubscription } from "./pages/home/ogranoids/HomeSubscription";
-import Wallpaper from './common/assets/home/wallpaper.png'
+import Wallpaper from './common/assets/general/Wallpaper.png'
+import WallpaperPhone from './common/assets/general/WallpaperPhone.png'
+
+import { useWindowSize } from "@react-hook/window-size";
 
 export function App() {
   const navigate = useNavigate();
   const userName = useStore($userName);
   const UserAnotherName = useStore($userAnotherName);
   const accessToken = useStore($accessToken);
+  const [width, height] = useWindowSize();
 
-  useEffect(()=>{
+  useEffect(() => {
     if (!localStorage.getItem(accessTokenName)?.length) {
-    }else{
+    } else {
       const item = JSON.parse(localStorage.getItem(accessTokenName) || "");
       setAccessToken(item)
     }
-  },[])
+  }, [])
 
   // useEffect(()=>{
   //   if(userName && accessToken){
@@ -51,15 +55,15 @@ export function App() {
   // },[UserAnotherName])
 
   return (
-    <div className="App" style={{backgroundImage:`url(${Wallpaper})`}}>
+    <div className="App" style={{ backgroundImage: width > height ? `url(${Wallpaper})` : `url(${WallpaperPhone})` }}>
       <Header />
       <div className="App_Actual">
         <Routes>
           <Route path="/" element={<Major />}></Route>
           <Route path="/Home" element={<HomeTop />}></Route>
-          <Route path="/Home/Recommendations" element={<HomeRecommendation />}/>
-          <Route path="/Home/Top" element={<HomeTop />}/>
-          <Route path="/Home/Subscriptions" element={<HomeSubscription />}/>
+          <Route path="/Home/Recommendations" element={<HomeRecommendation />} />
+          <Route path="/Home/Top" element={<HomeTop />} />
+          <Route path="/Home/Subscriptions" element={<HomeSubscription />} />
           <Route path="/Login" element={<Login />}></Route>
           <Route path="/Registration" element={<Registration />}></Route>
           <Route path="/Forgot" element={<Forgot />}></Route>
@@ -76,7 +80,7 @@ export function App() {
             }}
             errorElement={<Major />}
           />
-           <Route
+          <Route
             element={<AnotherUser />}
             path="/AnotherUser/:UserAnotherName"
             loader={async ({ params }) => {

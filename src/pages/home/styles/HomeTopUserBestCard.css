@@ -25,3 +25,8 @@
   width: 100%;
   height: -webkit-fill-available;
 }
+@media (orientation: portrait) {
+  .HomeTopUserBestCard {
+    width: 100%;
+  }
+}
