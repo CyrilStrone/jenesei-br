@@ -15,12 +15,18 @@ export const SearchBar = (params: ISearchBar) => {
     };
     return (
         <div className="SearchBar">
-            <div className="SearchBar__Title">Поиск пользователей Business Roulette</div>
-            <div className="SearchBar__input">
-                <input type="text" className="SearchBar__input__General" placeholder={"Поиск пользователей"} value={params.value.text} onChange={(event: any) => handleTextChange(event)} />
-                <img src={SearchPicture} />
+            <div className="SearchBar__Header Block__NonActive">
+                <div className="SearchBar__Title">
+                    Поиск
+                </div>
             </div>
-            <SearchBarFilter/>
+            <div className="SearchBar__Block Block__NonActive">
+                <div className="SearchBar__input">
+                    <input type="text" className="SearchBar__input__General" placeholder={"Поиск пользователей"} value={params.value.text} onChange={(event: any) => handleTextChange(event)} />
+                    <img src={SearchPicture} />
+                </div>
+                <SearchBarFilter />
+            </div>
         </div>
     );
 };

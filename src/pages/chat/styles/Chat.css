@@ -82,3 +82,8 @@
   -webkit-user-select: none;
   user-select: none;
 }
+@media (orientation: portrait) {
+  .Chat {
+    font-size: 32px;
+  }
+}

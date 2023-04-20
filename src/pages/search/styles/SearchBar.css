@@ -1,21 +1,33 @@
 .SearchBar {
   display: flex;
-  padding: 26px;
-  box-sizing: border-box;
-  gap: 14px;
-  flex-direction: column;
-  flex-wrap: wrap;
   width: 100%;
+  height: auto;
+  min-height: 75vh;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-size: 48px;
+}
+.SearchBar__Block {
+  width: 100%;
+  display: flex;
+  gap: 18px;
+  padding: 18px;
   background: #ffffff;
-  border: 1px solid #e0dfdc;
-  border-radius: 14px;
+  box-sizing: border-box;
+  background-color: hsla(0, 0%, 100%, 0.3);
+  -webkit-backdrop-filter: blur(15px) saturate(86%);
+  backdrop-filter: blur(15px) saturate(86%);
+  flex-direction: column;
+  transition-duration: 0.5s;
 }
 .SearchBar__Title {
   font-family: "Montserrat";
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
-  line-height: 22px;
   color: #181818;
 }
 .SearchBar__input {
@@ -28,7 +40,8 @@
 .SearchBar__input > img {
   position: absolute;
   margin-left: auto;
-  right: 13px;width: 15px;
+  right: 13px;
+  width: 15px;
   height: 15px;
   cursor: pointer;
 }
@@ -39,13 +52,10 @@
   padding: 13px;
   box-sizing: border-box;
   border: 1px solid #e0dfdc;
-  border-radius: 6px;
+  border-radius: 10px;
 
-  font-family: "Roboto";
-  font-style: normal;
   font-weight: 300;
-  font-size: 12px;
-
+  font-size: 30%;
   color: #181818;
 }
 .SearchBar__input__General::placeholder {
@@ -53,5 +63,34 @@
 }
 
 .SearchBar__input__General::-ms-clear {
-    display: none;
+  display: none;
+}
+.SearchBar__Header {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-self: flex-start;
+  width: 100%;
+  gap: 7px;
+  -webkit-backdrop-filter: blur(15px) saturate(86%);
+  backdrop-filter: blur(15px) saturate(86%);
+  background: radial-gradient(
+    circle at 100% 0,
+    hsla(0, 0%, 100%, 0.85) 0,
+    hsla(0, 0%, 96.1%, 0.13) 183%
+  );
+  padding: 30px;
+  border-radius: 16px;
+  box-sizing: border-box;
+}
+.SearchBar__Title {
+  font-size: 100%;
+  font-weight: 600;
+  -webkit-user-select: none;
+  user-select: none;
+}
+@media (orientation: portrait) {
+  .SearchBar {
+    font-size: 32px;
+  }
 }

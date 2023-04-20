@@ -83,6 +83,15 @@ body {
 @media (orientation: portrait) {
   .App {
     background-image: none !important;
-    background-color: #0e8ac3 !important;
+    background: -webkit-linear-gradient(
+      top,
+      rgba(0, 59, 174, 0.315) 13.58%,
+      rgba(180, 173, 255, 0.7) 36.3%,
+      rgba(255, 249, 200, 0.063) 94.34%,
+      rgba(214, 244, 255, 0.7) 94.35%,
+      rgba(61, 51, 24, 0.7) 94.36%
+    );
+
+    backdrop-filter: blur(41.5px);
   }
 }

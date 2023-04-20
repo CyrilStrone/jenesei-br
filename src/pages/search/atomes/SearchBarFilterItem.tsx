@@ -12,7 +12,7 @@ interface ISearchBarFilterItem {
 export const SearchBarFilterItem = (params: ISearchBarFilterItem) => {
 
     return (
-        <div onClick={() => { params.ItemClick(params.id, params.localCheck) }} className={params.localCheck ? "SearchBarFilterItem__Active SearchBarFilterItem" : "SearchBarFilterItem"}>
+        <div onClick={() => { params.ItemClick(params.id, params.localCheck) }} className={params.localCheck ? "Block__Active SearchBarFilterItem__Active SearchBarFilterItem" : "Block__Active SearchBarFilterItem"}>
             {params.name}
             {params.count !== 0 &&
                 <div className='SearchBarFilterItem__Count'>
