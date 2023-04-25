@@ -1,14 +1,14 @@
 import '../styles/HeaderBarProfile.css'
-import User from '../../../common/assets/header/User.svg'
-import Setting from '../../../common/assets/header/Setting.svg'
-import Publication from '../../../common/assets/header/Publication.svg'
-import PublicationList from '../../../common/assets/header/PublicationList.svg'
-import Subscriptions from '../../../common/assets/header/Subscriptions.svg'
-import Subscribers from '../../../common/assets/header/Subscribers.svg'
-import Logout from '../../../common/assets/header/Logout.svg'
+import User from '../../../assets/header/User.svg'
+import Setting from '../../../assets/header/Setting.svg'
+import Publication from '../../../assets/header/Publication.svg'
+import PublicationList from '../../../assets/header/PublicationList.svg'
+import Subscriptions from '../../../assets/header/Subscriptions.svg'
+import Subscribers from '../../../assets/header/Subscribers.svg'
+import Logout from '../../../assets/header/Logout.svg'
 
 import { NavLink } from 'react-router-dom';
-import { $userValue } from '../../../common/Hooks';
+import { $userValue } from '../../../ui/functions/Hooks';
 import { useStore } from 'effector-react';
 
 export const HeaderBarProfile = () => {

@@ -1,5 +1,5 @@
 import { createEvent, createStore } from "effector";
-import { GetUserAnother } from "../pages/useranother/logics/getAnotherUser";
+import { GetUserAnother } from "../../pages/useranother/logics/getAnotherUser";
 
 export const $userAnotherId = createStore<number>(0)
 export const setUserAnotherId = createEvent<number>()

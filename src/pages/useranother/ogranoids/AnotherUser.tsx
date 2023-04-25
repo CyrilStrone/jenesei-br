@@ -15,7 +15,7 @@ import { AnotherUserContentFullDescription } from "../atomes/AnotherUserContentF
 import { AnotherUserContentSocialNetworks } from "../atomes/AnotherUserContentSocialNetworks";
 import { useNavigate } from "react-router-dom";
 import { useStore } from "effector-react";
-import { $userAnotherName, setUserAnotherName } from "../../../common/UserAnotherHooks";
+import { $userAnotherName, setUserAnotherName } from "../../../ui/functions/UserAnotherHooks";
 
 export interface IAnotherUser {
   id?: number;

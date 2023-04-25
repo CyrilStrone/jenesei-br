@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import "../styles/Registration.css";
 import { IRegistrationUser, registrationUser } from "../logics/registrationUser";
-import JeneseiLogo from '../../../common/assets/logo/JeneseiLogo.svg'
+import JeneseiLogo from '../../../assets/logo/JeneseiLogo.svg'
 
 
 export const Registration = () => {

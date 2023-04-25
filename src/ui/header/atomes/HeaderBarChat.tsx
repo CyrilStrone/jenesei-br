@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import '../styles/HeaderBarChat.css'
-import DefaultAvatarChat from '../../../common/assets/header/DefaultAvatarChat.svg'
+import DefaultAvatarChat from '../../../assets/header/DefaultAvatarChat.svg'
 
 export const HeaderBarChat = () => {
   return (

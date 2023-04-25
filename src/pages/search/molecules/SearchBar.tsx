@@ -1,4 +1,4 @@
-import SearchPicture from "../../../common/assets/search/Search.svg";
+import SearchPicture from "../../../assets/search/Search.svg";
 import '../styles/SearchBar.css'
 import { SearchBarFilter } from "./SearchBarFilter";
 interface ISearchBar {

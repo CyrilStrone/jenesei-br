@@ -1,5 +1,5 @@
 import "../styles/Major.css";
-import BigLogo from '../../../common/assets/major/BigLogo.png';
+import BigLogo from '../../../assets/major/BigLogo.png';
 import { NavLink } from "react-router-dom";
 
 

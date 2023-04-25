@@ -1,7 +1,7 @@
 import '../styles/HeaderBar.css'
-import Menu from '../../../common/assets/header/Menu.svg'
-import Chat from '../../../common/assets/header/Chat.svg'
-import Profile from '../../../common/assets/header/Profile.svg'
+import Menu from '../../../assets/header/Menu.svg'
+import Chat from '../../../assets/header/Chat.svg'
+import Profile from '../../../assets/header/Profile.svg'
 import { useEffect, useRef, useState } from 'react';
 import { HeaderBarMenu } from './HeaderBarMenu';
 import { HeaderBarChat } from './HeaderBarChat';
@@ -9,7 +9,7 @@ import { HeaderBarProfile } from './HeaderBarProfile';
 import { fadeIn } from 'react-animations';
 import { StyleSheet, css } from 'aphrodite';
 import { useStore } from 'effector-react'
-import { $userAuthorization, $userValue } from '../../../common/Hooks'
+import { $userAuthorization, $userValue } from '../../../ui/functions/Hooks'
 
 export const HeaderBar = () => {
     const userAuthorization = useStore($userAuthorization);

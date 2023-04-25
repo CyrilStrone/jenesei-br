@@ -1,5 +1,5 @@
-import { axiosInstance } from "../../../common/AxiosInstance"
-import { setUserAnotherValue } from "../../../common/UserAnotherHooks"
+import { axiosInstance } from "../../../ui/functions/AxiosInstance"
+import { setUserAnotherValue } from "../../../ui/functions/UserAnotherHooks"
 
 
 export interface IGetAnotherUser {

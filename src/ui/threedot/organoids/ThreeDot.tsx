@@ -1,5 +1,5 @@
 import "../styles/ThreeDot.css";
-import Ellipse from '../../../common/assets/threedot/Ellipse.svg'
+import Ellipse from '../../../assets/threedot/Ellipse.svg'
 
 interface IThreeDot {
   id?: number

@@ -1,4 +1,4 @@
-import UserAnotherPicture from "../../../common/assets/user/UserPicture.jpg"
+import UserAnotherPicture from "../../../assets/user/UserPicture.jpg"
 
 export interface IAnotherUserContentPicture {
   id?: string;

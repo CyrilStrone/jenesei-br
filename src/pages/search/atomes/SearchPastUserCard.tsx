@@ -1,6 +1,6 @@
-import { setUserAnotherId, setUserAnotherName } from "../../../common/UserAnotherHooks";
+import { setUserAnotherId, setUserAnotherName } from "../../../ui/functions/UserAnotherHooks";
 import '../styles/SearchPastUserCard.css'
-import DefaultAva from "../../../common/assets/search/DefaultAva.png"
+import DefaultAva from "../../../assets/search/DefaultAva.png"
 export interface ISearchPastUserCard {
   Name?: string;
   Job?: string;

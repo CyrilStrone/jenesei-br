@@ -1,10 +1,10 @@
 import '../styles/HeaderBarMenu.css'
 import { NavLink } from 'react-router-dom';
-import Top from '../../../common/assets/header/Top.svg'
-import Recommendations from '../../../common/assets/header/Recommendations.svg'
-import Subscriptions from '../../../common/assets/header/Subscriptions.svg'
-import Chat from '../../../common/assets/header/ChatBlack.svg'
-import Search from '../../../common/assets/header/Search.svg'
+import Top from '../../../assets/header/Top.svg'
+import Recommendations from '../../../assets/header/Recommendations.svg'
+import Subscriptions from '../../../assets/header/Subscriptions.svg'
+import Chat from '../../../assets/header/ChatBlack.svg'
+import Search from '../../../assets/header/Search.svg'
 
 
 export const HeaderBarMenu = () => {

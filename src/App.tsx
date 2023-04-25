@@ -4,10 +4,10 @@ import "./font.css";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useStore } from "effector-react";
-import { $userName } from "./common/Hooks";
-import { $userAnotherName } from "./common/UserAnotherHooks";
-import { $accessToken, setAccessToken } from "./common/AccessToken";
-import { accessTokenName } from "./common/AxiosInstance";
+import { $userName } from "./ui/functions/Hooks";
+import { $userAnotherName } from "./ui/functions/UserAnotherHooks";
+import { $accessToken, setAccessToken } from "./ui/functions/AccessToken";
+import { accessTokenName } from "./ui/functions/AxiosInstance";
 import { Header } from "./ui/header/organoids/Header";
 import { Footer } from "./ui/footer/organoids/Footer";
 import { Major } from "./pages/major/ogranoids/Major";
@@ -22,9 +22,9 @@ import { ChangeUser } from "./pages/userchange/organoids/ChangeUser";
 import { HomeTop } from "./pages/home/ogranoids/HomeTop";
 import { HomeRecommendation } from "./pages/home/ogranoids/HomeRecommendation";
 import { HomeSubscription } from "./pages/home/ogranoids/HomeSubscription";
-import useWindowDimensions from "./ui/useWindowDimensions";
-import Wallpaper from './common/assets/general/Wallpaper.png'
-import WallpaperPhone from './common/assets/general/WallpaperPhone.png'
+import Wallpaper from './assets/general/Wallpaper.png'
+import WallpaperPhone from './assets/general/WallpaperPhone.png'
+import useWindowDimensions from "./ui/functions/UseWindowDimensions";
 
 export function App() {
   const navigate = useNavigate();

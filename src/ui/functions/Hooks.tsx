@@ -1,7 +1,7 @@
 import { createEvent, createStore } from "effector";
 import { $accessToken } from "./AccessToken";
 import { accessTokenName } from "./AxiosInstance";
-import ProfileDefault from '../common/assets/header/DefaultAvatar.svg'
+import ProfileDefault from '../../assets/header/DefaultAvatar.svg'
 
 export const $userAuthorization = createStore<boolean>(false)
 export const setUserAuthorization = createEvent<boolean>()

@@ -1,5 +1,5 @@
 import { useStore } from "effector-react";
-import { $userAnotherValue } from "../../../common/UserAnotherHooks";
+import { $userAnotherValue } from "../../../ui/functions/UserAnotherHooks";
 // import { Link } from "react-router-dom";
 
 export interface IAnotherUserContentJobName {

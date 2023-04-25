@@ -1,8 +1,8 @@
 import { useState } from "react";
 import "../styles/Login.css";
 import { ILoginUser, loginUser } from "../logics/loginUser";
-import JeneseiLogo from '../../../common/assets/logo/JeneseiLogo.svg'
-import LoginLogo from '../../../common/assets/login/Login.svg'
+import JeneseiLogo from '../../../assets/logo/JeneseiLogo.svg'
+import LoginLogo from '../../../assets/login/Login.svg'
 
 import { NavLink, useNavigate } from "react-router-dom";
 export const Login = () => {

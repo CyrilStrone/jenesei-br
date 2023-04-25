@@ -1,6 +1,6 @@
 import { useStore } from "effector-react";
 import { useState } from "react";
-import { $userAnotherId, $userAnotherValue } from "../../../common/UserAnotherHooks";
+import { $userAnotherId, $userAnotherValue } from "../../../ui/functions/UserAnotherHooks";
 import { getChangeUser } from "../logics/getChangeUser";
 import '../styles/ChangeUser.css'
 export const ChangeUser = () => {
