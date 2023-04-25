@@ -15,7 +15,6 @@ import { Registration } from "./pages/registration/organoids/Registration";
 import { Login } from "./pages/login/organoids/Login";
 import { Forgot } from "./pages/forgot/organoids/Forgot";
 import { Chat } from "./pages/chat/ogranoids/Chat";
-import { User } from "./pages/user/ogranoids/user";
 import { Search } from "./pages/search/ogranoids/Search";
 import { AnotherUser } from "./pages/useranother/ogranoids/AnotherUser";
 import { ChangeUser } from "./pages/userchange/organoids/ChangeUser";
@@ -25,6 +24,7 @@ import { HomeSubscription } from "./pages/home/ogranoids/HomeSubscription";
 import Wallpaper from './assets/general/Wallpaper.png'
 import WallpaperPhone from './assets/general/WallpaperPhone.png'
 import useWindowDimensions from "./ui/functions/UseWindowDimensions";
+import { User } from "./pages/user/ogranoids/User";
 
 export function App() {
   const navigate = useNavigate();
@@ -67,17 +67,7 @@ export function App() {
           <Route path="/Forgot" element={<Forgot />}></Route>
           <Route path="/Chat" element={<Chat />}></Route>
           <Route path="/Search" element={<Search />}></Route>
-          <Route
-            element={<User />}
-            path="/User/:userName"
-            loader={async ({ params }) => {
-              return userName;
-            }}
-            action={async ({ request }) => {
-              return userName;
-            }}
-            errorElement={<Major />}
-          />
+          <Route path="/User" element={<User />}></Route>
           <Route
             element={<AnotherUser />}
             path="/AnotherUser/:UserAnotherName"
