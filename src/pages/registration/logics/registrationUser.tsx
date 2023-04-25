@@ -7,6 +7,8 @@ export interface IRegistrationUser {
     password: string
     firstName: string
     lastName: string
+    login:string
+    date:string
 }
 export const registrationUser = async (params: IRegistrationUser) => {
     return axiosInstance.post(
@@ -15,7 +17,8 @@ export const registrationUser = async (params: IRegistrationUser) => {
         "password": params.password,
         "firstName": params.firstName,
         "lastName": params.lastName,
-        "birthDate": "2023-01-31T16:45:18.818Z"
+        "login": params.login,
+        "birthDate": params.date,
     })
         .then((res: any) => { setAccessToken(res.data.token) })
         .catch(() => {

@@ -64,7 +64,18 @@ body {
   transform: scale(1.02);
   z-index: 1;
 }
-
+.App:has(.Major) {
+  background-image: none !important;
+}
+.App:has(.Login) {
+  background-image: none !important;
+}
+.App:has(.Forgot) {
+  background-image: none !important;
+}
+.App:has(.Registration) {
+  background-image: none !important;
+}
 @media (max-width: 1500px) {
   .App_Actual {
     width: 1100px;
@@ -78,11 +89,5 @@ body {
 @media (orientation: portrait) {
   .App_Actual {
     width: 96%;
-  }
-}
-@media (orientation: portrait) {
-  .App {
-    /* background: linear-gradient(110.53deg, rgba(254, 255, 199, 0.9) 23.94%, rgba(255, 184, 0, 0.9) 62.48%, rgba(201, 36, 0, 0.9) 95.32%);
-    backdrop-filter: blur(12.5px); */
   }
 }

@@ -11,8 +11,11 @@ export const loginUser = async (params: ILoginUser) => {
         "email": params.email,
         "password": params.password,
     })
-        .then((res: any) => { setAccessToken(res.data.token) })
-        .catch(() => {
-            setAccessToken("")
+        .then((res: any) => {
+            setAccessToken(res.data.token);
+            return true;
+        })
+        .catch((error) => {
+            return false;
         })
 }

@@ -1,7 +1,44 @@
-.Forgot{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.Forgot {
+  display: flex;
+  width: 100%;
+  min-height: 75vh;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  font-family: "Inter";
+  font-style: normal;
+  font-size: 60px;
+}
+.Forgot__Block {
+  width: 640px;
+  box-shadow: 0 11px 34px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 34px;
+  padding: 60px 20px 60px 20px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.Forgot__Block__Content {
+  width: 62%;
+  background-color: #fff;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 26px;
+}
+.Forgot__Block__Content__Footer {
+  font-weight: 300;
+  font-size: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.Login__Block__Content__Registration {
+  text-decoration: none;
+  color: #0070c9;
 }

@@ -2,7 +2,7 @@ import "./index.css";
 import "./App.css";
 import "./font.css";
 import { Route, Routes, useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useStore } from "effector-react";
 import { $userName } from "./common/Hooks";
 import { $userAnotherName } from "./common/UserAnotherHooks";
@@ -22,18 +22,16 @@ import { ChangeUser } from "./pages/userchange/organoids/ChangeUser";
 import { HomeTop } from "./pages/home/ogranoids/HomeTop";
 import { HomeRecommendation } from "./pages/home/ogranoids/HomeRecommendation";
 import { HomeSubscription } from "./pages/home/ogranoids/HomeSubscription";
+import useWindowDimensions from "./ui/useWindowDimensions";
 import Wallpaper from './common/assets/general/Wallpaper.png'
 import WallpaperPhone from './common/assets/general/WallpaperPhone.png'
-
-import { useWindowSize } from "@react-hook/window-size";
 
 export function App() {
   const navigate = useNavigate();
   const userName = useStore($userName);
   const UserAnotherName = useStore($userAnotherName);
   const accessToken = useStore($accessToken);
-  const [width, height] = useWindowSize();
-
+  const { height, width } = useWindowDimensions();
   useEffect(() => {
     if (!localStorage.getItem(accessTokenName)?.length) {
     } else {

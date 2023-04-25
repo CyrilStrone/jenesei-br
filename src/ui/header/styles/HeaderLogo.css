@@ -19,7 +19,8 @@
   font-weight: 600;
 }
 .HeaderLogo__Title__BLue {
-  color: #0e8ac3;
+  /* color: #0e8ac3; */
+  color: #000000;
 }
 .HeaderLogo__Title__Black {
   color: #000000;

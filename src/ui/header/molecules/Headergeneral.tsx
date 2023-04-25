@@ -7,7 +7,7 @@ export const HeaderGeneral = () => {
     return (
         <div className="HeaderGeneral">
             <HeaderLogo />
-            {location.pathname !== "/" && <HeaderBar />}
+            {(location.pathname !== "/" && location.pathname !== "/Login" && location.pathname !== "/Forgot" && location.pathname !== "/Registration") && <HeaderBar />}
         </div>
     );
 };

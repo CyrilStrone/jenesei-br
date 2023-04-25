@@ -8,16 +8,24 @@
   font-size: 60px;
 }
 .Major__Animated {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .Major__Animated__Logo {
   width: 320px;
   height: 320px;
+  object-fit: contain;
 }
 .Major__Name {
   font-weight: 600;
   font-size: 100%;
   color: #000000;
   margin-top: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 .Major__Login {
   font-weight: 600;
@@ -36,31 +44,116 @@
 }
 .Major__Description {
   font-weight: 500;
-  font-size: 65%;
+  font-size: 46%;
   color: #000000;
   margin-top: 38px;
   width: 700px;
   text-align: center;
 }
-.Major__BestFeatures{
+.Major__BestFeatures {
   display: flex;
   gap: 50px;
   margin-top: 72px;
 }
-.Major__BestFeatures__Item{
+.Major__BestFeatures__Item {
   width: 650px;
   border-radius: 16px;
-  box-shadow: 17px 20px 40px rgba(0,0,0,.21);
+  box-shadow: 17px 20px 40px rgba(0, 0, 0, 0.21);
   display: flex;
   padding: 40px;
   flex-direction: column;
   gap: 20px;
+  box-sizing: border-box;
 }
-.Major__BestFeatures__Item__Title{
+.Major__BestFeatures__Item__Title {
   font-weight: 600;
   font-size: 48%;
 }
-.Major__BestFeatures__Item__Description{
+.Major__BestFeatures__Item__Description {
   font-weight: 400;
   font-size: 42%;
+}
+@media (max-width: 1500px) {
+  .Major {
+    font-size: 45px;
+  }
+  .Major__Animated {
+  }
+  .Major__Animated__Logo {    width: 300px;
+    height: 300px;
+  }
+  .Major__Name {
+  }
+  .Major__Login {
+  }
+  .Major__Description {
+    
+  }
+  .Major__BestFeatures {
+  }
+  .Major__BestFeatures__Item {
+    width: 470px;
+  }
+  .Major__BestFeatures__Item__Title {
+  }
+  .Major__BestFeatures__Item__Description {
+  }
+}
+@media (max-width: 1200px) {
+  .Major {
+    font-size: 42px;
+  }
+  .Major__Animated {
+  }
+  .Major__Animated__Logo {
+  }
+  .Major__Name {
+  }
+  .Major__Login {
+  }
+  .Major__Description {
+    width: 100%;
+  }
+  .Major__BestFeatures {
+  }
+  .Major__BestFeatures__Item {
+    width: 346px;
+  }
+  .Major__BestFeatures__Item__Title {
+  }
+  .Major__BestFeatures__Item__Description {
+  }
+}
+@media (orientation: portrait) {
+  .Major {
+  }
+  .Major__Animated {
+  }
+  .Major__Animated__Logo {
+    width: 80%;
+    height: auto;
+  }
+  .Major__Name {margin-top: 22px;
+  
+  }
+  .Major__Login {margin-top: 22px;
+  }
+  .Major__Description {
+    width: 100%;
+  }
+  .Major__BestFeatures {
+    display: flex;
+    gap: 40px;
+    margin-top: 44px;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+  .Major__BestFeatures__Item {
+    width: 100%;
+  }
+  .Major__BestFeatures__Item__Title {
+  }
+  .Major__BestFeatures__Item__Description {
+  }
 }
