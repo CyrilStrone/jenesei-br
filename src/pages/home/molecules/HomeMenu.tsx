@@ -4,7 +4,7 @@ import { NavLink, useLocation } from "react-router-dom";
 export const HomeMenu = () => {
   const location = useLocation();
   return (
-    <div className="HomeMenu Block__Active">
+    <div className="HomeMenu Translucent__Block Block__Active">
       <div className="HomeMenu__Navs">
         <NavLink
           to={"/Home/Top"}

@@ -7,11 +7,11 @@ export const HomeRecommendationUserCard = (params: IHomeRecommendationUserCard) 
 
 
   return (
-    <div className={params.id == 0 ? "HomeRecommendationUserCardZero Block__Active" : "HomeRecommendationUserCard Block__Active"} >
-      <div className="HomeRecommendationUserCard__Header" >
+    <div className={params.id == 0 ? "HomeRecommendationUserCardZero Half__Block Block__Active" : "HomeRecommendationUserCard Half__Block Block__Active"} >
+      <div className="HomeRecommendationUserCard__Header Half__Block__Header" >
         Дядя
       </div>
-      <div className="HomeRecommendationUserCard__Info" >
+      <div className="HomeRecommendationUserCard__Info Half__Block__Footer" >
 
       </div>
     </div>

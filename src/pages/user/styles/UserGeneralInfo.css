@@ -1,17 +1,5 @@
 .UserGeneralInfo {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-self: flex-start;
-  width: 30%;
-  gap: 7px;
-  -webkit-backdrop-filter: blur(15px) saturate(86%);
-  backdrop-filter: blur(15px) saturate(86%);
-  background: radial-gradient(
-    circle at 100% 0,
-    hsla(0, 0%, 100%, 0.85) 0,
-    hsla(0, 0%, 96.1%, 0.13) 183%
-  );
-  padding: 30px;
-  box-sizing: border-box;
+  width: 39%;
+  height: 200px;
+  flex: 1 1 calc((100% / 3) - 2rem);
 }

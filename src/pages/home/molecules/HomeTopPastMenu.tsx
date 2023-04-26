@@ -4,7 +4,7 @@ export const HomeTopPastMenu = (props: any) => {
 
 
   return (
-    <div className="HomeTopPastMenu Block__NonActive">
+    <div className="HomeTopPastMenu Transparent__Block Block__NonActive">
 
     </div>
   );

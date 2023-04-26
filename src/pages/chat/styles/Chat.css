@@ -21,60 +21,15 @@
 .Chat__Bar {
   width: 400px;
   height: 100%;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
 }
 .Chat__Bar__Header {
-  border-radius: 16px 16px 0 0;
-  background-color: rgba(248, 248, 252, 0.85);
-  -webkit-backdrop-filter: blur(15px) saturate(86%);
-  backdrop-filter: blur(15px) saturate(86%);
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  font-size: 37%;
-  font-weight: 500;
-  padding: 28px;
-  box-sizing: border-box;
-  -webkit-user-select: none;
-  user-select: none;
 }
 .Chat__Bar__List {
-  border-radius: 0 0 16px 16px;
-  background: #ffffff;
-  width: 100%;
-  height: -webkit-fill-available;
 }
 .Chat__Choice {
-  width: 100%;
-  display: flex;
-  gap: 18px;
-  padding: 18px;
-  height: 100%;
-  background: #ffffff;
-  box-sizing: border-box;
-  background-color: hsla(0, 0%, 100%, 0.3);
-  -webkit-backdrop-filter: blur(15px) saturate(86%);
-  backdrop-filter: blur(15px) saturate(86%);
+  height: 100% !important;
 }
 .Chat__Header {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-self: flex-start;
-  width: 100%;
-  gap: 7px;
-  -webkit-backdrop-filter: blur(15px) saturate(86%);
-  backdrop-filter: blur(15px) saturate(86%);
-  background: radial-gradient(
-    circle at 100% 0,
-    hsla(0, 0%, 100%, 0.85) 0,
-    hsla(0, 0%, 96.1%, 0.13) 183%
-  );
-  padding: 30px;
-  border-radius: 16px;
-  box-sizing: border-box;
 }
 .Chat__Title {
   font-size: 100%;

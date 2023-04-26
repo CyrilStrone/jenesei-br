@@ -8,17 +8,7 @@
   gap: 20px;
 }
 .SearchBar__Block {
-  width: 100%;
-  display: flex;
-  gap: 18px;
-  padding: 18px;
-  background: #ffffff;
-  box-sizing: border-box;
-  background-color: hsla(0, 0%, 100%, 0.3);
-  -webkit-backdrop-filter: blur(15px) saturate(86%);
-  backdrop-filter: blur(15px) saturate(86%);
-  flex-direction: column;
-  transition-duration: 0.5s;
+  flex-direction: column !important;
 }
 .SearchBar__Title {
   font-family: "Montserrat";

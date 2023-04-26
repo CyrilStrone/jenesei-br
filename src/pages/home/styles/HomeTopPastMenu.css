@@ -1,13 +1,3 @@
 .HomeTopPastMenu {
-  width: 100%;
-  display: flex;
-  gap: 18px;
-  padding: 18px;
-  height: 112px;
-  background: #ffffff;
-  box-sizing: border-box;
 
-  background-color: hsla(0, 0%, 100%, 0.3);
-  -webkit-backdrop-filter: blur(15px) saturate(86%);
-  backdrop-filter: blur(15px) saturate(86%);
 }

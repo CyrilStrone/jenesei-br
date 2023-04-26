@@ -4,3 +4,8 @@
   height: 100%;
   flex-direction: column;
 }
+.User__Content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
