@@ -92,6 +92,7 @@
   background: #ffffff;
   width: 100%;
   height: -webkit-fill-available;
+  box-sizing: border-box;
 }
 .White__Block {
   display: flex;

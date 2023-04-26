@@ -1,0 +1,50 @@
+.ChatGeneralBar {
+  width: 400px;
+  height: 100%;
+}
+.ChatGeneralBar__Header {
+}
+.ChatGeneralBar__List {
+  padding: 12px;
+  box-sizing: border-box;
+  display: flex;
+  gap: 6px;
+  flex-direction: column;
+  direction: rtl;
+  overflow: scroll;
+  overflow-x: hidden !important;
+}
+.ChatGeneralBar__List__Search {
+  background: #fff;
+  background-clip: padding-box;
+  border: 1px solid #d6d6d6;
+  border-radius: 8px;
+  color: #333;
+  display: inline-block;
+  font-size: 28%;
+  font-weight: 300;
+  height: 34px;
+  padding-left: 15px;
+  padding-right: 15px;
+  position: relative;
+  text-align: left;
+  vertical-align: top;
+  width: 100%;
+}
+.ChatGeneralBarItem__List {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  height: 700px;
+}
+.ChatGeneralBar__List__Search:focus {
+  border: 1px solid #0e8ac3;
+  outline: none;
+  z-index: 2;
+}
+@media (orientation: portrait) {
+  .ChatGeneralBar {
+    width: 100%;
+    height: 200px;
+  }
+}

@@ -1,0 +1,42 @@
+.ChatGeneralBarItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px;
+  height: 46px;
+  min-height: 46px;
+  padding-left: 8px;
+  cursor: pointer;
+  overflow: hidden;
+  direction: ltr;
+}
+.ChatGeneralBarItem:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+.ChatGeneralBarItem__Avatar {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+}
+.ChatGeneralBarItem__Info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 5px;
+  height: -webkit-fill-available;
+}
+.ChatGeneralBarItem__Info__Name {
+  font-size: 32%;
+  font-weight: 500;
+}
+.ChatGeneralBarItem__Info__Preview {
+  font-size: 20%;
+  font-weight: 300;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ChatGeneralBarItem__Message {
+  font-size: 30%;
+}

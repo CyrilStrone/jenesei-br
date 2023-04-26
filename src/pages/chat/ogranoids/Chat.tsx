@@ -1,3 +1,4 @@
+import { ChatGeneral } from "../molecules/ChatGeneral";
 import "../styles/Chat.css";
 
 export const Chat = () => {
@@ -9,17 +10,7 @@ export const Chat = () => {
           Чат
         </div>
       </div>
-      <div className="Chat__General ">
-        <div className="Chat__Bar Half__Block Block__NonActive">
-          <div className="Chat__Bar__Header Half__Block__Header">
-            Даня Булгаков
-          </div>
-          <div className="Chat__Bar__List Half__Block__Footer">
-          </div>
-        </div>
-        <div className="Chat__Choice Transparent__Block Block__NonActive">
-        </div>
-      </div>
+      <ChatGeneral/>
     </div>
   );
 };
