@@ -15,3 +15,5 @@ export const axiosInstance = axios.create({
     authorization: `Bearer ${localStorage.getItem(accessTokenName)}`
   },
 });
+
+export const apiImage = "http://26.74.162.51:3002/"
