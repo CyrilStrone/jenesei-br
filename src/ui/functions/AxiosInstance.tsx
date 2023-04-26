@@ -4,6 +4,7 @@ export const accessTokenName = "BusinessRouletteToken"
 
 export const axiosInstance = axios.create({
   baseURL: "https://businessroulette.ru:3000/api/",
+  timeout: 1000,
   headers: {
     authorization: `Bearer ${localStorage.getItem(accessTokenName)}`
   },

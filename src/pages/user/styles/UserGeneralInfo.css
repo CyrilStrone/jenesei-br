@@ -19,6 +19,7 @@
   width: 114px;
   height: 114px;
   border-radius: 100%;
+  object-fit: cover;
 }
 @media (orientation: portrait) {
   .UserGeneralInfo {

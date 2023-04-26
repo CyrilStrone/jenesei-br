@@ -14,6 +14,7 @@ export const loginUser = async (params: ILoginUser) => {
     })
         .then((res: any) => {
             setAccessToken(res.data.token);
+            window.location.reload(); //TODO:Это как вообще работает?
         })
         .catch((error) => {
         })

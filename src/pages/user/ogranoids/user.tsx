@@ -5,21 +5,19 @@ import { UserExperience } from "../molecules/UserExperience";
 import { UserStack } from "../molecules/UserStack";
 import { useEffect, useState } from "react";
 import { InProfile } from "../logics/InProfile";
-import { $accessToken } from "../../../ui/functions/AccessToken";
-import { useStore } from "effector-react";
 import { UserEducation } from "../molecules/UserEducation";
 import { UserSubscribers } from "../molecules/UserSubscribers";
 import { UserSubscription } from "../molecules/UserSubscription";
+import { accessTokenName } from "../../../ui/functions/AxiosInstance";
 export const User = () => {
   const [value, setValue] = useState<any>();
-  const accessToken = useStore($accessToken);
   const requestProfile = async () => {
     setValue(await InProfile())
   }
   useEffect(() => {
-    if (accessToken)
+      console.log("localStorage.getItem(accessTokenName)",localStorage.getItem(accessTokenName))
       requestProfile()
-  }, [accessToken])
+  }, [])
 
   useEffect(() => {
     console.log("value", value)
