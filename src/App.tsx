@@ -38,7 +38,7 @@ export function App() {
 
   return (
     <div className="App">
-      <div className="App__PhoneWalpaper"></div>
+      <div className="App__PhoneWallpaper"></div>
       <Header />
       <div className="App_Actual">
         <Routes>

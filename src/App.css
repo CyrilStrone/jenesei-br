@@ -27,7 +27,7 @@ body {
   background-image: url("./assets/general/Wallpaper.png");
   background-position: center;
 }
-.App__PhoneWalpaper {
+.App__PhoneWallpaper {
   position: fixed;
   top: 0;
   left: 0;
@@ -40,6 +40,9 @@ body {
 }
 .App:has(.Major) {
   background-image: none !important;
+}
+.App:has(.Major) .App__PhoneWallpaper{
+  display: none;
 }
 .App:has(.Login) {
   background-image: none !important;
@@ -61,7 +64,7 @@ body {
   }
 }
 @media (orientation: portrait) {
-  .App__PhoneWalpaper {
+  .App__PhoneWallpaper {
     display: block;
   }
   .App {
