@@ -3,12 +3,10 @@
   align-items: center;
   gap: 12px;
   padding: 6px;
-  height: 46px;
-  min-height: 46px;
+  height: 40px;
+    min-height: 46px;
   padding-left: 8px;
   cursor: pointer;
-  overflow: hidden;
-  direction: ltr;
 }
 .ChatGeneralBarItem:hover {
   background-color: rgba(0, 0, 0, 0.1);
@@ -39,4 +37,15 @@
 }
 .ChatGeneralBarItem__Message {
   font-size: 30%;
+}
+@media (orientation: portrait) {
+  .ChatGeneralBarItem{
+    min-width: 40px;
+    gap: 0;
+    padding: 6px;
+  }
+  .ChatGeneralBarItem__Info {
+    display: none;
+  }
+  .ChatGeneralBarItem__Message {display: none;}
 }

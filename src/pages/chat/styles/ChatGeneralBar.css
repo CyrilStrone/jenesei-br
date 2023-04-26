@@ -10,9 +10,7 @@
   display: flex;
   gap: 6px;
   flex-direction: column;
-  direction: rtl;
-  overflow: scroll;
-  overflow-x: hidden !important;
+  overflow: hidden;
 }
 .ChatGeneralBar__List__Search {
   background: #fff;
@@ -45,6 +43,31 @@
 @media (orientation: portrait) {
   .ChatGeneralBar {
     width: 100%;
-    height: 200px;
+    height: min-content;
+  }
+  .ChatGeneralBar__List {
+  }
+  .ChatGeneralBar__List__Search {
+    display: none;
+  }
+
+  .ChatGeneralBarItem__List {
+    display: block;
+    flex-direction: row;
+    height: min-content;
+    width: 100px;
+    height: 300px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    transform: rotate(-90deg);
+    transform-origin: right top;
+    transform: rotate(-90deg) translateY(-100px);
+  }
+  .ChatGeneralBarItem__List > div {
+    transform: rotate(90deg);
+    transform-origin: right top;
+  }
+  .ChatGeneralBar__List::-webkit-scrollbar {
+    /* width: 0; */
   }
 }
