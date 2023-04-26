@@ -10,6 +10,7 @@ import Logout from '../../../assets/header/Logout.svg'
 import { NavLink } from 'react-router-dom';
 import { $userValue } from '../../../ui/functions/Hooks';
 import { useStore } from 'effector-react';
+import { UserLogout } from '../../functions/AccessToken'
 
 export const HeaderBarProfile = () => {
   const userValue = useStore($userValue);
@@ -54,7 +55,7 @@ export const HeaderBarProfile = () => {
           <img src={Setting} className="HeaderBarProfile__List__Image" alt="" />
           Настройки
         </NavLink>
-        <NavLink to={`/User`} className="HeaderBarProfile__List__Logout">
+        <NavLink to={`/Login`} onClick={UserLogout} className="HeaderBarProfile__List__Logout">
           <img src={Logout} className="HeaderBarProfile__List__Image " alt="" />
           Выход
         </NavLink>

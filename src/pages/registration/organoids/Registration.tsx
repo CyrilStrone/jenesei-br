@@ -5,7 +5,6 @@ import "../styles/Registration.css";
 import { IRegistrationUser, registrationUser } from "../logics/registrationUser";
 import JeneseiLogo from '../../../assets/logo/JeneseiLogo.svg'
 
-
 export const Registration = () => {
     const [registrationValue, setRegistrationValue] = useState<IRegistrationUser>({ email: "", password: "", firstName: "", lastName: "", login: "", date: "" });
     const [resetPassword, setResetPassword] = useState({ password: "" });
@@ -37,8 +36,8 @@ export const Registration = () => {
     };
     return (
         <>
-            <div className="Registration">
-                <div className="Registration__Block">
+            <div className="Registration White__Block">
+                <div className="Registration__Block White__Block__General">
                     <div className="Registration__Block__Content">
                         <div className="Registration__Block__Content__Logo">
                             <img src={JeneseiLogo} alt="Jenesei Logo" />

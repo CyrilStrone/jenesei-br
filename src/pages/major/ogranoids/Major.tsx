@@ -2,9 +2,7 @@ import "../styles/Major.css";
 import BigLogo from '../../../assets/major/BigLogo.png';
 import { NavLink } from "react-router-dom";
 
-
 export const Major = () => {
-
     return (
         <div className="Major">
             <div className="Major__Animated">

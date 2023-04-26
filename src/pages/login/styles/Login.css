@@ -1,24 +1,6 @@
 .Login {
-  display: flex;
-  width: 100%;
-  min-height: 75vh;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
-  font-family: "Inter";
-  font-style: normal;
-  font-size: 60px;
 }
 .Login__Block{
-  width: 640px;
-  box-shadow: 0 11px 34px 0 rgba(0, 0, 0, 0.2);
-  border-radius: 34px;
-  padding: 60px 20px 60px 20px;
-  background-color: #fff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 .Login__Block__Content {
   width: 62%;
@@ -127,16 +109,9 @@
   z-index: 2;
 }
 @media (orientation: portrait) and (max-width: 700px) {
-  .Login {
-    font-size: 38px;
-  }
   .Login__Block__Content {
     gap: 14px;
     width: 100%;
-  }
-  .Login__Block{
-    width: 100%;
-    padding: 20px 20px 20px 20px;
   }
   .Login__Block__Content__Logo {
   }

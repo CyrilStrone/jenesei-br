@@ -1,13 +1,14 @@
 import { HeaderLogo } from "../atomes/HeaderLogo";
 import { HeaderBar } from "../atomes/HeaderBar";
-import { useLocation } from "react-router-dom";
+import { $accessToken } from "../../functions/AccessToken";
+import { useStore } from "effector-react";
 
 export const HeaderGeneral = () => {
-    const location = useLocation();
+    const accessToken = useStore($accessToken);
     return (
         <div className="HeaderGeneral">
             <HeaderLogo />
-            {(location.pathname !== "/" && location.pathname !== "/Login" && location.pathname !== "/Forgot" && location.pathname !== "/Registration") && <HeaderBar />}
+            {accessToken && <HeaderBar />}
         </div>
     );
 };

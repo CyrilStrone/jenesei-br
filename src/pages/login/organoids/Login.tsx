@@ -3,23 +3,17 @@ import "../styles/Login.css";
 import { ILoginUser, loginUser } from "../logics/loginUser";
 import JeneseiLogo from '../../../assets/logo/JeneseiLogo.svg'
 import LoginLogo from '../../../assets/login/Login.svg'
-
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 export const Login = () => {
-    const navigate = useNavigate();
-    const [loginValue, setLoginValue] = useState<ILoginUser>({ email: "", password: "" });
-    const [checked, setChecked] = useState(false);
+    const [loginValue, setLoginValue] = useState<ILoginUser>({ login: "", password: "", checked:false });
     const handleCheck = () => {
-        setChecked(!checked);
+        setLoginValue({ ...loginValue, "checked": !(loginValue.checked) })
     };
-
     const requestLogin = async () => {
-        if (await loginUser(loginValue)) {
-            navigate("/User")
-        }
+        await loginUser(loginValue)
     }
-    let handleClick = () => {
-        if (loginValue.email && loginValue.password) {
+    const handleClick = () => {
+        if (loginValue.login && loginValue.password) {
             requestLogin()
         } else {
             alert("Данные говно")
@@ -30,10 +24,9 @@ export const Login = () => {
             console.log("АУЕ")
         }
     }
-
     return (
-        <div className="Login">
-            <div className="Login__Block">
+        <div className="Login White__Block">
+            <div className="Login__Block White__Block__General">
                 <div className="Login__Block__Content">
                     <div className="Login__Block__Content__Logo">
                         <img src={JeneseiLogo} alt="Jenesei Logo" />
@@ -42,12 +35,12 @@ export const Login = () => {
                         Войти с помощью Jenesei ID
                     </div>
                     <div className="Login__Block__Content__InputBar">
-                        <input type={"email"} className="Login__Block__Content__InputBar__MailOrLogin" placeholder="Jenesei ID" value={loginValue.email} onChange={(event: any) => { setLoginValue({ ...loginValue, "email": event.target.value }) }} />
+                        <input type={"email"} className="Login__Block__Content__InputBar__MailOrLogin" placeholder="Jenesei ID" value={loginValue.login} onChange={(event: any) => { setLoginValue({ ...loginValue, "login": event.target.value }) }} />
                         <input onKeyDown={handleKeyPress} type={"password"} className="Login__Block__Content__InputBar__Password" placeholder="Пароль" value={loginValue.password} onChange={(event: any) => { setLoginValue({ ...loginValue, "password": event.target.value }) }} />
                         <img onClick={handleClick} className="Login__Block__Content__InputBar__LoginLogo" src={LoginLogo} alt="" />
                     </div>
                     <div className="Login__Block__Content__Remember">
-                        <input type="checkbox" checked={checked} onChange={handleCheck} />
+                        <input type="checkbox" checked={loginValue.checked} onChange={handleCheck} />
                         Не выходить из системы?
                     </div>
                     <div className="Login__Block__Content__Footer">

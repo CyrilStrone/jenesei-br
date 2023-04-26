@@ -93,7 +93,38 @@
   width: 100%;
   height: -webkit-fill-available;
 }
+.White__Block {
+  display: flex;
+  width: 100%;
+  min-height: 75vh;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  font-family: "Inter";
+  font-style: normal;
+  font-size: 60px;
+}
+.White__Block__General {
+  width: 640px;
+  box-shadow: 0 11px 34px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 34px;
+  padding: 60px 20px 60px 20px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 @media (orientation: portrait) {
   .Transparent__Block {
+  }
+}
+@media (orientation: portrait) and (max-width: 700px) {
+  .White__Block {
+    font-size: 38px;
+  }
+  .White__Block__General {
+    width: 100%;
+    padding: 20px 20px 20px 20px;
   }
 }
