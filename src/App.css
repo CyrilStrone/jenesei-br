@@ -24,6 +24,19 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  background-image: url("./assets/general/Wallpaper.png");
+  background-position: center;
+}
+.App__PhoneWalpaper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  background-size: cover;
+  background-image: url("./assets/general/WallpaperPhone.png");
+  background-position: center;
 }
 .App:has(.Major) {
   background-image: none !important;
@@ -48,6 +61,12 @@ body {
   }
 }
 @media (orientation: portrait) {
+  .App__PhoneWalpaper {
+    display: block;
+  }
+  .App {
+    background-image: none !important;
+  }
   .App_Actual {
     width: 96%;
   }

@@ -19,11 +19,12 @@ import { ChangeUser } from "./pages/userchange/organoids/ChangeUser";
 import { HomeTop } from "./pages/home/ogranoids/HomeTop";
 import { HomeRecommendation } from "./pages/home/ogranoids/HomeRecommendation";
 import { HomeSubscription } from "./pages/home/ogranoids/HomeSubscription";
-import Wallpaper from './assets/general/Wallpaper.png'
-import WallpaperPhone from './assets/general/WallpaperPhone.png'
 import useWindowDimensions from "./ui/functions/UseWindowDimensions";
 import { User } from "./pages/user/ogranoids/User";
 import { useStore } from "effector-react";
+
+import Wallpaper from './assets/general/Wallpaper.png'
+import WallpaperPhone from './assets/general/WallpaperPhone.png'
 
 export function App() {
   const { height, width } = useWindowDimensions();
@@ -36,7 +37,8 @@ export function App() {
   }, [])
 
   return (
-    <div className="App" style={{ backgroundImage: width > height ? `url(${Wallpaper})` : `url(${WallpaperPhone})` }}>
+    <div className="App">
+      <div className="App__PhoneWalpaper"></div>
       <Header />
       <div className="App_Actual">
         <Routes>
