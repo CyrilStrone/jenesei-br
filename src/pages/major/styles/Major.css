@@ -79,7 +79,8 @@
   }
   .Major__Animated {
   }
-  .Major__Animated__Logo {    width: 300px;
+  .Major__Animated__Logo {
+    width: 300px;
     height: 300px;
   }
   .Major__Name {
@@ -87,7 +88,6 @@
   .Major__Login {
   }
   .Major__Description {
-    
   }
   .Major__BestFeatures {
   }
@@ -101,7 +101,7 @@
 }
 @media (max-width: 1200px) {
   .Major {
-    font-size: 42px;
+    font-size: 38px;
   }
   .Major__Animated {
   }
@@ -130,13 +130,16 @@
   .Major__Animated {
   }
   .Major__Animated__Logo {
-    width: 80%;
     height: auto;
+    width: 65%;
   }
-  .Major__Name {margin-top: 22px;
-  
+  .Major__Name {
+    margin-top: 22px;
   }
-  .Major__Login {margin-top: 22px;
+  .Major__Login {
+    margin-top: 22px;
+    width: 128px;
+    height: 37px;
   }
   .Major__Description {
     width: 100%;
@@ -146,11 +149,11 @@
     gap: 40px;
     margin-top: 44px;
     flex-direction: column;
-    align-items: stretch;
+    align-items: center;
     width: 100%;
   }
   .Major__BestFeatures__Item {
-    width: 100%;
+    width: 80%;
   }
   .Major__BestFeatures__Item__Title {
   }

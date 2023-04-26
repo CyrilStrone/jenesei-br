@@ -69,14 +69,17 @@
   position: relative;
 }
 .Registration__Block__Content__InputBar input:focus {
-  outline: 1px solid #0e8ac3;
+  outline: none;
   border: 1px solid #0e8ac3;
   z-index: 2;
 }
 .Registration__Block__Content__Remember {
   font-weight: 300;
-  font-size: 28%;
-  width: 100%;
+  font-size: 30%;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 .Registration__Block__Content__Footer {
   width: 100%;
@@ -107,7 +110,7 @@
 }
 @media (orientation: portrait) and (max-width: 700px) {
   .Registration {
-    font-size: 48px;
+    font-size: 38px;
   }
   .Registration__Block__Content {
     gap: 14px;
@@ -115,10 +118,12 @@
   }
   .Registration__Block {
     width: 100%;
+    padding: 20px 20px 20px 20px;
   }
   .Registration__Block__Content__Logo {
   }
   .Registration__Block__Content__Logo img {
+    width: 60%;
   }
   .Registration__Block__Content__InputBar {
   }

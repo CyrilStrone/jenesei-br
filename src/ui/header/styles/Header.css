@@ -24,3 +24,32 @@
   margin-left: 16px;
   margin-right: 5px;
 }
+@media (orientation: portrait) {
+  .HeaderGeneral {
+    margin-left: 5px;
+  }
+}
+.App:has(.Major) .Header {
+  background-image: none;
+  background-color: rgba(251, 251, 253, 0.5);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+}
+.App:has(.Login) .Header {
+  background-image: none;
+  background-color: rgba(251, 251, 253, 0.5);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+}
+.App:has(.Forgot) .Header {
+  background-image: none;
+  background-color: rgba(251, 251, 253, 0.5);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+}
+.App:has(.Registration) .Header {
+  background-image: none;
+  background-color: rgba(251, 251, 253, 0.5);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+}
