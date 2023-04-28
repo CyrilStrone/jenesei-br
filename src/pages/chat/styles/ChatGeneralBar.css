@@ -48,7 +48,7 @@
 @media (orientation: portrait) {
   .ChatGeneralBar {
     width: 100%;
-    height: auto;
+    height: min-content;
   }
   .ChatGeneralBar__List__Input {
     display: none;
