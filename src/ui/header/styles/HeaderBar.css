@@ -43,3 +43,11 @@
   font-size: 17px;
   box-sizing: border-box;
 }
+@media (orientation: portrait) {
+  .HeaderBar__Block {
+    position: static;
+  }
+  .HeaderBar{
+    position: relative;
+  }
+}

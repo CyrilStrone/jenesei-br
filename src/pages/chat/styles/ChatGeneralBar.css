@@ -29,45 +29,33 @@
   vertical-align: top;
   width: 100%;
 }
-.ChatGeneralBarItem__List {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  height: 700px;
-}
 .ChatGeneralBar__List__Input:focus {
   border: 1px solid #0e8ac3;
   outline: none;
   z-index: 2;
 }
+.ChatGeneralBarItem__List {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  height: 700px;
+  overflow-y: auto;
+}
+.ChatGeneralBarItem__List::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
 @media (orientation: portrait) {
   .ChatGeneralBar {
     width: 100%;
-    height: min-content;
-  }
-  .ChatGeneralBar__List {
+    height: auto;
   }
   .ChatGeneralBar__List__Input {
     display: none;
   }
-
   .ChatGeneralBarItem__List {
-    display: block;
+    display: flex;
     flex-direction: row;
-    height: min-content;
-    width: 100px;
-    height: 300px;
-    overflow-y: auto;
-    overflow-x: hidden;
-    transform: rotate(-90deg);
-    transform-origin: right top;
-    transform: rotate(-90deg) translateY(-100px);
-  }
-  .ChatGeneralBarItem__List > div {
-    transform: rotate(90deg);
-    transform-origin: right top;
-  }
-  .ChatGeneralBar__List::-webkit-scrollbar {
-    /* width: 0; */
+    height: auto;
   }
 }
