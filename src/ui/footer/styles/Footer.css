@@ -68,3 +68,8 @@
     width: 40%;
   }
 }
+@media (orientation: portrait) {
+  .Footer{
+    display: none;
+  }
+}
