@@ -1,6 +1,4 @@
 import './index.css';
-import './font.css';
-
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';

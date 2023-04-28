@@ -9,7 +9,7 @@ export const ChatGeneralBar = () => {
                 Даня Булгаков
             </div>
             <div className="ChatGeneralBar__List Half__Block__Footer">
-                <input type="text" placeholder="Поиск" className="ChatGeneralBar__List__Search" />
+                <input type="text" placeholder="Поиск" className="ChatGeneralBar__List__Input" />
                 <div className="ChatGeneralBarItem__List">
                     <ChatGeneralBarItem />
                     <ChatGeneralBarItem />

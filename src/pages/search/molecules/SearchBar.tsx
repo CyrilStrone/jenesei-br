@@ -15,7 +15,7 @@ export const SearchBar = (params: ISearchBar) => {
     };
     return (
         <div className="SearchBar">
-            <div className="SearchBar__Header Block__NonActive">
+            <div className="SearchBar__Header Translucent__Block   Block__NonActive">
                 <div className="SearchBar__Title">
                     Поиск
                 </div>

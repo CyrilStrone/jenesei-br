@@ -12,7 +12,7 @@
   flex-direction: column;
   overflow: hidden;
 }
-.ChatGeneralBar__List__Search {
+.ChatGeneralBar__List__Input {
   background: #fff;
   background-clip: padding-box;
   border: 1px solid #d6d6d6;
@@ -35,7 +35,7 @@
   gap: 6px;
   height: 700px;
 }
-.ChatGeneralBar__List__Search:focus {
+.ChatGeneralBar__List__Input:focus {
   border: 1px solid #0e8ac3;
   outline: none;
   z-index: 2;
@@ -47,7 +47,7 @@
   }
   .ChatGeneralBar__List {
   }
-  .ChatGeneralBar__List__Search {
+  .ChatGeneralBar__List__Input {
     display: none;
   }
 

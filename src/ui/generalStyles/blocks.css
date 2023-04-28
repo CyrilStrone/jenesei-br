@@ -91,6 +91,7 @@
   border-radius: 0 0 16px 16px;
   background: #ffffff;
   width: 100%;
+  padding: 28px;
   height: -webkit-fill-available;
   box-sizing: border-box;
 }
@@ -118,6 +119,16 @@
 }
 @media (orientation: portrait) {
   .Transparent__Block {
+    padding: 20px;
+  }
+  .Half__Block__Header{
+    padding: 20px;
+  }
+  .Translucent__Block{
+    padding: 20px;
+  }
+  .Half__Block__Footer{
+    padding: 20px;
   }
 }
 @media (orientation: portrait) and (max-width: 700px) {

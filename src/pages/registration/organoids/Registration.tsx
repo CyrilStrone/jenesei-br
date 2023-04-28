@@ -50,7 +50,8 @@ export const Registration = () => {
                             <input onClick={checkDate} type={"text"} placeholder="Фамилия" value={registrationValue.lastName} onChange={(event: any) => { setRegistrationValue({ ...registrationValue, "lastName": event.target.value }) }} />
                             <input onClick={checkDate} type={"text"} placeholder="Логин" value={registrationValue.login} onChange={(event: any) => { setRegistrationValue({ ...registrationValue, "login": event.target.value }) }} />
                             <input onClick={checkDate} type={"email"} placeholder="Почта" value={registrationValue.email} onChange={(event: any) => { setRegistrationValue({ ...registrationValue, "email": event.target.value }) }} />
-                            <input onClick={() => { setDateFocus(true) }} type={dateFocus ? "date" : "text"} placeholder="Дата рождения" value={registrationValue.date} onChange={(event: any) => { setRegistrationValue({ ...registrationValue, "date": event.target.value }) }} /> //TODO:Странность на ios
+                            <input onClick={() => { setDateFocus(true) }} type={dateFocus ? "date" : "text"} placeholder="Дата рождения" value={registrationValue.date} onChange={(event: any) => { setRegistrationValue({ ...registrationValue, "date": event.target.value }) }} /> 
+                            {/* TODO:Странность на ios */}
                             <input onClick={checkDate} type={"password"} placeholder="Пароль" value={registrationValue.password} onChange={(event: any) => { setRegistrationValue({ ...registrationValue, "password": event.target.value }) }} />
                             <input onClick={checkDate} type={"password"} placeholder="Повторите пароль" value={resetPassword.password} onChange={(event: any) => { setResetPassword({ ...resetPassword, "password": event.target.value }) }} />
                         </div>

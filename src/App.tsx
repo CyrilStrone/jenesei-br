@@ -1,7 +1,6 @@
-import "./index.css";
 import "./App.css";
-import "./font.css";
-import "./ui/generalStyles/blocks.css";
+import "./Font.css";
+import "./ui/generalStyles/Blocks.css";
 import { Route, Routes } from "react-router-dom";
 import { useEffect } from "react";
 import { $accessToken, setAccessToken } from "./ui/functions/AccessToken";

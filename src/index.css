@@ -20,3 +20,10 @@ input[type="date"],
 input[type="time"] {
   -webkit-appearance: none;
 }
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  select:focus,
+  textarea:focus,
+  input:focus {
+    font-size: 16px;
+  }
+}
