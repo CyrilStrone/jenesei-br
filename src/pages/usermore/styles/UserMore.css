@@ -1,6 +1,7 @@
 .UserMore {
   display: flex;
   width: 1000px;
+  gap: 20px;
   height: 100%;
   flex-direction: column;
   font-family: "Montserrat";

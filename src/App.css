@@ -53,6 +53,9 @@ body {
 .App:has(.UserMenu) {
   background-image: none !important;
 }
+.App:has(.UserMenu) .App__PhoneWallpaper{
+  display: none;
+}
 .App:has(.Registration) {
   background-image: none !important;
 }
