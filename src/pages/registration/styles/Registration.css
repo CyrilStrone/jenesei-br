@@ -11,6 +11,8 @@
   align-items: center;
   justify-content: flex-start;
   gap: 26px;
+  padding: 0;
+  margin: 0;
 }
 .Registration__Block__Content__Logo {
   display: flex;
@@ -32,9 +34,11 @@
   gap: 18px;
   width: 100%;
 }
-.Registration__Block__Content__InputBar input {
-  font-weight: 300;
-  font-size: 28%;
+.Registration__Block__Content__InputBar__Input {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
   display: inline-block;
   box-sizing: border-box;
   vertical-align: top;
@@ -42,19 +46,25 @@
   height: 44px;
   padding-left: 15px;
   padding-right: 15px;
-  color: #333;
   text-align: left;
   border: 1px solid #d6d6d6;
   background: #fff;
   background-clip: padding-box;
   border-radius: 8px;
   position: relative;
+  color: black;
+  opacity: 1;
 }
-.Registration__Block__Content__InputBar input:focus {
+.Registration__Block__Content__InputBar__Input:focus {
   outline: none;
   border: 1px solid #0e8ac3;
   z-index: 2;
 }
+.Registration__Block__Content__InputBar__Input::placeholder {
+  font-weight: 300;
+  color: #666666;
+}
+
 .Registration__Block__Content__Remember {
   font-weight: 300;
   font-size: 30%;
@@ -72,6 +82,8 @@
   gap: 12px;
 }
 .Registration__Block__Content__Registration {
+  font-family: "Inter";
+  font-style: normal;
   font-weight: 500;
   font-size: 28%;
   width: 100%;
@@ -83,6 +95,8 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  border: 0;
+  outline: 0;
 }
 .Registration__Block__Content__Footer__Login {
   text-decoration: none;
@@ -101,8 +115,6 @@
     width: 60%;
   }
   .Registration__Block__Content__InputBar {
-  }
-  .Registration__Block__Content__InputBar input {
   }
   .Registration__Block__Content__Remember {
   }

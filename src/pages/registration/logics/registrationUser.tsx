@@ -20,8 +20,13 @@ export const registrationUser = async (params: IRegistrationUser) => {
         "login": params.login,
         "birthDate": params.date,
     })
-        .then((res: any) => { setAccessToken(res.data.token) })
-        .catch(() => {
-            setAccessToken("")
+        .then((res: any) => { 
+            if(res.data.token){
+                axiosInstance.defaults.headers.authorization = `Bearer ${res.data.token}`
+                setAccessToken(res.data.token);
+            }
+         })
+        .catch((error:any) => {
+            throw new Error(error.response.data.message);
         })
 }

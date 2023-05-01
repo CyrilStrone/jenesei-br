@@ -1,0 +1,43 @@
+.CustomValidity__General {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  top: 5%;
+  opacity: 0; 
+  animation: ani 4s forwards;
+}
+.CustomValidity {
+  display: flex;
+  width: 320px;
+  align-items: center;
+  justify-content: center;
+  font-family: "Inter";
+  font-style: normal;
+  font-size: 15px;
+  background-color: white;
+}
+@keyframes ani {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@media (orientation: portrait) and (max-width: 700px) {
+  .CustomValidity__General {
+    bottom: 2%;
+    top: unset;
+  }
+  .CustomValidity {
+    font-size: 10px;
+    width: 220px;
+  }
+}

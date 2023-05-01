@@ -12,6 +12,8 @@ body {
   margin-left: auto;
   margin-right: auto;
   position: relative;
+  min-height: 100vh;
+  box-sizing: border-box;
 }
 .App {
   display: flex;
@@ -41,7 +43,7 @@ body {
 .App:has(.Major) {
   background-image: none !important;
 }
-.App:has(.Major) .App__PhoneWallpaper{
+.App:has(.Major) .App__PhoneWallpaper {
   display: none;
 }
 .App:has(.Login) {
@@ -53,7 +55,7 @@ body {
 .App:has(.UserMenu) {
   background-image: none !important;
 }
-.App:has(.UserMenu) .App__PhoneWallpaper{
+.App:has(.UserMenu) .App__PhoneWallpaper {
   display: none;
 }
 .App:has(.Registration) {

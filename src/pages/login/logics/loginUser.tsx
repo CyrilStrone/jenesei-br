@@ -1,3 +1,4 @@
+import { useCallback } from "react"
 import { setAccessToken } from "../../../ui/functions/AccessToken"
 import { axiosInstance } from "../../../ui/functions/AxiosInstance"
 
@@ -13,9 +14,13 @@ export const loginUser = async (params: ILoginUser) => {
         "password": params.password,
     })
         .then((res: any) => {
-            // window.location.reload(); //TODO:Это как вообще работает?
-            setAccessToken(res.data.token);
+            if(res.data.token){
+                axiosInstance.defaults.headers.authorization = `Bearer ${res.data.token}`
+                setAccessToken(res.data.token);
+            }
         })
         .catch((error) => {
+            throw new Error(error.response.data.message);
         })
 }
+

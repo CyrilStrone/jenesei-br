@@ -55,6 +55,8 @@
   display: flex;
   flex-direction: column;
   position: relative;
+  padding: 0;
+  margin: 0;
 }
 .Login__Block__Content__InputBar__LoginLogo {
   position: absolute;
@@ -65,10 +67,24 @@
   border-radius: 50%;
   cursor: pointer;
   z-index: 2;
+  outline: none;
+  border: none;
+  font-size: 0% !important;
+  background-image: url('../../../assets/login/Login.svg');
+  background-repeat: no-repeat;
+  object-fit: cover;
+  background-color: transparent;
+  background-position: center;
+}
+.Login__Block__Content__InputBar__LoginLogo{
+  outline: none !important;
+  border: none !important;
 }
 .Login__Block__Content__InputBar__MailOrLogin {
-  font-weight: 300;
-  font-size: 28%;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
   display: inline-block;
   box-sizing: border-box;
   vertical-align: top;
@@ -86,8 +102,10 @@
   position: relative;
 }
 .Login__Block__Content__InputBar__Password {
-  font-weight: 300;
-  font-size: 28%;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
   display: inline-block;
   box-sizing: border-box;
   vertical-align: top;
@@ -103,10 +121,14 @@
   background-clip: padding-box;
   border-radius: 0px 0px 16px 16px;
 }
-.Login__Block__Content__InputBar input:focus {
+.Login__Block__Content__Input:focus {
   outline: none;
   border: 1px solid #0e8ac3;
   z-index: 2;
+}
+.Login__Block__Content__Input::placeholder {
+  font-weight: 300;
+  color: #666666;
 }
 @media (orientation: portrait) and (max-width: 700px) {
   .Login__Block__Content {
@@ -138,7 +160,5 @@
   .Login__Block__Content__InputBar__MailOrLogin {
   }
   .Login__Block__Content__InputBar__Password {
-  }
-  .Login__Block__Content__InputBar input:focus {
   }
 }

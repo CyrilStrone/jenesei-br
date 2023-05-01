@@ -29,6 +29,7 @@ import { UserSubscribers } from "./pages/usermore/ogranoids/UserSubscribers";
 import { UserSetting } from "./pages/usermore/ogranoids/UserSetting";
 import { UserPublicationWrite } from "./pages/usermore/ogranoids/UserPublicationWrite";
 import { UserPublicationList } from "./pages/usermore/ogranoids/UserPublicationList";
+import { CustomValidity } from "./ui/customValidity/organoids/CustomValidity";
 
 export function App() {
   const { height, width } = useWindowDimensions();
@@ -45,6 +46,7 @@ export function App() {
       <div className="App__PhoneWallpaper"></div>
       <Header />
       <div className="App_Actual">
+      <CustomValidity/>
         <Routes>
           <Route path="/" element={<Major />}></Route>
           <Route

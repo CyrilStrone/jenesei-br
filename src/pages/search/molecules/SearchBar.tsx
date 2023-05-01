@@ -21,8 +21,8 @@ export const SearchBar = (params: ISearchBar) => {
                 </div>
             </div>
             <div className="SearchBar__Block Transparent__Block Block__NonActive">
-                <div className="SearchBar__input">
-                    <input type="text" className="SearchBar__input__General" placeholder={"Поиск пользователей"} value={params.value.text} onChange={(event: any) => handleTextChange(event)} />
+                <div className="SearchBar__Input">
+                    <input type="text" className="SearchBar__Input__General" placeholder={"Поиск пользователей"} value={params.value.text} onChange={(event: any) => handleTextChange(event)} />
                     <img src={SearchPicture} />
                 </div>
                 <SearchBarFilter />

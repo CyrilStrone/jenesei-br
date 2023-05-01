@@ -2,26 +2,23 @@ import { useState } from "react";
 import "../styles/Login.css";
 import { ILoginUser, loginUser } from "../logics/loginUser";
 import JeneseiLogo from '../../../assets/logo/JeneseiLogo.svg'
-import LoginLogo from '../../../assets/login/Login.svg'
 import { NavLink } from "react-router-dom";
+import { setCustomValidityShow } from "../../../ui/customValidity/organoids/CustomValidity";
 export const Login = () => {
-    const [loginValue, setLoginValue] = useState<ILoginUser>({ login: "", password: "", checked:false });
+    const [loginValue, setLoginValue] = useState<ILoginUser>({ login: "", password: "", checked: false });
     const handleCheck = () => {
         setLoginValue({ ...loginValue, "checked": !(loginValue.checked) })
     };
-    const requestLogin = async () => {
-        await loginUser(loginValue)
-    }
-    const handleClick = () => {
-        if (loginValue.login && loginValue.password) {
-            requestLogin()
-        } else {
-            alert("Данные говно")
+    const handleClick = async () => {
+        try {
+            await loginUser(loginValue);
+        } catch (error) {
+            setCustomValidityShow("Не правильный логин или пароль")
         }
-    };
+    }
     const handleKeyPress = (event: { key: string; }) => {
         if (event.key === 'Enter') {
-            console.log("АУЕ")
+            handleClick()
         }
     }
     return (
@@ -34,11 +31,11 @@ export const Login = () => {
                     <div className="Login__Block__Content__Title">
                         Войти с помощью Jenesei ID
                     </div>
-                    <div className="Login__Block__Content__InputBar">
-                        <input type={"email"} className="Login__Block__Content__InputBar__MailOrLogin" placeholder="Jenesei ID" value={loginValue.login} onChange={(event: any) => { setLoginValue({ ...loginValue, "login": event.target.value }) }} />
-                        <input onKeyDown={handleKeyPress} type={"password"} className="Login__Block__Content__InputBar__Password" placeholder="Пароль" value={loginValue.password} onChange={(event: any) => { setLoginValue({ ...loginValue, "password": event.target.value }) }} />
-                        <img onClick={handleClick} className="Login__Block__Content__InputBar__LoginLogo" src={LoginLogo} alt="" />
-                    </div>
+                    <form onSubmit={e => {e.preventDefault();handleClick();}} className="Login__Block__Content__InputBar">
+                        <input minLength={4} required maxLength={20} type={"text"} className="Login__Block__Content__InputBar__MailOrLogin Login__Block__Content__Input" placeholder="Jenesei ID" value={loginValue.login} onChange={(event: any) => { setLoginValue({ ...loginValue, "login": event.target.value }) }} />
+                        <input minLength={8} required onKeyDown={handleKeyPress} type={"password"} className="Login__Block__Content__InputBar__Password Login__Block__Content__Input" placeholder="Пароль" value={loginValue.password} onChange={(event: any) => { setLoginValue({ ...loginValue, "password": event.target.value }) }} />
+                        <input type="submit" className="Login__Block__Content__InputBar__LoginLogo" />
+                    </form>
                     <div className="Login__Block__Content__Remember">
                         <input type="checkbox" checked={loginValue.checked} onChange={handleCheck} />
                         Не выходить из системы?

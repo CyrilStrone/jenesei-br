@@ -8,14 +8,12 @@ import { InProfile } from "../logics/InProfile";
 import { UserEducation } from "../molecules/UserEducation";
 import { UserSubscribers } from "../molecules/UserSubscribers";
 import { UserSubscription } from "../molecules/UserSubscription";
-import { accessTokenName } from "../../../ui/functions/AxiosInstance";
 export const User = () => {
   const [value, setValue] = useState<any>();
   const requestProfile = async () => {
     setValue(await InProfile())
   }
   useEffect(() => {
-      console.log("localStorage.getItem(accessTokenName)",localStorage.getItem(accessTokenName))
       requestProfile()
   }, [])
 
