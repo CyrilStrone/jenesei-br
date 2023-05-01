@@ -1,10 +1,10 @@
-.ChangeUser {
+.UserChange {
   display: flex;
   width: 100%;
   height: 100%;
   flex-direction: column;
 }
-.ChangeUser_Contents {
+.UserChange_Contents {
   background: #ffffff;
   border: 1px solid #e0dfdc;
   border-radius: 14px;
@@ -15,7 +15,7 @@
   box-sizing: border-box;
   flex-direction: column;
 }
-.ChangeUser_Contents__Title {
+.UserChange_Contents__Title {
   font-family: "Montserrat";
   font-style: normal;
   font-weight: 500;
@@ -24,15 +24,15 @@
   color: #181818;
   margin-top: 8px;
 }
-.ChangeUser_Contents__Title:first-child {
+.UserChange_Contents__Title:first-child {
   margin-top: 0px;
 }
-.ChangeUser__Buttons{
+.UserChange__Buttons{
     display: flex;
     gap: 20px;
     margin-top: 22px;
 }
-.ChangeUser__Save {
+.UserChange__Save {
   font-family: "Inter";
   font-style: normal;
   font-weight: 500;
@@ -48,7 +48,7 @@
   width: fit-content;
   cursor: pointer;
 }
-.ChangeUser_Contents__Info {
+.UserChange_Contents__Info {
   font-family: "Inter";
   font-style: normal;
   font-weight: 500;
@@ -62,7 +62,7 @@ border-radius: 6px;
 outline: none;
 padding: 8px 10px 8px 10px;
 }
-.ChangeUser_Contents__firstName {
+.UserChange_Contents__firstName {
 }
-.ChangeUser_Contents__lastName {
+.UserChange_Contents__lastName {
 }

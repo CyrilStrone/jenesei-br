@@ -3,7 +3,7 @@ import User from '../../../assets/header/User.svg'
 import Setting from '../../../assets/header/Setting.svg'
 import Publication from '../../../assets/header/Publication.svg'
 import PublicationList from '../../../assets/header/PublicationList.svg'
-import Subscriptions from '../../../assets/header/Subscriptions.svg'
+import Subscription from '../../../assets/header/Subscription.svg'
 import Subscribers from '../../../assets/header/Subscribers.svg'
 import Logout from '../../../assets/header/Logout.svg'
 
@@ -32,26 +32,26 @@ export const HeaderBarProfile = () => {
           <img src={User} className="HeaderBarProfile__List__Image" alt="" />
           Профиль
         </NavLink>
-        <NavLink to={`/User`}>
-          <img src={Subscriptions} className="HeaderBarProfile__List__Image" alt="" />
+        <NavLink to={`/UserSubscription`}>
+          <img src={Subscription} className="HeaderBarProfile__List__Image" alt="" />
           Подписки
         </NavLink>
-        <NavLink to={`/User`}>
+        <NavLink to={`/UserSubscribers`}>
           <img src={Subscribers} className="HeaderBarProfile__List__Image" alt="" />
           Подписчики
         </NavLink>
-        <NavLink to={`/User`}>
+        <NavLink to={`/UserPublicationList`}>
           <img src={PublicationList} className="HeaderBarProfile__List__Image" alt="" />
           Публикации
         </NavLink>
         <div className='HeaderBarProfile__List__Title'>
           Еще
         </div>
-        <NavLink to={`/User`}>
+        <NavLink to={`/UserPublicationWrite`}>
           <img src={Publication} className="HeaderBarProfile__List__Image" alt="" />
           Написать публикацию
         </NavLink>
-        <NavLink to={`/User`} className="HeaderBarProfile__List__Settings">
+        <NavLink to={`/UserSetting`} className="HeaderBarProfile__List__Settings">
           <img src={Setting} className="HeaderBarProfile__List__Image" alt="" />
           Настройки
         </NavLink>

@@ -1,0 +1,14 @@
+.UserMore {
+  display: flex;
+  width: 1000px;
+  height: 100%;
+  flex-direction: column;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-size: 48px;
+}
+@media (orientation: portrait) {
+  .UserMore {
+    font-size: 28px;
+  }
+}

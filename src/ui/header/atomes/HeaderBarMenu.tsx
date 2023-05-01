@@ -2,7 +2,7 @@ import '../styles/HeaderBarMenu.css'
 import { NavLink } from 'react-router-dom';
 import Top from '../../../assets/header/Top.svg'
 import Recommendations from '../../../assets/header/Recommendations.svg'
-import Subscriptions from '../../../assets/header/Subscriptions.svg'
+import Subscription from '../../../assets/header/Subscription.svg'
 import Chat from '../../../assets/header/ChatBlack.svg'
 import Search from '../../../assets/header/Search.svg'
 
@@ -22,8 +22,8 @@ export const HeaderBarMenu = () => {
           <img src={Recommendations} className="HeaderBarMenu__List__Image" alt="" />
           Рекомендации
         </NavLink>
-        <NavLink to={"/Home/Subscriptions"}>
-          <img src={Subscriptions} className="HeaderBarMenu__List__Image" alt="" />
+        <NavLink to={"/Home/Subscription"}>
+          <img src={Subscription} className="HeaderBarMenu__List__Image" alt="" />
           Подписки
         </NavLink>
         <NavLink to={"/Chat"}>

@@ -1,11 +1,11 @@
 import { axiosInstance } from "../../../ui/functions/AxiosInstance"
 
-export interface IgetChangeUser {
+export interface IgetUserChange {
     id: number
     firstName:string
     lastName:string
 }
-export const getChangeUser = async (params: IgetChangeUser) => {
+export const getUserChange = async (params: IgetUserChange) => {
     return axiosInstance.put(
         `/user/${params.id}`, {
         "firstName": params.firstName,

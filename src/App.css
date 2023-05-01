@@ -50,6 +50,9 @@ body {
 .App:has(.Forgot) {
   background-image: none !important;
 }
+.App:has(.UserMenu) {
+  background-image: none !important;
+}
 .App:has(.Registration) {
   background-image: none !important;
 }

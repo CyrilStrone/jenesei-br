@@ -34,7 +34,7 @@ export const AnotherUser = (params:IAnotherUser) => {
 
   useEffect(()=>{
     if(changeCheck){
-      navigate(`/ChangeUser/${UserAnotherNameLocal}`);
+      navigate(`/UserChange/${UserAnotherNameLocal}`);
     }
   },[changeCheck])
   const AnotherUserContentArray: IAnotherUserContent[] = [

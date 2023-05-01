@@ -2,3 +2,8 @@
     height: 200px;
     flex: 1 1 calc((100% /3) - 2rem);
 }
+@media (orientation: portrait) {
+    .UserStack {
+      flex: 1 1 calc((100%));
+    }
+  }

@@ -19,7 +19,7 @@ export const HomeMenu = () => {
           Рекомендации
         </NavLink>
         <NavLink
-          to={"/Home/Subscriptions"}
+          to={"/Home/Subscription"}
           className={(navData) => navData.isActive ? "HomeMenu__Navs__Active" : ""}
         >
           Подписки
@@ -30,7 +30,7 @@ export const HomeMenu = () => {
       <div className="HomeMenu__Title">
         {location.pathname === '/Home/Top' ?
           "Топ" : location.pathname === '/Home/Recommendations' ?
-            "Рекомендации" : location.pathname === '/Home/Subscriptions' ?
+            "Рекомендации" : location.pathname === '/Home/Subscription' ?
               "Подписки" : null
         }
       </div>

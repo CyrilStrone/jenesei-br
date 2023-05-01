@@ -14,7 +14,6 @@ import { Forgot } from "./pages/forgot/organoids/Forgot";
 import { Chat } from "./pages/chat/ogranoids/Chat";
 import { Search } from "./pages/search/ogranoids/Search";
 import { AnotherUser } from "./pages/useranother/ogranoids/AnotherUser";
-import { ChangeUser } from "./pages/userchange/organoids/ChangeUser";
 import { HomeTop } from "./pages/home/ogranoids/HomeTop";
 import { HomeRecommendation } from "./pages/home/ogranoids/HomeRecommendation";
 import { HomeSubscription } from "./pages/home/ogranoids/HomeSubscription";
@@ -24,6 +23,12 @@ import { useStore } from "effector-react";
 
 import Wallpaper from './assets/general/Wallpaper.png'
 import WallpaperPhone from './assets/general/WallpaperPhone.png'
+import { UserChange } from "./pages/userchange/organoids/ChangeUser";
+import { UserSubscription } from "./pages/usermore/ogranoids/UserSubscription";
+import { UserSubscribers } from "./pages/usermore/ogranoids/UserSubscribers";
+import { UserSetting } from "./pages/usermore/ogranoids/UserSetting";
+import { UserPublicationWrite } from "./pages/usermore/ogranoids/UserPublicationWrite";
+import { UserPublicationList } from "./pages/usermore/ogranoids/UserPublicationList";
 
 export function App() {
   const { height, width } = useWindowDimensions();
@@ -50,11 +55,16 @@ export function App() {
             <>
               <Route path="/Home/Recommendations" element={<HomeRecommendation />} />
               <Route path="/Home/Top" element={<HomeTop />} />
-              <Route path="/Home/Subscriptions" element={<HomeSubscription />} />
+              <Route path="/Home/Subscription" element={<HomeSubscription />} />
               <Route path="/Chat" element={<Chat />} />
               <Route path="/Search" element={<Search />} />
               <Route path="/User/:UserLogin" element={<User />} />
-              <Route path="/ChangeUser/:UserLogin" element={<ChangeUser />} />
+              <Route path="/UserChange/:UserLogin" element={<UserChange />} />
+              <Route path="/UserSubscription" element={<UserSubscription />} />
+              <Route path="/UserSubscribers" element={<UserSubscribers />} />
+              <Route path="/UserSetting" element={<UserSetting />} />
+              <Route path="/UserPublicationWrite" element={<UserPublicationWrite />} />
+              <Route path="/UserPublicationList" element={<UserPublicationList />} />
               <Route path='*' element={<User />}></Route>
             </> :
             <>

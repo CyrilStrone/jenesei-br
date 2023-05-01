@@ -45,8 +45,8 @@
   background: #ffffff;
   box-sizing: border-box;
   background-color: hsla(0, 0%, 100%, 0.3);
-  -webkit-backdrop-filter: blur(15px) saturate(86%);
-  backdrop-filter: blur(15px) saturate(86%);
+  /* -webkit-backdrop-filter: blur(15px) saturate(86%);
+  backdrop-filter: blur(15px) saturate(86%); */
 }
 .Translucent__Block {
   display: flex;
@@ -55,8 +55,8 @@
   align-self: flex-start;
   width: 100%;
   gap: 7px;
-  -webkit-backdrop-filter: blur(15px) saturate(86%);
-  backdrop-filter: blur(15px) saturate(86%);
+  /* -webkit-backdrop-filter: blur(15px) saturate(86%);
+  backdrop-filter: blur(15px) saturate(86%); */
   background: radial-gradient(
     circle at 100% 0,
     hsla(0, 0%, 100%, 0.85) 0,
@@ -75,8 +75,8 @@
 .Half__Block__Header {
   border-radius: 16px 16px 0 0;
   background-color: rgba(248, 248, 252, 0.85);
-  -webkit-backdrop-filter: blur(15px) saturate(86%);
-  backdrop-filter: blur(15px) saturate(86%);
+  /* -webkit-backdrop-filter: blur(15px) saturate(86%);
+  backdrop-filter: blur(15px) saturate(86%); */
   display: flex;
   align-items: center;
   justify-content: flex-start;
