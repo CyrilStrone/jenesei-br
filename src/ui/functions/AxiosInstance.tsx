@@ -1,4 +1,5 @@
-import axios from "axios";
+import axios, { AxiosError } from "axios";
+import { setAccessToken } from "./AccessToken";
 
 export const accessTokenName = "BusinessRouletteToken"
 
@@ -16,5 +17,15 @@ export const axiosInstance = axios.create({
 //     authorization: `Bearer ${localStorage.getItem(accessTokenName)}`
 //   },
 // });
+
+axiosInstance.interceptors.response.use(
+  (response) => response,
+  async (error: AxiosError) => {
+    console.log("error",error)
+    if (error?.response?.status === 401) {
+      setAccessToken("")
+    }
+  }
+);
 
 export const apiImage = "https://businessroulette.ru:3000/"

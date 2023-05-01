@@ -4,15 +4,13 @@ import { ChatGeneralBarItem } from "./ChatGeneralBarItem";
 
 export const ChatGeneralBar = () => {
 
-  
     const ref = useRef<HTMLDivElement>(null);
-  
+
     const handleWheel = (e: any) => {
-      if (ref.current) {
-        ref.current.scrollLeft += e.deltaY;
-      }
+        if (ref.current) {
+            ref.current.scrollLeft += e.deltaY;
+        }
     };
-  
 
     return (
         <div className="ChatGeneralBar Half__Block Block__NonActive">

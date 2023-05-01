@@ -13,8 +13,8 @@ export const loginUser = async (params: ILoginUser) => {
         "password": params.password,
     })
         .then((res: any) => {
+            // window.location.reload(); //TODO:Это как вообще работает?
             setAccessToken(res.data.token);
-            window.location.reload(); //TODO:Это как вообще работает?
         })
         .catch((error) => {
         })
