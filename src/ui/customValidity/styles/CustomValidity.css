@@ -3,8 +3,9 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  top: 5%;
+  top: 10%;
   opacity: 0; 
+  z-index: 999;
   animation: ani 4s forwards;
 }
 .CustomValidity {
@@ -32,10 +33,6 @@
   }
 }
 @media (orientation: portrait) and (max-width: 700px) {
-  .CustomValidity__General {
-    bottom: 2%;
-    top: unset;
-  }
   .CustomValidity {
     font-size: 10px;
     width: 220px;

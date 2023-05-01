@@ -24,7 +24,7 @@ axiosInstance.interceptors.response.use(
     console.log("error",error)
     if (error?.response?.status === 401) {
       console.log("401")
-      // setAccessToken("")
+      setAccessToken("")
     }
   }
 );
