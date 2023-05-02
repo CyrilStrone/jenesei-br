@@ -9,7 +9,7 @@ export const GetUserAnother = async (params: IGetAnotherUser) => {
     return axiosInstance.get(
         `user/${params.id}`)
         .then((res: any) => { setUserAnotherValue(res.data) })
-        .catch(() => {
-            setUserAnotherValue({})
+        .catch((error) => {
+            throw new Error(error.response.data.message);
         })
 }

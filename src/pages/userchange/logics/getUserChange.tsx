@@ -12,7 +12,7 @@ export const getUserChange = async (params: IgetUserChange) => {
         "lastName": params.lastName,
     })
         .then((res: any) => {  })
-        .catch(() => {
-            
+        .catch((error) => {
+            throw new Error(error.response.data.message);
         })
 }

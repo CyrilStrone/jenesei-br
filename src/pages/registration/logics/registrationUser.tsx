@@ -22,11 +22,10 @@ export const registrationUser = async (params: IRegistrationUser) => {
     })
         .then((res: any) => { 
             if(res.data.token){
-                axiosInstance.defaults.headers.authorization = `Bearer ${res.data.token}`
                 setAccessToken(res.data.token);
             }
          })
-        .catch((error:any) => {
+        .catch((error) => {
             throw new Error(error.response.data.message);
         })
 }

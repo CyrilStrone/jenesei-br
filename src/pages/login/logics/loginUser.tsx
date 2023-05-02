@@ -15,7 +15,6 @@ export const loginUser = async (params: ILoginUser) => {
     })
         .then((res: any) => {
             if(res.data.token){
-                axiosInstance.defaults.headers.authorization = `Bearer ${res.data.token}`
                 setAccessToken(res.data.token);
             }
         })

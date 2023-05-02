@@ -11,10 +11,15 @@ import { UserSubscription } from "../molecules/UserSubscription";
 export const User = () => {
   const [value, setValue] = useState<any>();
   const requestProfile = async () => {
-    setValue(await InProfile())
+    try {
+      let result = await InProfile();
+      if (result) { setValue(result) }
+    } catch {
+
+    }
   }
   useEffect(() => {
-      requestProfile()
+    requestProfile()
   }, [])
 
   useEffect(() => {

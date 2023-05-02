@@ -6,7 +6,7 @@ export const InProfile = async () => {
         .then((res: any) => {
             return res.data
         })
-        .catch(() => {
-            console.log("InProfile error")
+        .catch((error) => {
+            throw new Error(error.response.data.message);
         })
 }

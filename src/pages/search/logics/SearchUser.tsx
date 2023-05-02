@@ -5,7 +5,7 @@ export const SearchUser = async () => {
     return axiosInstance.get(
         'user')
         .then((res: any) => { return (res.data) })
-        .catch(() => {
-            console.log("SearchUser error")
+        .catch((error) => {
+            throw new Error(error.response.data.message);
         })
 }

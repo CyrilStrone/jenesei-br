@@ -17,12 +17,9 @@ import { AnotherUser } from "./pages/useranother/ogranoids/AnotherUser";
 import { HomeTop } from "./pages/home/ogranoids/HomeTop";
 import { HomeRecommendation } from "./pages/home/ogranoids/HomeRecommendation";
 import { HomeSubscription } from "./pages/home/ogranoids/HomeSubscription";
-import useWindowDimensions from "./ui/functions/UseWindowDimensions";
 import { User } from "./pages/user/ogranoids/User";
 import { useStore } from "effector-react";
 
-import Wallpaper from './assets/general/Wallpaper.png'
-import WallpaperPhone from './assets/general/WallpaperPhone.png'
 import { UserChange } from "./pages/userchange/organoids/ChangeUser";
 import { UserSubscription } from "./pages/usermore/ogranoids/UserSubscription";
 import { UserSubscribers } from "./pages/usermore/ogranoids/UserSubscribers";
@@ -32,7 +29,6 @@ import { UserPublicationList } from "./pages/usermore/ogranoids/UserPublicationL
 import { CustomValidity } from "./ui/customValidity/organoids/CustomValidity";
 
 export function App() {
-  const { height, width } = useWindowDimensions();
   const accessToken = useStore($accessToken);
 
   useEffect(() => {
