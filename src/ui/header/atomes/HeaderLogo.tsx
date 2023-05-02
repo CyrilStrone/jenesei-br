@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import '../styles/HeaderLogo.css'
 import logo from "../../../assets/logo/LogoMin.jpg";
 
-
 export const HeaderLogo = () => {
   return (
     <Link to={`/Home/Top`} className={`HeaderLogo`}>

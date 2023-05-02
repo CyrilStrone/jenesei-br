@@ -49,15 +49,15 @@
   color: #eb0c00 !important;
   font-weight: 500 !important;
 }
-.HeaderBarProfile__List__Settings{
-  color: #0e8ac3  !important;
+.HeaderBarProfile__List__Settings {
+  color: #0e8ac3 !important;
   font-weight: 500 !important;
 }
 .HeaderBarProfile__List__Image {
   width: 20px;
   height: 20px;
 }
-.HeaderBarProfile__List__Title{
+.HeaderBarProfile__List__Title {
   text-decoration: none;
   width: 100%;
   padding: 3%;

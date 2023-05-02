@@ -3,16 +3,20 @@ import "../styles/Login.css";
 import { ILoginUser, loginUser } from "../logics/loginUser";
 import JeneseiLogo from '../../../assets/logo/JeneseiLogo.svg'
 import { NavLink } from "react-router-dom";
-import { setCustomValidityShow } from "../../../ui/customValidity/organoids/CustomValidity";
+import { setCustomValidityShow } from "../../../ui/customvalidity/organoids/CustomValidity";
+import { SpinningCircles } from "react-loading-icons";
 export const Login = () => {
     const [loginValue, setLoginValue] = useState<ILoginUser>({ login: "", password: "", checked: false });
+    const [check, setCheck] = useState<boolean>(false)
     const handleCheck = () => {
         setLoginValue({ ...loginValue, "checked": !(loginValue.checked) })
     };
     const handleClick = async () => {
         try {
+            setCheck(true)
             await loginUser(loginValue);
         } catch (error) {
+            setCheck(false)
             setCustomValidityShow("Не правильный логин или пароль")
         }
     }
@@ -31,15 +35,20 @@ export const Login = () => {
                     <div className="Login__Block__Content__Title">
                         Войти с помощью Jenesei ID
                     </div>
-                    <form onSubmit={e => {e.preventDefault();handleClick();}} className="Login__Block__Content__InputBar">
-                        <input minLength={4} required maxLength={20} type={"text"} className="Login__Block__Content__InputBar__MailOrLogin Login__Block__Content__Input" placeholder="Jenesei ID" value={loginValue.login} onChange={(event: any) => { setLoginValue({ ...loginValue, "login": event.target.value }) }} />
-                        <input minLength={8} required onKeyDown={handleKeyPress} type={"password"} className="Login__Block__Content__InputBar__Password Login__Block__Content__Input" placeholder="Пароль" value={loginValue.password} onChange={(event: any) => { setLoginValue({ ...loginValue, "password": event.target.value }) }} />
-                        <input type="submit" className="Login__Block__Content__InputBar__LoginLogo" />
-                    </form>
-                    <div className="Login__Block__Content__Remember">
-                        <input type="checkbox" checked={loginValue.checked} onChange={handleCheck} />
-                        Не выходить из системы?
-                    </div>
+                    {check ?
+                        <SpinningCircles height="2em" fill="#0E8AC3" stroke="#000" strokeOpacity={.125} speed={1} />
+                        : <>
+                            <form onSubmit={e => { e.preventDefault(); setCheck(true);setTimeout(()=>handleClick(),1000); }} className="Login__Block__Content__InputBar">
+                                <input minLength={4} required maxLength={20} type={"text"} className="Login__Block__Content__InputBar__MailOrLogin Login__Block__Content__Input" placeholder="Jenesei ID" value={loginValue.login} onChange={(event: any) => { setLoginValue({ ...loginValue, "login": event.target.value }) }} />
+                                <input minLength={8} required onKeyDown={handleKeyPress} type={"password"} className="Login__Block__Content__InputBar__Password Login__Block__Content__Input" placeholder="Пароль" value={loginValue.password} onChange={(event: any) => { setLoginValue({ ...loginValue, "password": event.target.value }) }} />
+                                <input type="submit" className="Login__Block__Content__InputBar__LoginLogo" />
+                            </form>
+                            <div className="Login__Block__Content__Remember">
+                                <input type="checkbox" checked={loginValue.checked} onChange={handleCheck} />
+                                Не выходить из системы?
+                            </div>
+                        </>
+                    }
                     <div className="Login__Block__Content__Footer">
                         <NavLink to={"/Forgot"} className="Login__Block__Content__Forgot">
                             Забыли Jenesei ID или пароль?

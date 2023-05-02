@@ -6,7 +6,6 @@ import PublicationList from '../../../assets/header/PublicationList.svg'
 import Subscription from '../../../assets/header/Subscription.svg'
 import Subscribers from '../../../assets/header/Subscribers.svg'
 import Logout from '../../../assets/header/Logout.svg'
-
 import { NavLink } from 'react-router-dom';
 import { $userValue } from '../../../ui/functions/Hooks';
 import { useStore } from 'effector-react';

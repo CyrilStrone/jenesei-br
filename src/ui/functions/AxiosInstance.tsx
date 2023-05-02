@@ -21,7 +21,6 @@ export const axiosInstance = axios.create({
 axiosInstance.interceptors.response.use(
   (response) => response,
   async (error: AxiosError) => {
-    console.log("error",error)
     if (error?.response?.status === 401) {
       console.log("401")
       setAccessToken("")

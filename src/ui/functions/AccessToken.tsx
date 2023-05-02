@@ -9,7 +9,7 @@ $accessToken.updates.watch((token) => {
     axiosInstance.defaults.headers.authorization = `Bearer ${token}`
     localStorage.setItem(accessTokenName, (token));
 });
-  
-export const UserLogout =()=>{
+
+export const UserLogout = () => {
     setAccessToken("")
 }

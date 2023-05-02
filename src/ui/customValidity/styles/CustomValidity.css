@@ -4,7 +4,7 @@
   display: flex;
   justify-content: center;
   top: 10%;
-  opacity: 0; 
+  opacity: 0;
   z-index: 999;
   animation: ani 4s forwards;
 }

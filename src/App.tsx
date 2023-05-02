@@ -1,6 +1,6 @@
 import "./App.css";
 import "./Font.css";
-import "./ui/generalStyles/Blocks.css";
+import "./ui/generalstyles/Blocks.css";
 import { Route, Routes } from "react-router-dom";
 import { useEffect } from "react";
 import { $accessToken, setAccessToken } from "./ui/functions/AccessToken";
@@ -13,20 +13,17 @@ import { Login } from "./pages/login/organoids/Login";
 import { Forgot } from "./pages/forgot/organoids/Forgot";
 import { Chat } from "./pages/chat/ogranoids/Chat";
 import { Search } from "./pages/search/ogranoids/Search";
-import { AnotherUser } from "./pages/useranother/ogranoids/AnotherUser";
 import { HomeTop } from "./pages/home/ogranoids/HomeTop";
 import { HomeRecommendation } from "./pages/home/ogranoids/HomeRecommendation";
 import { HomeSubscription } from "./pages/home/ogranoids/HomeSubscription";
 import { User } from "./pages/user/ogranoids/User";
 import { useStore } from "effector-react";
-
-import { UserChange } from "./pages/userchange/organoids/ChangeUser";
 import { UserSubscription } from "./pages/usermore/ogranoids/UserSubscription";
 import { UserSubscribers } from "./pages/usermore/ogranoids/UserSubscribers";
 import { UserSetting } from "./pages/usermore/ogranoids/UserSetting";
 import { UserPublicationWrite } from "./pages/usermore/ogranoids/UserPublicationWrite";
 import { UserPublicationList } from "./pages/usermore/ogranoids/UserPublicationList";
-import { CustomValidity } from "./ui/customValidity/organoids/CustomValidity";
+import { CustomValidity } from "./ui/customvalidity/organoids/CustomValidity";
 
 export function App() {
   const accessToken = useStore($accessToken);
@@ -45,10 +42,6 @@ export function App() {
       <CustomValidity/>
         <Routes>
           <Route path="/" element={<Major />}></Route>
-          <Route
-            element={<AnotherUser />}
-            path="/AnotherUser/:UserAnotherName"
-          />
           {accessToken ?
             <>
               <Route path="/Home/Recommendations" element={<HomeRecommendation />} />
@@ -57,7 +50,6 @@ export function App() {
               <Route path="/Chat" element={<Chat />} />
               <Route path="/Search" element={<Search />} />
               <Route path="/User/:UserLogin" element={<User />} />
-              <Route path="/UserChange/:UserLogin" element={<UserChange />} />
               <Route path="/UserSubscription" element={<UserSubscription />} />
               <Route path="/UserSubscribers" element={<UserSubscribers />} />
               <Route path="/UserSetting" element={<UserSetting />} />

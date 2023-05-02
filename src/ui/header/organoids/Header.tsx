@@ -3,8 +3,8 @@ import { HeaderGeneral } from "../molecules/HeaderGeneral";
 
 export const Header = () => {
   return (
-        <div className="Header" >
-           <HeaderGeneral/>
-        </div>
+    <div className="Header" >
+      <HeaderGeneral />
+    </div>
   );
 };

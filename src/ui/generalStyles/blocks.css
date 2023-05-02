@@ -117,9 +117,9 @@
   align-items: center;
   justify-content: center;
 }
-.Setting__Card__Short{
-  background-image: linear-gradient(120deg,#fff 45%,#f5f5f5);
-  border: 1px solid hsla(240,6%,83%,.63);
+.Setting__Card__Short {
+  background-image: linear-gradient(120deg, #fff 45%, #f5f5f5);
+  border: 1px solid hsla(240, 6%, 83%, 0.63);
   border-radius: 11px;
   min-width: 200px;
   min-height: 60px;
@@ -129,19 +129,19 @@
   padding: 17px 19px;
 }
 @media (orientation: portrait) {
-  .Setting__Card__Short{
+  .Setting__Card__Short {
     width: 100%;
   }
   .Transparent__Block {
     padding: 20px;
   }
-  .Half__Block__Header{
+  .Half__Block__Header {
     padding: 20px;
   }
-  .Translucent__Block{
+  .Translucent__Block {
     padding: 20px;
   }
-  .Half__Block__Footer{
+  .Half__Block__Footer {
     padding: 20px;
   }
 }

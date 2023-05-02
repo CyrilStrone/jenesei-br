@@ -6,7 +6,6 @@ import Subscription from '../../../assets/header/Subscription.svg'
 import Chat from '../../../assets/header/ChatBlack.svg'
 import Search from '../../../assets/header/Search.svg'
 
-
 export const HeaderBarMenu = () => {
   return (
     <>

@@ -1,12 +1,12 @@
-import { NavLink } from 'react-router-dom';
 import '../styles/HeaderBarChat.css'
+import { NavLink } from 'react-router-dom';
 import DefaultAvatarChat from '../../../assets/header/DefaultAvatarChat.svg'
 
 export const HeaderBarChat = () => {
   return (
     <>
       <div className='HeaderBarChat__Title'>
-          Чаты
+        Чаты
       </div>
       <div className='HeaderBarChat__List'>
         <NavLink to={`/Chat`}>
