@@ -24,22 +24,37 @@ import { UserSetting } from "./pages/usermore/ogranoids/UserSetting";
 import { UserPublicationWrite } from "./pages/usermore/ogranoids/UserPublicationWrite";
 import { UserPublicationList } from "./pages/usermore/ogranoids/UserPublicationList";
 import { CustomValidity } from "./ui/customvalidity/organoids/CustomValidity";
+import { InUser } from "./ui/functions/InUser";
+import { setUserValue } from "./ui/functions/Hooks";
+
+export async function requestUser()  {
+  try {
+    let result = await InUser();
+    if (result) {
+      setUserValue(result)
+    }
+  } catch {
+
+  }
+}
 
 export function App() {
   const accessToken = useStore($accessToken);
-
   useEffect(() => {
     if (localStorage.getItem(accessTokenName)?.length) {
       setAccessToken(localStorage.getItem(accessTokenName) || "")
+    } else {
+
     }
   }, [])
+
 
   return (
     <div className="App">
       <div className="App__PhoneWallpaper"></div>
       <Header />
       <div className="App_Actual">
-      <CustomValidity/>
+        <CustomValidity />
         <Routes>
           <Route path="/" element={<Major />}></Route>
           {accessToken ?

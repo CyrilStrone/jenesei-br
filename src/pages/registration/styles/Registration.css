@@ -54,10 +54,14 @@
   position: relative;
   color: black;
   opacity: 1;
+  text-align: left;
 }
-.Registration__Block__Content__InputBar__Input:focus {
+
+
+.Registration__Block__Content__InputBar__Input:focus,
+.Registration__Block__Content__InputBar__Input__Date .Mui-focused fieldset{
   outline: none;
-  border: 1px solid #0e8ac3;
+  border: 1px solid #0e8ac3 !important;
   z-index: 2;
 }
 .Registration__Block__Content__InputBar__Input::placeholder {
@@ -100,7 +104,7 @@
 }
 .Registration__Block__Content__Footer__Login {
   text-decoration: none;
-  color: #0E8AC3;
+  color: #0e8ac3;
   font-weight: 300;
   font-size: 30%;
 }

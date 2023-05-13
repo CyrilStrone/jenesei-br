@@ -17,7 +17,7 @@ export const HeaderBarProfile = () => {
     <>
       <div className='HeaderBarProfile__Title'>
         <div className='HeaderBarProfile__Title__Header'>
-          {userValue.firstName + " " + userValue.lastName}
+          {userValue.user.firstName + " " + userValue.user.lastName}
         </div>
         <div className='HeaderBarProfile__Title__Mail'>
           {userValue.mail}

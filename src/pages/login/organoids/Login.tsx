@@ -39,7 +39,7 @@ export const Login = () => {
                         <SpinningCircles height="2em" fill="#0E8AC3" stroke="#000" strokeOpacity={.125} speed={1} />
                         : <>
                             <form onSubmit={e => { e.preventDefault(); setCheck(true);setTimeout(()=>handleClick(),1000); }} className="Login__Block__Content__InputBar">
-                                <input minLength={4} required maxLength={20} type={"text"} className="Login__Block__Content__InputBar__MailOrLogin Login__Block__Content__Input" placeholder="Jenesei ID" value={loginValue.login} onChange={(event: any) => { setLoginValue({ ...loginValue, "login": event.target.value }) }} />
+                                <input minLength={4} required maxLength={50} type={"text"} className="Login__Block__Content__InputBar__MailOrLogin Login__Block__Content__Input" placeholder="Jenesei ID" value={loginValue.login} onChange={(event: any) => { setLoginValue({ ...loginValue, "login": event.target.value }) }} />
                                 <input minLength={8} required onKeyDown={handleKeyPress} type={"password"} className="Login__Block__Content__InputBar__Password Login__Block__Content__Input" placeholder="Пароль" value={loginValue.password} onChange={(event: any) => { setLoginValue({ ...loginValue, "password": event.target.value }) }} />
                                 <input type="submit" className="Login__Block__Content__InputBar__LoginLogo" />
                             </form>

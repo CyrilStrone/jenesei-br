@@ -1,6 +1,6 @@
-import { axiosInstance } from "../../../ui/functions/AxiosInstance"
+import { axiosInstance } from "./AxiosInstance";
 
-export const InProfile = async () => {
+export const InUser = async () => {
     return axiosInstance.get(
         `/profile`)
         .then((res: any) => {

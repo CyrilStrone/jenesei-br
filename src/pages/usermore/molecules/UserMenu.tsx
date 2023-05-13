@@ -4,7 +4,7 @@ import "../styles/UserMore.css";
 export const UserMenu = () => {
   const location = useLocation();
   return (
-    <div className="UserMenu Translucent__Block Block__NonActive">
+    <div className="UserMenu Translucent__Block Block__NonActive__NotShadow">
       <div className="UserMenu__Navs">
         <NavLink
           to={"/UserSetting"}

@@ -5,11 +5,11 @@
 .HeaderBarProfile__Title {
   display: flex;
   flex-direction: column;
-  gap: 4px;
   background-color: rgba(170, 170, 174, 0.15);
   width: 100%;
   padding: 14px 14px 14px 14px;
   border-bottom: 1px solid rgba(170, 170, 174, 0.3);
+  box-sizing: border-box;
 }
 .HeaderBarProfile__Title__Header {
   font-size: 100%;

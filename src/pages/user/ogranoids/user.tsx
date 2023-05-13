@@ -3,33 +3,19 @@ import { UserGeneralInfo } from "../molecules/UserGeneralInfo";
 import { UserAbout } from "../molecules/UserAbout";
 import { UserExperience } from "../molecules/UserExperience";
 import { UserStack } from "../molecules/UserStack";
-import { useEffect, useState } from "react";
-import { InProfile } from "../logics/InProfile";
 import { UserEducation } from "../molecules/UserEducation";
 import { UserSubscribers } from "../molecules/UserSubscribers";
 import { UserSubscription } from "../molecules/UserSubscription";
+import { useStore } from "effector-react";
+import { $userValue } from "../../../ui/functions/Hooks";
+import { useEffect } from "react";
 export const User = () => {
-  const [value, setValue] = useState<any>();
-  const requestProfile = async () => {
-    try {
-      let result = await InProfile();
-      if (result) { setValue(result) }
-    } catch {
-
-    }
-  }
-  useEffect(() => {
-    requestProfile()
-  }, [])
-
-  useEffect(() => {
-    console.log("value", value)
-  }, [value])
+  const userValue = useStore($userValue);
 
   return (
     <div className="User">
-      {value && <div className="User__Content">
-        <UserGeneralInfo avatarPath={value.avatarPath} login={value.user.login} firstName={value.user.firstName} lastName={value.user.lastName} />
+      {userValue && <div className="User__Content">
+        <UserGeneralInfo avatarPath={userValue.avatarPath} login={userValue.user.login} firstName={userValue.user.firstName} lastName={userValue.user.lastName} />
         <UserAbout />
         <UserExperience />
         <UserStack />

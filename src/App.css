@@ -61,6 +61,9 @@ body {
 .App:has(.Registration) {
   background-image: none !important;
 }
+.App_Actual:has(.UserMore) {
+  position: static !important;
+}
 @media (max-width: 1500px) {
   .App_Actual {
     width: 1100px;
