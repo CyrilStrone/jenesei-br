@@ -1,6 +1,5 @@
 .FieldChange {
   width: 500px;
-  height: 500px;
   background: white;
   box-shadow: 17px 20px 40px rgba(0, 0, 0, 0.21);
   border-radius: 11px;
@@ -10,6 +9,8 @@
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
+  flex-direction: column;
+  gap: 36px;
 }
 .FieldChange__General {
   position: fixed;
@@ -28,9 +29,213 @@
   left: 20px;
   top: 20px;
   cursor: pointer;
+  padding: 10px;
+  border-radius: 6px;
+}
+.FieldChange__Arrow:hover {
+  background-color: rgba(37, 38, 40, 0.08);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+}
+.FieldChange__BR {
+  font-size: 28%;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+}
+.FieldChange__Image {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+.FieldChange__Title {
+  font-size: 42%;
+  font-weight: 600;
+  margin-right: auto;
+}
+.FieldChange__Inputs {
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+  transition-duration: 0.5s;
+}
+.FieldChange__Header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 60%;
+}
+.FieldChange__Info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+.FieldChange__Button__Group {
+  font-size: 38%;
+  font-weight: 400;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  justify-content: space-between;
+}
+.FieldChange__Button__Group__Cancel {
+  background: rgba(37, 38, 40, 0.08);
+  border-radius: 12px;
+  cursor: pointer;
+  padding: 8px 16px;
+  text-align: center;
+}
+.FieldChange__Button__Group__Save {
+  background: #0e8ac3;
+  color: #ffffff;
+  border-radius: 12px;
+  cursor: pointer;
+  padding: 8px 16px;
+  text-align: center;
+}
+.FieldChange__Inputs input {
+  display: inline-block;
+  box-sizing: border-box;
+  vertical-align: top;
+  width: 100%;
+  height: 36px;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: #333;
+  text-align: left;
+  border: 1px solid #d6d6d6;
+  border-radius: 4px;
+  background: #fff;
+  background-clip: padding-box;
+  border-radius: 10px;
+  position: relative;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  min-width: 250px;
+}
+.FieldChange__Inputs input:focus {
+  outline: none;
+  border: 1px solid #0e8ac3;
+}
+.FieldChange__Inputs textarea {
+  display: inline-block;
+  box-sizing: border-box;
+  vertical-align: top;
+  width: 100%;
+  height: 36px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  color: #333;
+  text-align: left;
+  border: 1px solid #d6d6d6;
+  border-radius: 4px;
+  background: #fff;
+  background-clip: padding-box;
+  border-radius: 10px;
+  position: relative;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  max-width: 100%;
+  min-width: 100%;
+  max-height: 600px;
+  min-height: 36px;
+}
+.FieldChange__Inputs textarea:focus {
+  outline: none;
+  border: 1px solid #0e8ac3;
+}
+.FieldChange__Inputs textarea::placeholder {
+  font-weight: 300;
+  color: #666666;    font-family: "Montserrat";
+  font-style: normal;
+}
+.FieldChange__Inputs input::placeholder {
+  font-weight: 300;
+  color: #666666;    font-family: "Montserrat";
+  font-style: normal;
+}
+.FieldChange__Inputs__LocationBlock {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 6px;
+}
+.FieldChange__Inputs__LocationBlock select:focus{
+  outline: none;
+  border: 1px solid #0e8ac3;
+}
+.FieldChange__Inputs__LocationBlock select{
+  display: inline-block;
+  box-sizing: border-box;
+  vertical-align: top;
+  width: 100%;
+  height: 36px;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: #333;
+  text-align: left;
+  border: 1px solid #d6d6d6;
+  border-radius: 4px;
+  background: #fff;
+  background-clip: padding-box;
+  border-radius: 10px;
+  position: relative;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  min-width: 250px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.FieldChange__Inputs__LocationBlock option{
+  
+}
+.FieldChange__Inputs__LocationBlock__Title {
+  font-size: 34%;
+  font-weight: 400;
+}
+.FieldChange__Inputs__Avatar{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.FieldChange__Inputs__Avatar input{
+  width: 250px !important;
+}
+.FieldChange__Title__Image{
+  margin: 0 !important;
 }
 @media (orientation: portrait) {
   .FieldChange {
     width: 90%;
+    gap: 26px;
+  }
+  .FieldChange__BR {
+    font-size: 40%;
+  }
+  .FieldChange__Button__Group div {
+    border-radius: 8px;
+  }
+  .FieldChange__Inputs input {
+    width: 100%;
+  }
+  .FieldChange__Inputs__LocationBlock__Title{
+    font-size: 40%;
   }
 }

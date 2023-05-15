@@ -1,6 +1,6 @@
 import { useStore } from "effector-react";
 import { useEffect, useState } from "react";
-import { FieldChange } from "../../../ui/fieldchange/organoids/FieldChange";
+import { FieldChange, IFieldChange } from "../../../ui/fieldchange/organoids/FieldChange";
 import { $userSetting, $userValue, setUserSetting } from "../../../ui/functions/Hooks";
 import { UserMenu } from "../molecules/UserMenu";
 import "../styles/UserSetting.css";
@@ -16,13 +16,22 @@ import Plus from '../../../assets/userchange/Plus.svg'
 export const UserSetting = () => {
   const userValue = useStore($userValue);
   const userSetting = useStore($userSetting);
+
   const [title, setTitle] = useState<string | undefined>(undefined)
-  interface IhandleCheck {
-    title: string
-  }
-  const handleCheck = (params: IhandleCheck) => {
+  const [keyName, setkeyName] = useState<string | undefined>(undefined)
+  const [type, setType] = useState<string | undefined>(undefined)
+  const [id, setId] = useState<number | undefined>(undefined)
+  const [value, setValue] = useState<string | undefined>(undefined)
+
+  const handleCheck = (params: IFieldChange) => {
+    console.log(params)
     setUserSetting(!userSetting);
     setTitle(params.title)
+    setkeyName(params.keyName)
+    setType(params.type)
+    setId(params.id)
+    setValue(params.value)
+    
   };
   useEffect(() => {
     return () => {
@@ -42,7 +51,7 @@ export const UserSetting = () => {
             Персональная информация
           </div>
           <div className="UserSetting__Blocks__List">
-            <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ title: "Аватар" })}>
+            <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ value: apiImage + userValue.avatarPath, title: "Аватар", keyName: "avatarPath", type: "img" })}>
               <div className="UserSetting__Blocks__List__Item__Title">
                 Аватар
               </div>
@@ -51,7 +60,7 @@ export const UserSetting = () => {
               </div>
               <img src={Avatar} alt="Avatar" className="Setting__Card__Short__Image" />
             </div>
-            <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ title: "Специальность" })}>
+            <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ value: userValue.currentPosition, title: "Специальность", keyName: "currentPosition", type: "string" })}>
               <div className="UserSetting__Blocks__List__Item__Title">
                 Специальность
               </div>
@@ -60,7 +69,7 @@ export const UserSetting = () => {
               </div>
               <img src={Position} alt="Position" className="Setting__Card__Short__Image" />
             </div>
-            <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ title: "Имя" })}>
+            <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ value: userValue.user.firstName, title: "Имя", keyName: "firstName", type: "string" })}>
               <div className="UserSetting__Blocks__List__Item__Title">
                 Имя
               </div>
@@ -69,7 +78,7 @@ export const UserSetting = () => {
               </div>
               <img src={Profile} alt="Profile" className="Setting__Card__Short__Image" />
             </div>
-            <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ title: "Фамилия" })}>
+            <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ value: userValue.user.lastName, title: "Фамилия", keyName: "lastName", type: "string" })}>
               <div className="UserSetting__Blocks__List__Item__Title">
                 Фамилия
               </div>
@@ -78,7 +87,7 @@ export const UserSetting = () => {
               </div>
               <img src={Profile} alt="Profile" className="Setting__Card__Short__Image" />
             </div>
-            <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ title: "Пароль" })}>
+            <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ title: "Пароль", keyName: "password", type: "password" })}>
               <div className="UserSetting__Blocks__List__Item__Title">
                 Пароль
               </div>
@@ -87,7 +96,7 @@ export const UserSetting = () => {
               </div>
               <img src={Password} alt="Password" className="Setting__Card__Short__Image" />
             </div>
-            <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ title: "Дата рождения" })}>
+            <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ value: userValue.user.birthDate, title: "Дата рождения", keyName: "birthDate", type: "date" })}>
               <div className="UserSetting__Blocks__List__Item__Title">
                 Дата рождения
               </div>
@@ -100,7 +109,7 @@ export const UserSetting = () => {
               </div>
               <img src={birthDate} alt="birthDate" className="Setting__Card__Short__Image" />
             </div>
-            <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ title: "Почта" })}>
+            <div className="UserSetting__Blocks__List__Item Setting__Card__Short" >
               <div className="UserSetting__Blocks__List__Item__Title">
                 Почта
               </div>
@@ -109,7 +118,7 @@ export const UserSetting = () => {
               </div>
               <img src={Message} alt="Message" className="Setting__Card__Short__Image" />
             </div>
-            <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ title: "Регион" })}>
+            <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ value: userValue.user.city, title: "Регион", keyName: "city", type: "city" })}>
               <div className="UserSetting__Blocks__List__Item__Title">
                 Регион
               </div>
@@ -118,7 +127,7 @@ export const UserSetting = () => {
               </div>
               <img src={Location} alt="Location" className="Setting__Card__Short__Image" />
             </div>
-            <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ title: "Логин" })}>
+            <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ value: userValue.user.login, title: "Логин", keyName: "login", type: "string" })}>
               <div className="UserSetting__Blocks__List__Item__Title">
                 Логин
               </div>
@@ -126,7 +135,7 @@ export const UserSetting = () => {
                 {userValue.user.login}
               </div>
             </div>
-            <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ title: "Краткое описание" })}>
+            <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ value: userValue.user.aboutShort, title: "Краткое описание", keyName: "aboutShort", type: "string" })}>
               <div className="UserSetting__Blocks__List__Item__Title">
                 Краткое описание
               </div>
@@ -134,7 +143,7 @@ export const UserSetting = () => {
                 {userValue.user.aboutShort ? userValue.user.aboutShort : "Написать"}
               </div>
             </div>
-            <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ title: "О себе" })}>
+            <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ value: userValue.user.aboutLong, title: "О себе", keyName: "aboutLong", type: "textarea" })}>
               <div className="UserSetting__Blocks__List__Item__Title">
                 О себе
               </div>
@@ -142,7 +151,7 @@ export const UserSetting = () => {
                 {userValue.user.aboutLong ? userValue.user.aboutLong : "Написать"}
               </div>
             </div>
-            <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ title: "Верификация" })}>
+            <div className="UserSetting__Blocks__List__Item Setting__Card__Short" >
               <div className="UserSetting__Blocks__List__Item__Title">
                 Верификация
               </div>
@@ -152,12 +161,13 @@ export const UserSetting = () => {
             </div>
           </div>
         </div>
-        <div className="UserSetting__Contacts UserSetting__Blocks">
+      </div>
+      <div className="UserSetting__Contacts UserSetting__Blocks">
           <div className="UserSetting__Blocks__Title">
             Контакты
           </div>
           <div className="UserSetting__Blocks__List">
-            <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ title: "Изменить контакт" })}>
+            {/* <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ title: "Изменить контакт", keyName: "contacts", type: "string",id:1 })}>
               <div className="UserSetting__Blocks__List__Item__Title">
                 Telegram
               </div>
@@ -165,31 +175,30 @@ export const UserSetting = () => {
                 @cyrilstrone
               </div>
             </div>
-            <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ title: "Изменить контакт" })}>
+            <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ title: "Изменить контакт", keyName: "contacts", type: "string",id:1 })}>
               <div className="UserSetting__Blocks__List__Item__Title">
                 Facebook
               </div>
               <div className="Setting__Card__Short__Value">
                 @cyrilstrone
               </div>
-            </div>
-            <div className="UserSetting__Blocks__List__Item__Plus UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ title: "Добавить контакт" })}>
+            </div> */}
+            <div className="UserSetting__Blocks__List__Item__Plus UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ title: "Добавить контакт", keyName: "contacts", type: "object", id: undefined })}>
               <img src={Plus} alt="Plus" />
             </div>
           </div>
         </div>
-      </div>
       <div className="UserSetting__Stack UserSetting__Blocks">
         <div className="UserSetting__Blocks__Title">
           Навыки
         </div>
         <div className="UserSetting__Blocks__List">
-          <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ title: "Изменить навык" })}>
+          {/* <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ title: "Изменить навык" })}>
             <div className="UserSetting__Blocks__List__Item__Title">
               React
             </div>
-          </div>
-          <div className="UserSetting__Blocks__List__Item__Plus UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ title: "Добавить навык" })}>
+          </div> */}
+          <div className="UserSetting__Blocks__List__Item__Plus UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ title: "Добавить навык", keyName: "stack", type: "object", id: undefined })}>
             <img src={Plus} alt="Plus" />
           </div>
         </div>
@@ -199,12 +208,12 @@ export const UserSetting = () => {
           Образование
         </div>
         <div className="UserSetting__Blocks__List">
-          <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ title: "Изменить образование" })}>
+          {/* <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ title: "Изменить образование" })}>
             <div className="UserSetting__Blocks__List__Item__Title">
               СФУ
             </div>
-          </div>
-          <div className="UserSetting__Blocks__List__Item__Plus UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ title: "Добавить образование" })}>
+          </div> */}
+          <div className="UserSetting__Blocks__List__Item__Plus UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ title: "Добавить образование", keyName: "education", type: "object", id: undefined })}>
             <img src={Plus} alt="Plus" />
           </div>
         </div>
@@ -214,12 +223,12 @@ export const UserSetting = () => {
           Опыт работы
         </div>
         <div className="UserSetting__Blocks__List">
-          <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ title: "Изменить опыт работы" })}>
+          {/* <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ title: "Изменить опыт работы" })}>
             <div className="UserSetting__Blocks__List__Item__Title">
               ООО АБС
             </div>
-          </div>
-          <div className="UserSetting__Blocks__List__Item__Plus UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ title: "Добавить опыт работы" })}>
+          </div> */}
+          <div className="UserSetting__Blocks__List__Item__Plus UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ title: "Добавить опыт работы", keyName: "workExp", type: "object", id: undefined })}>
             <img src={Plus} alt="Plus" />
           </div>
         </div>
@@ -243,7 +252,7 @@ export const UserSetting = () => {
           </div>
         </div>
       </div>
-      {userSetting && <FieldChange title={title} image={""} type={""} />}
+      {userSetting && <FieldChange keyName={keyName} title={title} type={type} id={id} value={value} />}
     </div >
   );
 };
