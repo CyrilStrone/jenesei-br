@@ -4,7 +4,7 @@ import { setAccessToken } from "./AccessToken";
 export const accessTokenName = "BusinessRouletteToken"
 
 export const axiosInstance = axios.create({
-  baseURL: "http://26.74.162.51:3002/api/",
+  baseURL: "https://businessroulette.ru:3000/api/",
   timeout: 1000,
   headers: {
     authorization: `Bearer ${localStorage.getItem(accessTokenName)}`

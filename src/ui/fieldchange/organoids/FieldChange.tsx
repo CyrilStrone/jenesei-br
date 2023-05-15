@@ -11,8 +11,6 @@ import Location from '../../../assets/userchange/Location.svg'
 import Avatar from '../../../assets/userchange/Avatar.svg'
 import Setting from '../../../assets/userchange/Setting.svg'
 import { useEffect, useState } from "react";
-import { getAllCountries } from "worldpedia/lib/modules/countries";
-import { City, State } from 'worldpedia';
 import autosize from 'autosize';
 import AvatarEditor from 'react-avatar-editor'
 
@@ -49,21 +47,21 @@ export const FieldChange = (params: IFieldChange) => {
             }))
         }
     };
-    useEffect(() => {
-        if (params.type === "city") {
-            setValueLocation({ ...valueLocation, country: getAllCountries() })
-        }
-    }, [params.type])
-    useEffect(() => {
-        if (valueLocation && valueLocation.country && valueLocationChoise.country !== "") {
-            setValueLocation({ ...valueLocation, state: State.getAllStatesByCountry(valueLocationChoise.country) })
-        }
-    }, [valueLocationChoise.country])
-    useEffect(() => {
-        if (valueLocation && valueLocation.state && valueLocationChoise.state !== "") {
-            setValueLocation({ ...valueLocation, city: City.getAllCitiesOfState(valueLocationChoise.state, valueLocationChoise.country) })
-        }
-    }, [valueLocationChoise.state])
+    // useEffect(() => {
+    //     if (params.type === "city") {
+    //         setValueLocation({ ...valueLocation, country: getAllCountries() })
+    //     }
+    // }, [params.type])
+    // useEffect(() => {
+    //     if (valueLocation && valueLocation.country && valueLocationChoise.country !== "") {
+    //         setValueLocation({ ...valueLocation, state: State.getAllStatesByCountry(valueLocationChoise.country) })
+    //     }
+    // }, [valueLocationChoise.country])
+    // useEffect(() => {
+    //     if (valueLocation && valueLocation.state && valueLocationChoise.state !== "") {
+    //         setValueLocation({ ...valueLocation, city: City.getAllCitiesOfState(valueLocationChoise.state, valueLocationChoise.country) })
+    //     }
+    // }, [valueLocationChoise.state])
     return (
         <div className="FieldChange__General" >
             <div className="FieldChange" >
