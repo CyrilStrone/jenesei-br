@@ -143,7 +143,10 @@
   position: relative;
   padding: 17px 19px;
   cursor: pointer;
+  gap: 6px;
+  position: relative;
 }
+
 @media (orientation: portrait) {
   .Setting__Card__Short {
     width: 100%;
