@@ -92,7 +92,22 @@ export const FieldChange = (params: IFieldChange) => {
                         </div>}
                     {(params.keyName === "contacts" || params.keyName === "stack" || params.keyName === "education" || params.keyName === "workExp") ?
                         <div className="FieldChange__Inputs">
+                            {params.keyName === "contacts" ?
+                                <>
+                                    <div className="">
 
+                                    </div>
+                                </> : params.keyName === "stack" ?
+                                    <>
+
+                                    </> : params.keyName === "education" ?
+                                        <>
+
+                                        </> : params.keyName === "workExp" ?
+                                            <>
+
+                                            </> : null
+                            }
                         </div> :
                         <div className="FieldChange__Inputs">
                             {params.type === "date" ?
