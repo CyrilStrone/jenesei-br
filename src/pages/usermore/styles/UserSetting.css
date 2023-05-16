@@ -16,12 +16,20 @@
   font-size: 30%;
   font-weight: 600;
 }
+.Setting__Card__Short__Value__Link {
+  text-decoration: none;
+  color: #666666;
+  width: min-content;
+}
+.Setting__Card__Short__Value__Link:hover {
+  color: #0e8ac3;
+}
 .Setting__Card__Short__Value {
   font-size: 25%;
   font-weight: 400;
   color: #666666;
 }
-.Setting__Card__Short__Image{
+.Setting__Card__Short__Image {
   position: absolute;
   right: 19px;
   top: 17px;
@@ -29,7 +37,7 @@
   width: 15px;
   object-fit: contain;
 }
-.UserSetting__Blocks__List__Item__Plus{
+.UserSetting__Blocks__List__Item__Plus {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -37,10 +45,10 @@
   transition-duration: 0.5s;
 }
 
-.UserSetting__Blocks__List__Item__Plus:hover{
+.UserSetting__Blocks__List__Item__Plus:hover {
   opacity: 1;
 }
-.UserSetting__Blocks__List__Item__Plus img{
+.UserSetting__Blocks__List__Item__Plus img {
   fill: #d1d1d6a1;
   width: 20px;
   object-fit: cover;
@@ -59,6 +67,19 @@
 .UserSetting__Blocks__Title {
   font-size: 70%;
   font-weight: 600;
+}
+.FieldChange__Delete {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 6px;
+}
+.FieldChange__Delete:hover {
+  background-color: rgba(37, 38, 40, 0.08);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
 }
 @media (orientation: portrait) {
   .UserSetting__Blocks__List__Item__Title {

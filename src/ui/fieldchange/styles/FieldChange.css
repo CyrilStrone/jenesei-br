@@ -11,6 +11,7 @@
   box-sizing: border-box;
   flex-direction: column;
   gap: 36px;
+  margin: 0;
 }
 .FieldChange__General {
   position: fixed;
@@ -55,6 +56,11 @@
   font-weight: 600;
   margin-right: auto;
 }
+.FieldChange__SubTitle {
+  font-size: 36%;
+  font-weight: 400;
+  margin-right: auto;
+}
 .FieldChange__Inputs {
   margin-right: auto;
   display: flex;
@@ -62,6 +68,7 @@
   width: 100%;
   gap: 10px;
   transition-duration: 0.5s;
+  align-items: center;
 }
 .FieldChange__Header {
   display: flex;
@@ -93,6 +100,9 @@
   cursor: pointer;
   padding: 8px 16px;
   text-align: center;
+  outline: none;
+  border: none;
+  font-size: 100%;
 }
 .FieldChange__Button__Group__Save {
   background: #0e8ac3;
@@ -101,6 +111,14 @@
   cursor: pointer;
   padding: 8px 16px;
   text-align: center;
+  outline: none;
+  border: none;
+  font-size: 100%;
+}
+.FieldChange__Button__Group__Cancel:focus,
+.FieldChange__Button__Group__Save:focus {
+  outline: none;
+  border: none;
 }
 .FieldChange__Inputs input {
   display: inline-block;
@@ -159,12 +177,14 @@
 }
 .FieldChange__Inputs textarea::placeholder {
   font-weight: 300;
-  color: #666666;    font-family: "Montserrat";
+  color: #666666;
+  font-family: "Montserrat";
   font-style: normal;
 }
 .FieldChange__Inputs input::placeholder {
   font-weight: 300;
-  color: #666666;    font-family: "Montserrat";
+  color: #666666;
+  font-family: "Montserrat";
   font-style: normal;
 }
 .FieldChange__Inputs__LocationBlock {
@@ -173,11 +193,11 @@
   width: 100%;
   gap: 6px;
 }
-.FieldChange__Inputs__LocationBlock select:focus{
+.FieldChange__Inputs select:focus {
   outline: none;
   border: 1px solid #0e8ac3;
 }
-.FieldChange__Inputs__LocationBlock select{
+.FieldChange__Inputs select {
   display: inline-block;
   box-sizing: border-box;
   vertical-align: top;
@@ -201,25 +221,80 @@
   -moz-appearance: none;
   appearance: none;
 }
-.FieldChange__Inputs__LocationBlock option{
-  
+.FieldChange__Inputs option {
 }
 .FieldChange__Inputs__LocationBlock__Title {
   font-size: 34%;
   font-weight: 400;
 }
-.FieldChange__Inputs__Avatar{
+.FieldChange__Inputs__Avatar {
   display: flex;
   width: 100%;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 }
-.FieldChange__Inputs__Avatar input{
+.FieldChange__Inputs__Avatar input {
   width: 250px !important;
 }
-.FieldChange__Title__Image{
+.FieldChange__Title__Image {
   margin: 0 !important;
+}
+.FieldChange__Inputs__Stack__Title {
+  font-size: 42%;
+  font-weight: 600;
+  margin-right: auto;
+}
+.FieldChange__Inputs__Stack__Bar {
+  display: flex;
+  gap: 16px;
+  flex-direction: row;
+}
+.FieldChange__Inputs__Stack__Bar__Level {
+  font-size: 36%;
+  font-weight: 400;
+  background: rgba(37, 38, 40, 0.08);
+  border-radius: 6px;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.FieldChange__Inputs__Stack__Bar__Level:hover {
+  color: #ffffff;
+  background-color: #0e8ac3;
+}
+.FieldChange__Inputs__Stack__Bar__Level__Choise {
+  color: #ffffff;
+  background-color: #0e8ac3;
+}
+.FieldChange__Inputs__Education__Blocks {
+  display: flex;
+  gap: 6px;
+  flex-direction: column;
+}
+.FieldChange__Inputs__Education__Blocks__Title {
+  font-size: 40%;
+  font-weight: 400;
+  margin-right: auto;
+}
+.FieldChange__Inputs__Education__Blocks__SubTitle {
+  font-size: 32%;
+  font-weight: 400;
+  margin-right: auto;
+}
+.FieldChange__Inputs__Education__Blocks select {
+  width: 100%;
+  max-width: 78px;
+  min-width: 78px;
+}
+.FieldChange__Inputs__Education__Blocks__Bar {
+  display: flex;
+  flex-direction: row;
+  gap: 14px;
+  align-items: center;
 }
 @media (orientation: portrait) {
   .FieldChange {
@@ -235,7 +310,7 @@
   .FieldChange__Inputs input {
     width: 100%;
   }
-  .FieldChange__Inputs__LocationBlock__Title{
+  .FieldChange__Inputs__LocationBlock__Title {
     font-size: 40%;
   }
 }
