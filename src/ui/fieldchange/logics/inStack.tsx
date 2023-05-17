@@ -2,7 +2,7 @@ import { axiosInstance } from "../../functions/AxiosInstance";
 
 export const inStack = async () => {
     return axiosInstance.get(
-        'stack')
+        '/stack')
         .then((res: any) => { 
             return (res.data) 
         })

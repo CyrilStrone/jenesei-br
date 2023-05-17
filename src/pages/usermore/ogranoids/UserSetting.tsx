@@ -13,16 +13,12 @@ import Message from '../../../assets/userchange/Message.svg'
 import Location from '../../../assets/userchange/Location.svg'
 import Avatar from '../../../assets/userchange/Avatar.svg'
 import Plus from '../../../assets/userchange/Plus.svg'
-import { useNavigate } from "react-router-dom";
 
 export const UserSetting = () => {
   const userValue = useStore($userValue);
   const userSetting = useStore($userSetting);
-  const navigate = useNavigate()
   const [title, setTitle] = useState<string | undefined>(undefined)
   const [keyName, setkeyName] = useState<string | undefined>(undefined)
-  const [type, setType] = useState<string | undefined>(undefined)
-  const [id, setId] = useState<number | undefined>(undefined)
   const [value, setValue] = useState<string | undefined>(undefined)
 
   const handleCheck = (params: IFieldChange) => {
@@ -30,8 +26,6 @@ export const UserSetting = () => {
     setUserSetting(!userSetting);
     setTitle(params.title)
     setkeyName(params.keyName)
-    setType(params.type)
-    setId(params.id)
     setValue(params.value)
 
   };
@@ -40,10 +34,11 @@ export const UserSetting = () => {
       setUserSetting(false)
     }
   }, [])
-  useEffect(() => {
-    console.log("userValue", userValue)
-  }, [userValue])
   //TODO:Убирать плюс если максимум
+  //TODO:textarea странно поведение
+  //TODO:Меньшая дата больше большей
+  //TODO:навыки и контакты плюс всегда горит
+
   return (
     userValue &&
     <div className="UserMore">
@@ -54,7 +49,7 @@ export const UserSetting = () => {
             Персональная информация
           </div>
           <div className="UserSetting__Blocks__List">
-            <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ value: apiImage + userValue.avatarPath, title: "Аватар", keyName: "avatarPath", type: "img" })}>
+            <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ value: apiImage + userValue.avatarPath, title: "Аватар", keyName: "avatarPath" })}>
               <div className="UserSetting__Blocks__List__Item__Title">
                 Аватар
               </div>
@@ -63,7 +58,7 @@ export const UserSetting = () => {
               </div>
               <img src={Avatar} alt="Avatar" className="Setting__Card__Short__Image" />
             </div>
-            <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ value: userValue.currentPosition, title: "Специальность", keyName: "currentPosition", type: "string" })}>
+            <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ value: userValue.currentPosition, title: "Специальность", keyName: "currentPosition" })}>
               <div className="UserSetting__Blocks__List__Item__Title">
                 Специальность
               </div>
@@ -72,7 +67,7 @@ export const UserSetting = () => {
               </div>
               <img src={Position} alt="Position" className="Setting__Card__Short__Image" />
             </div>
-            <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ value: userValue.user.firstName, title: "Имя", keyName: "firstName", type: "string" })}>
+            <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ value: userValue.user.firstName, title: "Имя", keyName: "firstName" })}>
               <div className="UserSetting__Blocks__List__Item__Title">
                 Имя
               </div>
@@ -81,7 +76,7 @@ export const UserSetting = () => {
               </div>
               <img src={Profile} alt="Profile" className="Setting__Card__Short__Image" />
             </div>
-            <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ value: userValue.user.lastName, title: "Фамилия", keyName: "lastName", type: "string" })}>
+            <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ value: userValue.user.lastName, title: "Фамилия", keyName: "lastName" })}>
               <div className="UserSetting__Blocks__List__Item__Title">
                 Фамилия
               </div>
@@ -90,7 +85,7 @@ export const UserSetting = () => {
               </div>
               <img src={Profile} alt="Profile" className="Setting__Card__Short__Image" />
             </div>
-            <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ title: "Пароль", keyName: "password", type: "password" })}>
+            <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ title: "Пароль", keyName: "password" })}>
               <div className="UserSetting__Blocks__List__Item__Title">
                 Пароль
               </div>
@@ -99,7 +94,7 @@ export const UserSetting = () => {
               </div>
               <img src={Password} alt="Password" className="Setting__Card__Short__Image" />
             </div>
-            <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ value: userValue.user.birthDate, title: "Дата рождения", keyName: "birthDate", type: "date" })}>
+            <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ value: userValue.user.birthDate, title: "Дата рождения", keyName: "birthDate" })}>
               <div className="UserSetting__Blocks__List__Item__Title">
                 Дата рождения
               </div>
@@ -121,7 +116,7 @@ export const UserSetting = () => {
               </div>
               <img src={Message} alt="Message" className="Setting__Card__Short__Image" />
             </div>
-            <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ value: userValue.user.city, title: "Регион", keyName: "city", type: "city" })}>
+            <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ value: userValue.user.city, title: "Регион", keyName: "location" })}>
               <div className="UserSetting__Blocks__List__Item__Title">
                 Регион
               </div>
@@ -132,7 +127,7 @@ export const UserSetting = () => {
               </div>
               <img src={Location} alt="Location" className="Setting__Card__Short__Image" />
             </div>
-            <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ value: userValue.user.login, title: "Логин", keyName: "login", type: "string" })}>
+            <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ value: userValue.user.login, title: "Логин", keyName: "login" })}>
               <div className="UserSetting__Blocks__List__Item__Title">
                 Логин
               </div>
@@ -140,7 +135,7 @@ export const UserSetting = () => {
                 {userValue.user.login}
               </div>
             </div>
-            <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ value: userValue.user.aboutShort, title: "Краткое описание", keyName: "aboutShort", type: "string" })}>
+            <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ value: userValue.user.aboutShort, title: "Краткое описание", keyName: "aboutShort" })}>
               <div className="UserSetting__Blocks__List__Item__Title">
                 Краткое описание
               </div>
@@ -148,7 +143,7 @@ export const UserSetting = () => {
                 {userValue.user.aboutShort ? userValue.user.aboutShort : "Написать"}
               </div>
             </div>
-            <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ value: userValue.user.aboutLong, title: "О себе", keyName: "aboutLong", type: "textarea" })}>
+            <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ value: userValue.user.aboutLong, title: "О себе", keyName: "aboutLong" })}>
               <div className="UserSetting__Blocks__List__Item__Title">
                 О себе
               </div>
@@ -174,7 +169,7 @@ export const UserSetting = () => {
         <div className="UserSetting__Blocks__List">
           {userValue.contacts && userValue.contacts.length !== 0 &&
             userValue.contacts.map((e: any) =>
-              <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ value: e, title: "контакт", keyName: "contacts", type: "string", id: undefined })}>
+              <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ value: e, title: "контакт", keyName: "contacts", })}>
                 <div className="UserSetting__Blocks__List__Item__Title">
                   {e.contact_name}
                 </div>
@@ -186,7 +181,7 @@ export const UserSetting = () => {
               </div>
             )
           }
-          <div className="UserSetting__Blocks__List__Item__Plus UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ title: "контакт", keyName: "contacts", type: "object", id: undefined })}>
+          <div className="UserSetting__Blocks__List__Item__Plus UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ title: "контакт", keyName: "contacts" })}>
             <img src={Plus} alt="Plus" />
           </div>
         </div>
@@ -198,29 +193,29 @@ export const UserSetting = () => {
         <div className="UserSetting__Blocks__List">
           {userValue.stack && userValue.stack.length !== 0 &&
             userValue.stack.map((e: any) =>
-              <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ value: e, title: "навык", keyName: "stack", type: "string", id: undefined })}>
+              <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ value: e, title: "навык", keyName: "stack", })}>
                 <div className="UserSetting__Blocks__List__Item__Title">
                   {e.name}
                 </div>
                 <div className="Setting__Card__Short__Value">
-                  {e.level == 1 ?
+                  {e.level === 1 ?
                     "Junior" :
-                    e.level == 2 ?
+                    e.level === 2 ?
                       "Junior Plus" :
-                      e.level == 3 ?
+                      e.level === 3 ?
                         "Middle" :
-                        e.level == 4 ?
+                        e.level === 4 ?
                           "Middle Plus" :
-                          e.level == 5 ?
+                          e.level === 5 ?
                             "Senior" :
-                            e.level == 6 ?
+                            e.level === 6 ?
                               "Senior Plus" : null
                   }
                 </div>
               </div>
             )
           }
-          <div className="UserSetting__Blocks__List__Item__Plus UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ title: "навык", keyName: "stack", type: "object", id: undefined })}>
+          <div className="UserSetting__Blocks__List__Item__Plus UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ title: "навык", keyName: "stack" })}>
             <img src={Plus} alt="Plus" />
           </div>
         </div>
@@ -230,12 +225,22 @@ export const UserSetting = () => {
           Образование
         </div>
         <div className="UserSetting__Blocks__List">
-          {/* <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ title: "Изменить образование" })}>
-            <div className="UserSetting__Blocks__List__Item__Title">
-              СФУ
-            </div>
-          </div> */}
-          <div className="UserSetting__Blocks__List__Item__Plus UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ title: "образование", keyName: "education", type: "object", id: undefined })}>
+          {userValue.education && userValue.education.length !== 0 &&
+            userValue.education.map((e: any) =>
+              <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ value: e, title: "образование", keyName: "education", })}>
+                <div className="UserSetting__Blocks__List__Item__Title">
+                  {e.name}
+                </div>
+                <div className="Setting__Card__Short__Value">
+                  {e.position}
+                </div>
+                <div className="Setting__Card__Short__Value">
+                  {new Date(e.studyStart).getFullYear()}{" - " + new Date(e.studyEnd).getFullYear()}
+                </div>
+              </div>
+            )
+          }
+          <div className="UserSetting__Blocks__List__Item__Plus UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ title: "образование", keyName: "education" })}>
             <img src={Plus} alt="Plus" />
           </div>
         </div>
@@ -245,12 +250,22 @@ export const UserSetting = () => {
           Опыт работы
         </div>
         <div className="UserSetting__Blocks__List">
-          {/* <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ title: "Изменить опыт работы" })}>
-            <div className="UserSetting__Blocks__List__Item__Title">
-              ООО АБС
-            </div>
-          </div> */}
-          <div className="UserSetting__Blocks__List__Item__Plus UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ title: "опыт работы", keyName: "workExp", type: "object", id: undefined })}>
+        {userValue.workExp && userValue.workExp.length !== 0 &&
+            userValue.workExp.map((e: any) =>
+              <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ value: e, title: "опыт работы", keyName: "workExp", })}>
+                <div className="UserSetting__Blocks__List__Item__Title">
+                  {e.name}
+                </div>
+                <div className="Setting__Card__Short__Value">
+                  {e.position}
+                </div>
+                <div className="Setting__Card__Short__Value">
+                  {new Date(e.workStart).getFullYear()}{e.workEnd && (" - " + new Date(e.workEnd).getFullYear())}
+                </div>
+              </div>
+            )
+          }
+          <div className="UserSetting__Blocks__List__Item__Plus UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ title: "опыт работы", keyName: "workExp" })}>
             <img src={Plus} alt="Plus" />
           </div>
         </div>
@@ -274,7 +289,7 @@ export const UserSetting = () => {
           </div>
         </div>
       </div>
-      {userSetting && <FieldChange keyName={keyName} title={title} type={type} id={id} value={value} />}
+      {userSetting && <FieldChange keyName={keyName} title={title} value={value} setValue={setValue}/>}
     </div >
   );
 };

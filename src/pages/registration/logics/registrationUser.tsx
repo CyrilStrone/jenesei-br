@@ -12,7 +12,7 @@ export interface IRegistrationUser {
 }
 export const registrationUser = async (params: IRegistrationUser) => {
     return axiosInstance.post(
-        'auth/registration', {
+        '/auth/registration', {
         "email": params.email,
         "password": params.password,
         "firstName": params.firstName,

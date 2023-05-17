@@ -15,7 +15,7 @@
 }
 .HeaderBar__Avatar {
   padding: 4px;
-  border-radius: 8px !important;
+  border-radius: 80px !important;
   object-fit: cover !important;
 }
 .HeaderBar__Item:hover {

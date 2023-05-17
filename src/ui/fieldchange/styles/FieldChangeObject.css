@@ -1,0 +1,43 @@
+.FieldChange__Inputs__Education__Blocks li {
+  list-style-type: none;
+  height: 36px;
+}
+.FieldChange__Inputs__Education__Blocks ul {
+  margin: 0;
+  padding: 0;
+  margin-left: 0; /* Отступ слева в браузере IE и Opera */
+  padding-left: 0; /* Отступ слева в браузере Firefox, Safari, Chrome */
+}
+.FieldChange__Inputs__Education__Blocks button {
+  list-style-type: none;
+  display: inline-block;
+  box-sizing: border-box;
+  vertical-align: top;
+  height: 36px;
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: #333;
+  text-align: left;
+  border: none;
+  background: #fff;
+  background-clip: padding-box;
+  border-radius: 0px;
+  position: relative;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  min-width: 250px;
+  border: 1px solid #d6d6d6;
+  cursor: pointer;
+}
+.FieldChange__Inputs__Education__Blocks button:hover {
+  background-color: #0e8ac3;
+  color: #ffffff;
+}
+.FieldChange__Inputs__Education__Blocks__City__Disabled ul {
+  display: none;
+}
+.FieldChange__Inputs__Education__Blocks li:last-child button {
+  border-radius: 0px 0px 12px 12px;
+}

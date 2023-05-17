@@ -2,7 +2,7 @@ import { axiosInstance } from "../../functions/AxiosInstance";
 
 export const inContact = async () => {
     return axiosInstance.get(
-        'contact')
+        '/contact')
         .then((res: any) => { 
             return (res.data)
          })
