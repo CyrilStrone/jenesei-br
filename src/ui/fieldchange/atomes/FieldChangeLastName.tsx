@@ -3,6 +3,7 @@ import { IFieldChange } from "../organoids/FieldChange";
 import Arrow from '../../../assets/fieldchange/Arrow.svg'
 import Profile from '../../../assets/userchange/Profile.svg'
 import { inApiSaveDefault } from "../logics/inApiSave";
+import { useEffect } from "react";
 
 export const FieldChangeLastName = (params: IFieldChange) => {
     const handleApiSave = async () => {
@@ -22,6 +23,9 @@ export const FieldChangeLastName = (params: IFieldChange) => {
             )
         }
     }
+    useEffect(()=>{
+        params.setNewValue && params.setNewValue(params.value)
+    },[])
     return (
         <div className="FieldChange__General" >
             <form onSubmit={e => { e.preventDefault(); params.check && handleApiSave() }} className="FieldChange" >
@@ -39,7 +43,7 @@ export const FieldChangeLastName = (params: IFieldChange) => {
                     <div className="FieldChange__Inputs">
                         <input
                             type={"text"}
-                            value={!params.newValue ? (params.value && params.value) : params.newValue}
+                            value={params?.newValue}
                             onChange={handleNewValue}
                             required maxLength={30} minLength={2}
                         />

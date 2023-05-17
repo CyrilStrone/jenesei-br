@@ -23,7 +23,9 @@ export const FieldChangeEmail = (params: IFieldChange) => {
             )
         }
     }
-    
+    useEffect(()=>{
+        params.setNewValue && params.setNewValue(params.value)
+    },[])
     return (
         <div className="FieldChange__General" >
             <form onSubmit={e => { e.preventDefault(); params.check && handleApiSave() }} className="FieldChange" >
@@ -41,7 +43,7 @@ export const FieldChangeEmail = (params: IFieldChange) => {
                     <div className="FieldChange__Inputs">
                         <input
                             type={"email"}
-                            value={!params.newValue ? (params.value && params.value) : params.newValue}
+                            value={params?.newValue}
                             onChange={handleNewValue}
                             required maxLength={30} minLength={2}
                         />

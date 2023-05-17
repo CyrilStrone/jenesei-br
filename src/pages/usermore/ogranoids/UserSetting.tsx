@@ -58,7 +58,7 @@ export const UserSetting = () => {
               </div>
               <img src={Avatar} alt="Avatar" className="Setting__Card__Short__Image" />
             </div>
-            <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ value: userValue.currentPosition, title: "Специальность", keyName: "currentPosition" })}>
+            <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ value: userValue.currentPosition || "", title: "Специальность", keyName: "currentPosition" })}>
               <div className="UserSetting__Blocks__List__Item__Title">
                 Специальность
               </div>

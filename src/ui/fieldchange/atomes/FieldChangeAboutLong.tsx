@@ -4,6 +4,7 @@ import { inApiSaveDefault } from "../logics/inApiSave";
 import autosize from 'autosize';
 import Arrow from '../../../assets/fieldchange/Arrow.svg'
 import Setting from '../../../assets/userchange/Setting.svg'
+import { useEffect } from "react";
 
 export const FieldChangeAboutLong = (params: IFieldChange) => {
     const handleApiSave = async () => {
@@ -23,6 +24,9 @@ export const FieldChangeAboutLong = (params: IFieldChange) => {
             )
         }
     }
+    useEffect(()=>{
+        params.setNewValue && params.setNewValue(params.value)
+    },[])
     return (
         <div className="FieldChange__General" >
             <form onSubmit={e => { e.preventDefault();params.check && handleApiSave() }} className="FieldChange" >
@@ -39,7 +43,7 @@ export const FieldChangeAboutLong = (params: IFieldChange) => {
                     </div>
 
                     <div className="FieldChange__Inputs">
-                        <textarea required minLength={20} onFocus={() => { autosize(document.querySelector('textarea')) }} value={!params.newValue ? (params.value && params.value) : params.newValue} onChange={handleNewValue} placeholder={"Расскажите о себе"}></textarea>
+                        <textarea required minLength={20} onFocus={() => { autosize(document.querySelector('textarea')) }} value={params?.newValue} onChange={handleNewValue} placeholder={"Расскажите о себе"}></textarea>
                     </div>
                 </div>
                 <div className="FieldChange__Button__Group">
