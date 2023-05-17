@@ -43,7 +43,7 @@ export const User = () => {
 
   useEffect(() => {
     if (location.pathname.split("/:")[1]) {
-        setLogin(location.pathname.split("/:")[1])
+      setLogin(location.pathname.split("/:")[1])
     } else {
       const localLogin = localStorage.getItem(accessTokenNameLogin) || "";
       if (localLogin) {
@@ -53,6 +53,12 @@ export const User = () => {
     }
   }, [location])
 
+  useEffect(() => {
+    if (userValue && !location.pathname.split("/:")[1]) {
+        navigate(`/:${userValue.user.login}`)
+        setLogin(userValue.user.login)
+    }
+  }, [userValue])
   useEffect(() => {
     return (() => {
       setValue(null)
@@ -65,7 +71,7 @@ export const User = () => {
         <UserGeneralInfo avatarPath={value.avatarPath} login={value.user.login} firstName={value.user.firstName} lastName={value.user.lastName} />
         <UserAbout />
         <UserExperience />
-        <UserStack stack={value.stack}/>
+        <UserStack stack={value.stack} />
         <UserEducation />
         <UserSubscribers />
         <UserSubscription />

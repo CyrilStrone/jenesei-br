@@ -103,12 +103,14 @@
   outline: none;
   border: none;
   font-size: 100% !important;
-  font-family: "Montserrat";
-  font-style: normal;
+  font-family: "Montserrat" !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  color: #000 !important;
 }
 .FieldChange__Button__Group__Save {
-  background: #0e8ac3;
-  color: #ffffff;
+  background: #0e8ac3 !important;
+  color: #ffffff !important;
   border-radius: 12px;
   cursor: pointer;
   padding: 8px 16px;
@@ -116,8 +118,9 @@
   outline: none;
   border: none;
   font-size: 100% !important;
-  font-family: "Montserrat";
-  font-style: normal;
+  font-family: "Montserrat" !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
 }
 .FieldChange__Button__Group__Cancel:focus,
 .FieldChange__Button__Group__Save:focus {
@@ -324,7 +327,10 @@
 @media (orientation: portrait) {
   .FieldChange {
     width: 90%;
-    gap: 26px;
+    gap: 12px;
+    max-height: 80vh;
+    overflow: auto;
+    justify-content: flex-start;
   }
   .FieldChange__BR {
     font-size: 40%;
@@ -337,5 +343,11 @@
   }
   .FieldChange__Inputs__LocationBlock__Title {
     font-size: 40%;
+  }
+  .FieldChange__Button__Group__Cancel {
+    border-radius: 8px;
+  }
+  .FieldChange__Button__Group__Save {
+    border-radius: 8px;
   }
 }
