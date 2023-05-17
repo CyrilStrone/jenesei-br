@@ -5,7 +5,7 @@ export const accessTokenName = "BusinessRouletteToken"
 export const accessTokenNameLogin = "BusinessRouletteLogin"
 
 export const axiosInstance = axios.create({
-  baseURL: "http://26.74.162.51:3002/api",
+  baseURL: "https://businessroulette.ru:3000/api",
   timeout: 1000,
   headers: {
     authorization: `Bearer ${localStorage.getItem(accessTokenName)}`
@@ -29,12 +29,12 @@ axiosInstance.interceptors.response.use(
   }
 );
 
-export const apiImage = "http://26.74.162.51:3002"
+export const apiImage = "https://businessroulette.ru:3000"
 
 export const ApiLocation = axios.create({
   baseURL: "https://data-api.oxilor.com"
 });
 
 export const ApiLocationAnother = axios.create({
-  baseURL: "http://dataservice.accuweather.com"
+  baseURL: "https://dataservice.accuweather.com"
 });

@@ -94,9 +94,9 @@ export const FieldChangeContacts = (params: IFieldChange) => {
 
     return (
         <div className="FieldChange__General" >
-            <form onSubmit={e => { e.preventDefault(); params.check && handleApiSave(); }} className="FieldChange" >
+            <form onSubmit={e => { e.preventDefault(); params.newValue && handleApiSave(); }} className="FieldChange" >
                 <img src={Arrow} className="FieldChange__Arrow" alt="Arrow" onClick={() => setUserSetting(false)} />
-                {params.check && <img src={Delete} alt="Delete" className="FieldChange__Delete" onClick={handleApiDelete} />}
+                {params.newValue && <img src={Delete} alt="Delete" className="FieldChange__Delete" onClick={handleApiDelete} />}
                 <div className="FieldChange__Header" >
                     <img className="FieldChange__Image" alt="" src={Setting} />
                     <div className="FieldChange__BR">
@@ -105,7 +105,7 @@ export const FieldChangeContacts = (params: IFieldChange) => {
                 </div>
                 <div className="FieldChange__Info">
                     <div className="FieldChange__Title" >
-                        {params.check ? "Изменить " : "Добавить "}{params.title}
+                        {(params.newValue) ? "Изменить " : "Добавить "}{params.title}
                     </div>
                     <div className="FieldChange__Inputs">
                         {valueApi.contacts &&
@@ -125,7 +125,7 @@ export const FieldChangeContacts = (params: IFieldChange) => {
                     <div className="FieldChange__Button__Group__Cancel" onClick={() => setUserSetting(false)}>
                         Отменить
                     </div>
-                    <input type="submit" className={params.check ? "FieldChange__Button__Group__Save" : "FieldChange__Button__Group__Cancel"} value="Сохранить" />
+                    <input type="submit" className={params.newValue ? "FieldChange__Button__Group__Save" : "FieldChange__Button__Group__Cancel"} value="Сохранить" />
                 </div>
             </form>
         </div>
