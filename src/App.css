@@ -64,9 +64,6 @@ body {
 .App_Actual:has(.UserMore) {
   position: static !important;
 }
-body:has(.FieldChange) {
-  overflow: hidden;
-}
 @media (max-width: 1500px) {
   .App_Actual {
     width: 1100px;

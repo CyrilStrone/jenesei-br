@@ -328,7 +328,7 @@
   .FieldChange {
     width: 90%;
     gap: 12px;
-    max-height: 80vh;
+    max-height: 65vh;
     overflow: auto;
     justify-content: flex-start;
   }
@@ -339,7 +339,8 @@
     border-radius: 8px;
   }
   .FieldChange__Inputs input {
-    width: 100%;
+    width: 100% !important;
+    min-width: 100% !important;
   }
   .FieldChange__Inputs__LocationBlock__Title {
     font-size: 40%;

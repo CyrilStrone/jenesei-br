@@ -38,7 +38,8 @@ export const UserSetting = () => {
   //TODO:textarea странно поведение
   //TODO:Меньшая дата больше большей
   //TODO:навыки и контакты плюс всегда горит
-
+  //TODO:дата не правильно если вводить
+  //TODO:ограничение на короткое и длинной по длине бэк
   return (
     userValue &&
     <div className="UserMore">
@@ -250,7 +251,7 @@ export const UserSetting = () => {
           Опыт работы
         </div>
         <div className="UserSetting__Blocks__List">
-        {userValue.workExp && userValue.workExp.length !== 0 &&
+          {userValue.workExp && userValue.workExp.length !== 0 &&
             userValue.workExp.map((e: any) =>
               <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ value: e, title: "опыт работы", keyName: "workExp", })}>
                 <div className="UserSetting__Blocks__List__Item__Title">
@@ -289,7 +290,7 @@ export const UserSetting = () => {
           </div>
         </div>
       </div>
-      {userSetting && <FieldChange keyName={keyName} title={title} value={value} setValue={setValue}/>}
+      {userSetting && <FieldChange keyName={keyName} title={title} value={value} setValue={setValue} />}
     </div >
   );
 };
