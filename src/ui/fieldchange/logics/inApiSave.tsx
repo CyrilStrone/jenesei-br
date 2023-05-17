@@ -110,16 +110,16 @@ export const inApiSaveEducation = async (params: IinApiSaveEducation) => {
     console.log(params)
     return axiosInstance.put(
         '/education', {
-            ed_id: params.ed_id,
-            text: params.text,
-            degree: params.degree,
-            specialization: params.specialization,
-            country: params.country,
-            state: params.state,
-            city: params.city,
-            name: params.name,
-            studyStart: params.studyStart,
-            studyEnd: params.studyEnd
+        ed_id: params.ed_id,
+        text: params.text,
+        degree: params.degree,
+        specialization: params.specialization,
+        country: params.country,
+        state: params.state,
+        city: params.city,
+        name: params.name,
+        studyStart: params.studyStart,
+        studyEnd: params.studyEnd
     })
         .then((res: any) => {
             requestUser();
@@ -145,18 +145,35 @@ export const inApiSaveWorkExp = async (params: IinApiSaveWorkExp) => {
     console.log(params)
     return axiosInstance.put(
         '/work-exp', {
-            workexp_id: params.workexp_id,
-            text: params.text,
-            position: params.position,
-            country: params.country,
-            state: params.state,
-            city: params.city,
-            name: params.name,
-            workStart: params.workStart,
-            workEnd: params.workEnd
+        workexp_id: params.workexp_id,
+        text: params.text,
+        position: params.position,
+        country: params.country,
+        state: params.state,
+        city: params.city,
+        name: params.name,
+        workStart: params.workStart,
+        workEnd: params.workEnd
     })
         .then((res: any) => {
             requestUser();
+            return (res.data)
+        })
+        .catch((error) => {
+            throw new Error(error.response.data.message);
+        })
+}
+export interface IinApiChangePassword {
+    currentPassword: string
+    newPassword: string
+}
+export const inApiChangePassword = async (params: IinApiChangePassword) => {
+    return axiosInstance.put(
+        '/profile/updPass', {
+        currentPassword: params.currentPassword,
+        newPassword: params.newPassword
+    })
+        .then((res: any) => {
             return (res.data)
         })
         .catch((error) => {

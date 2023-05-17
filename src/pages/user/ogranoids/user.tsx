@@ -8,17 +8,64 @@ import { UserSubscribers } from "../molecules/UserSubscribers";
 import { UserSubscription } from "../molecules/UserSubscription";
 import { useStore } from "effector-react";
 import { $userValue } from "../../../ui/functions/Hooks";
-import { useEffect } from "react";
-export const User = () => {
-  const userValue = useStore($userValue);
+import { useEffect, useState } from "react";
+import { InAnotherUser } from "../logics/InAnotherUser";
+import { useLocation, useNavigate } from "react-router-dom";
+import { setCustomValidityShow } from "../../../ui/customvalidity/organoids/CustomValidity";
+import { accessTokenNameLogin } from "../../../ui/functions/AxiosInstance";
+import { $accessToken } from "../../../ui/functions/AccessToken";
 
+
+
+export const User = () => {
+  const navigate = useNavigate()
+  const location = useLocation();
+  const userValue = useStore($userValue);
+  const accessToken = useStore($accessToken);
+  const [login, setLogin] = useState<any>()
+  const [value, setValue] = useState<any>()
+  const requestInAnotherUser = async (login: string) => {
+    try {
+      const result = await InAnotherUser(login);
+      if (result) {
+        setValue(result)
+      }
+    } catch (error) {
+      setCustomValidityShow("Не верный url")
+    }
+  }
+
+  useEffect(() => {
+    if (login) {
+      requestInAnotherUser(login)
+    }
+  }, [login])
+
+  useEffect(() => {
+    if (location.pathname.split("/:")[1]) {
+        setLogin(location.pathname.split("/:")[1])
+    } else {
+      const localLogin = localStorage.getItem(accessTokenNameLogin) || "";
+      if (localLogin) {
+        navigate(`/:${localLogin}`)
+        setLogin(localLogin)
+      }
+    }
+  }, [location])
+
+  useEffect(() => {
+    return (() => {
+      setValue(null)
+      setLogin(null)
+    })
+  }, [])
   return (
     <div className="User">
-      {userValue && <div className="User__Content">
-        <UserGeneralInfo avatarPath={userValue.avatarPath} login={userValue.user.login} firstName={userValue.user.firstName} lastName={userValue.user.lastName} />
+      {value && <div className="User__Content">
+        <UserGeneralInfo avatarPath={value.avatarPath} login={value.user.login} firstName={value.user.firstName} lastName={value.user.lastName} />
         <UserAbout />
         <UserExperience />
-        <UserStack />
+        <UserStack stack={value.stack}/>
         <UserEducation />
         <UserSubscribers />
         <UserSubscription />

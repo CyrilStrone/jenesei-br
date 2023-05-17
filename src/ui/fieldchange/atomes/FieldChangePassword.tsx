@@ -3,29 +3,38 @@ import { IFieldChange } from "../organoids/FieldChange";
 import { useEffect, useState } from "react";
 import Arrow from '../../../assets/fieldchange/Arrow.svg'
 import Password from '../../../assets/userchange/Password.svg'
-import { inApiSaveDefault } from "../logics/inApiSave";
+import { inApiChangePassword, inApiSaveDefault } from "../logics/inApiSave";
+import { setCustomValidityShow } from "../../customvalidity/organoids/CustomValidity";
 
 export const FieldChangePassword = (params: IFieldChange) => {
+    const [check, setCheck] = useState<boolean>(false)
     const handleApiSave = async () => {
         try {
-            const result = await inApiSaveDefault({ value: params.newValue, keyName: params.keyName });
+            const result = await inApiChangePassword({ currentPassword: params.newValue?.oldPassword, newPassword: params.newValue?.newPassowrd });
             if (result) {
+                setCustomValidityShow("Пароль обновлен")
                 setUserSetting(false);
             }
         } catch (error) {
-            console.log("error", error)
+            setCustomValidityShow("Ошибка смены пароля")
         }
     }
-    const handleNewValue = (event: any) => {
-        if (params.keyName && params.setNewValue) {
-            params.setNewValue(
-                event.target.value
-            )
+    const handleNewValue = (event: any, type: any) => {
+        params.setNewValue && params.setNewValue((prevState: any) => ({
+            ...prevState,
+            [type]: event.target.value
+        }))
+    };
+    useEffect(() => {
+        if (params.newValue && params.newValue?.oldPassword == params.newValue?.againOldPassword && params.newValue?.newPassowrd) {
+            setCheck(true)
+        } else {
+            setCheck(false)
         }
-    }
+    }, [params.newValue])
     return (
         <div className="FieldChange__General" >
-            <form onSubmit={e => { e.preventDefault(); params.check && handleApiSave() }} className="FieldChange" >
+            <form onSubmit={e => { e.preventDefault(); check && handleApiSave() }} className="FieldChange" >
                 <img src={Arrow} className="FieldChange__Arrow" alt="Arrow" onClick={() => setUserSetting(false)} />
                 <div className="FieldChange__Header" >
                     <img className="FieldChange__Image" alt="" src={Password} />
@@ -40,17 +49,23 @@ export const FieldChangePassword = (params: IFieldChange) => {
                     <div className="FieldChange__Inputs">
                         <input
                             type={"password"}
-                            value={params.value}
+                            required
+                            value={params.newValue?.oldPassword}
+                            onChange={(event: any) => handleNewValue(event, "oldPassword")}
                             placeholder={"Введите старый пароль"}
                         />
                         <input
                             type={"password"}
-                            value={params.value}
+                            required
+                            value={params.newValue?.againOldPassword}
+                            onChange={(event: any) => handleNewValue(event, "againOldPassword")}
                             placeholder={"Введите новый пароль"}
                         />
                         <input
                             type={"password"}
-                            value={params.value}
+                            required
+                            value={params.newValue?.newPassowrd}
+                            onChange={(event: any) => handleNewValue(event, "newPassowrd")}
                             placeholder={"Повторите новый пароль"}
                         />
                     </div>
@@ -59,7 +74,7 @@ export const FieldChangePassword = (params: IFieldChange) => {
                     <div className="FieldChange__Button__Group__Cancel" onClick={() => setUserSetting(false)}>
                         Отменить
                     </div>
-                    <input type="submit" className={params.check ? "FieldChange__Button__Group__Save" : "FieldChange__Button__Group__Cancel"} value="Сохранить" />
+                    <input type="submit" className={check ? "FieldChange__Button__Group__Save" : "FieldChange__Button__Group__Cancel"} value="Сохранить" />
                 </div>
             </form>
         </div>

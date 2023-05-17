@@ -6,7 +6,7 @@ import PublicationList from '../../../assets/header/PublicationList.svg'
 import Subscription from '../../../assets/header/Subscription.svg'
 import Subscribers from '../../../assets/header/Subscribers.svg'
 import Logout from '../../../assets/header/Logout.svg'
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { $userValue } from '../../../ui/functions/Hooks';
 import { useStore } from 'effector-react';
 import { UserLogout } from '../../functions/AccessToken'
@@ -27,10 +27,10 @@ export const HeaderBarProfile = () => {
         <div className='HeaderBarProfile__List__Title'>
           Основные
         </div>
-        <NavLink to={`/User`}>
+        <Link to={`/:${userValue.user.login}`}>
           <img src={User} className="HeaderBarProfile__List__Image" alt="" />
           Профиль
-        </NavLink>
+        </Link>
         <NavLink to={`/UserSubscription`}>
           <img src={Subscription} className="HeaderBarProfile__List__Image" alt="" />
           Подписки

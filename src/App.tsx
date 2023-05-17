@@ -27,7 +27,7 @@ import { CustomValidity } from "./ui/customvalidity/organoids/CustomValidity";
 import { InUser } from "./ui/functions/InUser";
 import { setUserValue } from "./ui/functions/Hooks";
 
-export async function requestUser()  {
+export async function requestUser() {
   try {
     let result = await InUser();
     if (result) {
@@ -56,7 +56,6 @@ export function App() {
       <div className="App_Actual">
         <CustomValidity />
         <Routes>
-          <Route path="/" element={<Major />}></Route>
           {accessToken ?
             <>
               <Route path="/Home/Recommendations" element={<HomeRecommendation />} />
@@ -64,15 +63,16 @@ export function App() {
               <Route path="/Home/Subscription" element={<HomeSubscription />} />
               <Route path="/Chat" element={<Chat />} />
               <Route path="/Search" element={<Search />} />
-              <Route path="/User/:UserLogin" element={<User />} />
               <Route path="/UserSubscription" element={<UserSubscription />} />
               <Route path="/UserSubscribers" element={<UserSubscribers />} />
               <Route path="/UserSetting" element={<UserSetting />} />
               <Route path="/UserPublicationWrite" element={<UserPublicationWrite />} />
               <Route path="/UserPublicationList" element={<UserPublicationList />} />
+              <Route path="/:" element={<User />}></Route>
               <Route path='*' element={<User />}></Route>
             </> :
             <>
+              <Route path="/" element={<Major />}></Route>
               <Route path="/Login" element={<Login />} />
               <Route path="/Registration" element={<Registration />} />
               <Route path="/Forgot" element={<Forgot />} />

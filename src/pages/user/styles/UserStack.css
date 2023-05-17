@@ -1,9 +1,147 @@
-.UserStack{
-    height: 200px;
-    flex: 1 1 calc((100% /3) - 2rem);
+.UserStack {
+  height: 200px;
+  flex: 1 1 calc((100% / 3) - 2rem);
+}
+.UserStack__Footer__Item__Background{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+  border-radius: 6px;
+}
+.UserStack__Footer__Item {
+  font-size: 38%;
+  font-weight: 500;
+  border-radius: 6px;
+  padding: 4px 4px 4px 4px;
+  display: flex;
+  width: min-content;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 10px 6px 10px;
+  color: #ffffff;
+  height: fit-content;
+  position: relative;
+}
+.UserStack__Footer {
+  border-radius: 0 0 16px 16px;
+  background: #ffffff;
+  width: 100%;
+  padding: 28px;
+  height: -webkit-fill-available;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.UserStack__Footer__Item__1 {
+  background: linear-gradient(
+      128.42deg,
+      rgba(196, 196, 196, 0.62) 8.93%,
+      rgba(255, 255, 255, 0.16) 22.49%,
+      rgba(255, 255, 255, 0) 40.93%,
+      rgba(100, 100, 100, 0.15) 58.34%,
+      rgba(186, 188, 192, 0.15) 95.91%,
+      rgba(188, 183, 183, 0.55) 117.98%
+    ),
+    radial-gradient(
+        86.41% 170% at 92.19% 19.58%,
+        #ffffff 0%,
+        #fbfbfb 34.37%,
+        #ffffff 63.93%,
+        #bdbbbb 100%
+      )
+      /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+  box-shadow: inset 1.97274px 0px 3.94549px rgba(202, 204, 205, 0.58);
+}
+.UserStack__Footer__Item__2 {
+  background: linear-gradient(
+      128.42deg,
+      rgba(6, 112, 169, 0.62) 8.93%,
+      rgba(14, 146, 218, 0.16) 23.63%,
+      rgba(3, 34, 99, 0) 32.42%,
+      rgba(4, 28, 79, 0) 87.3%,
+      rgba(2, 136, 209, 0.15) 95.91%,
+      rgba(6, 131, 199, 0.55) 117.98%
+    ),
+    radial-gradient(
+        91.11% 179.11% at 92.19% 19.58%,
+        #43bdff 0%,
+        #1397de 34.37%,
+        #0c85c7 63.93%,
+        #0f7cb7 100%
+      )
+      /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+  box-shadow: inset 1.97274px 0px 3.94549px rgba(202, 204, 205, 0.58);
+}
+.UserStack__Footer__Item__3 {
+  background: linear-gradient(
+      128.42deg,
+      #327c3c 8.93%,
+      rgba(54, 161, 87, 0.16) 23.63%,
+      rgba(3, 34, 99, 0) 32.42%,
+      rgba(4, 28, 79, 0) 87.3%,
+      rgba(54, 147, 71, 0.15) 95.91%,
+      rgba(27, 109, 38, 0.55) 117.98%
+    ),
+    radial-gradient(
+        91.11% 179.11% at 92.19% 19.58%,
+        #54e367 0%,
+        #42c153 34.37%,
+        #3cb64c 63.93%,
+        #31af41 100%,
+        #31af41 100%
+      )
+      /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+  box-shadow: inset 1.97274px 0px 3.94549px rgba(202, 204, 205, 0.58);
+}
+.UserStack__Footer__Item__4 {
+  background: radial-gradient(
+    124.65% 124.65% at 37.17% 100.07%,
+    #ffdd55 0%,
+    #ff543f 32.8%,
+    #fc5245 34.8%,
+    #e64771 50.4%,
+    #d53e91 64.3%,
+    #cc39a4 76.1%,
+    #c837ab 84.1%
+  );
+}
+.UserStack__Footer__Item__5 {
+  background: linear-gradient(
+      128.42deg,
+      rgba(3, 3, 3, 0.62) 8.93%,
+      rgba(25, 20, 19, 0.16) 23.63%,
+      rgba(3, 34, 99, 0) 32.42%,
+      rgba(4, 28, 79, 0) 87.3%,
+      rgba(25, 20, 19, 0.15) 95.91%,
+      rgba(25, 20, 19, 0.55) 117.98%
+    ),
+    radial-gradient(
+        91.11% 179.11% at 92.19% 19.58%,
+        #474747 0%,
+        #303030 34.37%,
+        #202020 63.93%,
+        #191413 100%
+      )
+      /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+  box-shadow: inset 1.97274px 0px 3.94549px rgba(202, 204, 205, 0.58);
+}
+.UserStack__Footer__Item__6 {
+  background: linear-gradient(128.42deg, rgba(212, 216, 12, 0.62) 8.93%, rgba(218, 221, 74, 0.62) 22.49%, rgba(182, 185, 39, 0.81) 40.93%, rgba(222, 226, 23, 0.41) 58.34%, rgba(240, 244, 48, 0.56) 95.91%, rgba(251, 255, 48, 0.55) 117.98%), radial-gradient(86.41% 170% at 92.19% 19.58%, #FFFFFF 0%, #FBFBFB 34.37%, #FFFFFF 63.93%, #E4E072 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+  box-shadow: inset 1.97274px 0px 3.94549px rgba(202, 204, 205, 0.58);
+  box-shadow: inset 1.97274px 0px 3.94549px rgba(202, 204, 205, 0.58);
+}
+.UserStack__Footer__Item__Title {
+  color: linear-gradient(162.19deg, #888a96 14.18%, #edeef2 46.33%);
+  text-shadow: 0px -4px 4px rgba(0, 0, 0, 0.25);
+
 }
 @media (orientation: portrait) {
-    .UserStack {
-      flex: 1 1 calc((100%));
-    }
+  .UserStack {
+    flex: 1 1 calc((100%));
   }
+}

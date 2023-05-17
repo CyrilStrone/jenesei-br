@@ -127,7 +127,7 @@ export const UserSetting = () => {
               </div>
               <img src={Location} alt="Location" className="Setting__Card__Short__Image" />
             </div>
-            <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ value: userValue.user.login, title: "Логин", keyName: "login" })}>
+            <div className="UserSetting__Blocks__List__Item Setting__Card__Short">
               <div className="UserSetting__Blocks__List__Item__Title">
                 Логин
               </div>

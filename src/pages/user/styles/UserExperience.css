@@ -1,5 +1,4 @@
 .UserExperience {
-  height: 200px;
   flex: 1 1 calc((100% / 2) - 1rem);
 }
 @media (orientation: portrait) {
