@@ -43,8 +43,6 @@ export function App() {
   useEffect(() => {
     if (localStorage.getItem(accessTokenName)?.length) {
       setAccessToken(localStorage.getItem(accessTokenName) || "")
-    } else {
-
     }
   }, [])
 
@@ -56,6 +54,8 @@ export function App() {
       <div className="App_Actual">
         <CustomValidity />
         <Routes>
+          <Route path="/" element={<Major />}></Route>
+          <Route path="/:id" element={<User />}></Route>
           {accessToken ?
             <>
               <Route path="/Home/Recommendations" element={<HomeRecommendation />} />
@@ -68,11 +68,9 @@ export function App() {
               <Route path="/UserSetting" element={<UserSetting />} />
               <Route path="/UserPublicationWrite" element={<UserPublicationWrite />} />
               <Route path="/UserPublicationList" element={<UserPublicationList />} />
-              <Route path="/:" element={<User />}></Route>
               <Route path='*' element={<User />}></Route>
             </> :
             <>
-              <Route path="/" element={<Major />}></Route>
               <Route path="/Login" element={<Login />} />
               <Route path="/Registration" element={<Registration />} />
               <Route path="/Forgot" element={<Forgot />} />
