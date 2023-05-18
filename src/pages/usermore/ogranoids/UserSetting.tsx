@@ -144,20 +144,20 @@ export const UserSetting = () => {
                 {userValue.user.aboutShort ? userValue.user.aboutShort : "Написать"}
               </div>
             </div>
-            <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => handleCheck({ value: userValue.user.aboutLong, title: "О себе", keyName: "aboutLong" })}>
-              <div className="UserSetting__Blocks__List__Item__Title">
-                О себе
-              </div>
-              <div className="Setting__Card__Short__Value">
-                {userValue.user.aboutLong ? userValue.user.aboutLong : "Написать"}
-              </div>
-            </div>
             <div className="UserSetting__Blocks__List__Item Setting__Card__Short" >
               <div className="UserSetting__Blocks__List__Item__Title">
                 Верификация
               </div>
               <div className="Setting__Card__Short__Value">
                 {userValue.isVerified ? "Пройдена" : "Пройти верификацию"}
+              </div>
+            </div>
+            <div className="UserSetting__Blocks__List__Item Setting__Card__Short UserSetting__Blocks__List__ItemAboutLong" onClick={() => handleCheck({ value: userValue.user.aboutLong, title: "О себе", keyName: "aboutLong" })}>
+              <div className="UserSetting__Blocks__List__Item__Title">
+                О себе
+              </div>
+              <div className="Setting__Card__Short__Value">
+                {userValue.user.aboutLong ? userValue.user.aboutLong : "Написать"}
               </div>
             </div>
           </div>
@@ -233,7 +233,7 @@ export const UserSetting = () => {
                   {e.name}
                 </div>
                 <div className="Setting__Card__Short__Value">
-                  {e.position}
+                  {e.specialization}
                 </div>
                 <div className="Setting__Card__Short__Value">
                   {new Date(e.studyStart).getFullYear()}{" - " + new Date(e.studyEnd).getFullYear()}

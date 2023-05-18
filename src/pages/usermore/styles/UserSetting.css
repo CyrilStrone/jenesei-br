@@ -24,7 +24,12 @@
 .Setting__Card__Short__Value__Link:hover {
   color: #0e8ac3;
 }
+.UserSetting__Blocks__List__ItemAboutLong{
+  max-width: 460px;
+  width: 100%;
+}
 .Setting__Card__Short__Value {
+  white-space: pre-line;
   font-size: 25%;
   font-weight: 400;
   color: #666666;

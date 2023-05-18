@@ -1,12 +1,28 @@
 import "../styles/UserExperience.css";
-export const UserExperience = () => {
+interface IUserExperience {
+  workExp: any
+}
+export const UserExperience = (params: IUserExperience) => {
 
   return (
-    <div className="UserExperience Half__Block Block__Active">
+    <div className="UserExperience Half__Block Block__Active User__Content__Item">
       <div className="Half__Block__Header">
         Опыт работы
       </div>
-      <div className="Half__Block__Footer">
+      <div className="Half__Block__Footer UserExperience__List" >
+        {params.workExp.map((e: any) =>
+          <div className="UserExperience__Item">
+            <div className="UserExperience__Item__name">
+              {e.name}
+            </div>
+            <div className="UserExperience__Item__position">
+              {e.position}
+            </div>
+            <div className="UserExperience__Item__date">
+              {new Date(e.workStart).getFullYear()}{e.workEnd && (" - " + new Date(e.workEnd).getFullYear())}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

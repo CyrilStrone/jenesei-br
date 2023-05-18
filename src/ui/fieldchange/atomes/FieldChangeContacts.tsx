@@ -88,8 +88,6 @@ export const FieldChangeContacts = (params: IFieldChange) => {
         } catch (error) {
             console.log("error", error)
         }
-
-
     };
 
     return (

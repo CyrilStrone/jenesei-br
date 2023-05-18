@@ -43,7 +43,7 @@ export const FieldChangeAboutLong = (params: IFieldChange) => {
                     </div>
 
                     <div className="FieldChange__Inputs">
-                        <textarea required onFocus={() => { autosize(document.querySelector('textarea')) }} value={params?.newValue} onChange={handleNewValue} placeholder={"Расскажите о себе"}></textarea>
+                        <textarea maxLength={220} required onFocus={() => { autosize(document.querySelector('textarea')) }} value={params?.newValue} onChange={handleNewValue} placeholder={"Расскажите о себе"}></textarea>
                     </div>
                 </div>
                 <div className="FieldChange__Button__Group">

@@ -1,0 +1,41 @@
+.UserContacts {
+  height: 200px;
+  flex: 1 1 calc((100% / 2) - 1rem);
+}
+.UserContacts__List {
+    display: flex;
+    gap: 10px;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.UserContacts__List__Item {
+    display: flex;
+    gap: 10px;
+
+    font-size: 38%;
+    font-weight: 500;
+
+    border-radius: 6px;
+    padding: 4px 4px 4px 4px;
+    display: flex;
+    width: min-content;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 10px 6px 10px;
+    color: #000000;
+    height: -moz-fit-content;
+    height: fit-content;
+    position: relative;
+    cursor: pointer;background: #ffffff;
+}
+.UserContacts__List__Item__contact_name {
+
+}
+.UserContacts__List__Item__link {
+
+}
+@media (orientation: portrait) {
+  .UserContacts {
+    flex: 1 1 calc((100%));
+  }
+}

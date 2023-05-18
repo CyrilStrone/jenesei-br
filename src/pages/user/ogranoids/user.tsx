@@ -14,6 +14,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { setCustomValidityShow } from "../../../ui/customvalidity/organoids/CustomValidity";
 import { accessTokenNameLogin } from "../../../ui/functions/AxiosInstance";
 import { $accessToken } from "../../../ui/functions/AccessToken";
+import { UserContacts } from "../molecules/UserContacts";
 
 
 
@@ -55,8 +56,8 @@ export const User = () => {
 
   useEffect(() => {
     if (userValue && !location.pathname.split("/:")[1]) {
-        navigate(`/:${userValue.user.login}`)
-        setLogin(userValue.user.login)
+      navigate(`/:${userValue.user.login}`)
+      setLogin(userValue.user.login)
     }
   }, [userValue])
   useEffect(() => {
@@ -69,10 +70,11 @@ export const User = () => {
     <div className="User">
       {value && <div className="User__Content">
         <UserGeneralInfo avatarPath={value.avatarPath} login={value.user.login} firstName={value.user.firstName} lastName={value.user.lastName} />
-        <UserAbout />
-        <UserExperience />
-        <UserStack stack={value.stack} />
-        <UserEducation />
+        <UserAbout value={value} />
+        {value.workExp && <UserExperience workExp={value.workExp} />}
+        {value.stack && <UserStack stack={value.stack} />}
+        {value.education && <UserEducation education={value.education} />}
+        {value.contacts && <UserContacts contacts={value.contacts} />}
         <UserSubscribers />
         <UserSubscription />
       </div>}
