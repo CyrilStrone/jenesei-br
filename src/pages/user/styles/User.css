@@ -12,8 +12,10 @@
   flex-wrap: wrap;
   gap: 1rem;
 }
-.User__Content__Item{
-  height: auto !important;
+@media (orientation: landscape) {
+  .User__Content__Item {
+    height: auto !important;
+  }
 }
 @media (orientation: portrait) {
   .User {

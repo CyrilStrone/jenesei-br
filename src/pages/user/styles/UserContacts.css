@@ -37,5 +37,6 @@
 @media (orientation: portrait) {
   .UserContacts {
     flex: 1 1 calc((100%));
+    height: min-content;
   }
 }

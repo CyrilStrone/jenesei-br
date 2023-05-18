@@ -20,18 +20,18 @@ export const Major = () => {
             <div className="Major__BestFeatures">
                 <div className="Major__BestFeatures__Item">
                     <div className="Major__BestFeatures__Item__Title">
-                        Easily access apps and data from your iPhone on the web
+                        Business Roulette — это круто
                     </div>
                     <div className="Major__BestFeatures__Item__Description">
-                        iCloud is essential for keeping personal information from your devices safe, up to date, and available wherever you are. At iCloud.com, you can access your photos, files, and more from any web browser. Changes you make will sync to your iPhone and other devices, so you’re always up to date.
+                        Business Roulette — это инновационное веб-приложение, предназначенное для установления профессиональных контактов и расширения деловой сети пользователей. Приложение разработано с учетом потребностей предпринимателей, бизнесменов, сотрудников маркетинга, фрилансеров и всех, кто стремится к развитию своего бизнеса или карьеры.
                     </div>
                 </div>
                 <div className="Major__BestFeatures__Item">
                     <div className="Major__BestFeatures__Item__Title">
-                        More storage plus additional features to protect your privacy
+                        Business Roulette — это современно
                     </div>
                     <div className="Major__BestFeatures__Item__Description">
-                        Upgrade to iCloud+ to get more storage and additional features like iCloud Private Relay, Hide My Email, and HomeKit Secure Video. You can even share your subscription with your family. Learn more at apple.com/icloud.
+                        Пользуйся Business Roulette, будь современным, молодым, крутым, офигенным, шикарным, красивым, умным, клевым!
                     </div>
                 </div>
             </div>

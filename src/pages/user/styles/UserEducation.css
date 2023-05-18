@@ -39,10 +39,12 @@
 @media (orientation: portrait) {
   .UserEducation {
     flex: 1 1 calc((100%));
+    height: min-content;
   }
   .UserEducation__Item {
     gap: 6px;
     min-height: 0px;
     width: 100%;
+    height: min-content;
   }
 }

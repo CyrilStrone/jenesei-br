@@ -164,6 +164,10 @@
   .Half__Block__Footer {
     padding: 20px;
     gap: 10px ;
+    height: min-content;
+  }
+  .Half__Block{
+    height: min-content !important;
   }
 }
 @media (orientation: portrait) and (max-width: 700px) {
