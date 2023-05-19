@@ -21,6 +21,7 @@ export const FieldChangeContacts = (params: IFieldChange) => {
     const userValue = useStore($userValue);
     const [valueApi, setValueApi] = useState<any>({ contacts: [], stack: [] })
     const [valueApiChoise, setValueApiChoise] = useState<any>({ contacts: "", stack: "" })
+    const [oldValue, setOldValue] = useState<any | null>(null)
     const handleApiChoiseChange = (event: any, type: any) => {
         setValueApiChoise((prevState: any) => ({
             ...prevState,
@@ -61,6 +62,7 @@ export const FieldChangeContacts = (params: IFieldChange) => {
         }
         if (params.setNewValue) {
             params.setNewValue(result)
+            setOldValue(result)
         }
         params.setCheck && params.setCheck(result ? true : false)
 
@@ -92,9 +94,9 @@ export const FieldChangeContacts = (params: IFieldChange) => {
 
     return (
         <div className="FieldChange__General" >
-            <form onSubmit={e => { e.preventDefault(); params.newValue && handleApiSave(); }} className="FieldChange" >
+            <form onSubmit={e => { e.preventDefault(); (oldValue !== params.newValue &&  params.newValue && oldValue) && handleApiSave(); }} className="FieldChange" >
                 <img src={Arrow} className="FieldChange__Arrow" alt="Arrow" onClick={() => setUserSetting(false)} />
-                {params.newValue && <img src={Delete} alt="Delete" className="FieldChange__Delete" onClick={handleApiDelete} />}
+                {(oldValue) && <img src={Delete} alt="Delete" className="FieldChange__Delete" onClick={handleApiDelete} />}
                 <div className="FieldChange__Header" >
                     <img className="FieldChange__Image" alt="" src={Setting} />
                     <div className="FieldChange__BR">
@@ -103,7 +105,7 @@ export const FieldChangeContacts = (params: IFieldChange) => {
                 </div>
                 <div className="FieldChange__Info">
                     <div className="FieldChange__Title" >
-                        {(params.newValue) ? "Изменить " : "Добавить "}{params.title}
+                        {(params.newValue && oldValue) ? "Изменить " : "Добавить "}{params.title}
                     </div>
                     <div className="FieldChange__Inputs">
                         {valueApi.contacts &&
@@ -123,7 +125,7 @@ export const FieldChangeContacts = (params: IFieldChange) => {
                     <div className="FieldChange__Button__Group__Cancel" onClick={() => setUserSetting(false)}>
                         Отменить
                     </div>
-                    <input type="submit" className={params.newValue ? "FieldChange__Button__Group__Save" : "FieldChange__Button__Group__Cancel"} value="Сохранить" />
+                    <input type="submit" className={oldValue !== params.newValue &&  params.newValue ? "FieldChange__Button__Group__Save" : "FieldChange__Button__Group__Cancel"} value="Сохранить" />
                 </div>
             </form>
         </div>
