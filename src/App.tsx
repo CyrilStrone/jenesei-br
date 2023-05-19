@@ -18,14 +18,14 @@ import { HomeRecommendation } from "./pages/home/ogranoids/HomeRecommendation";
 import { HomeSubscription } from "./pages/home/ogranoids/HomeSubscription";
 import { User } from "./pages/user/ogranoids/User";
 import { useStore } from "effector-react";
-import { UserSubscription } from "./pages/usermore/ogranoids/UserSubscription";
-import { UserSubscribers } from "./pages/usermore/ogranoids/UserSubscribers";
-import { UserSetting } from "./pages/usermore/ogranoids/UserSetting";
-import { UserPublicationWrite } from "./pages/usermore/ogranoids/UserPublicationWrite";
-import { UserPublicationList } from "./pages/usermore/ogranoids/UserPublicationList";
+import { UserSubscription } from "./pages/usersubscription/organoids/UserSubscription";
+import { UserSubscribers } from "./pages/usersubscribers/organoids/UserSubscribers";
+import { UserPublicationWrite } from "./pages/userpublicationwrite/organoids/UserPublicationWrite";
+import { UserPublicationList } from "./pages/userpublicationlist/organoids/UserPublicationList";
 import { CustomValidity } from "./ui/customvalidity/organoids/CustomValidity";
 import { InUser } from "./ui/functions/InUser";
 import { setUserValue } from "./ui/functions/Hooks";
+import { UserSetting } from "./pages/usersetting/organoids/UserSetting";
 
 export async function requestUser() {
   try {

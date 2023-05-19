@@ -7,7 +7,7 @@
 .UserSetting__Blocks__List {
   display: flex;
   flex-direction: row;
-  width: 100%;
+  width: 790px;
   height: 100%;
   gap: 20px;
   flex-wrap: wrap;
@@ -23,10 +23,6 @@
 }
 .Setting__Card__Short__Value__Link:hover {
   color: #0e8ac3;
-}
-.UserSetting__Blocks__List__ItemAboutLong{
-  max-width: 460px;
-  width: 100%;
 }
 .Setting__Card__Short__Value {
   white-space: pre-line;
@@ -92,5 +88,8 @@
   }
   .Setting__Card__Short__Value {
     font-size: 40%;
+  }
+  .UserSetting__Blocks__List{
+    width: 100%;
   }
 }

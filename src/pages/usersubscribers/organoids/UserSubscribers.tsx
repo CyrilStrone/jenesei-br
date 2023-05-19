@@ -1,4 +1,4 @@
-import { UserMenu } from "../molecules/UserMenu";
+import { UserMenu } from "../../../ui/usermenu/molecules/UserMenu";
 import "../styles/UserSubscribers.css";
 
 export const UserSubscribers = () => {
