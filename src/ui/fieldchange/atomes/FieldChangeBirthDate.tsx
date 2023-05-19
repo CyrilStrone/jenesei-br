@@ -49,7 +49,7 @@ export const FieldChangeBirthDate = (params: IFieldChange) => {
                     <div className="FieldChange__Inputs">
                         <input
                             type={"date"}
-                            value={!params.newValue ? (params.value && new Date(params.value).toISOString().split('T')[0]) : (new Date(params.newValue).toISOString().split('T')[0])}
+                            value={(params.newValue && new Date(params.newValue).toISOString().split('T')[0]) || (params.value && new Date(params.value).toISOString().split('T')[0])}
                             onChange={handleNewValue}
                         />
                     </div>
