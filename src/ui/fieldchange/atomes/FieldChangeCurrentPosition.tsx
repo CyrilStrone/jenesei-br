@@ -28,7 +28,7 @@ export const FieldChangeCurrentPosition = (params: IFieldChange) => {
     }, [])
     return (
         <div className="FieldChange__General" >
-            <form onSubmit={e => { e.preventDefault(); params.newValue && (params.newValue !== params.value || !params.value) && handleApiSave() }} className="FieldChange" >
+            <form onSubmit={e => { e.preventDefault(); params.check && handleApiSave() }} className="FieldChange" >
                 <img src={Arrow} className="FieldChange__Arrow" alt="Arrow" onClick={() => setUserSetting(false)} />
                 <div className="FieldChange__Header" >
                     <img className="FieldChange__Image" alt="" src={Position} />
@@ -53,7 +53,7 @@ export const FieldChangeCurrentPosition = (params: IFieldChange) => {
                     <div className="FieldChange__Button__Group__Cancel" onClick={() => setUserSetting(false)}>
                         Отменить
                     </div>
-                    <input type="submit" className={params.newValue && (params.newValue !== params.value || !params.value) ? "FieldChange__Button__Group__Save" : "FieldChange__Button__Group__Cancel"} value="Сохранить" />
+                    <input type="submit" className={params.check ? "FieldChange__Button__Group__Save" : "FieldChange__Button__Group__Cancel"} value="Сохранить" />
                 </div>
             </form>
         </div>

@@ -30,6 +30,9 @@ export const FieldChangeAboutShort = (params: IFieldChange) => {
             textAreaRef.current.style.height = `${textAreaRef.current.scrollHeight}px`;
         }
     }, [params.value, params.newValue]);
+    useEffect(() => {
+        params.setNewValue && params.setNewValue(params.value)
+    }, [])
     return (
         <div className="FieldChange__General" >
             <form onSubmit={e => { e.preventDefault(); params.check && handleApiSave() }} className="FieldChange" >
@@ -47,8 +50,9 @@ export const FieldChangeAboutShort = (params: IFieldChange) => {
                     <div className="FieldChange__Inputs">
                         <textarea
                             ref={textAreaRef}
-                            value={params.newValue || params.value}
+                            value={params?.newValue}
                             onChange={handleNewValue}
+                            placeholder="Расскажите самое важное о себе"
                             required maxLength={30} minLength={2}
                         ></textarea>
                     </div>

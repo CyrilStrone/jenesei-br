@@ -124,6 +124,9 @@ export const FieldChangeEducation = (params: IFieldChange) => {
             }
         }
     }, [params.newValue, params.value])
+    useEffect(() => {
+        params.setNewValue && params.setNewValue({...params.newValue,text:params.value.text})
+    }, [])
     return (
         <div className="FieldChange__General" >
             <form onSubmit={e => { e.preventDefault(); (params.value && params.value.id && params.check) ? handleApiSave() : (params.newValue && params.newValue.text && params.newValue.degree && params.newValue.specialization && params.newValue.country && params.newValue.state && params.newValue.city && params.newValue.name && params.newValue.studyStart && params.newValue.studyEnd && handleApiSave()) }} className="FieldChange" >
@@ -198,7 +201,7 @@ export const FieldChangeEducation = (params: IFieldChange) => {
                             <div className="FieldChange__Inputs__Education__Blocks__Title">
                                 Описание
                             </div>
-                            <textarea required minLength={2} ref={textAreaRef} placeholder={"Расскажите о своем опыте"} value={params?.newValue?.text || params?.value?.text} onChange={(event: any) => handleNewValue(event, "text")} />
+                            <textarea required minLength={2} ref={textAreaRef} placeholder={"Расскажите о своем опыте"} value={params?.newValue?.text} onChange={(event: any) => handleNewValue(event, "text")} />
                         </div>
                     </div>
                 </div>
