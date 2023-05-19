@@ -4,7 +4,7 @@ import Arrow from '../../../assets/fieldchange/Arrow.svg'
 import Setting from '../../../assets/userchange/Setting.svg'
 import Delete from '../../../assets/userchange/Delete.svg'
 import autosize from 'autosize';
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import SelectSearch from "react-select-search";
 import { ApiLocationAnother } from "../../functions/AxiosInstance";
 import { inApiSaveWorkExp } from "../logics/inApiSave";
@@ -19,6 +19,7 @@ export const createArray = (start: number, end: number) => {
 }
 
 export const FieldChangeWorkExp = (params: IFieldChange) => {
+    const textAreaRef = useRef<HTMLTextAreaElement>(null);
     const [valueLocation, setValueLocation] = useState<any>()
     const [check, setCheck] = useState<boolean>(false)
     const handleNewValue = (event: any, type: any) => {
@@ -108,7 +109,14 @@ export const FieldChangeWorkExp = (params: IFieldChange) => {
             setCheck(true)
         }
     }, [params.value])
-
+    useEffect(() => {
+        if (params?.newValue?.text || params?.value?.text) {
+            if (textAreaRef && textAreaRef.current) {
+                textAreaRef.current.style.height = 'auto';
+                textAreaRef.current.style.height = `${textAreaRef.current.scrollHeight}px`;
+            }
+        }
+    }, [params.newValue, params.value])
     return (
         <div className="FieldChange__General" >
             <form onSubmit={e => { e.preventDefault(); (params.value && params.value.id && params.check) ? handleApiSave() : (params.newValue && params.newValue.text && params.newValue.position && params.newValue.country && params.newValue.state && params.newValue.city && params.newValue.name && params.newValue.workStart && handleApiSave()) }} className="FieldChange" >
@@ -179,7 +187,7 @@ export const FieldChangeWorkExp = (params: IFieldChange) => {
                             <div className="FieldChange__Inputs__Education__Blocks__Title">
                                 Описание
                             </div>
-                            <textarea required minLength={2} onFocus={() => { autosize(document.querySelector('textarea')) }} placeholder={"Расскажите о своем опыте"} value={!params.newValue ? (params.value && params.value.text && params.value.text) : params.newValue.text} onChange={(event: any) => handleNewValue(event, "text")} />
+                            <textarea required minLength={2} ref={textAreaRef} placeholder={"Расскажите о своем опыте"} value={params?.newValue?.text || params?.value?.text} onChange={(event: any) => handleNewValue(event, "text")} />
                         </div>
                     </div>
                 </div>
