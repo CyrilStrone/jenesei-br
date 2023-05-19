@@ -18,8 +18,7 @@ export const UserSettingEducation = (params: IUserSettingEducation) => {
                 Образование
             </div>
             <div className="UserSetting__Blocks__List">
-                {userValue.education && userValue.education.length !== 0 &&
-                    userValue.education.map((e: any) =>
+                {userValue?.education?.map((e: any) =>
                         <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => params.handleCheck({ value: e, title: "образование", keyName: "education", })}>
                             <div className="UserSetting__Blocks__List__Item__Title">
                                 {e.name}

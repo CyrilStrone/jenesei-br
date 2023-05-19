@@ -18,8 +18,7 @@ export const UserSettingContacts = (params: IUserSettingContacts) => {
                 Контакты
             </div>
             <div className="UserSetting__Blocks__List">
-                {userValue.contacts && userValue.contacts.length !== 0 &&
-                    userValue.contacts.map((e: any) =>
+                {userValue?.contacts.map((e: any) =>
                         <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => params.handleCheck({ value: e, title: "контакт", keyName: "contacts", })}>
                             <div className="UserSetting__Blocks__List__Item__Title">
                                 {e.contact_name}

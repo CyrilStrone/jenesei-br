@@ -9,7 +9,7 @@ export interface IUserSettingRest {
     keyName: string | undefined
     value: any
 }
-export const UserSettingRest = (params:IUserSettingRest) => {
+export const UserSettingRest = (params: IUserSettingRest) => {
     const userValue = useStore($userValue);
     return (
         <div className="UserSettingRest UserSetting__Blocks">
@@ -21,13 +21,15 @@ export const UserSettingRest = (params:IUserSettingRest) => {
                     <div className="UserSetting__Blocks__List__Item__Title">
                         Дата регистрации
                     </div>
-                    <div className="Setting__Card__Short__Value">
-                        {userValue.user.createdDate && new Date(userValue.user.createdDate).toLocaleDateString('en-US', {
-                            day: '2-digit',
-                            month: '2-digit',
-                            year: 'numeric'
-                        })}
-                    </div>
+                    {userValue.user.createdDate &&
+                        <div className="Setting__Card__Short__Value">
+                            {new Date(userValue.user.createdDate).toLocaleDateString('en-US', {
+                                day: '2-digit',
+                                month: '2-digit',
+                                year: 'numeric'
+                            })}
+                        </div>
+                    }
                 </div>
             </div>
         </div >

@@ -31,22 +31,20 @@ export interface IFieldChange {
 export const FieldChange = (params: IFieldChange) => {
     const [check, setCheck] = useState<boolean>(false)
     const [newValue, setNewValue] = useState<any | undefined>();
+
+    useEffect(() => {
+        if (params.value && newValue && (newValue !== params.value)) {
+            setCheck(true)
+        } else {
+            setCheck(false)
+        }
+    }, [newValue, params.value])
     useEffect(() => {
         return () => {
             setNewValue(undefined)
             setCheck(false)
         }
     }, [])
-    useEffect(() => {
-        console.log("newValue", newValue, "params.value", params.value)
-        if (newValue && (newValue !== params.value)) {
-            if (params.value) {
-                setCheck(true)
-            }
-        } else {
-            setCheck(false)
-        }
-    }, [newValue, params.value])
     return (
         (params.keyName === "avatarPath") ?
             <FieldChangeAvatar title={params.title} keyName={params.keyName} value={params.value} newValue={newValue} setNewValue={setNewValue} check={check} setCheck={setCheck} /> :

@@ -1,12 +1,12 @@
 import { setUserSetting } from "../../functions/Hooks";
 import { IFieldChange } from "../organoids/FieldChange";
 import { inApiSaveDefault } from "../logics/inApiSave";
-import autosize from 'autosize';
 import Arrow from '../../../assets/fieldchange/Arrow.svg'
 import Setting from '../../../assets/userchange/Setting.svg'
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 export const FieldChangeAboutLong = (params: IFieldChange) => {
+    const textAreaRef = useRef<HTMLTextAreaElement>(null);
     const handleApiSave = async () => {
         try {
             const result = await inApiSaveDefault({ value: params.newValue, keyName: params.keyName });
@@ -14,7 +14,7 @@ export const FieldChangeAboutLong = (params: IFieldChange) => {
                 setUserSetting(false);
             }
         } catch (error) {
-            console.log("error", error)
+            console.log("handleApiSave", error)
         }
     }
     const handleNewValue = (event: any) => {
@@ -27,9 +27,15 @@ export const FieldChangeAboutLong = (params: IFieldChange) => {
     useEffect(() => {
         params.setNewValue && params.setNewValue(params.value)
     }, [])
+    useEffect(() => {
+        if (textAreaRef && textAreaRef.current) {
+            textAreaRef.current.style.height = 'auto';
+            textAreaRef.current.style.height = `${textAreaRef.current.scrollHeight}px`;
+        }
+    }, [params.value, params.newValue]);
     return (
         <div className="FieldChange__General" >
-            <form onSubmit={e => { e.preventDefault(); params.newValue && (params.newValue !== params.value || !params.value) && handleApiSave() }} className="FieldChange" >
+            <form onSubmit={e => { e.preventDefault(); params.check && handleApiSave() }} className="FieldChange" >
                 <img src={Arrow} className="FieldChange__Arrow" alt="Arrow" onClick={() => setUserSetting(false)} />
                 <div className="FieldChange__Header" >
                     <img className="FieldChange__Image" alt="" src={Setting} />
@@ -43,14 +49,14 @@ export const FieldChangeAboutLong = (params: IFieldChange) => {
                     </div>
 
                     <div className="FieldChange__Inputs">
-                        <textarea maxLength={220} required onFocus={() => { autosize(document.querySelector('textarea')) }} value={params?.newValue} onChange={handleNewValue} placeholder={"Расскажите о себе"}></textarea>
+                        <textarea ref={textAreaRef} maxLength={220} required value={params?.newValue} onChange={handleNewValue} placeholder={"Расскажите о себе"}></textarea>
                     </div>
                 </div>
                 <div className="FieldChange__Button__Group">
                     <div className="FieldChange__Button__Group__Cancel" onClick={() => setUserSetting(false)}>
                         Отменить
                     </div>
-                    <input type="submit" className={params.newValue && (params.newValue !== params.value || !params.value) ? "FieldChange__Button__Group__Save" : "FieldChange__Button__Group__Cancel"} value="Сохранить" />
+                    <input type="submit" className={params.check ? "FieldChange__Button__Group__Save" : "FieldChange__Button__Group__Cancel"} value="Сохранить" />
                 </div>
             </form>
         </div>
