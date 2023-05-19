@@ -15,7 +15,7 @@ export const FieldChangeAvatar = (params: IFieldChange) => {
                 setUserSetting(false);
             }
         } catch (error) {
-            console.log("error", error);
+            console.log("handleApiSave", error);
         }
     }
     const handleAvatarChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -41,12 +41,12 @@ export const FieldChangeAvatar = (params: IFieldChange) => {
                     <div className="FieldChange__Inputs">
                         <div className="FieldChange__Inputs__Avatar">
                             <AvatarEditor
-                                image={!params.newValue ? (params.value && params.value) : params.newValue}
+                                image={params.newValue || params.value}
                                 width={250}
                                 height={250}
                                 border={10}
                                 color={[14, 138, 195, 0.5]}
-                                scale={!params.newValue ? (params.value && params.value.scale && params.value.scale) : params.newValue.scale}
+                                scale={params.newValue?.scale || params.value?.scale}
                                 rotate={0}
                                 borderRadius={900}
                             />

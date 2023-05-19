@@ -14,7 +14,7 @@ export const FieldChangeAboutShort = (params: IFieldChange) => {
                 setUserSetting(false);
             }
         } catch (error) {
-            console.log("error", error)
+            console.log("handleApiSave", error)
         }
     }
     const handleNewValue = (event: any) => {
