@@ -8,52 +8,45 @@ import { inApiSaveStack } from "../logics/inApiSave";
 import { useStore } from "effector-react";
 import Delete from '../../../assets/userChange/Delete.svg'
 import { inApiDeleteStack } from "../logics/inApiDelete";
+import Select from "react-select";
 
 export const FieldChangeStack = (params: IFieldChange) => {
     const userValue = useStore($userValue);
-    const [valueApi, setValueApi] = useState<any>({ contacts: [], stack: [] })
-    const [valueApiChoice, setValueApiChoice] = useState<any>({ contacts: "", stack: "" })
+    const [valueApi, setValueApi] = useState<any>()
+    const [valueApiChoice, setValueApiChoice] = useState<any>({ value: "", label: "" })
+    const [oldValue, setOldValue] = useState<any | null>(null)
     const handleApiChoiceChange = (event: any, type: any) => {
-        setValueApiChoice((prevState: any) => ({
-            ...prevState,
-            [type]: event.target.value ? event.target.value : event
-        }))
-
+        setValueApiChoice({ value: event?.value, label: event?.value })
     };
     const handleValueApi = async () => {
         try {
             const result = await inStack()
-            if (result && params.keyName) {
-                setValueApi({ valueApi, [params.keyName]: result })
+            if (result) {
+                setValueApi(result.map((e: any) => ({ value: e.name, label: e.name })))
             }
         } catch (error) {
             console.log("handleValueApi", handleValueApi)
         }
     }
     useEffect(() => {
-        if ( valueApi.stack && valueApi.stack.length === 0) {
-            handleValueApi()
-            if(params.value){
-                setValueApiChoice((prevState: any) => ({
-                    ...prevState,
-                    stack: params.value.name
-                }))
-                params.setNewValue &&    params.setNewValue(params.value.link)
-                
-            }
+        handleValueApi()
+        if (params.value?.name) {
+            setValueApiChoice({ value: params.value?.name, label: params.value?.name })
+            params.setNewValue && params.setNewValue(params.value?.level)
         }
-    }, [params.keyName])
+    }, [params.value])
 
     useEffect(() => {
         let result = ""
         for (let i = 0; i < userValue.stack.length; i++) {
             const object = userValue.stack[i];
-            if (object && object.name && object.name === valueApiChoice.stack) {
+            if (object && object.name && object.name === valueApiChoice.value) {
                 result = object.level
             }
         }
         if (params.setNewValue) {
             params.setNewValue(result)
+            setOldValue(result)
         }
         params.setCheck && params.setCheck(result ? true : false)
 
@@ -61,10 +54,9 @@ export const FieldChangeStack = (params: IFieldChange) => {
 
     const handleApiDelete = async () => {
         try {
-            const result = await inApiDeleteStack({ name: valueApiChoice.stack });
+            const result = await inApiDeleteStack({ name: valueApiChoice.value });
             if (result) {
                 setUserSetting(false);
-                setValueApiChoice({ contacts: "", stack: "" })
             }
         } catch (error) {
             console.log("error", error)
@@ -73,7 +65,7 @@ export const FieldChangeStack = (params: IFieldChange) => {
     }
     const handleApiSave = async () => {
         try {
-            const result = await inApiSaveStack({ name: valueApiChoice.stack, level: params.newValue });
+            const result = await inApiSaveStack({ name: valueApiChoice.value, level: params.newValue });
             if (result) {
                 setUserSetting(false);
             }
@@ -86,9 +78,9 @@ export const FieldChangeStack = (params: IFieldChange) => {
 
     return (
         <div className="FieldChange__General" >
-            <form onSubmit={e => { e.preventDefault(); handleApiSave(); }} className="FieldChange" >
+            <form onSubmit={e => { e.preventDefault(); (oldValue !== params.newValue && params.newValue) && handleApiSave(); }} className="FieldChange" >
                 <img src={Arrow} className="FieldChange__Arrow" alt="Arrow" onClick={() => setUserSetting(false)} />
-                {params.check && <img src={Delete} alt="Delete" className="FieldChange__Delete" onClick={handleApiDelete} />}
+                {oldValue && <img src={Delete} alt="Delete" className="FieldChange__Delete" onClick={handleApiDelete} />}
                 <div className="FieldChange__Header" >
                     <img className="FieldChange__Image" alt="" src={Setting} />
                     <div className="FieldChange__BR">
@@ -97,18 +89,34 @@ export const FieldChangeStack = (params: IFieldChange) => {
                 </div>
                 <div className="FieldChange__Info">
                     <div className="FieldChange__Title" >
-                        {params.check ? "Изменить " : "Добавить "}{params.title}
+                        {oldValue ? "Изменить " : "Добавить "}{params.title}
                     </div>
                     <div className="FieldChange__Inputs">
-                        {valueApi.stack &&
-                            <select value={valueApiChoice.stack || "Выберите навык"} onChange={(event: any) => { handleApiChoiceChange(event, "stack") }}>
-                                <option style={{ display: "none" }} value={"Выберите навык"}>{"Выберите навык"}</option>
-                                {valueApi.stack.map((e: any) =>
-                                    <option value={e.name}>{e.name}</option>
-                                )}
-                            </select>
-                        }
-                        {valueApiChoice.stack &&
+                        {params.value?.name && valueApiChoice.value && <Select
+                            onChange={(event: any) => handleApiChoiceChange(event, "contacts")}
+                            defaultValue={valueApiChoice}
+                            isSearchable
+                            options={valueApi}
+                            className="Input__Select"
+                            classNamePrefix="SelectSearchInput"
+                            placeholder={<div className="SelectSearchInput__Placeholder">Выберите навык</div>}
+                            noOptionsMessage={() => 'Нет данных'}
+                            loadingMessage={() => 'Поиск'}
+                            required
+
+                        />}
+                        {!params.value?.name && <Select
+                            onChange={(event: any) => handleApiChoiceChange(event, "contacts")}
+                            isSearchable
+                            options={valueApi}
+                            className="Input__Select"
+                            classNamePrefix="SelectSearchInput"
+                            placeholder={<div className="SelectSearchInput__Placeholder">Выберите навык</div>}
+                            noOptionsMessage={() => 'Нет данных'}
+                            loadingMessage={() => 'Поиск'}
+                            required
+                        />}
+                        {valueApiChoice.value &&
                             <>
                                 <div className="FieldChange__Title">Выберите выш уровень</div>
                                 <div className="FieldChange__Inputs__Stack__Bar">
@@ -126,7 +134,7 @@ export const FieldChangeStack = (params: IFieldChange) => {
                     <div className="FieldChange__Button__Group__Cancel" onClick={() => setUserSetting(false)}>
                         Отменить
                     </div>
-                    <input type="submit" className={params.newValue ? "FieldChange__Button__Group__Save" : "FieldChange__Button__Group__Cancel"} value="Сохранить" />
+                    <input type="submit" className={(oldValue !== params.newValue && params.newValue) ? "FieldChange__Button__Group__Save" : "FieldChange__Button__Group__Cancel"} value="Сохранить" />
                 </div>
             </form>
         </div>

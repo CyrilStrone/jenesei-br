@@ -1,19 +1,19 @@
 import { $userValue, setUserSetting } from "../../functions/Hooks";
 import { useEffect, useState } from "react";
 import { IFieldChange } from "../organelles/FieldChange";
-import Arrow from '../../../assets/fieldChange/Arrow.svg'
-import Setting from '../../../assets/userChange/Setting.svg'
 import { inContact } from "../logics/inContact";
 import { inApiSaveContact } from "../logics/inApiSave";
 import { useStore } from "effector-react";
-import Delete from '../../../assets/userChange/Delete.svg'
 import { inApiDeleteContact } from "../logics/inApiDelete";
 import Select from "react-select";
+import Delete from '../../../assets/userChange/Delete.svg'
+import Arrow from '../../../assets/fieldChange/Arrow.svg'
+import Setting from '../../../assets/userChange/Setting.svg'
 
 export const FieldChangeContacts = (params: IFieldChange) => {
     const userValue = useStore($userValue);
     const [valueApi, setValueApi] = useState<any>()
-    const [valueApiChoice, setValueApiChoice] = useState<any>({ value: " ", label: "" })
+    const [valueApiChoice, setValueApiChoice] = useState<any>({ value: "", label: "" })
     const [oldValue, setOldValue] = useState<any | null>(null)
     const handleApiChoiceChange = (event: any, type: any) => {
         setValueApiChoice({ value: event?.value, label: event?.value })
@@ -23,22 +23,18 @@ export const FieldChangeContacts = (params: IFieldChange) => {
             const result = await inContact();
             if (result) {
                 setValueApi(result.map((e: any) => ({ value: e.name, label: e.name })))
-                console.log(result.map((e: any) => ({ value: e.name, label: e.name })))
             }
         } catch (error) {
             console.log("handleValueApi error", error)
         }
     }
     useEffect(() => {
-        if (params.keyName) {
-            handleValueApi()
-            if(params.value?.contact_name){
-                setValueApiChoice({ value: params.value?.contact_name, label: params.value?.contact_name })
-            }
+        handleValueApi()
+        if (params.value?.contact_name) {
+            setValueApiChoice({ value: params.value?.contact_name, label: params.value?.contact_name })
             params.setNewValue && params.setNewValue(params.value?.link)
-
         }
-    }, [params, params.keyName])
+    }, [params.value])
 
     useEffect(() => {
         let result = ""
@@ -54,7 +50,7 @@ export const FieldChangeContacts = (params: IFieldChange) => {
         }
         params.setCheck && params.setCheck(result ? true : false)
 
-    }, [params, userValue.contacts, valueApiChoice])
+    }, [valueApiChoice])
 
     const handleApiDelete = async () => {
         try {
@@ -67,7 +63,6 @@ export const FieldChangeContacts = (params: IFieldChange) => {
         }
 
     }
-
     const handleApiSave = async () => {
         try {
             const result = await inApiSaveContact({ name: valueApiChoice.value, link: params.newValue });
@@ -75,13 +70,13 @@ export const FieldChangeContacts = (params: IFieldChange) => {
                 setUserSetting(false);
             }
         } catch (error) {
-            console.log("error", error)
+            console.log("handleApiSave error", error)
         }
     };
 
     return (
         <div className="FieldChange__General" >
-            <form onSubmit={e => { e.preventDefault(); (oldValue  !== params.newValue && params.newValue && oldValue) && handleApiSave(); }} className="FieldChange" >
+            <form onSubmit={e => { e.preventDefault(); (oldValue !== params.newValue && params.newValue) && handleApiSave(); }} className="FieldChange" >
                 <img src={Arrow} className="FieldChange__Arrow" alt="Arrow" onClick={() => setUserSetting(false)} />
                 {(oldValue) && <img src={Delete} alt="Delete" className="FieldChange__Delete" onClick={handleApiDelete} />}
                 <div className="FieldChange__Header" >
@@ -95,7 +90,7 @@ export const FieldChangeContacts = (params: IFieldChange) => {
                         {(params?.newValue && oldValue) ? "Изменить " : "Добавить "}{params.title}
                     </div>
                     <div className="FieldChange__Inputs">
-                        {valueApiChoice.value && <Select
+                        {params.value?.contact_name && valueApiChoice.value && <Select
                             onChange={(event: any) => handleApiChoiceChange(event, "contacts")}
                             defaultValue={valueApiChoice}
                             isSearchable
@@ -108,7 +103,19 @@ export const FieldChangeContacts = (params: IFieldChange) => {
                             required
 
                         />}
-                        {valueApiChoice?.value  !== " " &&
+                        {!params.value?.contact_name && <Select
+                            onChange={(event: any) => handleApiChoiceChange(event, "contacts")}
+                            isSearchable
+                            options={valueApi}
+                            className="Input__Select"
+                            classNamePrefix="SelectSearchInput"
+                            placeholder={<div className="SelectSearchInput__Placeholder">Выберите социальную сеть</div>}
+                            noOptionsMessage={() => 'Нет данных'}
+                            loadingMessage={() => 'Поиск'}
+                            required
+
+                        />}
+                        {valueApiChoice.value &&
                             <input required type="url" placeholder="Вставьте ссылку" value={params.newValue} onChange={(event: any) => { params.setNewValue && params.setNewValue(event.target.value) }} />
                         }
                     </div>
@@ -117,7 +124,7 @@ export const FieldChangeContacts = (params: IFieldChange) => {
                     <div className="FieldChange__Button__Group__Cancel" onClick={() => setUserSetting(false)}>
                         Отменить
                     </div>
-                    <input type="submit" className={oldValue  !== params.newValue && params.newValue ? "FieldChange__Button__Group__Save" : "FieldChange__Button__Group__Cancel"} value="Сохранить" />
+                    <input type="submit" className={oldValue !== params.newValue && params.newValue ? "FieldChange__Button__Group__Save" : "FieldChange__Button__Group__Cancel"} value="Сохранить" />
                 </div>
             </form>
         </div>
