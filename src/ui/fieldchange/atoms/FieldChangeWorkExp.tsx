@@ -1,14 +1,13 @@
 import { setUserSetting } from "../../functions/Hooks";
 import { IFieldChange } from "../organelles/FieldChange";
-import Arrow from '../../../assets/fieldChange/Arrow.svg'
-import Setting from '../../../assets/userChange/Setting.svg'
-import Delete from '../../../assets/userChange/Delete.svg'
 import { useEffect, useRef, useState } from "react";
-import SelectSearch from "react-select-search";
 import { ApiLocationAnother } from "../../functions/AxiosInstance";
 import { inApiSaveWorkExp } from "../logics/inApiSave";
 import { inApiDeleteWorkExp } from "../logics/inApiDelete";
 import AsyncSelect from "react-select/async";
+import Arrow from '../../../assets/fieldChange/Arrow.svg'
+import Setting from '../../../assets/userChange/Setting.svg'
+import Delete from '../../../assets/userChange/Delete.svg'
 
 export const createArray = (start: number, end: number) => {
     let arr = [];
@@ -154,7 +153,6 @@ export const FieldChangeWorkExp = (params: IFieldChange) => {
                                 Дата поступления
                             </div>
                             <select required value={new Date(params.newValue?.workStart).getFullYear()} onChange={(event: any) => { handleNewValue(event, "workStart") }}>
-                                <option style={{ display: "none" }} value="Дата"></option>
                                 {createArray(1960, new Date().getFullYear()).map((e: any) =>
                                     <option value={e}>{e}</option>
                                 )}
@@ -166,7 +164,6 @@ export const FieldChangeWorkExp = (params: IFieldChange) => {
                             </div>
                             <div className="FieldChange__Inputs__Education__Blocks__Bar">
                                 <select required value={(new Date(params.newValue?.workEnd).getFullYear())} onChange={(event: any) => { handleNewValue(event, "workEnd") }}>
-                                    <option style={{ display: "none" }} value="Дата"></option>
                                     <option value={"Нет даты"}>Нет даты</option>
                                     {createArray(new Date(params.newValue?.workStart).getFullYear() || 1960, new Date().getFullYear()).map((e: any) =>
                                         <option value={e}>{e}</option>

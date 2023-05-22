@@ -4,10 +4,10 @@ import { inApiSaveEducation } from "../logics/inApiSave";
 import { inApiDeleteEducation } from "../logics/inApiDelete";
 import { setUserSetting } from "../../functions/Hooks";
 import { IFieldChange } from "../organelles/FieldChange";
+import AsyncSelect from 'react-select/async';
 import Arrow from '../../../assets/fieldChange/Arrow.svg'
 import Setting from '../../../assets/userChange/Setting.svg'
 import Delete from '../../../assets/userChange/Delete.svg'
-import AsyncSelect from 'react-select/async';
 
 export const createArray = (start: number, end: number) => {
     let arr = [];
@@ -94,8 +94,10 @@ export const FieldChangeEducation = (params: IFieldChange) => {
         } else {
             setFirstLocation(" ")
         }
-    }, [params, params.value])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [params.value])
     useEffect(() => {
+        console.log("params.newValue", params.newValue)
         if ((params.newValue?.text) && textAreaRef && textAreaRef.current) {
             textAreaRef.current.style.height = 'auto';
             textAreaRef.current.style.height = `${textAreaRef.current.scrollHeight}px`;
@@ -170,7 +172,7 @@ export const FieldChangeEducation = (params: IFieldChange) => {
                                 Дата окончания
                             </div>
                             <div className="FieldChange__Inputs__Education__Blocks__Bar">
-                                <select required value={(new Date(params.newValue?.studyEnd).getFullYear())} onChange={(event: any) => { handleNewValue(event, "studyEnd") }}>
+                                <select required value={new Date(params.newValue?.studyEnd).getFullYear()} onChange={(event: any) => { handleNewValue(event, "studyEnd") }}>
                                     {createArray(new Date(params.newValue?.studyStart).getFullYear() || 1960, 2040).map((e: any) =>
                                         <option value={e}>{e}</option>
                                     )}
