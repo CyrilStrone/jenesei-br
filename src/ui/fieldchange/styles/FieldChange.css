@@ -327,12 +327,17 @@
   align-items: center;
 }
 @media (orientation: portrait) {
+  .FieldChange__General {
+  }
   .FieldChange {
     width: 90%;
     gap: 12px;
+    justify-content: flex-start;
+  }
+  .FieldChange__WorkExp,
+  .FieldChange__Education {
     max-height: 65vh;
     overflow: auto;
-    justify-content: flex-start;
   }
   .FieldChange__BR {
     font-size: 40%;

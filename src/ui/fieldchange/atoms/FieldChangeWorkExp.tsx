@@ -102,7 +102,7 @@ export const FieldChangeWorkExp = (params: IFieldChange) => {
     }, [params.newValue])
     return (
         <div className="FieldChange__General" >
-            <form onSubmit={e => { e.preventDefault(); params.check && handleApiSave() }} className="FieldChange" >
+            <form onSubmit={e => { e.preventDefault(); params.check && handleApiSave() }} className="FieldChange FieldChange__WorkExp" >
                 <img src={Arrow} className="FieldChange__Arrow" alt="Arrow" onClick={() => setUserSetting(false)} />
                 {params.value?.id && <img src={Delete} alt="Delete" className="FieldChange__Delete" onClick={handleApiDelete} />}
                 <div className="FieldChange__Header" >

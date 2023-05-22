@@ -21,9 +21,8 @@ input[type="time"] {
   -webkit-min-logical-width: calc(100% - 16px);
 }
 input[type="date"] {
-  text-align: center !important;
   display: flex !important;
-  align-items: center !important;
+  align-items: left !important;
 }
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
   select:focus,
