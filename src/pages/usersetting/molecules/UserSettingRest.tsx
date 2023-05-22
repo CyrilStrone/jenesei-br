@@ -1,7 +1,7 @@
 import "../styles/UserSettingRest.css";
 import { useStore } from "effector-react";
-import { IFieldChange } from "../../../ui/fieldchange/organoids/FieldChange";
 import { $userValue } from "../../../ui/functions/Hooks";
+import { IFieldChange } from "../../../ui/fieldChange/organelles/FieldChange";
 
 export interface IUserSettingRest {
     handleCheck: (params: IFieldChange) => void

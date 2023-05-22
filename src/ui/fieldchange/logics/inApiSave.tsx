@@ -107,7 +107,6 @@ export interface IinApiSaveEducation {
     studyEnd: string
 }
 export const inApiSaveEducation = async (params: IinApiSaveEducation) => {
-    console.log(params)
     return axiosInstance.put(
         '/education', {
         ed_id: params.ed_id,

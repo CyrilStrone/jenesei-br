@@ -41,3 +41,15 @@
 .FieldChange__Inputs__Education__Blocks li:last-child button {
   border-radius: 0px 0px 12px 12px;
 }
+.Input__Select__Prefix{
+    height: 36px;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: #333;
+    border: 1px solid #d6d6d6;
+    border-radius: 4px;
+    background: #fff;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 16px;
+}

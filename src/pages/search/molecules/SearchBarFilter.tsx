@@ -2,7 +2,7 @@ import '../styles/SearchBarFilter.css'
 import { $generalCountry, $generalPrograms, $generalSkill, $generalSpeciality } from "../../../ui/functions/GeneralHooks";
 import { useStore } from 'effector-react';
 import { useEffect, useState } from 'react';
-import { SearchBarFilterItem } from '../atomes/SearchBarFilterItem';
+import { SearchBarFilterItem } from '../atoms/SearchBarFilterItem';
 
 interface ISearchBarFilter {
     setValue?: React.Dispatch<any>

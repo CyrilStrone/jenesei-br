@@ -1,4 +1,4 @@
-import { HomeTopUserCard } from "../atomes/HomeTopUserCard";
+import { HomeTopUserCard } from "../atoms/HomeTopUserCard";
 import "../styles/HomeTopPast.css";
 
 export const HomeTopPast = () => {

@@ -1,5 +1,6 @@
-import { ChatGeneralBar  } from "../atomes/ChatGeneralBar";
-import { ChatGeneralChoice } from "../atomes/ChatGeneralChoice";
+
+import { ChatGeneralBar } from "../atoms/ChatGeneralBar";
+import { ChatGeneralChoice } from "../atoms/ChatGeneralChoice";
 import "../styles/ChatGeneral.css";
 
 export const ChatGeneral = () => {

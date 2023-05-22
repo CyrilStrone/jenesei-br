@@ -1,8 +1,8 @@
 import { useStore } from "effector-react";
-import { IFieldChange } from "../../../ui/fieldchange/organoids/FieldChange";
+import { IFieldChange } from "../../../ui/fieldChange/organelles/FieldChange";
 import { $userValue } from "../../../ui/functions/Hooks";
 import "../styles/UserSettingContacts.css";
-import Plus from '../../../assets/userchange/Plus.svg'
+import Plus from '../../../assets/userChange/Plus.svg'
 
 export interface IUserSettingContacts {
     handleCheck: (params: IFieldChange) => void

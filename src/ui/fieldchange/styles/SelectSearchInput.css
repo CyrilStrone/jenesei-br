@@ -1,0 +1,58 @@
+.SelectSearchInput {
+}
+.SelectSearchInput__control {
+  box-sizing: border-box;
+  vertical-align: top;
+  width: 100%;
+  height: 36px;
+  padding-left: 12px;
+  /* padding-right: 15px; */
+  color: #333;
+  background: #fff;
+  background-clip: padding-box;
+  border-radius: 10px !important;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  min-width: 250px;
+  min-height: 36px;
+  box-shadow: none !important;
+}
+.SelectSearchInput__menu {
+  border-radius: 10px !important;
+}
+.SelectSearchInput__control:focus {
+  outline: none;
+  border: 1px solid #0e8ac3 !important;
+  border-color: #0e8ac3 !important;
+}
+.SelectSearchInput__value-container {
+  height: 36px !important;
+  padding: 0 !important;
+}
+.SelectSearchInput__input-container {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.SelectSearchInput__menu {
+  font-weight: 500 !important;
+  font-size: 16px !important;
+}
+.SelectSearchInput__Placeholder {
+  font-weight: 300 !important;
+  color: #666666 !important;
+  font-family: "Montserrat" !important;
+  font-style: normal !important;
+}
+.Input__Select > input {
+  height: 0px !important;
+  display: flex;
+  min-height: 0px !important;
+  max-height: 0px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 0 !important;
+}
+.Input__Select {
+  width: 100%;
+}

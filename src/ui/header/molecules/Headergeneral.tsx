@@ -1,5 +1,5 @@
-import { HeaderLogo } from "../atomes/HeaderLogo";
-import { HeaderBar } from "../atomes/HeaderBar";
+import { HeaderLogo } from "../atoms/HeaderLogo";
+import { HeaderBar } from "../atoms/HeaderBar";
 import { $accessToken } from "../../functions/AccessToken";
 import { useStore } from "effector-react";
 

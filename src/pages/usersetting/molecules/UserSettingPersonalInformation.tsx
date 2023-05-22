@@ -1,14 +1,14 @@
 import "../styles/UserSettingPersonalInformation.css";
 import { useStore } from "effector-react";
-import { IFieldChange } from "../../../ui/fieldchange/organoids/FieldChange";
+import { IFieldChange } from "../../../ui/fieldChange/organelles/FieldChange";
 import { $userValue } from "../../../ui/functions/Hooks";
-import Profile from '../../../assets/userchange/Profile.svg'
-import Position from '../../../assets/userchange/Position.svg'
-import Password from '../../../assets/userchange/Password.svg'
-import birthDate from '../../../assets/userchange/birthDate.svg'
-import Message from '../../../assets/userchange/Message.svg'
-import Location from '../../../assets/userchange/Location.svg'
-import Avatar from '../../../assets/userchange/Avatar.svg'
+import Profile from '../../../assets/userChange/Profile.svg'
+import Position from '../../../assets/userChange/Position.svg'
+import Password from '../../../assets/userChange/Password.svg'
+import birthDate from '../../../assets/userChange/birthDate.svg'
+import Message from '../../../assets/userChange/Message.svg'
+import Location from '../../../assets/userChange/Location.svg'
+import Avatar from '../../../assets/userChange/Avatar.svg'
 import { apiImage } from "../../../ui/functions/AxiosInstance";
 
 export interface IUserSettingPersonalInformation {

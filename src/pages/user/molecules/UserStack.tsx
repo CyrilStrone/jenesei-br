@@ -9,17 +9,17 @@ export const UserStack = (params: IUserStack) => {
     <div className="UserStack Transparent__Block  Block__Active">
       <div className="User__Content__Item__List">
         {(params.stack).sort((a: any, b: any) => (a.level > b.level ? 1 : -1)).map((e: any) =>
-          e.level == 1 ?
+          e.level === 1 ?
             <div className="UserStack__Footer__Item UserStack__Footer__Item__1"><div className="UserStack__Footer__Item__Title">{e.name}</div></div> :
-            e.level == 2 ?
+            e.level === 2 ?
               <div className="UserStack__Footer__Item UserStack__Footer__Item__2"><div className="UserStack__Footer__Item__Title">{e.name}</div></div> :
-              e.level == 3 ?
+              e.level === 3 ?
                 <div className="UserStack__Footer__Item UserStack__Footer__Item__3"><div className="UserStack__Footer__Item__Title">{e.name}</div></div> :
-                e.level == 4 ?
+                e.level === 4 ?
                   <div className="UserStack__Footer__Item UserStack__Footer__Item__4"><div className="UserStack__Footer__Item__Title">{e.name}</div></div> :
-                  e.level == 5 ?
+                  e.level === 5 ?
                     <div className="UserStack__Footer__Item UserStack__Footer__Item__5"><div className="UserStack__Footer__Item__Title">{e.name}</div></div> :
-                    e.level == 6 ?
+                    e.level === 6 ?
                       <div className="UserStack__Footer__Item UserStack__Footer__Item__6"><div className="UserStack__Footer__Item__Title">{e.name}</div></div> : null
         )}
       </div>
