@@ -23,6 +23,8 @@ input[type="time"] {
 input[type="date"] {
   display: flex !important;
   align-items: left !important;
+  text-align: left !important;
+  justify-content: flex-start !important;
 }
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
   select:focus,

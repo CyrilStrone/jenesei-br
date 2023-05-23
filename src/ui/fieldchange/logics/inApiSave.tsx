@@ -63,7 +63,6 @@ export interface IinApiSaveDefault {
     keyName: any
 }
 export const inApiSaveDefault = async (params: IinApiSaveDefault) => {
-    console.log(params)
     return axiosInstance.put(
         '/profile', {
         [params.keyName]: params.value
@@ -141,7 +140,6 @@ export interface IinApiSaveWorkExp {
     workEnd: string
 }
 export const inApiSaveWorkExp = async (params: IinApiSaveWorkExp) => {
-    console.log(params)
     return axiosInstance.put(
         '/work-exp', {
         workexp_id: params.workexp_id,
