@@ -1,11 +1,12 @@
 import { setUserSetting } from "../../functions/Hooks";
 import { useEffect, useState } from "react";
 import { IFieldChange } from "../organelles/FieldChange";
-import Arrow from '../../../assets/fieldChange/Arrow.svg'
-import Setting from '../../../assets/userChange/Setting.svg'
 import { inLocationCity, inLocationCountry, inLocationState } from "../logics/inLocation";
 import { inApiSaveLocation } from "../logics/inApiSave";
 import { SpinningCircles } from "react-loading-icons";
+import Select from "react-select";
+import Arrow from '../../../assets/fieldChange/Arrow.svg'
+import Setting from '../../../assets/userChange/Setting.svg'
 
 export const FieldChangeLocation = (params: IFieldChange) => {
 
@@ -16,6 +17,8 @@ export const FieldChangeLocation = (params: IFieldChange) => {
             const result = await inApiSaveLocation({ country: (valueLocationChoice.country).split(',')[1], state: (valueLocationChoice.state).split(',')[1], city: (valueLocationChoice.city).split(',')[1] });
             if (result) {
                 setUserSetting(false);
+            } else {
+                setUserSetting(false);
             }
         } catch (error) {
             console.log("error", error)
@@ -25,20 +28,20 @@ export const FieldChangeLocation = (params: IFieldChange) => {
         if (type === "country") {
             setValueLocationChoice((prevState: any) => ({
                 ...prevState,
-                country: event.target.value,
+                country: event.value,
                 state: "",
                 city: ""
             }))
         } else if (type === "state") {
             setValueLocationChoice((prevState: any) => ({
                 ...prevState,
-                state: event.target.value,
+                state: event.value,
                 city: "",
             }))
         } else if (type === "city") {
             setValueLocationChoice((prevState: any) => ({
                 ...prevState,
-                city: event.target.value,
+                city: event.value,
             }))
         }
     };
@@ -73,7 +76,7 @@ export const FieldChangeLocation = (params: IFieldChange) => {
         }
     }
     useEffect(() => {
-        if (valueLocation && valueLocation.country && valueLocationChoice.country  !== "") {
+        if (valueLocation && valueLocation.country && valueLocationChoice.country !== "") {
             handleState(valueLocationChoice.country)
         }
     }, [valueLocationChoice.country])
@@ -105,37 +108,53 @@ export const FieldChangeLocation = (params: IFieldChange) => {
                                 <div className="FieldChange__Inputs__LocationBlock__Title">
                                     Страна
                                 </div>
-                                <select value={valueLocationChoice.country || "Выберите страну"} onChange={(event: any) => { handleLoactionChange(event, "country") }}>
-                                    <option style={{ display: "none" }} value={"Выберите город"}>{"Выберите страну"}</option>
-                                    {valueLocation && valueLocation.country && valueLocation.country.map((e: any) =>
-                                        <option value={`${e.countryCode},${e.name}`}>{e.name}</option>
-                                    )}
-                                </select>
+                                <Select
+                                    onChange={(event: any) => { handleLoactionChange(event, "country") }}
+                                    isSearchable
+                                    options={valueLocation?.country.map((e: any) => ({ value: `${e.countryCode},${e.name}`, label: e.name }))}
+                                    className="Input__Select"
+                                    classNamePrefix="SelectSearchInput"
+                                    placeholder={<div className="SelectSearchInput__Placeholder">Выберите страну</div>}
+                                    noOptionsMessage={() => 'Нет данных'}
+                                    loadingMessage={() => 'Поиск'}
+                                    required
+                                />
                             </div>
                             {valueLocationChoice.country && valueLocation.state &&
                                 <div className="FieldChange__Inputs__LocationBlock">
                                     <div className="FieldChange__Inputs__LocationBlock__Title">
                                         Регион
                                     </div>
-                                    <select value={valueLocationChoice.state || "Выберите регион"} onChange={(event: any) => { handleLoactionChange(event, "state") }}>
-                                        <option style={{ display: "none" }} value={"Выберите город"}>{"Выберите регион"}</option>
-                                        {valueLocation.state.edges.map((e: any) =>
-                                            <option value={`${e.node.division1Code},${e.node.name}`}>{e.node.name}</option>
-                                        )}
-                                    </select>
+                                    <Select
+                                        onChange={(event: any) => { handleLoactionChange(event, "state") }}
+                                        isSearchable
+                                        options={valueLocation?.state?.edges.map((e: any) => ({ value: `${e.node.division1Code},${e.node.name}`, label: e.node.name }))}
+                                        className="Input__Select"
+                                        classNamePrefix="SelectSearchInput"
+                                        placeholder={<div className="SelectSearchInput__Placeholder">Выберите регион</div>}
+                                        noOptionsMessage={() => 'Нет данных'}
+                                        loadingMessage={() => 'Поиск'}
+                                        required
+                                    />
                                 </div>
+
                             }
                             {valueLocationChoice.country && valueLocationChoice.state && valueLocation.city &&
                                 <div className="FieldChange__Inputs__LocationBlock">
                                     <div className="FieldChange__Inputs__LocationBlock__Title">
                                         Город
                                     </div>
-                                    <select value={valueLocationChoice.city || "Выберите город"} onChange={(event: any) => { handleLoactionChange(event, "city") }}>
-                                        <option style={{ display: "none" }} value={"Выберите город"}>{"Выберите город"}</option>
-                                        {valueLocation && valueLocation.city && valueLocation.city.edges.map((e: any) =>
-                                            <option value={`${e.node.division1Code},${e.node.name}`}>{e.node.name}</option>
-                                        )}
-                                    </select>
+                                    <Select
+                                        onChange={(event: any) => { handleLoactionChange(event, "city") }}
+                                        isSearchable
+                                        options={valueLocation?.city?.edges?.map((e: any) => ({ value: `${e.node.division1Code},${e.node.name}`, label: e.node.name }))}
+                                        className="Input__Select"
+                                        classNamePrefix="SelectSearchInput"
+                                        placeholder={<div className="SelectSearchInput__Placeholder">Выберите город</div>}
+                                        noOptionsMessage={() => 'Нет данных'}
+                                        loadingMessage={() => 'Поиск'}
+                                        required
+                                    />
                                 </div>
                             }
 

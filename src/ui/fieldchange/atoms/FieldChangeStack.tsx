@@ -57,6 +57,8 @@ export const FieldChangeStack = (params: IFieldChange) => {
             const result = await inApiDeleteStack({ name: valueApiChoice.value });
             if (result) {
                 setUserSetting(false);
+            }else{
+                setUserSetting(false);
             }
         } catch (error) {
             console.log("error", error)
@@ -67,6 +69,8 @@ export const FieldChangeStack = (params: IFieldChange) => {
         try {
             const result = await inApiSaveStack({ name: valueApiChoice.value, level: params.newValue });
             if (result) {
+                setUserSetting(false);
+            }else{
                 setUserSetting(false);
             }
         } catch (error) {

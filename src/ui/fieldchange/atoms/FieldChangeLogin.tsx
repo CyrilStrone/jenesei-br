@@ -11,6 +11,8 @@ export const FieldChangeLogin = (params: IFieldChange) => {
             const result = await inApiSaveDefault({ value: params.newValue, keyName: params.keyName });
             if (result) {
                 setUserSetting(false);
+            }else{
+                setUserSetting(false);
             }
         } catch (error) {
             console.log("error", error)

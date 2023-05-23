@@ -40,6 +40,8 @@ export const FieldChangeWorkExp = (params: IFieldChange) => {
             const result = await inApiDeleteWorkExp({ id: params.value.id });
             if (result) {
                 setUserSetting(false);
+            }else{
+                setUserSetting(false);
             }
         } catch (error) {
             console.log("handleApiDelete error", error)
@@ -61,6 +63,8 @@ export const FieldChangeWorkExp = (params: IFieldChange) => {
                 }
             );
             if (result) {
+                setUserSetting(false);
+            }else{
                 setUserSetting(false);
             }
         } catch (error) {

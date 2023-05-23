@@ -57,6 +57,8 @@ export const FieldChangeContacts = (params: IFieldChange) => {
             const result = await inApiDeleteContact({ name: valueApiChoice.value });
             if (result) {
                 setUserSetting(false);
+            }else{
+                setUserSetting(false);
             }
         } catch (error) {
             console.log("handleApiDelete error", error)
@@ -67,6 +69,8 @@ export const FieldChangeContacts = (params: IFieldChange) => {
         try {
             const result = await inApiSaveContact({ name: valueApiChoice.value, link: params.newValue });
             if (result) {
+                setUserSetting(false);
+            }else{
                 setUserSetting(false);
             }
         } catch (error) {

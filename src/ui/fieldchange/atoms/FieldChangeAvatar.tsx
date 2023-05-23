@@ -13,6 +13,8 @@ export const FieldChangeAvatar = (params: IFieldChange) => {
             const result = await inApiSaveAvatar({ file: valueAvatar });
             if (result) {
                 setUserSetting(false);
+            }else{
+                setUserSetting(false);
             }
         } catch (error) {
             console.log("handleApiSave error", error);
