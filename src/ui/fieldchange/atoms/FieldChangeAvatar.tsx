@@ -1,31 +1,58 @@
 import { setUserSetting } from "../../functions/Hooks";
 import { IFieldChange } from "../organelles/FieldChange";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { inApiSaveAvatar } from "../logics/inApiSave";
 import AvatarEditor from 'react-avatar-editor'
 import Arrow from '../../../assets/fieldChange/Arrow.svg'
 import Avatar from '../../../assets/userChange/Avatar.svg'
 
 export const FieldChangeAvatar = (params: IFieldChange) => {
-    const [valueAvatar, setValueAvatar] = useState<any>("")
     const handleApiSave = async () => {
         try {
-            const result = await inApiSaveAvatar({ file: valueAvatar });
+
+            const result = await inApiSaveAvatar({ file: params.newValue });
             if (result) {
                 setUserSetting(false);
-            }else{
+            } else {
                 setUserSetting(false);
             }
         } catch (error) {
             console.log("handleApiSave error", error);
         }
     }
-    const handleAvatarChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        if (event.target.files && event.target.files.length > 0) {
-            setValueAvatar(event.target.files[0])
-            params.setNewValue && params.setNewValue(URL.createObjectURL(event.target.files[0]))
+    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = () => {
+                const image = new Image();
+                image.src = reader.result as string;
+                image.onload = () => {
+                    const canvas = document.createElement('canvas');
+                    const context = canvas.getContext('2d');
+                    const size = Math.min(image.width, image.height);
+                    canvas.width = size;
+                    canvas.height = size;
+                    const x = (image.width - size) / 2;
+                    const y = (image.height - size) / 2;
+                    context?.drawImage(image, x, y, size, size, 0, 0, size, size);
+                    canvas.toBlob((blob) => {
+                        if (blob) {
+                            const croppedFile = new File([blob], file.name, { type: 'image/jpeg' });
+                            params.setNewValue && params.setNewValue(croppedFile)
+                            console.log('Обрезанный файл:', croppedFile);
+                        }
+                    }, 'image/jpeg');
+
+                };
+            };
+
+            reader.readAsDataURL(file);
         }
     };
+    useEffect(() => {
+        params.setNewValue && params.setNewValue(params.value)
+    }, [])
     return (
         <div className="FieldChange__General" >
             <form onSubmit={e => { e.preventDefault(); params.check && handleApiSave() }} className="FieldChange" >
@@ -43,12 +70,12 @@ export const FieldChangeAvatar = (params: IFieldChange) => {
                     <div className="FieldChange__Inputs">
                         <div className="FieldChange__Inputs__Avatar">
                             <AvatarEditor
-                                image={params.newValue || params.value}
+                                image={params.newValue}
                                 width={250}
                                 height={250}
                                 border={10}
                                 color={[14, 138, 195, 0.5]}
-                                scale={params.newValue?.scale || params.value?.scale}
+                                scale={params.newValue?.scale}
                                 rotate={0}
                                 borderRadius={900}
                             />
@@ -62,7 +89,7 @@ export const FieldChangeAvatar = (params: IFieldChange) => {
                     <input
                         id="file-input"
                         type="file"
-                        onChange={handleAvatarChange}
+                        onChange={handleFileChange}
                         accept="image/*"
                         style={{ display: "none" }}
                     />

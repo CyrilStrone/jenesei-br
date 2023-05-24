@@ -23,6 +23,7 @@
     "react-avatar-editor": "^13.0.0",
     "react-custom-scrollbars-2": "^4.5.0",
     "react-dom": "^18.2.0",
+    "react-image-crop": "^10.0.11",
     "react-loading-icons": "^1.1.0",
     "react-router-dom": "^6.10.0",
     "react-scripts": "5.0.1",
