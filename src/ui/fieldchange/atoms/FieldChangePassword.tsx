@@ -26,7 +26,7 @@ export const FieldChangePassword = (params: IFieldChange) => {
         }))
     };
     useEffect(() => {
-        if (params.newValue && params.newValue?.oldPassword === params.newValue?.againOldPassword && params.newValue?.newPassowrd) {
+        if (params.newValue && params.newValue?.newPassowrd === params.newValue?.againNewPassword && params.newValue?.oldPassword) {
             setCheck(true)
         } else {
             setCheck(false)
@@ -57,8 +57,8 @@ export const FieldChangePassword = (params: IFieldChange) => {
                         <input
                             type={"password"}
                             required
-                            value={params.newValue?.againOldPassword}
-                            onChange={(event: any) => handleNewValue(event, "againOldPassword")}
+                            value={params.newValue?.againNewPassword}
+                            onChange={(event: any) => handleNewValue(event, "againNewPassword")}
                             placeholder={"Введите новый пароль"}
                         />
                         <input
