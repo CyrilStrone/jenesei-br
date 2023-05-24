@@ -12,7 +12,7 @@ export const FieldChangeBirthDate = (params: IFieldChange) => {
             const result = await inApiSaveDefault({ value: params.newValue, keyName: params.keyName });
             if (result) {
                 setUserSetting(false);
-            }else{
+            } else {
                 setUserSetting(false);
             }
         } catch (error) {
@@ -27,7 +27,7 @@ export const FieldChangeBirthDate = (params: IFieldChange) => {
         }
     }
     useEffect(() => {
-        if (params.newValue && (params.newValue  !== new Date(params.value).toISOString().split('T')[0])) {
+        if (params.newValue && (params.newValue !== new Date(params.value).toISOString().split('T')[0])) {
             setCheck(true)
         } else {
             setCheck(false)
@@ -53,7 +53,7 @@ export const FieldChangeBirthDate = (params: IFieldChange) => {
                     <div className="FieldChange__Inputs">
                         <input
                             type="date"
-                            max="4444-06-30" min="1776-06-30" 
+                            max={new Date().toISOString().split('T')[0]} min="1776-06-30"
                             value={params.newValue && new Date(params.newValue).toISOString().split('T')[0]}
                             onChange={handleNewValue}
                         />

@@ -34,6 +34,18 @@
   gap: 18px;
   width: 100%;
 }
+.Registration__Block__Content__InputBar__Title {
+  font-family: "Inter";
+  font-weight: 300;
+  color: #666666;
+  padding-left: 16px;
+  font-size: 16px;
+}
+.Registration__Block__Content__InputBar__Date {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
 .Registration__Block__Content__InputBar__Input {
   font-family: "Inter";
   font-style: normal;
@@ -57,9 +69,8 @@
   text-align: left;
 }
 
-
 .Registration__Block__Content__InputBar__Input:focus,
-.Registration__Block__Content__InputBar__Input__Date .Mui-focused fieldset{
+.Registration__Block__Content__InputBar__Input__Date .Mui-focused fieldset {
   outline: none;
   border: 1px solid #0e8ac3 !important;
   z-index: 2;
