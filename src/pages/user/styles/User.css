@@ -19,6 +19,7 @@
 }
 @media (orientation: portrait) {
   .User {
+    width: 100%;
     font-size: 28px;
   }
 }

@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { SearchPastItem } from "../atoms/SearchPastItem";
 
 interface ISearchPast {
@@ -6,9 +5,6 @@ interface ISearchPast {
 }
 
 export const SearchPast = (params: ISearchPast) => {
-  useEffect(() => {
-    console.log("params", params.userList)
-  }, [params])
   return (
     <div className="SearchPast">
       {params?.userList?.map((e: any) =>

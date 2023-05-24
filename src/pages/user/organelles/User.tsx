@@ -15,6 +15,7 @@ import { setCustomValidityShow } from "../../../ui/customValidity/organelles/Cus
 import { accessTokenNameLogin } from "../../../ui/functions/AxiosInstance";
 import { $accessToken } from "../../../ui/functions/AccessToken";
 import { UserContacts } from "../molecules/UserContacts";
+import { UserButton } from "../molecules/UserButton";
 
 
 
@@ -70,13 +71,14 @@ export const User = () => {
     <div className="User">
       {value && <div className="User__Content">
         <UserGeneralInfo avatarPath={value.avatarPath} login={value.user.login} firstName={value.user.firstName} lastName={value.user.lastName} />
-        <UserAbout value={value} />
-        {value.workExp && <UserExperience workExp={value.workExp} />}
-        {value.stack && <UserStack stack={value.stack} />}
-        {value.education && <UserEducation education={value.education} />}
-        {value.contacts && <UserContacts contacts={value.contacts} />}
-        <UserSubscribers />
-        <UserSubscription />
+        {(value?.user?.aboutLong || value?.user?.currentPosition) && <UserAbout value={value} />}
+        {value?.workExp.length !== 0 && <UserExperience workExp={value.workExp} />}
+        {value?.stack?.length !== 0 && <UserStack stack={value.stack} />}
+        {value?.education?.length !== 0 && <UserEducation education={value.education} />}
+        {value?.contacts?.length !== 0 && <UserContacts contacts={value.contacts} />}
+        {value?.subscribers?.length !== 0 && <UserSubscribers subscribers={value.subscribers} />}
+        {value?.subscription?.length !== 0 && <UserSubscription subscription={value.subscription} />}
+        {accessToken && userValue?.user?.id !== value?.user?.id && <UserButton value={value} userValue={userValue} requestInAnotherUser={requestInAnotherUser} />}
       </div>}
     </div>
   );
