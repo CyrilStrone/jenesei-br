@@ -11,6 +11,7 @@ export const Registration = () => {
     const [resetPassword, setResetPassword] = useState({ password: "" });
     const [checkedData, setCheckedData] = useState(false);
     const [check, setCheck] = useState<boolean>(false)
+    const [message, setMessage] = useState<boolean>(true)
     const handleCheck = () => {
         setCheckedData(!checkedData);
     };
@@ -47,7 +48,7 @@ export const Registration = () => {
                                 <input minLength={1} required maxLength={20} className="Registration__Block__Content__InputBar__Input" type={"text"} placeholder="Фамилия" value={registrationValue.lastName} onChange={(event: any) => { setRegistrationValue({ ...registrationValue, "lastName": event.target.value }) }} />
                                 <input minLength={4} required maxLength={20} className="Registration__Block__Content__InputBar__Input" type={"text"} placeholder="Логин" value={registrationValue.login} onChange={(event: any) => { setRegistrationValue({ ...registrationValue, "login": event.target.value }) }} />
                                 <input minLength={1} required maxLength={40} className="Registration__Block__Content__InputBar__Input" type={"email"} placeholder="Почта" value={registrationValue.email} onChange={(event: any) => { setRegistrationValue({ ...registrationValue, "email": event.target.value }) }} />
-                                <input required  max="4444-06-30" min="1776-06-30" className="Registration__Block__Content__InputBar__Input" type={"date"} placeholder="Дата рождения" value={registrationValue.date} onChange={(event: any) => { setRegistrationValue({ ...registrationValue, "date": event.target.value }) }} />
+                                <input required onBlur={(e: any) =>  setMessage(true)} onFocus={(e: any) => setMessage(false)}   max="4444-06-30" min="1776-06-30" className="Registration__Block__Content__InputBar__Input" type={message ? "text" : "date"} placeholder="Дата рождения" value={registrationValue?.date && message ? new Date(registrationValue?.date).toLocaleDateString('ru-RU') : registrationValue?.date} onChange={(event: any) => { setRegistrationValue({ ...registrationValue, "date": event.target.value }) }} />
                                 <input required minLength={8} className="Registration__Block__Content__InputBar__Input" type={"password"} placeholder="Пароль" value={registrationValue.password} onChange={(event: any) => { setRegistrationValue({ ...registrationValue, "password": event.target.value }) }} />
                                 <input required minLength={8} className="Registration__Block__Content__InputBar__Input" type={"password"} placeholder="Повторите пароль" value={resetPassword.password} onChange={(event: any) => { setResetPassword({ ...resetPassword, "password": event.target.value }) }} />
                             </div>
