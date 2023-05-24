@@ -48,6 +48,12 @@ export const HeaderBar = () => {
         document.addEventListener('click', onClick);
         return () => document.removeEventListener('click', onClick);
     }, []);
+    useEffect(() => {
+        //@ts-ignore
+        const onScroll = (e: any) => rootEl.current.contains(e.target) || toggleShow(3);
+        window.addEventListener('scroll', onScroll);
+        return () => window.removeEventListener('scroll', onScroll);
+    }, []);
     return (
         <div className="HeaderBar" ref={rootEl}>
             {userValue && list.map((e: any) =>

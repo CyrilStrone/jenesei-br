@@ -141,7 +141,17 @@
   box-sizing: border-box;
   position: relative;
 }
-
+.Search__User__Card {
+  width: 335px;
+  height: 144px;
+  border-radius: 16px;
+  background: #ffffff;
+  padding: 28px;
+  box-sizing: border-box;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
 @media (orientation: portrait) {
   .Setting__Card__Short {
     width: 100%;
@@ -162,6 +172,11 @@
   }
   .Half__Block {
     height: min-content !important;
+  }
+  .Search__User__Card{
+    width: 100%;
+    height: auto;
+    padding: 20px;
   }
 }
 @media (orientation: portrait) and (max-width: 700px) {

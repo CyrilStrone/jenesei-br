@@ -2,7 +2,6 @@ import '../styles/SearchBarFilter.css'
 import { $generalCountry, $generalPrograms, $generalSkill, $generalSpeciality } from "../../../ui/functions/GeneralHooks";
 import { useStore } from 'effector-react';
 import { useEffect, useState } from 'react';
-import { SearchBarFilterItem } from '../atoms/SearchBarFilterItem';
 
 interface ISearchBarFilter {
     setValue?: React.Dispatch<any>
@@ -55,9 +54,9 @@ export const SearchBarFilter = (params: ISearchBarFilter) => {
     return (
         <>
             <div className="SearchBarFilter">
-                {filter.map((e: any, id: any) =>
-                    <SearchBarFilterItem id={id} ItemClick={ItemClick} count={e.count} name={e.name} array={e.array} localCheck={e.localCheck} />
-                )}
+                {/* {filter.map((e: any, id: any) =>
+                    // <SearchBarFilterItem id={id} ItemClick={ItemClick} count={e.count} name={e.name} array={e.array} localCheck={e.localCheck} />
+                )} */}
             </div>
             {filter.map((e: any, id: any) =>
                 e.localCheck &&

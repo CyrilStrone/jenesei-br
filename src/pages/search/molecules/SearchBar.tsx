@@ -1,6 +1,5 @@
 import SearchPicture from "../../../assets/search/Search.svg";
 import '../styles/SearchBar.css'
-import { SearchBarFilter } from "./SearchBarFilter";
 interface ISearchBar {
     setValue: React.Dispatch<any>
     value: any
@@ -25,7 +24,7 @@ export const SearchBar = (params: ISearchBar) => {
                     <input type="text" className="SearchBar__Input__General" placeholder={"Поиск пользователей"} value={params.value.text} onChange={(event: any) => handleTextChange(event)} />
                     <img src={SearchPicture} />
                 </div>
-                <SearchBarFilter />
+                {/* <SearchBarFilter /> */}
             </div>
         </div>
     );
