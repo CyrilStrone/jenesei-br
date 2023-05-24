@@ -1,4 +1,3 @@
-import { useCallback } from "react"
 import { setAccessToken } from "../../../ui/functions/AccessToken"
 import { axiosInstance } from "../../../ui/functions/AxiosInstance"
 
@@ -12,7 +11,7 @@ export const loginUser = async (params: ILoginUser) => {
         '/auth/login', {
         "login": params.login,
         "password": params.password,
-    })
+    },{withCredentials: true})
         .then((res: any) => {
             if(res.data.token){
                 setAccessToken(res.data.token);

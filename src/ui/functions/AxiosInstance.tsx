@@ -12,19 +12,11 @@ export const axiosInstance = axios.create({
   },
 });
 
-// export const axiosInstance = axios.create({
-//   baseURL: "http://26.74.162.51:3002/api/",
-//   headers: {
-//     authorization: `Bearer ${localStorage.getItem(accessTokenName)}`
-//   },
-// });
-
 axiosInstance.interceptors.response.use(
   (response) => response,
   async (error: AxiosError) => {
-    if (error?.response?.status === 401) {
-      console.log("401")
-      setAccessToken("")
+    if (localStorage.getItem(accessTokenName)?.length && error?.response?.status === 401) {
+      await refreshToken()
     }
   }
 );
@@ -38,3 +30,17 @@ export const ApiLocation = axios.create({
 export const ApiLocationAnother = axios.create({
   baseURL: "https://dataservice.accuweather.com"
 });
+
+export const refreshToken = async () => {
+  return await axios
+  .get('https://businessroulette.ru:3000/api/auth/refresh',{withCredentials: true})
+    .then((res: any) => {
+      if (res.data.token) {
+        setAccessToken(res.data.token);
+      }
+    })
+    .catch((error) => {
+      setAccessToken("")
+      throw new Error(error.response.data.message);
+    })
+}
