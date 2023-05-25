@@ -25,4 +25,5 @@ export const UserLogout = () => {
     document.cookie = "name=<Refresh>; expires=-1";
     document.cookie = "name=<Session>; expires=-1";
     setAccessToken("")
+    setRememberCheck("false")
 }
