@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../styles/Login.css";
 import { ILoginUser, loginUser } from "../logics/loginUser";
 import JeneseiLogo from '../../../assets/logo/JeneseiLogo.svg'
 import { NavLink } from "react-router-dom";
 import { setCustomValidityShow } from "../../../ui/customValidity/organelles/CustomValidity";
 import { SpinningCircles } from "react-loading-icons";
+import { setRememberCheck } from "../../../ui/functions/AccessToken";
 export const Login = () => {
     const [loginValue, setLoginValue] = useState<ILoginUser>({ login: "", password: "", checked: false });
     const [check, setCheck] = useState<boolean>(false)
@@ -16,7 +17,7 @@ export const Login = () => {
             setCheck(true)
             const result = await loginUser(loginValue);
             if (result) {
-
+                
             } else {
                 setCheck(false)
                 setCustomValidityShow("Не правильный логин или пароль")
@@ -31,6 +32,13 @@ export const Login = () => {
             handleClick()
         }
     }
+    useEffect(()=>{
+        if(loginValue.checked){
+            setRememberCheck("true")
+        }else{
+            setRememberCheck("false")
+        }
+    },[loginValue.checked])
     return (
         <div className="Login White__Block">
             <div className="Login__Block White__Block__General">

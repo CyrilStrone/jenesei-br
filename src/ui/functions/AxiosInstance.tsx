@@ -1,6 +1,7 @@
 import axios, { AxiosError } from "axios";
 import { setAccessToken } from "./AccessToken";
 
+export const RememberRefreshName = "BusinessRouletteRememberRefresh"
 export const accessTokenName = "BusinessRouletteToken"
 export const accessTokenNameLogin = "BusinessRouletteLogin"
 
@@ -15,7 +16,7 @@ export const axiosInstance = axios.create({
 axiosInstance.interceptors.response.use(
   (response) => response,
   async (error: AxiosError) => {
-    if (localStorage.getItem(accessTokenName)?.length && error?.response?.status === 401) {
+    if (localStorage.getItem(RememberRefreshName) === "true" && localStorage.getItem(accessTokenName)?.length && error?.response?.status === 401) {
       await refreshToken()
     }
   }

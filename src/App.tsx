@@ -4,8 +4,8 @@ import "./ui/generalStyles/Blocks.css";
 import { Route, Routes } from "react-router-dom";
 import { useEffect } from "react";
 import { useStore } from "effector-react";
-import { $accessToken, setAccessToken } from "./ui/functions/AccessToken";
-import { accessTokenName } from "./ui/functions/AxiosInstance";
+import { $accessToken, setAccessToken, setRememberCheck } from "./ui/functions/AccessToken";
+import { RememberRefreshName, accessTokenName } from "./ui/functions/AxiosInstance";
 import { Header } from "./ui/header/organelles/Header";
 import { Footer } from "./ui/footer/organelles/Footer";
 import { Major } from "./pages/major/organelles/Major";
@@ -43,6 +43,9 @@ export function App() {
   useEffect(() => {
     if (localStorage.getItem(accessTokenName)?.length) {
       setAccessToken(localStorage.getItem(accessTokenName) || "")
+    }
+    if (localStorage.getItem(RememberRefreshName)?.length) {
+      setRememberCheck((localStorage.getItem(RememberRefreshName) === "true" ? "true" : "false") || "false")
     }
   }, [])
 
