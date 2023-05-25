@@ -10,6 +10,7 @@ export const InSubPost = async (userId: string) => {
             throw new Error(error.response.data.message);
         })
 }
+
 export const InSubDelete = async (userId: string) => {
     return axiosInstance.delete(
         `/subs/${userId}`)

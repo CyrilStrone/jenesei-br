@@ -26,6 +26,7 @@ export const HeaderBar = () => {
             animationDuration: '0.5s'
         }
     })
+
     const toggleShow = (id: number) => {
         const newList = list.map((item: any) => {
             if (item.id === id) {
@@ -42,12 +43,14 @@ export const HeaderBar = () => {
         });
         setList(newList);
     };
+
     useEffect(() => {
         //@ts-ignore
         const onClick = (e: any) => rootEl.current.contains(e.target) || toggleShow(3);
         document.addEventListener('click', onClick);
         return () => document.removeEventListener('click', onClick);
     }, []);
+
     useEffect(() => {
         //@ts-ignore
         const onScroll = (e: any) => rootEl.current.contains(e.target) || toggleShow(3);

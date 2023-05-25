@@ -1,5 +1,5 @@
-import { UserMenu } from "../../../ui/userMenu/molecules/UserMenu";
 import "../styles/UserSubscription.css";
+import { UserMenu } from "../../../ui/userMenu/molecules/UserMenu";
 
 export const UserSubscription = () => {
 

@@ -11,13 +11,14 @@ export const FieldChangeEmail = (params: IFieldChange) => {
             const result = await inApiSaveDefault({ value: params.newValue, keyName: params.keyName });
             if (result) {
                 setUserSetting(false);
-            }else{
+            } else {
                 setUserSetting(false);
             }
         } catch (error) {
             console.log("error", error)
         }
     }
+
     const handleNewValue = (event: any) => {
         if (params.keyName && params.setNewValue) {
             params.setNewValue(
@@ -25,9 +26,10 @@ export const FieldChangeEmail = (params: IFieldChange) => {
             )
         }
     }
-    useEffect(()=>{
+
+    useEffect(() => {
         params.setNewValue && params.setNewValue(params.value)
-    },[])
+    }, [])
     return (
         <div className="FieldChange__General" >
             <form onSubmit={e => { e.preventDefault(); params.check && handleApiSave() }} className="FieldChange" >

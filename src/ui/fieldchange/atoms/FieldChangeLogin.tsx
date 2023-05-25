@@ -1,9 +1,9 @@
+import { useEffect } from "react";
 import { setUserSetting } from "../../functions/Hooks";
 import { IFieldChange } from "../organelles/FieldChange";
+import { inApiSaveDefault } from "../logics/inApiSave";
 import Arrow from '../../../assets/fieldChange/Arrow.svg'
 import Setting from '../../../assets/userChange/Setting.svg'
-import { inApiSaveDefault } from "../logics/inApiSave";
-import { useEffect } from "react";
 
 export const FieldChangeLogin = (params: IFieldChange) => {
     const handleApiSave = async () => {
@@ -11,13 +11,14 @@ export const FieldChangeLogin = (params: IFieldChange) => {
             const result = await inApiSaveDefault({ value: params.newValue, keyName: params.keyName });
             if (result) {
                 setUserSetting(false);
-            }else{
+            } else {
                 setUserSetting(false);
             }
         } catch (error) {
             console.log("error", error)
         }
     }
+
     const handleNewValue = (event: any) => {
         if (params.keyName && params.setNewValue) {
             params.setNewValue(
@@ -25,9 +26,10 @@ export const FieldChangeLogin = (params: IFieldChange) => {
             )
         }
     }
-    useEffect(()=>{
+
+    useEffect(() => {
         params.setNewValue && params.setNewValue(params.value)
-    },[])
+    }, [])
     return (
         <div className="FieldChange__General" >
             <form onSubmit={e => { e.preventDefault(); params.check && handleApiSave() }} className="FieldChange" >

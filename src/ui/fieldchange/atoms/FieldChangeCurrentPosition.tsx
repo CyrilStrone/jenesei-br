@@ -11,13 +11,14 @@ export const FieldChangeCurrentPosition = (params: IFieldChange) => {
             const result = await inApiSaveDefault({ value: params.newValue, keyName: params.keyName });
             if (result) {
                 setUserSetting(false);
-            }else{
+            } else {
                 setUserSetting(false);
             }
         } catch (error) {
             console.log("handleApiSave error", error)
         }
     }
+
     const handleNewValue = (event: any) => {
         if (params.keyName && params.setNewValue) {
             params.setNewValue(
@@ -25,6 +26,7 @@ export const FieldChangeCurrentPosition = (params: IFieldChange) => {
             )
         }
     }
+
     useEffect(() => {
         params.setNewValue && params.setNewValue(params.value)
     }, [])

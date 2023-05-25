@@ -1,23 +1,25 @@
-import { $userValue, setUserSetting } from "../../functions/Hooks";
+import Select from "react-select";
 import { useEffect, useState } from "react";
+import { useStore } from "effector-react";
+import { $userValue, setUserSetting } from "../../functions/Hooks";
 import { inStack } from "../logics/inStack";
 import { IFieldChange } from "../organelles/FieldChange";
+import { inApiSaveStack } from "../logics/inApiSave";
+import { inApiDeleteStack } from "../logics/inApiDelete";
+import Delete from '../../../assets/userChange/Delete.svg'
 import Arrow from '../../../assets/fieldChange/Arrow.svg'
 import Setting from '../../../assets/userChange/Setting.svg'
-import { inApiSaveStack } from "../logics/inApiSave";
-import { useStore } from "effector-react";
-import Delete from '../../../assets/userChange/Delete.svg'
-import { inApiDeleteStack } from "../logics/inApiDelete";
-import Select from "react-select";
 
 export const FieldChangeStack = (params: IFieldChange) => {
     const userValue = useStore($userValue);
     const [valueApi, setValueApi] = useState<any>()
     const [valueApiChoice, setValueApiChoice] = useState<any>({ value: "", label: "" })
     const [oldValue, setOldValue] = useState<any | null>(null)
+
     const handleApiChoiceChange = (event: any, type: any) => {
         setValueApiChoice({ value: event?.value, label: event?.value })
     };
+
     const handleValueApi = async () => {
         try {
             const result = await inStack()
@@ -28,6 +30,7 @@ export const FieldChangeStack = (params: IFieldChange) => {
             console.log("handleValueApi", handleValueApi)
         }
     }
+
     useEffect(() => {
         handleValueApi()
         if (params.value?.name) {
@@ -57,7 +60,7 @@ export const FieldChangeStack = (params: IFieldChange) => {
             const result = await inApiDeleteStack({ name: valueApiChoice.value });
             if (result) {
                 setUserSetting(false);
-            }else{
+            } else {
                 setUserSetting(false);
             }
         } catch (error) {
@@ -65,21 +68,19 @@ export const FieldChangeStack = (params: IFieldChange) => {
         }
 
     }
+
     const handleApiSave = async () => {
         try {
             const result = await inApiSaveStack({ name: valueApiChoice.value, level: params.newValue });
             if (result) {
                 setUserSetting(false);
-            }else{
+            } else {
                 setUserSetting(false);
             }
         } catch (error) {
             console.log("error", error)
         }
-
-
     };
-
     return (
         <div className="FieldChange__General" >
             <form onSubmit={e => { e.preventDefault(); (oldValue !== params.newValue && params.newValue) && handleApiSave(); }} className="FieldChange" >

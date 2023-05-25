@@ -1,13 +1,14 @@
+import { useEffect, useState } from "react";
 import { setUserSetting } from "../../functions/Hooks";
 import { IFieldChange } from "../organelles/FieldChange";
-import { useEffect, useState } from "react";
+import { inApiChangePassword } from "../logics/inApiSave";
+import { setCustomValidityShow } from "../../customValidity/organelles/CustomValidity";
 import Arrow from '../../../assets/fieldChange/Arrow.svg'
 import Password from '../../../assets/userChange/Password.svg'
-import { inApiChangePassword, inApiSaveDefault } from "../logics/inApiSave";
-import { setCustomValidityShow } from "../../customValidity/organelles/CustomValidity";
 
 export const FieldChangePassword = (params: IFieldChange) => {
     const [check, setCheck] = useState<boolean>(false)
+
     const handleApiSave = async () => {
         try {
             const result = await inApiChangePassword({ currentPassword: params.newValue?.oldPassword, newPassword: params.newValue?.newPassowrd });
@@ -19,12 +20,14 @@ export const FieldChangePassword = (params: IFieldChange) => {
             setCustomValidityShow("Ошибка смены пароля")
         }
     }
+
     const handleNewValue = (event: any, type: any) => {
         params.setNewValue && params.setNewValue((prevState: any) => ({
             ...prevState,
             [type]: event.target.value
         }))
     };
+    
     useEffect(() => {
         if (params.newValue && params.newValue?.newPassowrd === params.newValue?.againNewPassword && params.newValue?.oldPassword) {
             setCheck(true)

@@ -9,9 +9,9 @@ import Arrow from '../../../assets/fieldChange/Arrow.svg'
 import Setting from '../../../assets/userChange/Setting.svg'
 
 export const FieldChangeLocation = (params: IFieldChange) => {
-
     const [valueLocation, setValueLocation] = useState<any>()
     const [valueLocationChoice, setValueLocationChoice] = useState<any>({ country: "", state: "", city: "" })
+
     const handleApiSave = async () => {
         try {
             const result = await inApiSaveLocation({ country: (valueLocationChoice.country).split(',')[1], state: (valueLocationChoice.state).split(',')[1], city: (valueLocationChoice.city).split(',')[1] });
@@ -24,6 +24,7 @@ export const FieldChangeLocation = (params: IFieldChange) => {
             console.log("error", error)
         }
     }
+
     const handleLoactionChange = (event: any, type: any) => {
         if (type === "country") {
             setValueLocationChoice((prevState: any) => ({
@@ -45,6 +46,7 @@ export const FieldChangeLocation = (params: IFieldChange) => {
             }))
         }
     };
+
     const handleCountry = async () => {
         try {
             const result = await inLocationCountry()
@@ -55,6 +57,7 @@ export const FieldChangeLocation = (params: IFieldChange) => {
             console.log("handleCountry", error)
         }
     }
+
     const handleState = async (countryCode: string) => {
         try {
             const result = await inLocationState(countryCode.split(',')[0])
@@ -65,6 +68,7 @@ export const FieldChangeLocation = (params: IFieldChange) => {
             console.log("handleState", error)
         }
     }
+
     const handleCity = async (countryCode: string, division1Code: string) => {
         try {
             const result = await inLocationCity(countryCode.split(',')[0], division1Code.split(',')[0])
@@ -75,16 +79,19 @@ export const FieldChangeLocation = (params: IFieldChange) => {
             console.log("handleCity", error)
         }
     }
+
     useEffect(() => {
         if (valueLocation && valueLocation.country && valueLocationChoice.country !== "") {
             handleState(valueLocationChoice.country)
         }
     }, [valueLocationChoice.country])
+
     useEffect(() => {
         if (valueLocation && valueLocation.country && valueLocationChoice.state) {
             handleCity(valueLocationChoice.country, valueLocationChoice.state)
         }
     }, [valueLocationChoice.state])
+
     useEffect(() => {
         handleCountry()
     }, [params.keyName])

@@ -11,7 +11,6 @@ export const Registration = () => {
     const [resetPassword, setResetPassword] = useState({ password: "" });
     const [checkedData, setCheckedData] = useState(false);
     const [check, setCheck] = useState<boolean>(false)
-    const [message, setMessage] = useState<boolean>(true)
     const handleCheck = () => {
         setCheckedData(!checkedData);
     };

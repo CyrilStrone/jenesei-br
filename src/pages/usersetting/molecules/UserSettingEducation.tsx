@@ -10,6 +10,7 @@ export interface IUserSettingEducation {
     keyName: string | undefined
     value: any
 }
+
 export const UserSettingEducation = (params: IUserSettingEducation) => {
     const userValue = useStore($userValue);
     return (

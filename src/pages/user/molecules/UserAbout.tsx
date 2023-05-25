@@ -1,7 +1,9 @@
 import "../styles/UserAbout.css";
+
 interface IUserAbout {
   value: any
 }
+
 export const UserAbout = (params: IUserAbout) => {
 
   return (

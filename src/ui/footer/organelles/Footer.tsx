@@ -1,5 +1,5 @@
-import { FooterGeneral } from "../molecules/FooterGeneral";
 import "../styles/Footer.css"
+import { FooterGeneral } from "../molecules/FooterGeneral";
 
 export const Footer = () => {
   return (

@@ -1,15 +1,15 @@
 import '../styles/HeaderBarProfile.css'
+import { useStore } from 'effector-react';
+import { Link, NavLink } from 'react-router-dom';
+import { $userValue } from '../../functions/Hooks';
+import { UserLogout } from '../../functions/AccessToken'
+import Logout from '../../../assets/header/Logout.svg'
 import User from '../../../assets/header/User.svg'
 import Setting from '../../../assets/header/Setting.svg'
 import Publication from '../../../assets/header/Publication.svg'
 import PublicationList from '../../../assets/header/PublicationList.svg'
 import Subscription from '../../../assets/header/Subscription.svg'
 import Subscribers from '../../../assets/header/Subscribers.svg'
-import Logout from '../../../assets/header/Logout.svg'
-import { Link, NavLink } from 'react-router-dom';
-import { $userValue } from '../../functions/Hooks';
-import { useStore } from 'effector-react';
-import { UserLogout } from '../../functions/AccessToken'
 
 export const HeaderBarProfile = () => {
   const userValue = useStore($userValue);

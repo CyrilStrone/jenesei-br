@@ -1,7 +1,9 @@
 import "../styles/UserExperience.css";
+
 interface IUserExperience {
   workExp: any
 }
+
 export const UserExperience = (params: IUserExperience) => {
 
   return (

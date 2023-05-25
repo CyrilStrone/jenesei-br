@@ -15,6 +15,7 @@ export const inLocationCountry = async () => {
             throw new Error(error.response.data.message);
         })
 }
+
 export const inLocationState = async (countryCode: string) => {
     return await axios
         .get(
@@ -33,6 +34,7 @@ export const inLocationState = async (countryCode: string) => {
             throw new Error(error.response.data.message);
         })
 }
+
 export const inLocationCity = async (countryCode: string, division1Code: string) => {
     return await axios
         .get(

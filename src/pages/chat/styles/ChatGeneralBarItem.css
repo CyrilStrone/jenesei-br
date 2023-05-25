@@ -4,7 +4,7 @@
   gap: 12px;
   padding: 6px;
   height: 40px;
-    min-height: 46px;
+  min-height: 46px;
   padding-left: 8px;
   cursor: pointer;
 }
@@ -39,7 +39,7 @@
   font-size: 30%;
 }
 @media (orientation: portrait) {
-  .ChatGeneralBarItem{
+  .ChatGeneralBarItem {
     min-width: 40px;
     max-width: 40px;
     min-height: 40px;
@@ -51,5 +51,7 @@
   .ChatGeneralBarItem__Info {
     display: none;
   }
-  .ChatGeneralBarItem__Message {display: none;}
+  .ChatGeneralBarItem__Message {
+    display: none;
+  }
 }

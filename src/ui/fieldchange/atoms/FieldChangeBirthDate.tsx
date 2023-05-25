@@ -7,6 +7,7 @@ import birthDate from '../../../assets/userChange/birthDate.svg'
 
 export const FieldChangeBirthDate = (params: IFieldChange) => {
     const [check, setCheck] = useState<boolean>(false)
+
     const handleApiSave = async () => {
         try {
             const result = await inApiSaveDefault({ value: params.newValue, keyName: params.keyName });
@@ -26,6 +27,7 @@ export const FieldChangeBirthDate = (params: IFieldChange) => {
             )
         }
     }
+
     useEffect(() => {
         if (params.newValue && (params.newValue !== new Date(params.value).toISOString().split('T')[0])) {
             setCheck(true)
@@ -33,6 +35,7 @@ export const FieldChangeBirthDate = (params: IFieldChange) => {
             setCheck(false)
         }
     }, [params.newValue, params.value])
+
     useEffect(() => {
         params.setNewValue && params.setNewValue(params.value)
     }, [])

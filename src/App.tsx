@@ -40,16 +40,15 @@ export async function requestUser() {
 
 export function App() {
   const accessToken = useStore($accessToken);
+
   useEffect(() => {
     if (localStorage.getItem(accessTokenName)?.length) {
       setAccessToken(localStorage.getItem(accessTokenName) || "")
     }
     if (localStorage.getItem(RememberRefreshName)?.length) {
-      setRememberCheck((localStorage.getItem(RememberRefreshName) === "true" ? "true" : "false") || "false")
+      setRememberCheck((localStorage.getItem(RememberRefreshName)?.length && localStorage.getItem(RememberRefreshName) || "false"))
     }
   }, [])
-
-
   return (
     <div className="App">
       <div className="App__PhoneWallpaper"></div>

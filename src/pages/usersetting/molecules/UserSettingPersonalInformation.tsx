@@ -17,6 +17,7 @@ export interface IUserSettingPersonalInformation {
     keyName: string | undefined
     value: any
 }
+
 export const UserSettingPersonalInformation = (params: IUserSettingPersonalInformation) => {
     const userValue = useStore($userValue);
     return (

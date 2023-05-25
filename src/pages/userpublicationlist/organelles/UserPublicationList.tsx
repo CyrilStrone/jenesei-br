@@ -5,7 +5,7 @@ export const UserPublicationList = () => {
 
   return (
     <div className="UserMore">
-      <UserMenu/>
+      <UserMenu />
       <div className="UserPublicationList">
 
       </div>

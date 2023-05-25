@@ -1,7 +1,9 @@
 import "../styles/UserEducation.css";
+
 interface IUserEducation {
   education: any
 }
+
 export const UserEducation = (params: IUserEducation) => {
 
   return (

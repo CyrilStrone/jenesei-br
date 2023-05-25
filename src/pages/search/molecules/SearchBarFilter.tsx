@@ -1,5 +1,4 @@
 import '../styles/SearchBarFilter.css'
-import { useStore } from 'effector-react';
 import { useEffect, useState } from 'react';
 import { SearchBarFilterItem } from '../atoms/SearchBarFilterItem';
 import { inStack } from '../../../ui/fieldChange/logics/inStack';
@@ -9,9 +8,10 @@ interface ISearchBarFilter {
     value?: any
 }
 
-
 export const SearchBarFilter = (params: ISearchBarFilter) => {
     const [valueApi, setValueApi] = useState<any[]>()
+    const [filter, setFilter] = useState<any>();
+
     const handleValueApi = async () => {
         try {
             const result = await inStack()
@@ -22,13 +22,6 @@ export const SearchBarFilter = (params: ISearchBarFilter) => {
             console.log("handleValueApi", handleValueApi)
         }
     }
-    const [filter, setFilter] = useState<any>();
-    useEffect(() => {
-        handleValueApi()
-    }, [])
-    useEffect(() => {
-        setFilter([{ array: valueApi, name: "Специальность", localCheck: false, count: 0 }])
-    }, [valueApi])
 
     const ItemClick = (id: number, localCheck: boolean) => {
         let updatedFilter = filter.map((obj: any) => ({ ...obj, localCheck: false })).map((obj: any, index: any) => {
@@ -43,7 +36,7 @@ export const SearchBarFilter = (params: ISearchBarFilter) => {
         });
         setFilter(updatedFilter)
     };
-
+    
     const SelectedItemClick = (id: number, arrayItemId: number, check: boolean) => {
         const updatedFilter = filter.map((parent: any, index: any) => {
             if (index === id) {
@@ -60,7 +53,13 @@ export const SearchBarFilter = (params: ISearchBarFilter) => {
         });
         setFilter(updatedFilter)
     };
-
+    
+    useEffect(() => {
+        setFilter([{ array: valueApi, name: "Специальность", localCheck: false, count: 0 }])
+    }, [valueApi])
+    useEffect(() => {
+        handleValueApi()
+    }, [])
     return (
         <>
             <div className="SearchBarFilter">

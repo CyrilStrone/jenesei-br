@@ -19,6 +19,7 @@ export const inApiDeleteContact = async (params: IinApiDeleteContact) => {
             throw new Error(error.response.data.message);
         })
 }
+
 export interface IinApiDeleteStack {
     name: string
 }
@@ -37,6 +38,7 @@ export const inApiDeleteStack = async (params: IinApiDeleteStack) => {
             throw new Error(error.response.data.message);
         })
 }
+
 export interface IinApiDeleteEducation {
     id: string
 }

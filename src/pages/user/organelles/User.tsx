@@ -26,6 +26,7 @@ export const User = () => {
   const accessToken = useStore($accessToken);
   const [login, setLogin] = useState<any>()
   const [value, setValue] = useState<any>()
+
   const requestInAnotherUser = async (login: string) => {
     try {
       const result = await InAnotherUser(login);
@@ -61,6 +62,7 @@ export const User = () => {
       setLogin(userValue.user.login)
     }
   }, [userValue])
+  
   useEffect(() => {
     return (() => {
       setValue(null)

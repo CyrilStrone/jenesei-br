@@ -15,9 +15,11 @@ export const FieldChangeContacts = (params: IFieldChange) => {
     const [valueApi, setValueApi] = useState<any>()
     const [valueApiChoice, setValueApiChoice] = useState<any>({ value: "", label: "" })
     const [oldValue, setOldValue] = useState<any | null>(null)
+
     const handleApiChoiceChange = (event: any, type: any) => {
         setValueApiChoice({ value: event?.value, label: event?.value })
     };
+
     const handleValueApi = async () => {
         try {
             const result = await inContact();
@@ -28,6 +30,7 @@ export const FieldChangeContacts = (params: IFieldChange) => {
             console.log("handleValueApi error", error)
         }
     }
+
     useEffect(() => {
         handleValueApi()
         if (params.value?.contact_name) {
@@ -57,7 +60,7 @@ export const FieldChangeContacts = (params: IFieldChange) => {
             const result = await inApiDeleteContact({ name: valueApiChoice.value });
             if (result) {
                 setUserSetting(false);
-            }else{
+            } else {
                 setUserSetting(false);
             }
         } catch (error) {
@@ -65,12 +68,13 @@ export const FieldChangeContacts = (params: IFieldChange) => {
         }
 
     }
+
     const handleApiSave = async () => {
         try {
             const result = await inApiSaveContact({ name: valueApiChoice.value, link: params.newValue });
             if (result) {
                 setUserSetting(false);
-            }else{
+            } else {
                 setUserSetting(false);
             }
         } catch (error) {

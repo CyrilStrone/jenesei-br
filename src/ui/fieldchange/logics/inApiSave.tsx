@@ -38,6 +38,7 @@ export const inApiSaveStack = async (params: IinApiSaveStack) => {
             throw new Error(error.response.data.message);
         })
 }
+
 export interface IinApiSaveLocation {
     country: string
     state: string
@@ -58,6 +59,7 @@ export const inApiSaveLocation = async (params: IinApiSaveLocation) => {
             throw new Error(error.response.data.message);
         })
 }
+
 export interface IinApiSaveDefault {
     value: any
     keyName: any
@@ -75,6 +77,7 @@ export const inApiSaveDefault = async (params: IinApiSaveDefault) => {
             throw new Error(error.response.data.message);
         })
 }
+
 export interface IinApiSaveAvatar {
     file: any;
 }
@@ -93,6 +96,7 @@ export const inApiSaveAvatar = async (params: IinApiSaveAvatar) => {
             throw new Error(error.response.data.message);
         })
 }
+
 export interface IinApiSaveEducation {
     ed_id?: number,
     text: string,
@@ -160,6 +164,7 @@ export const inApiSaveWorkExp = async (params: IinApiSaveWorkExp) => {
             throw new Error(error.response.data.message);
         })
 }
+
 export interface IinApiChangePassword {
     currentPassword: string
     newPassword: string

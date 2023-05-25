@@ -69,7 +69,7 @@
   }
 }
 @media (orientation: portrait) {
-  .Footer{
+  .Footer {
     display: none;
   }
 }

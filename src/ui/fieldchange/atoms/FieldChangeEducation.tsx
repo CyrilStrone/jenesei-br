@@ -21,6 +21,7 @@ export const createArray = (start: number, end: number) => {
 export const FieldChangeEducation = (params: IFieldChange) => {
     const [firstLocation, setFirstLocation] = useState<any>(null);
     const textAreaRef = useRef<HTMLTextAreaElement>(null);
+
     const handleNewValue = (event: any, type: any) => {
         if (type === "city") {
             params.setNewValue && params.setNewValue((prevState: any) => ({
@@ -36,6 +37,7 @@ export const FieldChangeEducation = (params: IFieldChange) => {
             }))
         }
     };
+
     const handleApiDelete = async () => {
         try {
             const result = await inApiDeleteEducation({ id: params.value.id });
@@ -48,6 +50,7 @@ export const FieldChangeEducation = (params: IFieldChange) => {
             console.log("handleApiDelete error", error)
         }
     }
+
     const handleApiSave = async () => {
         try {
             const result = await inApiSaveEducation(
@@ -73,6 +76,7 @@ export const FieldChangeEducation = (params: IFieldChange) => {
             console.log("handleApiSave error", error)
         }
     };
+
     const loadOptions = (query: string): any => {
         return new Promise(async (resolve, reject) => {
             return await axios
@@ -92,6 +96,7 @@ export const FieldChangeEducation = (params: IFieldChange) => {
                 .catch(reject);
         });
     }
+
     useEffect(() => {
         params.setNewValue && params.setNewValue(params.value)
         if (params.value?.city) {
@@ -101,6 +106,7 @@ export const FieldChangeEducation = (params: IFieldChange) => {
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [params.value])
+
     useEffect(() => {
         console.log("params.newValue", params.newValue)
         if ((params.newValue?.text) && textAreaRef && textAreaRef.current) {

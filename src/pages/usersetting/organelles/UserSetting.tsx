@@ -18,18 +18,19 @@ export const UserSetting = () => {
   const [title, setTitle] = useState<string | undefined>(undefined)
   const [keyName, setkeyName] = useState<string | undefined>(undefined)
   const [value, setValue] = useState<any>(undefined)
+  
   const handleCheck = (params: IFieldChange) => {
     setUserSetting(!userSetting);
     setTitle(params.title)
     setkeyName(params.keyName)
     setValue(params.value)
   };
+
   useEffect(() => {
     return () => {
       setUserSetting(false)
     }
   }, [])
-
   return (
     userValue &&
     <div className="UserMore">

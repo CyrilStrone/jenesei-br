@@ -5,15 +5,15 @@
   align-items: flex-start;
   flex-wrap: nowrap;
 }
-.UserAbout__Title{
+.UserAbout__Title {
   font-size: 68%;
   font-weight: 600;
 }
-.UserAbout__SubTitle{
+.UserAbout__SubTitle {
   font-size: 62%;
   font-weight: 600;
 }
-.UserAbout__Value{
+.UserAbout__Value {
   font-size: 38%;
   font-weight: 400;
   display: flex;

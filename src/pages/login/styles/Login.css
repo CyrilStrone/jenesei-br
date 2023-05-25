@@ -1,6 +1,6 @@
 .Login {
 }
-.Login__Block{
+.Login__Block {
 }
 .Login__Block__Content {
   width: 62%;
@@ -44,7 +44,7 @@
 }
 .Login__Block__Content__Footer a {
   text-decoration: none;
-  color: #0E8AC3;
+  color: #0e8ac3;
 }
 .Login__Block__Content__Forgot {
 }
@@ -70,13 +70,13 @@
   outline: none;
   border: none;
   font-size: 0% !important;
-  background-image: url('../../../assets/login/Login.svg');
+  background-image: url("../../../assets/login/Login.svg");
   background-repeat: no-repeat;
   object-fit: cover;
   background-color: transparent;
   background-position: center;
 }
-.Login__Block__Content__InputBar__LoginLogo{
+.Login__Block__Content__InputBar__LoginLogo {
   outline: none !important;
   border: none !important;
 }
@@ -139,7 +139,7 @@
   }
   .Login__Block__Content__Logo img {
     width: 60%;
-}
+  }
   .Login__Block__Content__Title {
   }
   .Login__Block__Content__Remember {

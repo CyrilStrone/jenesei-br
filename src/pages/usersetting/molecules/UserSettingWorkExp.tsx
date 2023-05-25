@@ -1,8 +1,8 @@
 import "../styles/UserSettingWorkExp.css";
 import { useStore } from "effector-react";
 import { $userValue } from "../../../ui/functions/Hooks";
-import Plus from '../../../assets/userChange/Plus.svg'
 import { IFieldChange } from "../../../ui/fieldChange/organelles/FieldChange";
+import Plus from '../../../assets/userChange/Plus.svg'
 
 export interface IUserSettingWorkExp {
     handleCheck: (params: IFieldChange) => void
@@ -10,6 +10,7 @@ export interface IUserSettingWorkExp {
     keyName: string | undefined
     value: any
 }
+
 export const UserSettingWorkExp = (params: IUserSettingWorkExp) => {
     const userValue = useStore($userValue);
     return (

@@ -1,8 +1,9 @@
 import "../styles/UserStack.css";
-import background from '../../../assets/user/background.png'
+
 interface IUserStack {
   stack: any
 }
+
 export const UserStack = (params: IUserStack) => {
 
   return (

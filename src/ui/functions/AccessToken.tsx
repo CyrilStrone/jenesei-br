@@ -17,7 +17,7 @@ $userLogin.on(setUserLogin, (_, val) => val)
 $accessToken.updates.watch((token) => {
     localStorage.setItem(accessTokenName, (token));
     axiosInstance.defaults.headers.authorization = `Bearer ${token}`
-    if(token){
+    if (token) {
         requestUser()
     }
 });

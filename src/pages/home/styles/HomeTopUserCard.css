@@ -6,15 +6,15 @@
   width: 464px;
   height: 180px;
 }
-.HomeTopUserCard__Header{
+.HomeTopUserCard__Header {
 }
-.HomeTopUserCard__Info{
+.HomeTopUserCard__Info {
 }
 @media (orientation: portrait) {
   .HomeTopUserCard {
     width: 100%;
   }
-  .HomeTopUserCardZero{
+  .HomeTopUserCardZero {
     width: 100%;
   }
 }

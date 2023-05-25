@@ -1,7 +1,7 @@
+import "../styles/UserSettingContacts.css";
 import { useStore } from "effector-react";
 import { IFieldChange } from "../../../ui/fieldChange/organelles/FieldChange";
 import { $userValue } from "../../../ui/functions/Hooks";
-import "../styles/UserSettingContacts.css";
 import Plus from '../../../assets/userChange/Plus.svg'
 
 export interface IUserSettingContacts {
@@ -10,6 +10,7 @@ export interface IUserSettingContacts {
     keyName: string | undefined
     value: any
 }
+
 export const UserSettingContacts = (params: IUserSettingContacts) => {
     const userValue = useStore($userValue);
     return (

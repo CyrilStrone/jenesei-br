@@ -1,6 +1,7 @@
-import { NavLink, useLocation } from "react-router-dom";
 import "../styles/UserMenu.css";
 import "../styles/UserMore.css";
+import { NavLink, useLocation } from "react-router-dom";
+
 export const UserMenu = () => {
   const location = useLocation();
   return (

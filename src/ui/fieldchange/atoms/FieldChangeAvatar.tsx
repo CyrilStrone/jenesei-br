@@ -1,6 +1,6 @@
 import { setUserSetting } from "../../functions/Hooks";
 import { IFieldChange } from "../organelles/FieldChange";
-import { useEffect, useRef, useState } from "react";
+import { useEffect } from "react";
 import { inApiSaveAvatar } from "../logics/inApiSave";
 import AvatarEditor from 'react-avatar-editor'
 import Arrow from '../../../assets/fieldChange/Arrow.svg'
@@ -20,6 +20,7 @@ export const FieldChangeAvatar = (params: IFieldChange) => {
             console.log("handleApiSave error", error);
         }
     }
+
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
         if (file) {
@@ -50,6 +51,7 @@ export const FieldChangeAvatar = (params: IFieldChange) => {
             reader.readAsDataURL(file);
         }
     };
+
     useEffect(() => {
         params.setNewValue && params.setNewValue(params.value)
     }, [])

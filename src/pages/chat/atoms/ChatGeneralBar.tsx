@@ -1,9 +1,8 @@
-import { useRef } from "react";
 import "../styles/ChatGeneralBar.css";
+import { useRef } from "react";
 import { ChatGeneralBarItem } from "./ChatGeneralBarItem";
 
 export const ChatGeneralBar = () => {
-
     const ref = useRef<HTMLDivElement>(null);
 
     const handleWheel = (e: any) => {
@@ -11,7 +10,6 @@ export const ChatGeneralBar = () => {
             ref.current.scrollLeft += e.deltaY;
         }
     };
-
     return (
         <div className="ChatGeneralBar Half__Block Block__NonActive">
             <div className="ChatGeneralBar__Header Half__Block__Header">

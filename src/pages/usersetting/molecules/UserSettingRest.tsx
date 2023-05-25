@@ -9,6 +9,7 @@ export interface IUserSettingRest {
     keyName: string | undefined
     value: any
 }
+
 export const UserSettingRest = (params: IUserSettingRest) => {
     const userValue = useStore($userValue);
     return (

@@ -29,19 +29,21 @@ export interface IFieldChange {
     check?: boolean
     setCheck?: React.Dispatch<React.SetStateAction<boolean>>
 }
-  
-  //TODO:params.check не всегда срабатывает
-  //TODO:дата не правильно если вводить
+
+//TODO:params.check не всегда срабатывает
+//TODO:дата не правильно если вводить
 export const FieldChange = (params: IFieldChange) => {
     const [check, setCheck] = useState<boolean>(false)
     const [newValue, setNewValue] = useState<any | undefined>();
+
     useEffect(() => {
-        if (newValue  !== params.value) {
+        if (newValue !== params.value) {
             setCheck(true)
         } else {
             setCheck(false)
         }
     }, [newValue, params.value])
+    
     useEffect(() => {
         return () => {
             setNewValue(undefined)

@@ -1,5 +1,5 @@
-import { ApiImage } from "../../../ui/functions/AxiosInstance";
 import "../styles/UserGeneralInfo.css";
+import { ApiImage } from "../../../ui/functions/AxiosInstance";
 
 interface IUserGeneralInfo {
   avatarPath: string
@@ -7,6 +7,7 @@ interface IUserGeneralInfo {
   firstName: string
   lastName: string
 }
+
 export const UserGeneralInfo = (params: IUserGeneralInfo) => {
 
   return (

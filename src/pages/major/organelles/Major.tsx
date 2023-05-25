@@ -1,6 +1,6 @@
 import "../styles/Major.css";
-import BigLogo from '../../../assets/major/BigLogo.png';
 import { NavLink } from "react-router-dom";
+import BigLogo from '../../../assets/major/BigLogo.png';
 
 export const Major = () => {
     return (

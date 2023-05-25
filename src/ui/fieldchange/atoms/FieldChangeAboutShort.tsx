@@ -7,6 +7,7 @@ import Setting from '../../../assets/userChange/Setting.svg'
 
 export const FieldChangeAboutShort = (params: IFieldChange) => {
     const textAreaRef = useRef<HTMLTextAreaElement>(null);
+
     const handleApiSave = async () => {
         try {
             const result = await inApiSaveDefault({ value: params.newValue, keyName: params.keyName });
@@ -19,6 +20,7 @@ export const FieldChangeAboutShort = (params: IFieldChange) => {
             console.log("handleApiSave error", error)
         }
     }
+
     const handleNewValue = (event: any) => {
         if (params.keyName && params.setNewValue) {
             params.setNewValue(
@@ -26,12 +28,14 @@ export const FieldChangeAboutShort = (params: IFieldChange) => {
             )
         }
     }
+
     useEffect(() => {
         if (textAreaRef && textAreaRef.current) {
             textAreaRef.current.style.height = 'auto';
             textAreaRef.current.style.height = `${textAreaRef.current.scrollHeight}px`;
         }
     }, [params.value, params.newValue]);
+    
     useEffect(() => {
         params.setNewValue && params.setNewValue(params.value)
     }, [])

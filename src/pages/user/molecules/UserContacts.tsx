@@ -1,7 +1,9 @@
 import "../styles/UserContacts.css";
+
 interface IUserContacts {
     contacts: any
 }
+
 export const UserContacts = (params: IUserContacts) => {
 
     return (
