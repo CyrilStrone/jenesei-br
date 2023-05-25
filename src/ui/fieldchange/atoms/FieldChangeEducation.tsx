@@ -8,6 +8,7 @@ import AsyncSelect from 'react-select/async';
 import Arrow from '../../../assets/fieldChange/Arrow.svg'
 import Setting from '../../../assets/userChange/Setting.svg'
 import Delete from '../../../assets/userChange/Delete.svg'
+import axios from "axios";
 
 export const createArray = (start: number, end: number) => {
     let arr = [];
@@ -40,7 +41,7 @@ export const FieldChangeEducation = (params: IFieldChange) => {
             const result = await inApiDeleteEducation({ id: params.value.id });
             if (result) {
                 setUserSetting(false);
-            }else{
+            } else {
                 setUserSetting(false);
             }
         } catch (error) {
@@ -65,7 +66,7 @@ export const FieldChangeEducation = (params: IFieldChange) => {
             );
             if (result) {
                 setUserSetting(false);
-            }else{
+            } else {
                 setUserSetting(false);
             }
         } catch (error) {
@@ -73,16 +74,16 @@ export const FieldChangeEducation = (params: IFieldChange) => {
         }
     };
     const loadOptions = (query: string): any => {
-        return new Promise((resolve, reject) => {
-            ApiLocationAnother.get(
-                '/locations/v1/cities/search/', {
-                params: {
-                    apikey: "h8kFz4u1VfjQOAoHHHPqiJfI29E2xUg7",
-                    q: query,
-                    language: "ru-ru",
-                    type: "city"
-                }
-            })
+        return new Promise(async (resolve, reject) => {
+            return await axios
+                .get(`${ApiLocationAnother}/locations/v1/cities/search/`, {
+                    params: {
+                        apikey: "h8kFz4u1VfjQOAoHHHPqiJfI29E2xUg7",
+                        q: query,
+                        language: "ru-ru",
+                        type: "city"
+                    }
+                })
                 .then((res: any) => {
                     if (res.data) {
                         resolve(res.data.map((e: any) => ({ value: `${e.LocalizedName},${e.Country.LocalizedName},${e.AdministrativeArea.LocalizedName}`, label: `${e.LocalizedName}, ${e.Country.LocalizedName}, ${e.AdministrativeArea.LocalizedName}` })))
@@ -98,7 +99,7 @@ export const FieldChangeEducation = (params: IFieldChange) => {
         } else {
             setFirstLocation(" ")
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [params.value])
     useEffect(() => {
         console.log("params.newValue", params.newValue)

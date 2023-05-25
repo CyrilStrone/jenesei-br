@@ -1,5 +1,5 @@
-import { ChatGeneral } from "../molecules/ChatGeneral";
 import "../styles/Chat.css";
+import { ChatGeneral } from "../molecules/ChatGeneral";
 
 export const Chat = () => {
 

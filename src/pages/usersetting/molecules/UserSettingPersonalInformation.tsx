@@ -9,7 +9,7 @@ import birthDate from '../../../assets/userChange/birthDate.svg'
 import Message from '../../../assets/userChange/Message.svg'
 import Location from '../../../assets/userChange/Location.svg'
 import Avatar from '../../../assets/userChange/Avatar.svg'
-import { apiImage } from "../../../ui/functions/AxiosInstance";
+import { ApiImage } from "../../../ui/functions/AxiosInstance";
 
 export interface IUserSettingPersonalInformation {
     handleCheck: (params: IFieldChange) => void
@@ -25,12 +25,12 @@ export const UserSettingPersonalInformation = (params: IUserSettingPersonalInfor
                 Персональная информация
             </div>
             <div className="UserSetting__Blocks__List">
-                <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => params.handleCheck({ value: apiImage + userValue.avatarPath, title: "Аватар", keyName: "avatarPath" })}>
+                <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => params.handleCheck({ value: ApiImage + userValue.avatarPath, title: "Аватар", keyName: "avatarPath" })}>
                     <div className="UserSetting__Blocks__List__Item__Title">
                         Аватар
                     </div>
                     <div className="Setting__Card__Short__Value">
-                        <img className="Setting__Card__Short__Value__Avatar" src={apiImage + userValue.avatarPath} alt="Avatar" />
+                        <img className="Setting__Card__Short__Value__Avatar" src={ApiImage + userValue.avatarPath} alt="Avatar" />
                     </div>
                     <img src={Avatar} alt="Avatar" className="Setting__Card__Short__Image" />
                 </div>

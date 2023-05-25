@@ -6,6 +6,7 @@ export interface ILoginUser {
     password: string
     checked: boolean
 }
+
 export const loginUser = async (params: ILoginUser) => {
     return axiosInstance.post(
         '/auth/login', {
