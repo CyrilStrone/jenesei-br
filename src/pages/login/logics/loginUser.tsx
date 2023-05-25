@@ -11,10 +11,11 @@ export const loginUser = async (params: ILoginUser) => {
         '/auth/login', {
         "login": params.login,
         "password": params.password,
-    },{withCredentials: true})
+    }, { withCredentials: true })
         .then((res: any) => {
-            if(res.data.token){
+            if (res.data.token) {
                 setAccessToken(res.data.token);
+                return res.data.token
             }
         })
         .catch((error) => {

@@ -52,7 +52,7 @@
   color: #666666;
 }
 @media (orientation: portrait) {
-    .SearchPastUserCard{
-        width: 100%;
-    }
+  .SearchPastUserCard {
+    width: 100%;
+  }
 }

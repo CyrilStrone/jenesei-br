@@ -5,8 +5,8 @@
   align-items: center;
   gap: 20px;
   font-family: "Montserrat";
-    font-style: normal;
-    font-size: 48px;
+  font-style: normal;
+  font-size: 48px;
 }
 @media (orientation: portrait) {
   .Search {

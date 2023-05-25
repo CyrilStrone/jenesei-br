@@ -25,7 +25,11 @@
   user-select: none;
   -webkit-backdrop-filter: blur(15px) saturate(86%);
   backdrop-filter: blur(15px) saturate(86%);
-  background: radial-gradient( circle at 100% 0, hsla(0, 0%, 100%, -0.15) 0, hsla(0, 0%, 96.1%, -3.87) 183% );
+  background: radial-gradient(
+    circle at 100% 0,
+    hsla(0, 0%, 100%, -0.15) 0,
+    hsla(0, 0%, 96.1%, -3.87) 183%
+  );
 }
 .SearchBarFilter__Array__Item__Active {
   background: #ffffff;

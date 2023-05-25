@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import '../styles/SearchPastItem.css'
+import { apiImage } from '../../../ui/functions/AxiosInstance'
 
 interface ISearchPastItem {
     firstName: string
@@ -7,20 +8,19 @@ interface ISearchPastItem {
     aboutShort: string
     currentPosition: string
     avatarPath: string
-    login:string
+    login: string
 }
 
 export const SearchPastItem = (params: ISearchPastItem) => {
     return (
         <Link to={`/:${params.login}`} className='SearchPastItem Search__User__Card Block__Active' >
-            <img src={params.avatarPath} alt="Avatar" className='SearchPastItem__Avatar' />
+            <img src={apiImage + params.avatarPath} alt="Avatar" className='SearchPastItem__Avatar' />
             <div className='SearchPastItem__Bar'>
                 <div className='SearchPastItem__Bar__Name'>
                     {params.firstName + " " + params.lastName}
                 </div>
                 <div className='SearchPastItem__Bar__Position'>
                     {params.currentPosition}
-                    Frontend Developer
                 </div>
                 <div className='SearchPastItem__Bar__Short'>
                     {params.aboutShort}

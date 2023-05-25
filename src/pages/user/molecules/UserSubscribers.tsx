@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "../styles/UserSubscribers.css";
+import { apiImage } from "../../../ui/functions/AxiosInstance";
 export interface IUserSubscribers {
     subscribers: any
 }
@@ -13,7 +14,7 @@ export const UserSubscribers = (params: IUserSubscribers) => {
             <div className="Half__Block__Footer UserSubscribers__LIst">
                 {params?.subscribers?.map((e: any) =>
                     <Link to={`/:${e?.login}`} className="UserSubscribers__Item">
-                        <img src="" alt="" className="UserSubscribers__Item__Avatar" />
+                        <img src={apiImage + e?.avatarPath} alt="Avatar" className="UserSubscribers__Item__Avatar" />
                         <div className="UserSubscribers__Item__Name">
                             {e?.firstName + " " + e?.lastName}
                         </div>

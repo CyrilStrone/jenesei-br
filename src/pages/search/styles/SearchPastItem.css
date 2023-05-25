@@ -1,54 +1,54 @@
-.SearchPastItem{
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    cursor: pointer;
-    text-decoration: none;
-    color: #000;
+.SearchPastItem {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #000;
 }
-.SearchPastItem__Avatar{
-    height: 68px;
-    width: 68px;
-    min-width: 68px;
-    object-fit: cover;
-    border-radius: 100%;
-    background-color: #0975A6;
+.SearchPastItem__Avatar {
+  height: 68px;
+  width: 68px;
+  min-width: 68px;
+  object-fit: cover;
+  border-radius: 100%;
+  background-color: #0975a6;
 }
-.SearchPastItem__Bar{
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    gap: 2px;
+.SearchPastItem__Bar {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  gap: 2px;
 }
-.SearchPastItem__Bar__Name{
-    font-size: 38%;
-    font-weight: 600;
-    height: 23px;
-    min-height: 23px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+.SearchPastItem__Bar__Name {
+  font-size: 38%;
+  font-weight: 600;
+  height: 23px;
+  min-height: 23px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
-.SearchPastItem__Bar__Position{
-    font-size: 38%;
-    font-weight: 400;
-    height: 23px;
-    min-height: 23px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+.SearchPastItem__Bar__Position {
+  font-size: 38%;
+  font-weight: 400;
+  height: 23px;
+  min-height: 23px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
-.SearchPastItem__Bar__Short{
-    font-size: 34%;
-    font-weight: 300;
-    height: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
+.SearchPastItem__Bar__Short {
+  font-size: 34%;
+  font-weight: 300;
+  height: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 @media (orientation: portrait) {
-    .SearchPastItem__Avatar{
-        width: 46px;
-        height: 46px;
-        min-width: 46px;
-    }
+  .SearchPastItem__Avatar {
+    width: 46px;
+    height: 46px;
+    min-width: 46px;
+  }
 }

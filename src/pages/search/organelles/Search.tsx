@@ -20,9 +20,9 @@ export const Search = () => {
             console.log("handleValueApi error", error)
         }
     }
-    useEffect(()=>{
+    useEffect(() => {
         handleValueApi()
-    },[])
+    }, [])
     return (
         <div className="Search">
             <SearchBar value={value} setValue={setValue} />

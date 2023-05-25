@@ -1,7 +1,8 @@
 import '../styles/SearchBarFilter.css'
-import { $generalCountry, $generalPrograms, $generalSkill, $generalSpeciality } from "../../../ui/functions/GeneralHooks";
 import { useStore } from 'effector-react';
 import { useEffect, useState } from 'react';
+import { SearchBarFilterItem } from '../atoms/SearchBarFilterItem';
+import { inStack } from '../../../ui/fieldChange/logics/inStack';
 
 interface ISearchBarFilter {
     setValue?: React.Dispatch<any>
@@ -10,17 +11,26 @@ interface ISearchBarFilter {
 
 
 export const SearchBarFilter = (params: ISearchBarFilter) => {
-    const generalSpeciality = useStore($generalSpeciality);
-    const generalPrograms = useStore($generalPrograms);
-    const generalCountry = useStore($generalCountry);
-    const generalSkill = useStore($generalSkill);
-    const [filter, setFilter] = useState<any>([{ array: generalSpeciality, name: "Специальность", localCheck: false, count:0 }, { array: generalPrograms, name: "Программы", localCheck: false, count:0 }, { array: generalCountry, name: "Страна", localCheck: false, count:0 }, { array: generalSkill, name: "Навыки", localCheck: false, count:0 }]);
-
+    const [valueApi, setValueApi] = useState<any[]>()
+    const handleValueApi = async () => {
+        try {
+            const result = await inStack()
+            if (result) {
+                setValueApi(result.map((e: any) => ({ value: e.name, label: e.name })))
+            }
+        } catch (error) {
+            console.log("handleValueApi", handleValueApi)
+        }
+    }
+    const [filter, setFilter] = useState<any>();
     useEffect(() => {
-        console.log("filter", filter)
-    }, [filter])
+        handleValueApi()
+    }, [])
+    useEffect(() => {
+        setFilter([{ array: valueApi, name: "Специальность", localCheck: false, count: 0 }])
+    }, [valueApi])
 
-    const ItemClick = (id: number,localCheck:boolean) => {
+    const ItemClick = (id: number, localCheck: boolean) => {
         let updatedFilter = filter.map((obj: any) => ({ ...obj, localCheck: false })).map((obj: any, index: any) => {
             if (index === id) {
                 return {
@@ -43,7 +53,7 @@ export const SearchBarFilter = (params: ISearchBarFilter) => {
                     }
                     return child;
                 });
-                const count = newChildren.filter((child:any) => child.check).length;
+                const count = newChildren.filter((child: any) => child.check).length;
                 return { ...parent, array: newChildren, count: count };
             }
             return parent;
@@ -54,19 +64,19 @@ export const SearchBarFilter = (params: ISearchBarFilter) => {
     return (
         <>
             <div className="SearchBarFilter">
-                {/* {filter.map((e: any, id: any) =>
-                    // <SearchBarFilterItem id={id} ItemClick={ItemClick} count={e.count} name={e.name} array={e.array} localCheck={e.localCheck} />
-                )} */}
+                {filter && filter.map((e: any, id: any) =>
+                    <SearchBarFilterItem key={id} id={id} ItemClick={ItemClick} count={e.count} name={e.name} array={e.array} localCheck={e.localCheck} />
+                )}
             </div>
-            {filter.map((e: any, id: any) =>
-                e.localCheck &&
-                <div className='SearchBarFilter__Array'>
-                    {e.array.map((eLocal: any, arrayItemId: number) =>
+            {filter && filter.map((e: any, id: any) =>
+                e?.localCheck &&
+                <div className='SearchBarFilter__Array' key={id}>
+                    {e.array && e.array.length !== 0 && e.array.map((eLocal: any, arrayItemId: number) =>
                         <div
-                            className={eLocal.check ? "SearchBarFilter__Array__Item__Active SearchBarFilter__Array__Item" : "SearchBarFilter__Array__Item"}
-                            onClick={() => { SelectedItemClick(id, arrayItemId, eLocal.check) }}
+                            className={eLocal?.check ? "SearchBarFilter__Array__Item__Active SearchBarFilter__Array__Item" : "SearchBarFilter__Array__Item"}
+                            onClick={() => { SelectedItemClick(id, arrayItemId, eLocal?.check) }}
                         >
-                            {eLocal.name}
+                            {eLocal?.label}
                         </div>
                     )}
                 </div>
