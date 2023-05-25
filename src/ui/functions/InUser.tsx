@@ -1,14 +1,15 @@
+import { setUserLogin } from "./AccessToken";
 import { accessTokenNameLogin, axiosInstance } from "./AxiosInstance";
 
 export const InUser = async () => {
     return axiosInstance.get(
         `/profile`)
         .then((res: any) => {
-            localStorage.setItem(accessTokenNameLogin, (res.data.user.login));
+            setUserLogin(res.data.user.login)
             return res.data
         })
         .catch((error) => {
-            localStorage.setItem(accessTokenNameLogin, (""));
+            setUserLogin("")
             throw new Error(error.response.data.message);
         })
 }
