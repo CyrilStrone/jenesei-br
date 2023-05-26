@@ -24,7 +24,6 @@ axiosInstance.interceptors.response.use(
         await refreshToken()
       } else {
         UserLogout()
-        window.location.pathname = "/"
       }
     }
   }
