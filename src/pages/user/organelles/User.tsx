@@ -17,8 +17,6 @@ import { $accessToken } from "../../../ui/functions/AccessToken";
 import { UserContacts } from "../molecules/UserContacts";
 import { UserButton } from "../molecules/UserButton";
 
-
-
 export const User = () => {
   const navigate = useNavigate()
   const location = useLocation();

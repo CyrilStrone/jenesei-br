@@ -19,6 +19,7 @@ import { FieldChangeStack } from "../atoms/FieldChangeStack";
 import { FieldChangeEducation } from "../atoms/FieldChangeEducation";
 import { FieldChangeWorkExp } from "../atoms/FieldChangeWorkExp";
 
+
 export interface IFieldChange {
     title?: string
     keyName?: string

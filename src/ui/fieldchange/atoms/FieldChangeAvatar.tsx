@@ -1,8 +1,8 @@
-import { setUserSetting } from "../../functions/Hooks";
-import { IFieldChange } from "../organelles/FieldChange";
 import { useEffect } from "react";
-import { inApiSaveAvatar } from "../logics/inApiSave";
+import { setUserSetting } from "../../functions/Hooks";
 import AvatarEditor from 'react-avatar-editor'
+import { IFieldChange } from "../organelles/FieldChange";
+import { inApiSaveAvatar } from "../logics/inApiSave";
 import Arrow from '../../../assets/fieldChange/Arrow.svg'
 import Avatar from '../../../assets/userChange/Avatar.svg'
 
