@@ -59,7 +59,7 @@ export const Registration = () => {
                             </div>
                             <div className="Registration__Block__Content__Footer">
                                 <input type="submit" className="Registration__Block__Content__Registration" value="Создать Jenesei ID" />
-                                <NavLink to={"/Login"} className="Registration__Block__Content__Footer__Login">
+                                <NavLink to={"/authorization"} className="Registration__Block__Content__Footer__Login">
                                     У вас уже есть Jenesei ID?
                                 </NavLink>
                             </div>

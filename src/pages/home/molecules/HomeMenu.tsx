@@ -7,19 +7,19 @@ export const HomeMenu = () => {
     <div className="HomeMenu Translucent__Block Block__Active">
       <div className="HomeMenu__Navs">
         <NavLink
-          to={"/Home/Top"}
+          to={"/home/top"}
           className={(navData) => navData.isActive ? "HomeMenu__Navs__Active" : ""}
         >
           Топ
         </NavLink>
         <NavLink
-          to={"/Home/Recommendations"}
+          to={"/home/recommendations"}
           className={(navData) => navData.isActive ? "HomeMenu__Navs__Active" : ""}
         >
           Рекомендации
         </NavLink>
         <NavLink
-          to={"/Home/Subscription"}
+          to={"/home/subscription"}
           className={(navData) => navData.isActive ? "HomeMenu__Navs__Active" : ""}
         >
           Подписки
@@ -28,9 +28,9 @@ export const HomeMenu = () => {
         </div>
       </div>
       <div className="HomeMenu__Title">
-        {location.pathname === '/Home/Top' ?
-          "Топ" : location.pathname === '/Home/Recommendations' ?
-            "Рекомендации" : location.pathname === '/Home/Subscription' ?
+        {location.pathname === '/home/top' ?
+          "Топ" : location.pathname === '/home/recommendations' ?
+            "Рекомендации" : location.pathname === '/home/subscription' ?
               "Подписки" : null
         }
       </div>

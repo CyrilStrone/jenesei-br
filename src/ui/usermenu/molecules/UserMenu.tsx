@@ -8,31 +8,31 @@ export const UserMenu = () => {
     <div className="UserMenu Translucent__Block Block__NonActive__NotShadow">
       <div className="UserMenu__Navs">
         <NavLink
-          to={"/UserSetting"}
+          to={"/user/setting"}
           className={(navData) => navData.isActive ? "UserMenu__Navs__Active" : ""}
         >
           Настройки
         </NavLink>
         <NavLink
-          to={"/UserPublicationList"}
+          to={"/user/publication/list"}
           className={(navData) => navData.isActive ? "UserMenu__Navs__Active" : ""}
         >
           Публикации
         </NavLink>
         <NavLink
-          to={"/UserSubscription"}
+          to={"/user/subscription"}
           className={(navData) => navData.isActive ? "UserMenu__Navs__Active" : ""}
         >
           Подписки
         </NavLink>
         <NavLink
-          to={"/UserSubscribers"}
+          to={"/user/subscribers"}
           className={(navData) => navData.isActive ? "UserMenu__Navs__Active" : ""}
         >
           Подписчики
         </NavLink>
         <NavLink
-          to={"/UserPublicationWrite"}
+          to={"/user/publication/write"}
           className={(navData) => navData.isActive ? "UserMenu__Navs__Active" : ""}
         >
           Написать публикацию

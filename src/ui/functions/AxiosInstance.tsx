@@ -3,7 +3,6 @@ import { setAccessToken, UserLogout } from "./AccessToken";
 
 export const RememberRefreshName = "BusinessRouletteRememberRefresh"
 export const accessTokenName = "BusinessRouletteToken"
-export const accessTokenNameLogin = "BusinessRouletteLogin"
 
 export const ApiLocation = "https://data-api.oxilor.com"
 export const ApiLocationAnother = "https://dataservice.accuweather.com"
@@ -11,6 +10,7 @@ export const ApiImage = "https://businessroulette.ru:3000"
 export const axiosInstance = axios.create({
   baseURL: "https://businessroulette.ru:3000/api",
   timeout: 1000,
+  withCredentials: true,
   headers: {
     authorization: `Bearer ${localStorage.getItem(accessTokenName)}`
   },
@@ -30,14 +30,14 @@ axiosInstance.interceptors.response.use(
 );
 export const refreshToken = async () => {
   return await axios
-    .get('https://businessroulette.ru:3000/api/auth/refresh', { withCredentials: true })
+    .get('https://businessroulette.ru:3000/api/auth/refresh')
     .then((res: any) => {
       if (res.data.token) {
         setAccessToken(res.data.token);
       }
     })
     .catch((error) => {
-      setAccessToken("")
+      UserLogout()
       throw new Error(error.response.data.message);
     })
 }

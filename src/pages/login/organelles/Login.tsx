@@ -65,10 +65,10 @@ export const Login = () => {
                         </>
                     }
                     <div className="Login__Block__Content__Footer">
-                        <NavLink to={"/Forgot"} className="Login__Block__Content__Forgot">
+                        <NavLink to={"/forgot"} className="Login__Block__Content__Forgot">
                             Забыли Jenesei ID или пароль?
                         </NavLink>
-                        <NavLink to={"/Registration"} className="Login__Block__Content__Registration">
+                        <NavLink to={"/registration"} className="Login__Block__Content__Registration">
                             Создать Jenesei ID
                         </NavLink>
                     </div>

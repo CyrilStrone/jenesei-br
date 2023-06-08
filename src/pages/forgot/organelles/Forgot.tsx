@@ -8,7 +8,7 @@ export const Forgot = () => {
       <div className="Forgot__Block">
         <div className="Forgot__Block__Content">
           <div className="Forgot__Block__Content__Footer">
-            <NavLink to={"/Login"} className="Login__Block__Content__Registration">
+            <NavLink to={"/authorization"} className="Login__Block__Content__Registration">
               Назад
             </NavLink>
           </div>

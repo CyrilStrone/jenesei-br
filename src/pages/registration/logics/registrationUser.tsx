@@ -19,7 +19,7 @@ export const registrationUser = async (params: IRegistrationUser) => {
         "lastName": params.lastName,
         "login": params.login,
         "birthDate": params.date,
-    }, { withCredentials: true })
+    })
         .then((res: any) => {
             if (res.data.token) {
                 setRememberCheck("true")

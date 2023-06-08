@@ -1,5 +1,5 @@
 import { setUserLogin } from "./AccessToken";
-import { accessTokenNameLogin, axiosInstance } from "./AxiosInstance";
+import { axiosInstance } from "./AxiosInstance";
 
 export const InUser = async () => {
     return axiosInstance.get(

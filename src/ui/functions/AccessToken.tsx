@@ -1,6 +1,6 @@
 import { createEvent, createStore } from "effector"
 import { requestUser } from "../../App";
-import { RememberRefreshName, accessTokenName, accessTokenNameLogin, axiosInstance } from "./AxiosInstance";
+import { RememberRefreshName, accessTokenName, axiosInstance } from "./AxiosInstance";
 
 export const $accessToken = createStore("")
 export const setAccessToken = createEvent<string>()
@@ -24,9 +24,7 @@ $accessToken.updates.watch((token) => {
 $rememberCheck.updates.watch((check) => {
     localStorage.setItem(RememberRefreshName, (check));
 });
-$userLogin.updates.watch((name) => {
-    localStorage.setItem(accessTokenNameLogin, (name));
-});
+
 export const UserLogout = () => {
     document.cookie = "name=<Refresh>; expires=-1";
     document.cookie = "name=<Session>; expires=-1";

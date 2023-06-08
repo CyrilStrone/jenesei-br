@@ -11,7 +11,7 @@ export const Major = () => {
             <div className="Major__Name">
                 Business Roulette
             </div>
-            <NavLink to={"/Login"} className="Major__Login">
+            <NavLink to={"/authorization"} className="Major__Login">
                 Вход
             </NavLink>
             <div className="Major__Description">

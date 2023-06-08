@@ -1,10 +1,10 @@
 import "./App.css";
 import "./Font.css";
 import "./ui/generalStyles/Blocks.css";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import { useEffect } from "react";
 import { useStore } from "effector-react";
-import { $accessToken, setAccessToken, setRememberCheck } from "./ui/functions/AccessToken";
+import { $accessToken, UserLogout, setAccessToken, setRememberCheck } from "./ui/functions/AccessToken";
 import { RememberRefreshName, accessTokenName } from "./ui/functions/AxiosInstance";
 import { Header } from "./ui/header/organelles/Header";
 import { Footer } from "./ui/footer/organelles/Footer";
@@ -23,7 +23,7 @@ import { UserSubscribers } from "./pages/userSubscribers/organelles/UserSubscrib
 import { UserPublicationList } from "./pages/userPublicationList/organelles/UserPublicationList";
 import { CustomValidity } from "./ui/customValidity/organelles/CustomValidity";
 import { InUser } from "./ui/functions/InUser";
-import { setUserValue } from "./ui/functions/Hooks";
+import { $userValue, setUserValue } from "./ui/functions/Hooks";
 import { UserSetting } from "./pages/userSetting/organelles/UserSetting";
 import { UserPublicationWrite } from "./pages/userPublicationWrite/organelles/UserPublicationWrite";
 
@@ -40,15 +40,20 @@ export async function requestUser() {
 
 export function App() {
   const accessToken = useStore($accessToken);
-
+  const userValue = useStore($userValue);
   useEffect(() => {
     if (localStorage.getItem(accessTokenName)?.length) {
       setAccessToken(localStorage.getItem(accessTokenName) || "")
+    } else {
+      UserLogout()
     }
     if (localStorage.getItem(RememberRefreshName)?.length) {
       setRememberCheck((localStorage.getItem(RememberRefreshName)?.length && localStorage.getItem(RememberRefreshName) || "false"))
     }
   }, [])
+  useEffect(() => {
+    console.log("accessToken", accessToken)
+  }, [accessToken])
   return (
     <div className="App">
       <div className="App__PhoneWallpaper"></div>
@@ -57,26 +62,26 @@ export function App() {
         <CustomValidity />
         <Routes>
           <Route path="/" element={<Major />}></Route>
-          <Route path="/:id" element={<User />}></Route>
-          {accessToken ?
+          <Route path="/user/:login" element={<User />}></Route>
+          {(accessToken && userValue) ?
             <>
-              <Route path="/Home/Recommendations" element={<HomeRecommendation />} />
-              <Route path="/Home/Top" element={<HomeTop />} />
-              <Route path="/Home/Subscription" element={<HomeSubscription />} />
-              <Route path="/Chat" element={<Chat />} />
-              <Route path="/Search" element={<Search />} />
-              <Route path="/UserSubscription" element={<UserSubscription />} />
-              <Route path="/UserSubscribers" element={<UserSubscribers />} />
-              <Route path="/UserSetting" element={<UserSetting />} />
-              <Route path="/UserPublicationWrite" element={<UserPublicationWrite />} />
-              <Route path="/UserPublicationList" element={<UserPublicationList />} />
-              <Route path='*' element={<User />}></Route>
+              <Route path="/home/recommendations" element={<HomeRecommendation />} />
+              <Route path="/home/top" element={<HomeTop />} />
+              <Route path="/home/subscription" element={<HomeSubscription />} />
+              <Route path="/chat" element={<Chat />} />
+              <Route path="/search" element={<Search />} />
+              <Route path="/user/subscription" element={<UserSubscription />} />
+              <Route path="/user/subscribers" element={<UserSubscribers />} />
+              <Route path="/user/setting" element={<UserSetting />} />
+              <Route path="/user/publication/write" element={<UserPublicationWrite />} />
+              <Route path="/user/publication/list" element={<UserPublicationList />} />
+              <Route path="*" element={<Navigate to={`/user/${userValue?.user?.login}`} replace />} />
             </> :
             <>
-              <Route path="/Login" element={<Login />} />
-              <Route path="/Registration" element={<Registration />} />
-              <Route path="/Forgot" element={<Forgot />} />
-              <Route path='*' element={<Login />} />
+              <Route path="/authorization" element={<Login />} />
+              <Route path="/registration" element={<Registration />} />
+              <Route path="/forgot" element={<Forgot />} />
+              <Route path="*" element={<Navigate to="/authorization" />} />
             </>
           }
         </Routes>

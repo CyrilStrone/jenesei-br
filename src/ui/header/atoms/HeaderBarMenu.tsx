@@ -13,23 +13,23 @@ export const HeaderBarMenu = () => {
         Навигация
       </div>
       <div className='HeaderBarMenu__List'>
-        <NavLink to={"/Home/Top"}>
+        <NavLink to={"/home/top"}>
           <img src={Top} className="HeaderBarMenu__List__Image" alt="" />
           Топ
         </NavLink>
-        <NavLink to={"/Home/Recommendations"}>
+        <NavLink to={"/home/recommendations"}>
           <img src={Recommendations} className="HeaderBarMenu__List__Image" alt="" />
           Рекомендации
         </NavLink>
-        <NavLink to={"/Home/Subscription"}>
+        <NavLink to={"/home/subscription"}>
           <img src={Subscription} className="HeaderBarMenu__List__Image" alt="" />
           Подписки
         </NavLink>
-        <NavLink to={"/Chat"}>
+        <NavLink to={"/chat"}>
           <img src={Chat} className="HeaderBarMenu__List__Image" alt="" />
           Чат
         </NavLink>
-        <NavLink to={"/Search"}>
+        <NavLink to={"/search"}>
           <img src={Search} className="HeaderBarMenu__List__Image" alt="" />
           Поиск
         </NavLink>

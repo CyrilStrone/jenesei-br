@@ -27,34 +27,34 @@ export const HeaderBarProfile = () => {
         <div className='HeaderBarProfile__List__Title'>
           Основные
         </div>
-        <Link to={`/:${userValue.user.login}`}>
+        <Link to={`/user/${userValue.user.login}`}>
           <img src={User} className="HeaderBarProfile__List__Image" alt="" />
           Профиль
         </Link>
-        <NavLink to={`/UserSubscription`}>
+        <NavLink to={`/user/subscription`}>
           <img src={Subscription} className="HeaderBarProfile__List__Image" alt="" />
           Подписки
         </NavLink>
-        <NavLink to={`/UserSubscribers`}>
+        <NavLink to={`/user/subscribers`}>
           <img src={Subscribers} className="HeaderBarProfile__List__Image" alt="" />
           Подписчики
         </NavLink>
-        <NavLink to={`/UserPublicationList`}>
+        <NavLink to={`/user/publication/list`}>
           <img src={PublicationList} className="HeaderBarProfile__List__Image" alt="" />
           Публикации
         </NavLink>
         <div className='HeaderBarProfile__List__Title'>
           Еще
         </div>
-        <NavLink to={`/UserPublicationWrite`}>
+        <NavLink to={`/user/publication/write`}>
           <img src={Publication} className="HeaderBarProfile__List__Image" alt="" />
           Написать публикацию
         </NavLink>
-        <NavLink to={`/UserSetting`} className="HeaderBarProfile__List__Settings">
+        <NavLink to={`/user/setting`} className="HeaderBarProfile__List__Settings">
           <img src={Setting} className="HeaderBarProfile__List__Image" alt="" />
           Настройки
         </NavLink>
-        <NavLink to={`/Login`} onClick={UserLogout} className="HeaderBarProfile__List__Logout">
+        <NavLink to={`/authorization`} onClick={UserLogout} className="HeaderBarProfile__List__Logout">
           <img src={Logout} className="HeaderBarProfile__List__Image " alt="" />
           Выход
         </NavLink>

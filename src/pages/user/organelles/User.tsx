@@ -10,22 +10,19 @@ import { useStore } from "effector-react";
 import { $userValue } from "../../../ui/functions/Hooks";
 import { useEffect, useState } from "react";
 import { InAnotherUser } from "../logics/InAnotherUser";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { setCustomValidityShow } from "../../../ui/customValidity/organelles/CustomValidity";
-import { accessTokenNameLogin } from "../../../ui/functions/AxiosInstance";
 import { $accessToken } from "../../../ui/functions/AccessToken";
 import { UserContacts } from "../molecules/UserContacts";
 import { UserButton } from "../molecules/UserButton";
 
 export const User = () => {
-  const navigate = useNavigate()
-  const location = useLocation();
   const userValue = useStore($userValue);
   const accessToken = useStore($accessToken);
-  const [login, setLogin] = useState<any>()
   const [value, setValue] = useState<any>()
-
+  const { login } = useParams();
   const requestInAnotherUser = async (login: string) => {
+    console.log("requestInAnotherUser")
     try {
       const result = await InAnotherUser(login);
       if (result) {
@@ -35,38 +32,14 @@ export const User = () => {
       setCustomValidityShow("Не верный url")
     }
   }
-
   useEffect(() => {
     if (login) {
       requestInAnotherUser(login)
     }
-  }, [login])
-
-  useEffect(() => {
-    if (location.pathname.split("/:")[1]) {
-      setLogin(location.pathname.split("/:")[1])
-    } else {
-      const localLogin = localStorage.getItem(accessTokenNameLogin) || "";
-      if (localLogin) {
-        navigate(`/:${localLogin}`)
-        setLogin(localLogin)
-      }
-    }
-  }, [location])
-
-  useEffect(() => {
-    if (userValue && !location.pathname.split("/:")[1]) {
-      navigate(`/:${userValue.user.login}`)
-      setLogin(userValue.user.login)
-    }
-  }, [userValue])
-  
-  useEffect(() => {
     return (() => {
       setValue(null)
-      setLogin(null)
     })
-  }, [])
+  }, [login])
   return (
     <div className="User">
       {value && <div className="User__Content">

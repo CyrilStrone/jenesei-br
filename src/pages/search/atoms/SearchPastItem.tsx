@@ -13,7 +13,7 @@ interface ISearchPastItem {
 
 export const SearchPastItem = (params: ISearchPastItem) => {
     return (
-        <Link to={`/:${params.login}`} className='SearchPastItem Search__User__Card Block__Active' >
+        <Link to={`/user/${params.login}`} className='SearchPastItem Search__User__Card Block__Active' >
             <img src={ApiImage + params.avatarPath} alt="Avatar" className='SearchPastItem__Avatar' />
             <div className='SearchPastItem__Bar'>
                 <div className='SearchPastItem__Bar__Name'>

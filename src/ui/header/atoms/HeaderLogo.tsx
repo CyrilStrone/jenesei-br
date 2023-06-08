@@ -4,7 +4,7 @@ import logo from "../../../assets/logo/LogoMin.jpg";
 
 export const HeaderLogo = () => {
   return (
-    <Link to={`/Home/Top`} className={`HeaderLogo`}>
+    <Link to={`/home/top`} className={`HeaderLogo`}>
       <img src={logo} className={`HeaderLogo__Image`} alt="" />
       <div className="HeaderLogo__Title">
         <div className="HeaderLogo__Title__BLue">
