@@ -108,7 +108,6 @@ export const FieldChangeEducation = (params: IFieldChange) => {
     }, [params.value])
 
     useEffect(() => {
-        console.log("params.newValue", params.newValue)
         if ((params.newValue?.text) && textAreaRef && textAreaRef.current) {
             textAreaRef.current.style.height = 'auto';
             textAreaRef.current.style.height = `${textAreaRef.current.scrollHeight}px`;

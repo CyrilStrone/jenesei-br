@@ -51,9 +51,6 @@ export function App() {
       setRememberCheck((localStorage.getItem(RememberRefreshName)?.length && localStorage.getItem(RememberRefreshName) || "false"))
     }
   }, [])
-  useEffect(() => {
-    console.log("accessToken", accessToken)
-  }, [accessToken])
   return (
     <div className="App">
       <div className="App__PhoneWallpaper"></div>

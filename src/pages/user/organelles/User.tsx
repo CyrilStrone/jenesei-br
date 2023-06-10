@@ -22,7 +22,6 @@ export const User = () => {
   const [value, setValue] = useState<any>()
   const { login } = useParams();
   const requestInAnotherUser = async (login: string) => {
-    console.log("requestInAnotherUser")
     try {
       const result = await InAnotherUser(login);
       if (result) {

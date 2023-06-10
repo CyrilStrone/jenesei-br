@@ -19,7 +19,7 @@ export const SearchBarFilter = (params: ISearchBarFilter) => {
                 setValueApi(result.map((e: any) => ({ value: e.name, label: e.name })))
             }
         } catch (error) {
-            console.log("handleValueApi", handleValueApi)
+            console.log("handleValueApi", error)
         }
     }
 
