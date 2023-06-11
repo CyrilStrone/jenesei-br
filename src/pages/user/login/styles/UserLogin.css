@@ -1,0 +1,25 @@
+.UserLogin {
+  display: flex;
+  width: 1000px;
+  height: 100%;
+  flex-direction: column;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-size: 48px;
+}
+.User__Content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+@media (orientation: landscape) {
+  .User__Content__Item {
+    height: auto !important;
+  }
+}
+@media (orientation: portrait) {
+  .UserLogin {
+    width: 100%;
+    font-size: 28px;
+  }
+}

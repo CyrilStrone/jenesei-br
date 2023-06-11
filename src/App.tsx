@@ -14,18 +14,20 @@ import { Login } from "./pages/login/organelles/Login";
 import { Forgot } from "./pages/forgot/organelles/Forgot";
 import { Chat } from "./pages/chat/organelles/Chat";
 import { Search } from "./pages/search/organelles/Search";
-import { HomeTop } from "./pages/home/organelles/HomeTop";
-import { HomeRecommendation } from "./pages/home/organelles/HomeRecommendation";
-import { HomeSubscription } from "./pages/home/organelles/HomeSubscription";
-import { User } from "./pages/user/organelles/User";
-import { UserSubscription } from "./pages/userSubscription/organelles/UserSubscription";
-import { UserSubscribers } from "./pages/userSubscribers/organelles/UserSubscribers";
-import { UserPublicationList } from "./pages/userPublicationList/organelles/UserPublicationList";
 import { CustomValidity } from "./ui/customValidity/organelles/CustomValidity";
 import { InUser } from "./ui/functions/InUser";
 import { $userValue, setUserValue } from "./ui/functions/Hooks";
-import { UserSetting } from "./pages/userSetting/organelles/UserSetting";
-import { UserPublicationWrite } from "./pages/userPublicationWrite/organelles/UserPublicationWrite";
+import { UserMore } from "./pages/user/index/organelles/userMore";
+import { UserLogin } from "./pages/user/login/organelles/User";
+import { UserSubscription } from "./pages/user/subscription/organelles/UserSubscription";
+import { UserSubscribers } from "./pages/user/subscribers/organelles/UserSubscribers";
+import { UserSetting } from "./pages/user/setting/organelles/UserSetting";
+import { UserPublicationWrite } from "./pages/user/publication/write/organelles/UserPublicationWrite";
+import { UserPublicationList } from "./pages/user/publication/list/organelles/UserPublicationList";
+import { HomeMore } from "./pages/home/index/organelles/HomeMore";
+import { HomeRecommendation } from "./pages/home/recommendation/organelles/HomeRecommendation";
+import { HomeTop } from "./pages/home/top/organelles/HomeTop";
+import { HomeSubscription } from "./pages/home/subscription/organelles/HomeSubscription";
 
 export async function requestUser() {
   try {
@@ -58,21 +60,30 @@ export function App() {
       <div className="App_Actual">
         <CustomValidity />
         <Routes>
-          <Route path="/" element={<Major />}></Route>
-          <Route path="/user/:login" element={<User />}></Route>
+          {/* <Route path="/" element={<Major />}></Route> */}
           {(accessToken && userValue) ?
             <>
-              <Route path="/home/recommendations" element={<HomeRecommendation />} />
-              <Route path="/home/top" element={<HomeTop />} />
-              <Route path="/home/subscription" element={<HomeSubscription />} />
-              <Route path="/chat" element={<Chat />} />
-              <Route path="/search" element={<Search />} />
-              <Route path="/user/subscription" element={<UserSubscription />} />
-              <Route path="/user/subscribers" element={<UserSubscribers />} />
-              <Route path="/user/setting" element={<UserSetting />} />
-              <Route path="/user/publication/write" element={<UserPublicationWrite />} />
-              <Route path="/user/publication/list" element={<UserPublicationList />} />
-              <Route path="*" element={<Navigate to={`/user/${userValue?.user?.login}`} replace />} />
+              <Route path="/">
+                <Route path="chat" element={<Chat />} />
+                <Route path="search" element={<Search />} />
+                <Route path="user" element={<UserMore />}>
+                  <Route path=":login" element={<UserLogin />} />
+                  <Route path="subscription" element={<UserSubscription />} />
+                  <Route path="subscribers" element={<UserSubscribers />} />
+                  <Route path="setting" element={<UserSetting />} />
+                  <Route path="publication">
+                    <Route path="write" element={<UserPublicationWrite />} />
+                    <Route path="list" element={<UserPublicationList />} />
+                  </Route>
+                </Route>
+                <Route path="home" element={<HomeMore />}>
+                  <Route path="recommendations" element={<HomeRecommendation />} />
+                  <Route path="top" element={<HomeTop />} />
+                  <Route path="subscription" element={<HomeSubscription />} />
+                </Route>
+              </Route>
+
+              {/* <Route path="*" element={<Navigate to={`/user/${userValue?.user?.login}`} replace />} /> */}
             </> :
             <>
               <Route path="/authorization" element={<Login />} />

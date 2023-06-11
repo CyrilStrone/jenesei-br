@@ -1,12 +1,33 @@
+import { useEffect, useRef, useState } from "react";
 import "../styles/UserMenu.css";
 import "../styles/UserMore.css";
 import { NavLink, useLocation } from "react-router-dom";
+import useWindowDimensions from "../../functions/UseWindowDimensions";
 
 export const UserMenu = () => {
+  const [leftSlider, setLeftSlider] = useState<number | null>(null)
+  const [widthSlider, setWidthSlider] = useState<number | null>(null)
   const location = useLocation();
+  const parentRef = useRef(null);
+  const { width, height } = useWindowDimensions()
+
+  useEffect(() => {
+    const parentElement = parentRef.current;
+    if (parentElement) {
+      //@ts-ignore
+      const activeNavLink = parentElement.querySelector('.UserMenu__Navs__Active');
+      if (activeNavLink) {
+        //@ts-ignore
+        const parentLeft = parentElement.getBoundingClientRect().left;
+        const activeLeft = activeNavLink.getBoundingClientRect().left;
+        setLeftSlider(activeLeft - parentLeft)
+        setWidthSlider(activeNavLink.getBoundingClientRect().width + 2)
+      }
+    }
+  }, [location, width, height]);
   return (
     <div className="UserMenu Translucent__Block Block__NonActive__NotShadow">
-      <div className="UserMenu__Navs">
+      <div className="UserMenu__Navs" ref={parentRef}>
         <NavLink
           to={"/user/setting"}
           className={(navData) => navData.isActive ? "UserMenu__Navs__Active" : ""}
@@ -37,18 +58,11 @@ export const UserMenu = () => {
         >
           Написать публикацию
         </NavLink>
-        <div className="UserMenu__Line">
-        </div>
       </div>
-      <div className="UserMenu__Title">
-        {location.pathname === '/UserSetting' ?
-          "Настройки" : location.pathname === '/UserPublicationList' ?
-            "Публикации" : location.pathname === '/UserSubscription' ?
-              "Подписки" : location.pathname === '/UserSubscribers' ?
-                "Подписчики" : location.pathname === '/UserPublicationWrite' ?
-                  "Написать публикацию" : null
-        }
-      </div>
+      <div className="UserMenu__Slider" style={{
+        left: `${leftSlider}px`,
+        width: `${widthSlider}px`
+      }} />
     </div>
   );
 };
