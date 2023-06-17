@@ -35,10 +35,10 @@ export const UserMenu = () => {
           Настройки
         </NavLink>
         <NavLink
-          to={"/user/publication/list"}
+          to={"/user/security"}
           className={(navData) => navData.isActive ? "UserMenu__Navs__Active" : ""}
         >
-          Публикации
+          Безопасность
         </NavLink>
         <NavLink
           to={"/user/subscription"}
@@ -51,6 +51,12 @@ export const UserMenu = () => {
           className={(navData) => navData.isActive ? "UserMenu__Navs__Active" : ""}
         >
           Подписчики
+        </NavLink>
+        <NavLink
+          to={"/user/publication/list"}
+          className={(navData) => navData.isActive ? "UserMenu__Navs__Active" : ""}
+        >
+          Публикации
         </NavLink>
         <NavLink
           to={"/user/publication/write"}

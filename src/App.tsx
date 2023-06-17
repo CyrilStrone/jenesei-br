@@ -28,6 +28,7 @@ import { HomeMore } from "./pages/home/index/organelles/HomeMore";
 import { HomeRecommendation } from "./pages/home/recommendation/organelles/HomeRecommendation";
 import { HomeTop } from "./pages/home/top/organelles/HomeTop";
 import { HomeSubscription } from "./pages/home/subscription/organelles/HomeSubscription";
+import { UserSecurity } from "./pages/user/security/organelles/UserSecurity";
 
 export async function requestUser() {
   try {
@@ -60,36 +61,44 @@ export function App() {
       <div className="App_Actual">
         <CustomValidity />
         <Routes>
-          {/* <Route path="/" element={<Major />}></Route> */}
           {(accessToken && userValue) ?
             <>
               <Route path="/">
+                <Route index element={<Navigate to="/home/top" />} />
+                <Route path="*" element={<Navigate to="/home/top" />} />
                 <Route path="chat" element={<Chat />} />
                 <Route path="search" element={<Search />} />
                 <Route path="user" element={<UserMore />}>
-                  <Route path=":login" element={<UserLogin />} />
+                  <Route path="login/:login" element={<UserLogin />} />
                   <Route path="subscription" element={<UserSubscription />} />
                   <Route path="subscribers" element={<UserSubscribers />} />
                   <Route path="setting" element={<UserSetting />} />
+                  <Route path="security" element={<UserSecurity />} />
                   <Route path="publication">
                     <Route path="write" element={<UserPublicationWrite />} />
                     <Route path="list" element={<UserPublicationList />} />
                   </Route>
                 </Route>
                 <Route path="home" element={<HomeMore />}>
+                  <Route path="*" element={<Navigate to="/home/top" />} />
                   <Route path="recommendations" element={<HomeRecommendation />} />
                   <Route path="top" element={<HomeTop />} />
                   <Route path="subscription" element={<HomeSubscription />} />
                 </Route>
               </Route>
-
-              {/* <Route path="*" element={<Navigate to={`/user/${userValue?.user?.login}`} replace />} /> */}
             </> :
             <>
-              <Route path="/authorization" element={<Login />} />
-              <Route path="/registration" element={<Registration />} />
-              <Route path="/forgot" element={<Forgot />} />
-              <Route path="*" element={<Navigate to="/authorization" />} />
+              <Route path="/">
+                <Route index element={<Major />} />
+                <Route path="*" element={<Navigate to="/" />} />
+                <Route path="authorization" element={<Login />} />
+                <Route path="registration" element={<Registration />} />
+                <Route path="forgot" element={<Forgot />} />
+                <Route path="user/login/" element={<UserMore />}>
+                  <Route path=":login" element={<UserLogin />} />
+                  <Route path="*" element={<Navigate to="/" />} />
+                </Route>
+              </Route>
             </>
           }
         </Routes>

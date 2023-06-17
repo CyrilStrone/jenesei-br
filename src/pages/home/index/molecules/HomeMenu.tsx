@@ -26,7 +26,7 @@ export const HomeMenu = () => {
     }
   }, [location, width, height]);
   return (
-    <div className="HomeMenu Translucent__Block Block__Active">
+    <div className="HomeMenu Translucent__Block Block__NonActive">
       <div className="HomeMenu__Navs" ref={parentRef}>
         <NavLink
           to={"top"}
@@ -46,11 +46,11 @@ export const HomeMenu = () => {
         >
           Подписки
         </NavLink>
-      </div>
-      <div className="HomeMenu__Slider" style={{
+        <div className="HomeMenu__Slider" style={{
           left: `${leftSlider}px`,
           width: `${widthSlider}px`
         }} />
+      </div>
       <div className="HomeMenu__Title">
         {location.pathname === '/home/top' ?
           "Топ" : location.pathname === '/home/recommendations' ?

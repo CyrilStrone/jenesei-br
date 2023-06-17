@@ -22,7 +22,7 @@ export const UserSubscription = (params: IUserSubscription) => {
             </div>
             <div className="Half__Block__Footer UserSubscription__LIst" ref={ref} onWheel={handleWheel}>
                 {params?.subscription?.map((e: any) =>
-                    <Link to={`/user/${e?.login}`} className="UserSubscription__Item">
+                    <Link to={`/user/login/${e?.login}`} className="UserSubscription__Item">
                         <img src={ApiImage + e?.avatarPath} alt="Avatar" className="UserSubscription__Item__Avatar" />
                         <div className="UserSubscription__Item__Name">
                             {e?.firstName + " " + e?.lastName}

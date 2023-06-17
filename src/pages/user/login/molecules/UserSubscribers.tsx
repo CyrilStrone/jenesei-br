@@ -22,7 +22,7 @@ export const UserSubscribers = (params: IUserSubscribers) => {
             </div>
             <div className="Half__Block__Footer UserSubscribers__LIst" ref={ref} onWheel={handleWheel}>
                 {params?.subscribers?.map((e: any) =>
-                    <Link to={`/user/${e?.login}`} className="UserSubscribers__Item">
+                    <Link to={`/user/login/${e?.login}`} className="UserSubscribers__Item">
                         <img src={ApiImage + e?.avatarPath} alt="Avatar" className="UserSubscribers__Item__Avatar" />
                         <div className="UserSubscribers__Item__Name">
                             {e?.firstName + " " + e?.lastName}

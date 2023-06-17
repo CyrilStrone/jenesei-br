@@ -10,7 +10,7 @@ import Publication from '../../../assets/header/Publication.svg'
 import PublicationList from '../../../assets/header/PublicationList.svg'
 import Subscription from '../../../assets/header/Subscription.svg'
 import Subscribers from '../../../assets/header/Subscribers.svg'
-
+import Security from '../../../assets/header/Security.svg'
 export const HeaderBarProfile = () => {
   const userValue = useStore($userValue);
   return (
@@ -27,7 +27,7 @@ export const HeaderBarProfile = () => {
         <div className='HeaderBarProfile__List__Title'>
           Основные
         </div>
-        <Link to={`/user/${userValue.user.login}`}>
+        <Link to={`/user/login/${userValue.user.login}`}>
           <img src={User} className="HeaderBarProfile__List__Image" alt="" />
           Профиль
         </Link>
@@ -49,6 +49,10 @@ export const HeaderBarProfile = () => {
         <NavLink to={`/user/publication/write`}>
           <img src={Publication} className="HeaderBarProfile__List__Image" alt="" />
           Написать публикацию
+        </NavLink>
+        <NavLink to={`/user/security`}>
+          <img src={Security} className="HeaderBarProfile__List__Image" alt="" />
+          Безопасность
         </NavLink>
         <NavLink to={`/user/setting`} className="HeaderBarProfile__List__Settings">
           <img src={Setting} className="HeaderBarProfile__List__Image" alt="" />
