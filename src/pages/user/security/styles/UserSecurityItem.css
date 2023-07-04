@@ -1,0 +1,35 @@
+.UserSecurityItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 30px;
+}
+.UserSecurityItem__Title {
+  font-size: 30%;
+  font-weight: 600;
+}
+.UserSecurityItem__CheckBar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+    height: 100%;
+}
+.UserSecurityItem__CheckBar__Item {
+}
+.UserSecurityItem__CheckBar__Line{
+    height: 100%;
+    width: 1px;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+@media (orientation: portrait) {
+  .UserSecurityItem {
+  }
+  .UserSecurityItem__Title {
+    font-size: 60%;
+  }
+  .UserSecurityItem__CheckBar {
+  }
+  .UserSecurityItem__CheckBar__Item {
+  }
+}

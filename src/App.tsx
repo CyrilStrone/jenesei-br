@@ -61,22 +61,27 @@ export function App() {
       <div className="App_Actual">
         <CustomValidity />
         <Routes>
-          {(accessToken && userValue) ?
-            <>
-              <Route path="/">
+          <Route path="/">
+            {(accessToken && userValue) ?
+              <>
                 <Route index element={<Navigate to="/home/top" />} />
                 <Route path="*" element={<Navigate to="/home/top" />} />
                 <Route path="chat" element={<Chat />} />
                 <Route path="search" element={<Search />} />
                 <Route path="user" element={<UserMore />}>
-                  <Route path="login/:login" element={<UserLogin />} />
+                  <Route index element={<Navigate to="/user/login/" />} />
+                  <Route path="*" element={<Navigate to="/user/login/" />} />
                   <Route path="subscription" element={<UserSubscription />} />
                   <Route path="subscribers" element={<UserSubscribers />} />
                   <Route path="setting" element={<UserSetting />} />
                   <Route path="security" element={<UserSecurity />} />
                   <Route path="publication">
+                    <Route path="*" element={<Navigate to="/user/publication/write" />} />
                     <Route path="write" element={<UserPublicationWrite />} />
                     <Route path="list" element={<UserPublicationList />} />
+                  </Route>
+                  <Route path="login">
+                    <Route path=":login" element={<UserLogin />} />
                   </Route>
                 </Route>
                 <Route path="home" element={<HomeMore />}>
@@ -85,22 +90,22 @@ export function App() {
                   <Route path="top" element={<HomeTop />} />
                   <Route path="subscription" element={<HomeSubscription />} />
                 </Route>
-              </Route>
-            </> :
-            <>
-              <Route path="/">
+              </> :
+              <>
                 <Route index element={<Major />} />
                 <Route path="*" element={<Navigate to="/" />} />
                 <Route path="authorization" element={<Login />} />
                 <Route path="registration" element={<Registration />} />
                 <Route path="forgot" element={<Forgot />} />
-                <Route path="user/login/" element={<UserMore />}>
-                  <Route path=":login" element={<UserLogin />} />
+                <Route path="user" element={<UserMore />}>
+                  <Route path="login">
+                    <Route path=":login" element={<UserLogin />} />
+                  </Route>
                   <Route path="*" element={<Navigate to="/" />} />
                 </Route>
-              </Route>
-            </>
-          }
+              </>
+            }
+          </Route>
         </Routes>
       </div>
       <Footer />
