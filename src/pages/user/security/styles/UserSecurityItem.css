@@ -6,7 +6,8 @@
 }
 .UserSecurityItem__Title {
   font-size: 30%;
-  font-weight: 600;
+  font-weight: 500;
+  width:30%;
 }
 .UserSecurityItem__CheckBar {
     display: flex;
@@ -14,8 +15,10 @@
     align-items: center;
     gap: 30px;
     height: 100%;
+    width:70%;
 }
 .UserSecurityItem__CheckBar__Item {
+  width: 112px;
 }
 .UserSecurityItem__CheckBar__Line{
     height: 100%;
