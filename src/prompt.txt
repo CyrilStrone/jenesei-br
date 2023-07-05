@@ -2,6 +2,10 @@ value - значение
 list - массив
 title - видимый текст
 
+nameOfFunction.ts
+NameOfComponent.tsx
+NameOfStyle.css
+
 Авторизированный пользователь = authorizedUser
 Не Авторизированный пользователь = unauthorizedUser
 
