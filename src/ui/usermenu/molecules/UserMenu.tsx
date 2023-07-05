@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import "../styles/UserMenu.css";
-import "../styles/UserMore.css";
 import { NavLink, useLocation } from "react-router-dom";
 import useWindowDimensions from "../../functions/UseWindowDimensions";
 

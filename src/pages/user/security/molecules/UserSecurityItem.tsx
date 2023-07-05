@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Checker } from "../../../../ui/checker/organelles/Checker";
 import "../styles/UserSecurityItem.css";
 export interface IUserSecurityItem {
@@ -21,12 +21,13 @@ export const UserSecurityItem = (params: IUserSecurityItem) => {
   const changeValueOnClick = (params: IChangeValueOnClick) => {
     setValue((prevState: any) => ({
       ...prevState,
+      all: false,
+      authorizedUser: false,
+      unauthorizedUser: false,
       [params.type]: !prevState[params.type]
+
     }))
   }
-  useEffect(() => {
-    console.log("value", value)
-  }, [value])
   return (
     <div className="UserSecurityItem">
       <div className="UserSecurityItem__Title">
@@ -35,7 +36,6 @@ export const UserSecurityItem = (params: IUserSecurityItem) => {
       <div className="UserSecurityItem__CheckBar">
         <div className="UserSecurityItem__CheckBar__Item">
           {
-            params.all &&
             <Checker value={value.all} onClick={() => changeValueOnClick({ type: "all" })} />
           }
         </div>
@@ -44,7 +44,6 @@ export const UserSecurityItem = (params: IUserSecurityItem) => {
         </div>
         <div className="UserSecurityItem__CheckBar__Item">
           {
-            params.authorizedUser &&
             <Checker value={value.authorizedUser} onClick={() => changeValueOnClick({ type: "authorizedUser" })} />
           }
         </div>
@@ -53,7 +52,6 @@ export const UserSecurityItem = (params: IUserSecurityItem) => {
         </div>
         <div className="UserSecurityItem__CheckBar__Item">
           {
-            params.unauthorizedUser &&
             <Checker value={value.unauthorizedUser} onClick={() => changeValueOnClick({ type: "unauthorizedUser" })} />
           }
         </div>

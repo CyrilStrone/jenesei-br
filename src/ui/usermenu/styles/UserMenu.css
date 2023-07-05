@@ -41,4 +41,7 @@
   .UserMenu__Navs {
     gap: 2%;
   }
+  .UserMenu {
+    padding: 10px;
+  }
 }

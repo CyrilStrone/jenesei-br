@@ -6,7 +6,7 @@
 }
 .UserSecurityItem__Title {
   font-size: 30%;
-  font-weight: 500;
+  font-weight: 400;
   width:30%;
 }
 .UserSecurityItem__CheckBar {
@@ -22,17 +22,21 @@
 }
 .UserSecurityItem__CheckBar__Line{
     height: 100%;
-    width: 1px;
-    background-color: rgba(0, 0, 0, 0.3);
+    border-right: 1px solid rgba(0, 0, 0, 0.3);
 }
 @media (orientation: portrait) {
   .UserSecurityItem {
   }
   .UserSecurityItem__Title {
-    font-size: 60%;
+    font-size: 40%;
   }
   .UserSecurityItem__CheckBar {
+    gap: 10px;
+    justify-content: space-around
   }
   .UserSecurityItem__CheckBar__Item {
+    width:50px;
+    display: flex;
+    justify-content: center;
   }
 }

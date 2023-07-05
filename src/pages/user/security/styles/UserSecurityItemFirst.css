@@ -1,4 +1,7 @@
-.UserSecurityItemFirst__CheckBar__Item{
-    font-size: 22%;
-    font-weight: 400;
+.UserSecurityItemFirst__CheckBar__Item {
+  font-size: 22%;
+  font-weight: 500;
+}
+.UserSecurityItemFirst__Title {
+  font-weight: 500;
 }
