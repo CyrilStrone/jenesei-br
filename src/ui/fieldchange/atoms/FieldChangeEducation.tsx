@@ -5,7 +5,7 @@ import { inApiDeleteEducation } from "../logics/inApiDelete";
 import { setUserSetting } from "../../functions/Hooks";
 import { IFieldChange } from "../organelles/FieldChange";
 import AsyncSelect from 'react-select/async';
-import Arrow from '../../../assets/fieldChange/Arrow.svg'
+import Arrow from '../../../assets/settings/leftArrow.svg'
 import Setting from '../../../assets/userChange/Setting.svg'
 import Delete from '../../../assets/userChange/Delete.svg'
 import axios from "axios";

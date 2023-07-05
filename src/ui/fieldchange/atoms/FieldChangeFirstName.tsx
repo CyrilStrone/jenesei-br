@@ -2,7 +2,7 @@ import { setUserSetting } from "../../functions/Hooks";
 import { IFieldChange } from "../organelles/FieldChange";
 import { inApiSaveDefault } from "../logics/inApiSave";
 import { useEffect } from "react";
-import Arrow from '../../../assets/fieldChange/Arrow.svg'
+import Arrow from '../../../assets/settings/leftArrow.svg'
 import Profile from '../../../assets/userChange/Profile.svg'
 
 export const FieldChangeFirstName = (params: IFieldChange) => {

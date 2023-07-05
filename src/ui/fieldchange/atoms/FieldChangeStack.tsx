@@ -7,7 +7,7 @@ import { IFieldChange } from "../organelles/FieldChange";
 import { inApiSaveStack } from "../logics/inApiSave";
 import { inApiDeleteStack } from "../logics/inApiDelete";
 import Delete from '../../../assets/userChange/Delete.svg'
-import Arrow from '../../../assets/fieldChange/Arrow.svg'
+import Arrow from '../../../assets/settings/leftArrow.svg'
 import Setting from '../../../assets/userChange/Setting.svg'
 
 export const FieldChangeStack = (params: IFieldChange) => {

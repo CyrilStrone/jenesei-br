@@ -6,7 +6,7 @@ import { IFieldChange } from "../organelles/FieldChange";
 import { ApiLocationAnother } from "../../functions/AxiosInstance";
 import { inApiSaveWorkExp } from "../logics/inApiSave";
 import { inApiDeleteWorkExp } from "../logics/inApiDelete";
-import Arrow from '../../../assets/fieldChange/Arrow.svg'
+import Arrow from '../../../assets/settings/leftArrow.svg'
 import Setting from '../../../assets/userChange/Setting.svg'
 import Delete from '../../../assets/userChange/Delete.svg'
 

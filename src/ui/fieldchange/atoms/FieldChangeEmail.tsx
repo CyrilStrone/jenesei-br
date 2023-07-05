@@ -2,7 +2,7 @@ import { setUserSetting } from "../../functions/Hooks";
 import { IFieldChange } from "../organelles/FieldChange";
 import { useEffect } from "react";
 import { inApiSaveDefault } from "../logics/inApiSave";
-import Arrow from '../../../assets/fieldChange/Arrow.svg'
+import Arrow from '../../../assets/settings/leftArrow.svg'
 import Message from '../../../assets/userChange/Message.svg'
 
 export const FieldChangeEmail = (params: IFieldChange) => {

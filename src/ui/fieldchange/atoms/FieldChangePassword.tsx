@@ -3,7 +3,7 @@ import { setUserSetting } from "../../functions/Hooks";
 import { IFieldChange } from "../organelles/FieldChange";
 import { inApiChangePassword } from "../logics/inApiSave";
 import { setCustomValidityShow } from "../../customValidity/organelles/CustomValidity";
-import Arrow from '../../../assets/fieldChange/Arrow.svg'
+import Arrow from '../../../assets/settings/leftArrow.svg'
 import Password from '../../../assets/userChange/Password.svg'
 
 export const FieldChangePassword = (params: IFieldChange) => {
