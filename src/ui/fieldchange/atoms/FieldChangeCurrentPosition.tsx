@@ -2,8 +2,8 @@ import { setUserSetting } from "../../functions/Hooks";
 import { IFieldChange } from "../organelles/FieldChange";
 import { inApiSaveDefault } from "../logics/inApiSave";
 import { useEffect } from "react";
-import Arrow from '../../../assets/settings/leftArrow.svg'
-import Position from '../../../assets/userChange/Position.svg'
+import Arrow from '../../../assets/icon/personalInformation/arrow-left-br-full-black.svg'
+import Position from '../../../assets/icon/personalInformation/speciality-br-full-black.svg'
 
 export const FieldChangeCurrentPosition = (params: IFieldChange) => {
     const handleApiSave = async () => {

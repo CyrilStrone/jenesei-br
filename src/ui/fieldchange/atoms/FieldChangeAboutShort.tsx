@@ -2,8 +2,8 @@ import { setUserSetting } from "../../functions/Hooks";
 import { IFieldChange } from "../organelles/FieldChange";
 import { useEffect, useRef } from "react";
 import { inApiSaveDefault } from "../logics/inApiSave";
-import Arrow from '../../../assets/settings/leftArrow.svg'
-import Setting from '../../../assets/userChange/Setting.svg'
+import Arrow from '../../../assets/icon/personalInformation/arrow-left-br-full-black.svg'
+import Setting from '../../../assets/icon/personalInformation/settings-br-full-black.svg'
 
 export const FieldChangeAboutShort = (params: IFieldChange) => {
     const textAreaRef = useRef<HTMLTextAreaElement>(null);

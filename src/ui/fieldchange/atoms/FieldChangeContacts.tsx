@@ -6,9 +6,9 @@ import { inApiSaveContact } from "../logics/inApiSave";
 import { useStore } from "effector-react";
 import { inApiDeleteContact } from "../logics/inApiDelete";
 import Select from "react-select";
-import Delete from '../../../assets/userChange/Delete.svg'
-import Arrow from '../../../assets/settings/leftArrow.svg'
-import Setting from '../../../assets/userChange/Setting.svg'
+import Delete from '../../../assets/icon/personalInformation/delete-br-full-black.svg'
+import Arrow from '../../../assets/icon/personalInformation/arrow-left-br-full-black.svg'
+import Setting from '../../../assets/icon/personalInformation/settings-br-full-black.svg'
 
 export const FieldChangeContacts = (params: IFieldChange) => {
     const userValue = useStore($userValue);

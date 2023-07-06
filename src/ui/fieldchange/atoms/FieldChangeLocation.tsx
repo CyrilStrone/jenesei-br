@@ -5,8 +5,8 @@ import { inLocationCity, inLocationCountry, inLocationState } from "../logics/in
 import { inApiSaveLocation } from "../logics/inApiSave";
 import { SpinningCircles } from "react-loading-icons";
 import Select from "react-select";
-import Arrow from '../../../assets/settings/leftArrow.svg'
-import Setting from '../../../assets/userChange/Setting.svg'
+import Arrow from '../../../assets/icon/personalInformation/arrow-left-br-full-black.svg'
+import Setting from '../../../assets/icon/personalInformation/settings-br-full-black.svg'
 
 export const FieldChangeLocation = (params: IFieldChange) => {
     const [valueLocation, setValueLocation] = useState<any>()

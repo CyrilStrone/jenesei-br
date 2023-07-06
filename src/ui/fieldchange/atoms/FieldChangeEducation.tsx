@@ -5,9 +5,9 @@ import { inApiDeleteEducation } from "../logics/inApiDelete";
 import { setUserSetting } from "../../functions/Hooks";
 import { IFieldChange } from "../organelles/FieldChange";
 import AsyncSelect from 'react-select/async';
-import Arrow from '../../../assets/settings/leftArrow.svg'
-import Setting from '../../../assets/userChange/Setting.svg'
-import Delete from '../../../assets/userChange/Delete.svg'
+import Arrow from '../../../assets/icon/personalInformation/arrow-left-br-full-black.svg'
+import Setting from '../../../assets/icon/personalInformation/settings-br-full-black.svg'
+import Delete from '../../../assets/icon/personalInformation/delete-br-full-black.svg'
 import axios from "axios";
 
 export const createArray = (start: number, end: number) => {

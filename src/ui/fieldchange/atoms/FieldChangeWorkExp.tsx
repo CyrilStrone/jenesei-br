@@ -6,9 +6,9 @@ import { IFieldChange } from "../organelles/FieldChange";
 import { ApiLocationAnother } from "../../functions/AxiosInstance";
 import { inApiSaveWorkExp } from "../logics/inApiSave";
 import { inApiDeleteWorkExp } from "../logics/inApiDelete";
-import Arrow from '../../../assets/settings/leftArrow.svg'
-import Setting from '../../../assets/userChange/Setting.svg'
-import Delete from '../../../assets/userChange/Delete.svg'
+import Arrow from '../../../assets/icon/personalInformation/arrow-left-br-full-black.svg'
+import Setting from '../../../assets/icon/personalInformation/settings-br-full-black.svg'
+import Delete from '../../../assets/icon/personalInformation/delete-br-full-black.svg'
 
 export const createArray = (start: number, end: number) => {
     let arr = [];

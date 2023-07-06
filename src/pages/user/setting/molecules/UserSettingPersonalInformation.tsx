@@ -2,14 +2,14 @@ import "../styles/UserSettingPersonalInformation.css";
 import { useStore } from "effector-react";
 import { $userValue } from "../../../../ui/functions/Hooks";
 import { IFieldChange } from "../../../../ui/fieldChange/organelles/FieldChange";
-import Profile from '../../../../assets/userChange/Profile.svg'
-import Position from '../../../../assets/userChange/Position.svg'
-import Password from '../../../../assets/userChange/Password.svg'
-import birthDate from '../../../../assets/userChange/birthDate.svg'
-import Message from '../../../../assets/userChange/Message.svg'
-import Location from '../../../../assets/userChange/Location.svg'
-import Avatar from '../../../../assets/userChange/Avatar.svg'
 import { ApiImage } from "../../../../ui/functions/AxiosInstance";
+import Profile from '../../../../assets/icon/personalInformation/first-name-br-full-black.svg'
+import Position from '../../../../assets/icon/personalInformation/speciality-br-full-black.svg'
+import Password from '../../../../assets/icon/personalInformation/password-br-full-black.svg'
+import birthDate from '../../../../assets/icon/personalInformation/date-of-birth-br-full-black.svg'
+import Message from '../../../../assets/icon/personalInformation/mail-br-full-black.svg'
+import Location from '../../../../assets/icon/personalInformation/location-br-full-black.svg'
+import Avatar from '../../../../assets/icon/personalInformation/avatar-br-full-black.svg'
 
 export interface IUserSettingPersonalInformation {
     handleCheck: (params: IFieldChange) => void

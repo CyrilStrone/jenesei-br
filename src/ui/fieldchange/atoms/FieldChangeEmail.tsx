@@ -2,8 +2,8 @@ import { setUserSetting } from "../../functions/Hooks";
 import { IFieldChange } from "../organelles/FieldChange";
 import { useEffect } from "react";
 import { inApiSaveDefault } from "../logics/inApiSave";
-import Arrow from '../../../assets/settings/leftArrow.svg'
-import Message from '../../../assets/userChange/Message.svg'
+import Arrow from '../../../assets/icon/personalInformation/arrow-left-br-full-black.svg'
+import Mail from '../../../assets/icon/personalInformation/mail-br-full-black.svg'
 
 export const FieldChangeEmail = (params: IFieldChange) => {
     const handleApiSave = async () => {
@@ -35,7 +35,7 @@ export const FieldChangeEmail = (params: IFieldChange) => {
             <form onSubmit={e => { e.preventDefault(); params.check && handleApiSave() }} className="FieldChange" >
                 <img src={Arrow} className="FieldChange__Arrow" alt="Arrow" onClick={() => setUserSetting(false)} />
                 <div className="FieldChange__Header" >
-                    <img className="FieldChange__Image" alt="" src={Message} />
+                    <img className="FieldChange__Image" alt="" src={Mail} />
                     <div className="FieldChange__BR">
                         Здесь вы можете изменить информацию о себе
                     </div>

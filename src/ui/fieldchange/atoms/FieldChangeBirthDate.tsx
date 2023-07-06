@@ -2,8 +2,8 @@ import { setUserSetting } from "../../functions/Hooks";
 import { IFieldChange } from "../organelles/FieldChange";
 import { useEffect, useState } from "react";
 import { inApiSaveDefault } from "../logics/inApiSave";
-import Arrow from '../../../assets/settings/leftArrow.svg'
-import birthDate from '../../../assets/userChange/birthDate.svg'
+import Arrow from '../../../assets/icon/personalInformation/arrow-left-br-full-black.svg'
+import birthDate from '../../../assets/icon/personalInformation/date-of-birth-br-full-black.svg'
 
 export const FieldChangeBirthDate = (params: IFieldChange) => {
     const [check, setCheck] = useState<boolean>(false)

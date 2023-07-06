@@ -6,9 +6,9 @@ import { inStack } from "../logics/inStack";
 import { IFieldChange } from "../organelles/FieldChange";
 import { inApiSaveStack } from "../logics/inApiSave";
 import { inApiDeleteStack } from "../logics/inApiDelete";
-import Delete from '../../../assets/userChange/Delete.svg'
-import Arrow from '../../../assets/settings/leftArrow.svg'
-import Setting from '../../../assets/userChange/Setting.svg'
+import Delete from '../../../assets/icon/personalInformation/delete-br-full-black.svg'
+import Arrow from '../../../assets/icon/personalInformation/arrow-left-br-full-black.svg'
+import Setting from '../../../assets/icon/personalInformation/settings-br-full-black.svg'
 
 export const FieldChangeStack = (params: IFieldChange) => {
     const userValue = useStore($userValue);

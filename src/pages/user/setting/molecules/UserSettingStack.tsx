@@ -2,7 +2,7 @@ import "../styles/UserSettingStack.css";
 import { useStore } from "effector-react";
 import { $userValue } from "../../../../ui/functions/Hooks";
 import { IFieldChange } from "../../../../ui/fieldChange/organelles/FieldChange";
-import Plus from '../../../../assets/userChange/Plus.svg'
+import Plus from '../../../../assets/icon/personalInformation/add-br-gray.svg'
 
 export interface IUserSettingStack {
     handleCheck: (params: IFieldChange) => void

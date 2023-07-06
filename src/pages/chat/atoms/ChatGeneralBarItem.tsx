@@ -1,5 +1,5 @@
 import "../styles/ChatGeneralBarItem.css";
-import DefaultAvatarChat from '../../../assets/header/DefaultAvatarChat.svg'
+import DefaultAvatarChat from '../../../assets/icon/chats/default-avatar.svg'
 
 export const ChatGeneralBarItem = () => {
 

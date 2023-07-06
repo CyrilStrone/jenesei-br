@@ -1,11 +1,17 @@
 value - значение
 list - массив
 title - видимый текст
-
-nameOfFunction.ts
-NameOfComponent.tsx
-NameOfStyle.css
-
-Авторизированный пользователь = authorizedUser
-Не Авторизированный пользователь = unauthorizedUser
-
+icon - иконка
+image - картинка(не иконка)
+------
+Функция - nameOfFunction.ts
+Компонент - NameOfComponent.tsx
+Стиль - NameOfStyle.css
+Имя иконки или картинки - name-of-component.расширение
+Директория - nameOfFolder
+------
+Название классов 
+Компонент__НазваниеБлока__МодификаторБлока(При наличии)__НазваниеБлока__МодификаторБлока(При наличии)...
+------
+Название директорий
+!Всегда с маленькой буквы 
