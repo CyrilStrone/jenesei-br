@@ -8,7 +8,7 @@ import { UserSettingEducation } from "../molecules/UserSettingEducation";
 import { UserSettingWorkExp } from "../molecules/UserSettingWorkExp";
 import { UserSettingRest } from "../molecules/UserSettingRest";
 import { FieldChange, IFieldChange } from "../../../../ui/fieldChange/organelles/FieldChange";
-import { $userSetting, $userValue, setUserSetting } from "../../../../ui/functions/Hooks";
+import { $userSetting, $userValue, setUserSetting } from "../../../../ui/functions/hooks";
 
 //TODO:Убирать плюс если максимум
 export const UserSetting = () => {

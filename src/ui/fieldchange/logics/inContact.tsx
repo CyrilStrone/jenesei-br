@@ -1,4 +1,4 @@
-import { axiosInstance } from "../../functions/AxiosInstance";
+import { axiosInstance } from "../../functions/axiosInstance";
 
 export const inContact = async () => {
     return axiosInstance.get(

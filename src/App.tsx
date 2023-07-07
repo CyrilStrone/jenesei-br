@@ -4,8 +4,7 @@ import "./ui/generalStyles/Blocks.css";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { useEffect } from "react";
 import { useStore } from "effector-react";
-import { $accessToken, UserLogout, setAccessToken, setRememberCheck } from "./ui/functions/AccessToken";
-import { RememberRefreshName, accessTokenName } from "./ui/functions/AxiosInstance";
+import { $accessToken, UserLogout, setAccessToken, setRememberCheck } from "./ui/functions/accessToken";
 import { Header } from "./ui/header/organelles/Header";
 import { Footer } from "./ui/footer/organelles/Footer";
 import { Major } from "./pages/major/organelles/Major";
@@ -15,8 +14,8 @@ import { Forgot } from "./pages/forgot/organelles/Forgot";
 import { Chat } from "./pages/chat/organelles/Chat";
 import { Search } from "./pages/search/organelles/Search";
 import { CustomValidity } from "./ui/customValidity/organelles/CustomValidity";
-import { InUser } from "./ui/functions/InUser";
-import { $userValue, setUserValue } from "./ui/functions/Hooks";
+import { inUser } from "./ui/functions/inUser";
+import { $userValue, setUserValue } from "./ui/functions/hooks";
 import { UserMore } from "./pages/user/index/organelles/userMore";
 import { UserLogin } from "./pages/user/login/organelles/User";
 import { UserSubscription } from "./pages/user/subscription/organelles/UserSubscription";
@@ -29,10 +28,11 @@ import { HomeRecommendation } from "./pages/home/recommendation/organelles/HomeR
 import { HomeTop } from "./pages/home/top/organelles/HomeTop";
 import { HomeSubscription } from "./pages/home/subscription/organelles/HomeSubscription";
 import { UserSecurity } from "./pages/user/security/organelles/UserSecurity";
+import { RememberRefreshName, accessTokenName } from "./ui/functions/axiosInstance";
 
 export async function requestUser() {
   try {
-    let result = await InUser();
+    let result = await inUser();
     if (result) {
       setUserValue(result)
     }

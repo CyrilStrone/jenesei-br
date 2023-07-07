@@ -1,5 +1,5 @@
-import { setAccessToken, setRememberCheck } from "../../../ui/functions/AccessToken"
-import { axiosInstance } from "../../../ui/functions/AxiosInstance"
+import { setAccessToken, setRememberCheck } from "../../../ui/functions/accessToken"
+import { axiosInstance } from "../../../ui/functions/axiosInstance"
 
 export interface IRegistrationUser {
     email: string

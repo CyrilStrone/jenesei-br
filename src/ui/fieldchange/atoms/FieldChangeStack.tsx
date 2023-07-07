@@ -1,7 +1,7 @@
 import Select from "react-select";
 import { useEffect, useState } from "react";
 import { useStore } from "effector-react";
-import { $userValue, setUserSetting } from "../../functions/Hooks";
+import { $userValue, setUserSetting } from "../../functions/hooks";
 import { inStack } from "../logics/inStack";
 import { IFieldChange } from "../organelles/FieldChange";
 import { inApiSaveStack } from "../logics/inApiSave";
@@ -64,7 +64,7 @@ export const FieldChangeStack = (params: IFieldChange) => {
                 setUserSetting(false);
             }
         } catch (error) {
-            console.log("error", error)
+            console.log("handleApiDelete error", error)
         }
 
     }
@@ -78,7 +78,7 @@ export const FieldChangeStack = (params: IFieldChange) => {
                 setUserSetting(false);
             }
         } catch (error) {
-            console.log("error", error)
+            console.log("handleApiSave error", error)
         }
     };
     return (

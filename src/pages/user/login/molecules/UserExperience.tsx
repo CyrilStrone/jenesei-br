@@ -12,8 +12,8 @@ export const UserExperience = (params: IUserExperience) => {
         Опыт работы
       </div>
       <div className="Half__Block__Footer UserExperience__List" >
-        {params.workExp.map((e: any) =>
-          <div className="UserExperience__Item">
+        {params.workExp.map((e: any, id: number) =>
+          <div key={id} className="UserExperience__Item">
             <div className="UserExperience__Item__name">
               {e.name}
             </div>

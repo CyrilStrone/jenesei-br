@@ -8,8 +8,8 @@ import { HeaderBarProfile } from './HeaderBarProfile';
 import { fadeIn } from 'react-animations';
 import { StyleSheet, css } from 'aphrodite';
 import { useStore } from 'effector-react'
-import { $userValue } from '../../functions/Hooks'
-import { ApiImage } from '../../functions/AxiosInstance';
+import { $userValue } from '../../functions/hooks'
+import { ApiImage } from '../../functions/axiosInstance';
 
 export const HeaderBar = () => {
     const userValue = useStore($userValue);
@@ -58,8 +58,8 @@ export const HeaderBar = () => {
     }, []);
     return (
         <div className="HeaderBar" ref={rootEl}>
-            {userValue && list.map((e: any) =>
-                <div className="HeaderBar__Block">
+            {userValue && list.map((e: any, id: number) =>
+                <div key={id} className="HeaderBar__Block">
                     <img src={e.id === 2 ? ApiImage + userValue.avatarPath : e.image} alt="Navigation" className={e.id === 2 ? "HeaderBar__Avatar HeaderBar__Item" : "HeaderBar__Item"} id="HeaderBar" onClick={() => { toggleShow(e.id) }} />
                     <div style={{ display: e.show ? "flex" : "none" }} className={e.className + " " + "HeaderBar__Example__Bar" + " " + css(styles.fadeIn)}>
                         {e.element}

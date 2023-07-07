@@ -1,7 +1,7 @@
 import "../styles/UserSettingContacts.css";
 import { useStore } from "effector-react";
 import Plus from '../../../../assets/icon/personalInformation/add-br-gray.svg'
-import { $userValue } from "../../../../ui/functions/Hooks";
+import { $userValue } from "../../../../ui/functions/hooks";
 import { IFieldChange } from "../../../../ui/fieldChange/organelles/FieldChange";
 
 export interface IUserSettingContacts {

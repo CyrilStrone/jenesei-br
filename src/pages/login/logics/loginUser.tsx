@@ -1,5 +1,5 @@
-import { setAccessToken } from "../../../ui/functions/AccessToken"
-import { axiosInstance } from "../../../ui/functions/AxiosInstance"
+import { setAccessToken } from "../../../ui/functions/accessToken"
+import { axiosInstance } from "../../../ui/functions/axiosInstance"
 
 export interface ILoginUser {
     login: string

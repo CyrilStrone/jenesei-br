@@ -1,5 +1,5 @@
 import axios, { AxiosError } from "axios";
-import { setAccessToken, UserLogout } from "./AccessToken";
+import { setAccessToken, UserLogout } from "./accessToken";
 
 export const RememberRefreshName = "BusinessRouletteRememberRefresh"
 export const accessTokenName = "BusinessRouletteToken"

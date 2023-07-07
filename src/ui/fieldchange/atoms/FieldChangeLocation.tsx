@@ -1,4 +1,4 @@
-import { setUserSetting } from "../../functions/Hooks";
+import { setUserSetting } from "../../functions/hooks";
 import { useEffect, useState } from "react";
 import { IFieldChange } from "../organelles/FieldChange";
 import { inLocationCity, inLocationCountry, inLocationState } from "../logics/inLocation";

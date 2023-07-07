@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import "../styles/UserMenu.css";
 import { NavLink, useLocation } from "react-router-dom";
-import useWindowDimensions from "../../functions/UseWindowDimensions";
+import useWindowDimensions from "../../functions/useWindowDimensions";
 
 export const UserMenu = () => {
   const [leftSlider, setLeftSlider] = useState<number | null>(null)

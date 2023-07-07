@@ -4,7 +4,7 @@ import { ILoginUser, loginUser } from "../logics/loginUser";
 import { NavLink } from "react-router-dom";
 import { setCustomValidityShow } from "../../../ui/customValidity/organelles/CustomValidity";
 import { SpinningCircles } from "react-loading-icons";
-import { setRememberCheck } from "../../../ui/functions/AccessToken";
+import { setRememberCheck } from "../../../ui/functions/accessToken";
 import JeneseiLogo from '../../../assets/logo/JeneseiLogo.svg'
 
 export const Login = () => {

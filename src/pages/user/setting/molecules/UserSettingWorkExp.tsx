@@ -1,6 +1,6 @@
 import "../styles/UserSettingWorkExp.css";
 import { useStore } from "effector-react";
-import { $userValue } from "../../../../ui/functions/Hooks";
+import { $userValue } from "../../../../ui/functions/hooks";
 import { IFieldChange } from "../../../../ui/fieldChange/organelles/FieldChange";
 import Plus from '../../../../assets/icon/personalInformation/add-br-gray.svg'
 
@@ -19,8 +19,8 @@ export const UserSettingWorkExp = (params: IUserSettingWorkExp) => {
                 Опыт работы
             </div>
             <div className="UserSetting__Blocks__List">
-                {userValue?.workExp?.map((e: any) =>
-                    <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => params.handleCheck({ value: e, title: "опыт работы", keyName: "workExp", })}>
+                {userValue?.workExp?.map((e: any, id: number) =>
+                    <div key={id} className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => params.handleCheck({ value: e, title: "опыт работы", keyName: "workExp", })}>
                         <div className="UserSetting__Blocks__List__Item__Title">
                             {e.name}
                         </div>

@@ -1,4 +1,4 @@
-import { ApiImage } from "../../../../ui/functions/AxiosInstance";
+import { ApiImage } from "../../../../ui/functions/axiosInstance";
 import "../styles/UserGeneralInfo.css";
 
 interface IUserGeneralInfo {

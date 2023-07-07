@@ -1,8 +1,8 @@
 import "../styles/UserSettingPersonalInformation.css";
 import { useStore } from "effector-react";
-import { $userValue } from "../../../../ui/functions/Hooks";
+import { $userValue } from "../../../../ui/functions/hooks";
 import { IFieldChange } from "../../../../ui/fieldChange/organelles/FieldChange";
-import { ApiImage } from "../../../../ui/functions/AxiosInstance";
+import { ApiImage } from "../../../../ui/functions/axiosInstance";
 import Profile from '../../../../assets/icon/personalInformation/first-name-br-full-black.svg'
 import Position from '../../../../assets/icon/personalInformation/speciality-br-full-black.svg'
 import Password from '../../../../assets/icon/personalInformation/password-br-full-black.svg'

@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { setUserSetting } from "../../functions/Hooks";
+import { setUserSetting } from "../../functions/hooks";
 import AvatarEditor from 'react-avatar-editor'
 import { IFieldChange } from "../organelles/FieldChange";
 import Arrow from '../../../assets/icon/personalInformation/arrow-left-br-full-black.svg'

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import '../styles/SearchPastItem.css'
-import { ApiImage } from '../../../ui/functions/AxiosInstance'
+import { ApiImage } from '../../../ui/functions/axiosInstance'
 
 interface ISearchPastItem {
     firstName: string

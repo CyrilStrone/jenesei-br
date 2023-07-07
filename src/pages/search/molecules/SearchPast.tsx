@@ -7,8 +7,8 @@ interface ISearchPast {
 export const SearchPast = (params: ISearchPast) => {
   return (
     <div className="SearchPast">
-      {params?.userList?.map((e: any) =>
-        <SearchPastItem login={e?.login} firstName={e?.firstName} lastName={e?.lastName} aboutShort={e?.aboutShort} currentPosition={e?.currentPosition} avatarPath={e?.avatarPath} />
+      {params?.userList?.map((e: any, id: number) =>
+        <SearchPastItem key={id} login={e?.login} firstName={e?.firstName} lastName={e?.lastName} aboutShort={e?.aboutShort} currentPosition={e?.currentPosition} avatarPath={e?.avatarPath} />
       )}
     </div>
   );

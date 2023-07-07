@@ -12,8 +12,8 @@ import { InAnotherUser } from "../logics/InAnotherUser";
 import { useParams } from "react-router-dom";
 import { UserContacts } from "../molecules/UserContacts";
 import { UserButton } from "../molecules/UserButton";
-import { $userValue } from "../../../../ui/functions/Hooks";
-import { $accessToken } from "../../../../ui/functions/AccessToken";
+import { $userValue } from "../../../../ui/functions/hooks";
+import { $accessToken } from "../../../../ui/functions/accessToken";
 import { setCustomValidityShow } from "../../../../ui/customValidity/organelles/CustomValidity";
 
 export const UserLogin = () => {

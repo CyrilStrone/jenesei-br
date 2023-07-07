@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { setUserSetting } from "../../functions/Hooks";
+import { setUserSetting } from "../../functions/hooks";
 import { IFieldChange } from "../organelles/FieldChange";
 import { inApiSaveDefault } from "../logics/inApiSave";
 import Arrow from '../../../assets/icon/personalInformation/arrow-left-br-full-black.svg'

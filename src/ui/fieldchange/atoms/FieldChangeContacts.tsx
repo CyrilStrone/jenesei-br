@@ -1,4 +1,4 @@
-import { $userValue, setUserSetting } from "../../functions/Hooks";
+import { $userValue, setUserSetting } from "../../functions/hooks";
 import { useEffect, useState } from "react";
 import { IFieldChange } from "../organelles/FieldChange";
 import { inContact } from "../logics/inContact";

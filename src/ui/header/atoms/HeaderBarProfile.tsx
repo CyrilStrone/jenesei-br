@@ -1,8 +1,8 @@
 import '../styles/HeaderBarProfile.css'
 import { useStore } from 'effector-react';
 import { Link, NavLink } from 'react-router-dom';
-import { $userValue } from '../../functions/Hooks';
-import { UserLogout } from '../../functions/AccessToken'
+import { $userValue } from '../../functions/hooks';
+import { UserLogout } from '../../functions/accessToken'
 import Logout from '../../../assets/icon/header/menu/exit-jenesei-red-color.svg'
 import User from '../../../assets/icon/header/menu/profile-br-full-black.svg'
 import Setting from '../../../assets/icon/header/menu/settings-br-product.svg'

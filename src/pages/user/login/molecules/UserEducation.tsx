@@ -12,8 +12,8 @@ export const UserEducation = (params: IUserEducation) => {
         Образование
       </div>
       <div className="Half__Block__Footer UserEducation__List" >
-        {params.education.map((e: any) =>
-          <div className="UserEducation__Item">
+        {params.education.map((e: any, id: number) =>
+          <div key={id} className="UserEducation__Item">
             <div className="UserEducation__Item__name">
               {e.name}
             </div>

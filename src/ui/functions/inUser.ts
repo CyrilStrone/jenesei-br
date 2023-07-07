@@ -1,7 +1,7 @@
-import { setUserLogin } from "./AccessToken";
-import { axiosInstance } from "./AxiosInstance";
+import { setUserLogin } from "./accessToken";
+import { axiosInstance } from "./axiosInstance";
 
-export const InUser = async () => {
+export const inUser = async () => {
     return axiosInstance.get(
         `/profile`)
         .then((res: any) => {

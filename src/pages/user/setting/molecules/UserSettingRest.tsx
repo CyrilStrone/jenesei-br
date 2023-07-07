@@ -1,6 +1,6 @@
 import "../styles/UserSettingRest.css";
 import { useStore } from "effector-react";
-import { $userValue } from "../../../../ui/functions/Hooks";
+import { $userValue } from "../../../../ui/functions/hooks";
 import { IFieldChange } from "../../../../ui/fieldChange/organelles/FieldChange";
 
 export interface IUserSettingRest {

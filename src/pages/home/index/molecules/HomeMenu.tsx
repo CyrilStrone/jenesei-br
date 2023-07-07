@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import "../styles/HomeMenu.css";
 import { NavLink, useLocation } from "react-router-dom";
-import useWindowDimensions from "../../../../ui/functions/UseWindowDimensions";
+import useWindowDimensions from "../../../../ui/functions/useWindowDimensions";
 
 export const HomeMenu = () => {
   const [leftSlider, setLeftSlider] = useState<number | null>(null)
@@ -19,7 +19,6 @@ export const HomeMenu = () => {
         //@ts-ignore
         const parentLeft = parentElement.getBoundingClientRect().left;
         const activeLeft = activeNavLink.getBoundingClientRect().left;
-        console.log(activeNavLink,activeLeft,parentLeft)
         setLeftSlider(activeLeft - parentLeft)
         setWidthSlider(activeNavLink.getBoundingClientRect().width)
       }

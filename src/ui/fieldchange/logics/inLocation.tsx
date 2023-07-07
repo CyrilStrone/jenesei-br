@@ -1,5 +1,5 @@
 import axios from "axios";
-import { ApiLocation, ApiLocationAnother } from "../../../ui/functions/AxiosInstance"
+import { ApiLocation, ApiLocationAnother } from "../../../ui/functions/axiosInstance"
 
 
 export const inLocationCountry = async () => {

@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import { ApiLocationAnother } from "../../functions/AxiosInstance";
+import { ApiLocationAnother } from "../../functions/axiosInstance";
 import { inApiSaveEducation } from "../logics/inApiSave";
 import { inApiDeleteEducation } from "../logics/inApiDelete";
-import { setUserSetting } from "../../functions/Hooks";
+import { setUserSetting } from "../../functions/hooks";
 import { IFieldChange } from "../organelles/FieldChange";
 import AsyncSelect from 'react-select/async';
 import Arrow from '../../../assets/icon/personalInformation/arrow-left-br-full-black.svg'
@@ -172,8 +172,8 @@ export const FieldChangeEducation = (params: IFieldChange) => {
                                 Дата поступления
                             </div>
                             <select required value={new Date(params.newValue?.studyStart).getFullYear()} onChange={(event: any) => { handleNewValue(event, "studyStart") }}>
-                                {createArray(1960, new Date().getFullYear()).map((e: any) =>
-                                    <option value={e}>{e}</option>
+                                {createArray(1960, new Date().getFullYear()).map((e: any, id: number) =>
+                                    <option key={id} value={e}>{e}</option>
                                 )}
                             </select>
                         </div>
@@ -183,8 +183,8 @@ export const FieldChangeEducation = (params: IFieldChange) => {
                             </div>
                             <div className="FieldChange__Inputs__Education__Blocks__Bar">
                                 <select required value={new Date(params.newValue?.studyEnd).getFullYear()} onChange={(event: any) => { handleNewValue(event, "studyEnd") }}>
-                                    {createArray(new Date(params.newValue?.studyStart).getFullYear() || 1960, 2040).map((e: any) =>
-                                        <option value={e}>{e}</option>
+                                    {createArray(new Date(params.newValue?.studyStart).getFullYear() || 1960, 2040).map((e: any, id: number) =>
+                                        <option key={id} value={e}>{e}</option>
                                     )}
                                 </select>
                                 <div className="FieldChange__Inputs__Education__Blocks__SubTitle">

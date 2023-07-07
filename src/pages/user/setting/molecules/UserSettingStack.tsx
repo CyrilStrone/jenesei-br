@@ -1,6 +1,6 @@
 import "../styles/UserSettingStack.css";
 import { useStore } from "effector-react";
-import { $userValue } from "../../../../ui/functions/Hooks";
+import { $userValue } from "../../../../ui/functions/hooks";
 import { IFieldChange } from "../../../../ui/fieldChange/organelles/FieldChange";
 import Plus from '../../../../assets/icon/personalInformation/add-br-gray.svg'
 
