@@ -1,3 +1,4 @@
+import { UserSubscribersChildren } from "../molecules/UserSubscribersChildren";
 import "../styles/UserSubscribers.css";
 
 export const UserSubscribers = () => {
@@ -7,6 +8,7 @@ export const UserSubscribers = () => {
       <div className="UserSetting__Blocks__Title">
         Мои подписчики
       </div>
+      <UserSubscribersChildren />
     </div>
   );
 };

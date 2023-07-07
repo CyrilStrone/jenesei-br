@@ -1,0 +1,85 @@
+.UserSubscriptionChildren {
+  display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.UserSubscriptionChildren__Item {
+}
+.UserSubscriptionChildren__Item__Header {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  gap: 12px;
+}
+.UserSubscriptionChildren__Item__Header__Avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 80px !important;
+  object-fit: cover;
+}
+.UserSubscriptionChildren__Item__Header__Name {
+  font-size: 80%;
+}
+.UserSubscriptionChildren__Item__Info {
+  font-size: 30%;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+.UserSubscriptionChildren__Item__Info__Login {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: fit-content;
+}
+.UserSubscriptionChildren__Item__Info__Login__Title {
+  font-weight: 500;
+}
+.UserSubscriptionChildren__Item__Info__Login__Value {
+  color: var(--br-half-white);
+  padding: 6px 8px 6px 8px;
+  background: linear-gradient(
+      180deg,
+      rgba(14, 138, 195, 0.2) 0%,
+      rgba(14, 138, 195, 0.2) 100%
+    ),
+    radial-gradient(
+      50% 50% at 50% 50%,
+      rgba(14, 138, 195, 0.76) 0%,
+      #0e8ac3 100%
+    );
+  box-shadow: 0px 0px 10px 0px rgba(14, 138, 195, 0.1);
+  border-radius: 6px;
+}
+.UserSubscriptionChildren__Item__Header__IconBar {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: auto;
+}
+.UserSubscriptionChildren__Item__Header__IconBar a{
+  text-decoration: none;
+}
+.UserSubscriptionChildren__Item__Header__IconBar__GenIcon{
+  border-radius: 80px !important;
+  overflow: hidden;
+}
+.UserSubscriptionChildren__Item__Header__IconBar__Icon {
+  width: 30px;
+  height: 30px;
+  box-sizing: border-box;
+  cursor: pointer;
+  padding: 6px;
+}
+.UserSubscriptionChildren__Item__Header__IconBar__Icon:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+}
+@media (orientation: portrait) {
+  .UserSubscriptionChildren__Item__Header {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+  .UserSubscriptionChildren__Item__Info {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+}

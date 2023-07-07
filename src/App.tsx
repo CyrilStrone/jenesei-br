@@ -1,5 +1,6 @@
 import "./App.css";
 import "./Font.css";
+import "./Variables.css";
 import "./ui/generalStyles/Blocks.css";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { useEffect } from "react";

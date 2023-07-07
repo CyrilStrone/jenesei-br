@@ -1,14 +1,13 @@
-import { useStore } from "effector-react";
-import { $userValue } from "../../../../ui/functions/hooks";
+import { UserSubscriptionChildren } from "../molecules/UserSubscriptionChildren";
 import "../styles/UserSubscription.css";
 
 export const UserSubscription = () => {
-  const userValue = useStore($userValue);
   return (
     <div className="UserSubscription UserSetting__Blocks">
       <div className="UserSetting__Blocks__Title">
         Мои подписки
       </div>
+      <UserSubscriptionChildren />
     </div>
   );
 };
