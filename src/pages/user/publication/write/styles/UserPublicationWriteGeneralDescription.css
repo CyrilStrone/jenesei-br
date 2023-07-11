@@ -1,0 +1,10 @@
+.UserPublicationWriteGeneralDescription {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .UserPublicationWriteGeneralDescription__Title {
+    font-size: 35%;
+    font-weight: 500;
+  }
+  

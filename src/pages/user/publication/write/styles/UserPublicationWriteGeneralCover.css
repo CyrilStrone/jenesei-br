@@ -1,0 +1,22 @@
+.UserPublicationWriteGeneralCover {
+  width: 100%;
+  border: 2px dashed var(--br-gray);
+  color: var(--br-gray);
+  transition: all 0.3s;
+  border-radius: 12px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+.UserPublicationWriteGeneralCover:hover {
+  background: #f9fbfe;
+  border: 2px dashed var(--br-product);
+  color: var(--br-product);
+}
+.UserPublicationWriteGeneralCover__Title {
+  font-size: 40%;
+  font-weight: 500;
+}

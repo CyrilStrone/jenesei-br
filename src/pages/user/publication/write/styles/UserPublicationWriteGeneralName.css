@@ -1,0 +1,9 @@
+.UserPublicationWriteGeneralName {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.UserPublicationWriteGeneralName__Title {
+  font-size: 35%;
+  font-weight: 500;
+}
