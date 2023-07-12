@@ -1,0 +1,23 @@
+.UserPublicationWriteAddItem {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  background: #f5f5f5;
+  border: 1px solid hsla(240, 6%, 83%, 0.63);
+  border-radius: 11px;
+  padding: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.UserPublicationWriteAddItem:hover {
+    background: #fff;
+}
+.UserPublicationWriteAddItem__Icon {
+  width: 20px;
+  height: 20px;
+  object-fit: cover;
+}
+.UserPublicationWriteAddItem__Title {
+  font-size: 32%;
+  font-weight: 500;
+}

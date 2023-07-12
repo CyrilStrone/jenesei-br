@@ -1,0 +1,16 @@
+.UserPublicationWriteAdd {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+.UserPublicationWriteAdd__Title {
+  font-size: 35%;
+  font-weight: 500;
+}
+.UserPublicationWriteAdd__List {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  flex-wrap: wrap;
+}

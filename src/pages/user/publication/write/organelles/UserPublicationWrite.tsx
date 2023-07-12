@@ -1,3 +1,4 @@
+import { UserPublicationWriteAdd } from "../molecules/UserPublicationWriteAdd";
 import { UserPublicationWriteDrafts } from "../molecules/UserPublicationWriteDrafts";
 import { UserPublicationWriteGeneral } from "../molecules/UserPublicationWriteGeneral";
 import { UserPublicationWriteTitle } from "../molecules/UserPublicationWriteTitle";
@@ -10,6 +11,7 @@ export const UserPublicationWrite = () => {
       <UserPublicationWriteTitle />
       <UserPublicationWriteDrafts/>
       <UserPublicationWriteGeneral/>
+      <UserPublicationWriteAdd/>
     </div>
   );
 };
