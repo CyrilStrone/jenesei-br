@@ -1,6 +1,8 @@
 import "../styles/UserPublicationWriteGeneralName.css";
-
-export const UserPublicationWriteGeneralName = () => {
+export interface IUserPublicationWriteGeneralName {
+    publication: any
+}
+export const UserPublicationWriteGeneralName = (params:IUserPublicationWriteGeneralName) => {
 
     return (
         <div className="UserPublicationWriteGeneralName">
