@@ -6,15 +6,12 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import { useEffect } from "react";
 import { useStore } from "effector-react";
 import { $accessToken, UserLogout, setAccessToken, setRememberCheck } from "./ui/functions/accessToken";
-import { Header } from "./ui/header/organelles/Header";
-import { Footer } from "./ui/footer/organelles/Footer";
 import { Major } from "./pages/major/organelles/Major";
 import { Registration } from "./pages/registration/organelles/Registration";
 import { Login } from "./pages/login/organelles/Login";
 import { Forgot } from "./pages/forgot/organelles/Forgot";
 import { Chat } from "./pages/chat/organelles/Chat";
 import { Search } from "./pages/search/organelles/Search";
-import { CustomValidity } from "./ui/customValidity/organelles/CustomValidity";
 import { inUser } from "./ui/functions/inUser";
 import { $userValue, setUserValue } from "./ui/functions/hooks";
 import { UserMore } from "./pages/user/index/organelles/userMore";
@@ -30,6 +27,7 @@ import { HomeTop } from "./pages/home/top/organelles/HomeTop";
 import { HomeSubscription } from "./pages/home/subscription/organelles/HomeSubscription";
 import { UserSecurity } from "./pages/user/security/organelles/UserSecurity";
 import { RememberRefreshName, accessTokenName } from "./ui/functions/axiosInstance";
+import { AppGeneral } from "./ui/appGeneral/organelles/AppGeneral";
 
 export async function requestUser() {
   try {
@@ -57,59 +55,53 @@ export function App() {
   }, [])
   return (
     <div className="App">
-      <div className="App__PhoneWallpaper"></div>
-      <Header />
-      <div className="App_Actual">
-        <CustomValidity />
-        <Routes>
-          <Route path="/">
-            {(accessToken && userValue) ?
-              <>
-                <Route index element={<Navigate to="/home/top" />} />
+      <Routes>
+        <Route path="/" element={<AppGeneral />}>
+          {(accessToken && userValue) ?
+            <>
+              <Route index element={<Navigate to="/home/top" />} />
+              <Route path="*" element={<Navigate to="/home/top" />} />
+              <Route path="chat" element={<Chat />} />
+              <Route path="search" element={<Search />} />
+              <Route path="user" element={<UserMore />}>
+                <Route index element={<Navigate to="/user/login/" />} />
+                <Route path="*" element={<Navigate to="/user/login/" />} />
+                <Route path="subscription" element={<UserSubscription />} />
+                <Route path="subscribers" element={<UserSubscribers />} />
+                <Route path="setting" element={<UserSetting />} />
+                <Route path="security" element={<UserSecurity />} />
+                <Route path="publication">
+                  <Route path="*" element={<Navigate to="/user/publication/write" />} />
+                  <Route path="write" element={<UserPublicationWrite />} />
+                  <Route path="list" element={<UserPublicationList />} />
+                </Route>
+                <Route path="login">
+                  <Route path=":login" element={<UserLogin />} />
+                </Route>
+              </Route>
+              <Route path="home" element={<HomeMore />}>
                 <Route path="*" element={<Navigate to="/home/top" />} />
-                <Route path="chat" element={<Chat />} />
-                <Route path="search" element={<Search />} />
-                <Route path="user" element={<UserMore />}>
-                  <Route index element={<Navigate to="/user/login/" />} />
-                  <Route path="*" element={<Navigate to="/user/login/" />} />
-                  <Route path="subscription" element={<UserSubscription />} />
-                  <Route path="subscribers" element={<UserSubscribers />} />
-                  <Route path="setting" element={<UserSetting />} />
-                  <Route path="security" element={<UserSecurity />} />
-                  <Route path="publication">
-                    <Route path="*" element={<Navigate to="/user/publication/write" />} />
-                    <Route path="write" element={<UserPublicationWrite />} />
-                    <Route path="list" element={<UserPublicationList />} />
-                  </Route>
-                  <Route path="login">
-                    <Route path=":login" element={<UserLogin />} />
-                  </Route>
+                <Route path="recommendations" element={<HomeRecommendation />} />
+                <Route path="top" element={<HomeTop />} />
+                <Route path="subscription" element={<HomeSubscription />} />
+              </Route>
+            </> :
+            <>
+              <Route index element={<Major />} />
+              <Route path="*" element={<Navigate to="/" />} />
+              <Route path="authorization" element={<Login />} />
+              <Route path="registration" element={<Registration />} />
+              <Route path="forgot" element={<Forgot />} />
+              <Route path="user" element={<UserMore />}>
+                <Route path="login">
+                  <Route path=":login" element={<UserLogin />} />
                 </Route>
-                <Route path="home" element={<HomeMore />}>
-                  <Route path="*" element={<Navigate to="/home/top" />} />
-                  <Route path="recommendations" element={<HomeRecommendation />} />
-                  <Route path="top" element={<HomeTop />} />
-                  <Route path="subscription" element={<HomeSubscription />} />
-                </Route>
-              </> :
-              <>
-                <Route index element={<Major />} />
                 <Route path="*" element={<Navigate to="/" />} />
-                <Route path="authorization" element={<Login />} />
-                <Route path="registration" element={<Registration />} />
-                <Route path="forgot" element={<Forgot />} />
-                <Route path="user" element={<UserMore />}>
-                  <Route path="login">
-                    <Route path=":login" element={<UserLogin />} />
-                  </Route>
-                  <Route path="*" element={<Navigate to="/" />} />
-                </Route>
-              </>
-            }
-          </Route>
-        </Routes>
-      </div>
-      <Footer />
+              </Route>
+            </>
+          }
+        </Route>
+      </Routes>
     </div>
   );
 }
