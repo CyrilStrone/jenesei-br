@@ -4,7 +4,6 @@
   border: 1px solid transparent;
 }
 .UserPublicationWriteInfoLinkToVideo__Cover {
-  border: 2px dashed var(--br-gray);
   color: var(--br-gray);
   transition: all 0.3s;
   border-radius: 12px;
@@ -27,6 +26,7 @@
 }
 .UserPublicationWriteInfoLinkToVideo__Cover__Player iframe {
   border-radius: 12px;
+  border: 2px dashed var(--br-gray);
 }
 @media (orientation: portrait) {
   .UserPublicationWriteInfoLinkToVideo__Cover {
