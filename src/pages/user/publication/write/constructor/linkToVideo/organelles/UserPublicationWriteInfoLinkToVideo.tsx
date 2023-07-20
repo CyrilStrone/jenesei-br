@@ -20,7 +20,7 @@ export const UserPublicationWriteInfoLinkToVideo = (params: IUserPublicationWrit
       <div className="UserPublicationWriteInfoGeneralStyle__Title">
         Ссылка на видео
       </div>
-      <div className="UserPublicationWriteInfoLinkToVideo__Cover">
+      <div className={!check ? "UserPublicationWriteInfoLinkToVideo__Cover UserPublicationWriteInfoLinkToVideo__Cover__Min" : "UserPublicationWriteInfoLinkToVideo__Cover UserPublicationWriteInfoLinkToVideo__Cover__Big"} >
         {(!value && !error) && <div className="UserPublicationWriteInfoLinkToVideo__Cover__Title">
           Ваше видео
         </div>}

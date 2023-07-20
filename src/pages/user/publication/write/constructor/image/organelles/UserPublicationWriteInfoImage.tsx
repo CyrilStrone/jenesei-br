@@ -8,7 +8,7 @@ export const UserPublicationWriteInfoImage = (params: IUserPublicationWriteInfoB
       <div className="UserPublicationWriteInfoGeneralStyle__Title">
         Изображение
       </div>
-      <div className="UserPublicationWriteInfoImage__Cover">
+      <div style={{height:"100px"}} className="UserPublicationWriteInfoImage__Cover">
         <div className="UserPublicationWriteInfoImage__Cover__Title">
           Перетащите или вставьте изображение
         </div>
