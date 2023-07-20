@@ -37,6 +37,11 @@
   border-radius: 12px;
   border: 2px dashed var(--br-gray);
 }
+.UserPublicationWriteInfoLinkToVideo__Content{
+  display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
 @media (orientation: portrait) {
   .UserPublicationWriteInfoLinkToVideo__Cover {
   }

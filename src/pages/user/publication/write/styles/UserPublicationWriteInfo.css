@@ -1,12 +1,25 @@
 .UserPublicationWriteInfoGeneralStyle {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
   padding: 20px;
+  position: relative;
+}
+.UserPublicationWriteInfoGeneralStyle:hover {
+  transition: box-shadow 0.2s cubic-bezier(0.32, 0.08, 0.24, 1),
+    transform 0.2s cubic-bezier(0.32, 0.08, 0.24, 1);
+  border-radius: 16px;
+  box-shadow: 17px 20px 40px rgba(0, 0, 0, 0.21);
+  image-rendering: optimizeQuality;
+  z-index: 1;
 }
 .UserPublicationWriteInfoGeneralStyle__Title {
   font-size: 30%;
   font-weight: 600;
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 44px;
 }
 .UserPublicationWriteInfo {
   display: flex;

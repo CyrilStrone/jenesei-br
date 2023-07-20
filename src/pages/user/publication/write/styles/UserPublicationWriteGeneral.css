@@ -3,6 +3,28 @@
 .UserPublicationWriteGeneral__Title {
   font-size: 30%;
   font-weight: 600;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.UserPublicationWriteGeneral__DeleteIcon {
+  position: absolute;
+  cursor: pointer;
+  right: 0px;
+  transition: all 0.3s;
+  opacity: 0.1;
+}
+.UserPublicationWriteGeneral__DeleteIcon img {
+  padding: 10px;
+  width: 24px;
+  height: 24px;
+}
+.UserPublicationWriteGeneral__DeleteIcon:hover {
+  opacity: 1;
+  background-color: rgba(37, 38, 40, 0.08);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border-radius: 6px;
 }
 .UserPublicationWriteGeneral__Input {
   display: inline-block;
@@ -62,8 +84,7 @@
   min-width: 100%;
   max-height: 600px;
   min-height: 36px;
-  resize: none;
-  overflow: hidden;
+  overflow-y: auto;
 }
 .UserPublicationWriteGeneral__TextArea:focus {
   outline: none;
@@ -74,4 +95,11 @@
   color: #666666;
   font-family: "Montserrat";
   font-style: normal;
+}
+@media (orientation: portrait) {
+  .UserPublicationWriteGeneral__DeleteIcon img {
+    padding: 6px;
+    width: 16px;
+    height: 16px;
+  }
 }
