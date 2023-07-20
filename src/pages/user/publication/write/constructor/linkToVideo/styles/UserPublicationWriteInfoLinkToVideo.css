@@ -13,12 +13,11 @@
   justify-content: center;
   cursor: pointer;
   box-sizing: border-box;
-
-  height: 400px;
+  aspect-ratio: 16 / 9;
 }
 .UserPublicationWriteInfoLinkToVideo__Cover__Player {
-  width: 100% !important;
   height: 100% !important;
+  width: 100% !important;
 }
 .UserPublicationWriteInfoLinkToVideo__Cover__Title {
   position: absolute;
@@ -29,7 +28,6 @@
   border-radius: 12px;
 }
 @media (orientation: portrait) {
-    .UserPublicationWriteInfoLinkToVideo__Cover {
-      height: 150px;
-    }
+  .UserPublicationWriteInfoLinkToVideo__Cover {
   }
+}

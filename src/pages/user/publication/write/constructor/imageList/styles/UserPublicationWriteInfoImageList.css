@@ -9,13 +9,13 @@
   color: var(--br-gray);
   transition: all 0.3s;
   border-radius: 12px;
-  height: 140px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   box-sizing: border-box;
   min-width: 200px;
+  aspect-ratio: 16 / 9;
 }
 .UserPublicationWriteInfoImageList__Cover:hover {
   background: #f9fbfe;
