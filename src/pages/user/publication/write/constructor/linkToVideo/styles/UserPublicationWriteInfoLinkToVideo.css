@@ -1,0 +1,35 @@
+.UserPublicationWriteInfoLinkToVideo {
+}
+.UserPublicationWriteInfoLinkToVideo__Content__Input {
+  border: 1px solid transparent;
+}
+.UserPublicationWriteInfoLinkToVideo__Cover {
+  border: 2px dashed var(--br-gray);
+  color: var(--br-gray);
+  transition: all 0.3s;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-sizing: border-box;
+
+  height: 400px;
+}
+.UserPublicationWriteInfoLinkToVideo__Cover__Player {
+  width: 100% !important;
+  height: 100% !important;
+}
+.UserPublicationWriteInfoLinkToVideo__Cover__Title {
+  position: absolute;
+  font-size: 40%;
+  font-weight: 500;
+}
+.UserPublicationWriteInfoLinkToVideo__Cover__Player iframe {
+  border-radius: 12px;
+}
+@media (orientation: portrait) {
+    .UserPublicationWriteInfoLinkToVideo__Cover {
+      height: 150px;
+    }
+  }

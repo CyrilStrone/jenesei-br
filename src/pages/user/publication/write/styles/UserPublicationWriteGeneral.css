@@ -1,8 +1,4 @@
 .UserPublicationWriteGeneral {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  padding: 20px;
 }
 .UserPublicationWriteGeneral__Title {
   font-size: 30%;

@@ -32,6 +32,11 @@ input[type="date"] {
   input:focus {
     font-size: 16px;
   }
+  select,
+  textarea,
+  input {
+    font-size: 16px;
+  }
 }
 input[type="submit"] {
   -webkit-appearance: none;

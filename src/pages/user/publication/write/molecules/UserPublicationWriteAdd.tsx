@@ -11,14 +11,14 @@ export const UserPublicationWriteAdd = () => {
     const [value, setValue] = useState<IUserPublicationWriteAddItem[] | null>(
         [
             { id: 0, icon: headline, title: "Заголовок" },
-            { id: 1, icon: text, title: "Текст" },
+            { id: 1, icon: text, title: "Абзац" },
             { id: 2, icon: image, title: "Изображение" },
             { id: 3, icon: imageList, title: "Список изображений" },
             { id: 4, icon: linkToVideo, title: "Ссылка на видео" }
         ]
     )
     return (
-        <div className="UserPublicationWriteAdd Block__NonActive">
+        <div className="UserPublicationWriteAdd UserPublicationWriteInfoGeneralStyle Block__NonActive">
             <div className="UserPublicationWriteAdd__Title">
                 Добавить контент
             </div>

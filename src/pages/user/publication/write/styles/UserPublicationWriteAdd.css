@@ -1,8 +1,4 @@
 .UserPublicationWriteAdd {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  padding: 20px;
 }
 .UserPublicationWriteAdd__Title {
   font-size: 35%;

@@ -9,7 +9,7 @@ export interface IUserPublicationWriteGeneral {
 export const UserPublicationWriteGeneral = (params: IUserPublicationWriteGeneral) => {
 
     return (
-        <div className="UserPublicationWriteGeneral Block__NonActive">
+        <div className="UserPublicationWriteGeneral UserPublicationWriteInfoGeneralStyle Block__NonActive">
             <div className="UserPublicationWriteGeneral__Title">
                 Основная информация
             </div>

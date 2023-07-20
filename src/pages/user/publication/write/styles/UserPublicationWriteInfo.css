@@ -1,0 +1,21 @@
+.UserPublicationWriteInfoGeneralStyle {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+.UserPublicationWriteInfoGeneralStyle__Title {
+  font-size: 30%;
+  font-weight: 600;
+}
+.UserPublicationWriteInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+@media (orientation: portrait) {
+  .UserPublicationWriteInfoGeneralStyle {
+    gap: 15px;
+    padding: 15px;
+  }
+}

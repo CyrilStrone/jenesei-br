@@ -1,0 +1,32 @@
+.UserPublicationWriteInfoImage {
+}
+.UserPublicationWriteInfoImage__Content__Input {
+  border: 1px solid transparent;
+}
+.UserPublicationWriteInfoImage__Cover {
+  width: 100%;
+  border: 2px dashed var(--br-gray);
+  color: var(--br-gray);
+  transition: all 0.3s;
+  border-radius: 12px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+.UserPublicationWriteInfoImage__Cover__Title {
+  font-size: 40%;
+  font-weight: 500;
+}
+.UserPublicationWriteInfoImage__Cover:hover {
+  background: #f9fbfe;
+  border: 2px dashed var(--br-product);
+  color: var(--br-product);
+}
+@media (orientation: portrait) {
+  .UserPublicationWriteInfoImage__Cover {
+    height: 150px;
+  }
+}

@@ -7,7 +7,7 @@ export const UserPublicationWriteGeneralCover = (params:IUserPublicationWriteGen
     return (
         <div className="UserPublicationWriteGeneralCover">
             <div className="UserPublicationWriteGeneralCover__Title">
-                Вставьте обложку
+                Перетащите или вставьте обложку
             </div>
         </div>
     );
