@@ -33,7 +33,10 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+}
+.UserPublicationWriteInfo__UL li {
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 @media (orientation: portrait) {
   .UserPublicationWriteInfoGeneralStyle {

@@ -1,4 +1,9 @@
 .UserSettingPersonalInformation__ItemAboutLong {
-  max-width: 520px;
-  width: 100%;
+
+}
+@media (orientation: landscape ) {
+  .UserSettingPersonalInformation__ItemAboutLong {
+    max-width: 520px;
+    width: 100%;
+  }
 }
