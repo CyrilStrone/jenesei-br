@@ -1,2 +1,5 @@
 .UserPublicationWriteInfoText {
 }
+.UserPublicationWriteInfoText__Content{
+    display: flex;
+}

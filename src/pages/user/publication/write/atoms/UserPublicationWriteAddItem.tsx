@@ -8,6 +8,7 @@ export interface IUserPublicationWriteAddItem {
     type: string
     onClick?: (params: IChangePublication) => void
 }
+
 export const UserPublicationWriteAddItem = (params: IUserPublicationWriteAddItem) => {
     return (
         <div className="UserPublicationWriteAddItem" onClick={() => params.onClick!({ typeOp: "Add", typeCons: params.type })}>

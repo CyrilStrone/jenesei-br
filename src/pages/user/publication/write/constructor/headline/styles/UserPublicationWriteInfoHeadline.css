@@ -1,3 +1,5 @@
 .UserPublicationWriteInfoHeadline {
 }
-
+.UserPublicationWriteInfoHeadline__Content{
+    display: flex;
+}

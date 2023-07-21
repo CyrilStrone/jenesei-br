@@ -3,6 +3,9 @@
 .UserPublicationWriteInfoImage__Content__Input {
   border: 1px solid transparent;
 }
+.UserPublicationWriteInfoImage__Content{
+  display: flex;
+}
 .UserPublicationWriteInfoImage__Cover {
   width: 100%;
   border: 2px dashed var(--br-gray);

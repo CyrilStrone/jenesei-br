@@ -1,4 +1,5 @@
 import "../styles/UserPublicationWriteGeneralCover.css";
+
 export interface IUserPublicationWriteGeneralCover {
     publication: any
 }

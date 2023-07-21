@@ -1,12 +1,13 @@
 import { useState } from "react";
-import "../styles/UserPublicationWriteAdd.css";
+import { IChangePublication } from "../organelles/UserPublicationWrite";
 import { IUserPublicationWriteAddItem, UserPublicationWriteAddItem } from "../atoms/UserPublicationWriteAddItem";
 import headline from '../../../../../assets/icon/publication/write/headline.svg'
 import imageList from '../../../../../assets/icon/publication/write/image-list.svg'
 import image from '../../../../../assets/icon/publication/write/image.svg'
 import linkToVideo from '../../../../../assets/icon/publication/write/link-to-video.svg'
 import text from '../../../../../assets/icon/publication/write/text.svg'
-import { IChangePublication } from "../organelles/UserPublicationWrite";
+import "../styles/UserPublicationWriteAdd.css";
+
 export interface IUserPublicationWriteAdd {
     changePublication: (params: IChangePublication) => void
 }

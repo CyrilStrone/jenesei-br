@@ -1,8 +1,8 @@
 
+import { useState } from "react";
 import { IUserPublicationWriteInfoBlock } from "../../../molecules/UserPublicationWriteInfo";
 import DeleteIcon from '../../../../../../../assets/icon/publication/write/delete-br-full-black.svg'
 import "../styles/UserPublicationWriteInfoText.css";
-import { useState } from "react";
 
 export const UserPublicationWriteInfoText = (params: IUserPublicationWriteInfoBlock) => {
   const [value, setValue] = useState<string | null>("");

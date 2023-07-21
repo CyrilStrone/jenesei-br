@@ -2,6 +2,7 @@
 import { IUserPublicationWriteInfoBlock } from "../../../molecules/UserPublicationWriteInfo";
 import DeleteIcon from '../../../../../../../assets/icon/publication/write/delete-br-full-black.svg'
 import "../styles/UserPublicationWriteInfoImageList.css";
+
 export const UserPublicationWriteInfoImageList = (params: IUserPublicationWriteInfoBlock) => {
   return (
     <div className="UserPublicationWriteInfoImageList UserPublicationWriteInfoGeneralStyle Block__NonActive__NotShadow">
