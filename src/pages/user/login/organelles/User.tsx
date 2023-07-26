@@ -42,15 +42,15 @@ export const UserLogin = () => {
   return (
     <div className="UserLogin">
       {value && <div className="User__Content">
-        <UserGeneralInfo avatarPath={value.avatarPath} login={value.user.login} firstName={value.user.firstName} lastName={value.user.lastName} />
-        {(value?.user?.aboutLong || value?.user?.currentPosition) && <UserAbout value={value} />}
-        {value?.workExp.length !== 0 && <UserExperience workExp={value.workExp} />}
-        {value?.stack?.length !== 0 && <UserStack stack={value.stack} />}
-        {value?.education?.length !== 0 && <UserEducation education={value.education} />}
-        {value?.contacts?.length !== 0 && <UserContacts contacts={value.contacts} />}
-        {value?.subscribers?.length !== 0 && <UserSubscribers subscribers={value.subscribers} />}
-        {value?.subscription?.length !== 0 && <UserSubscription subscription={value.subscription} />}
-        {accessToken && userValue?.user?.id !== value?.user?.id && <UserButton value={value} userValue={userValue} requestInAnotherUser={requestInAnotherUser} />}
+        <UserGeneralInfo avatarPath={value.avatarPath} login={value.login} firstName={value.firstName} lastName={value.lastName} />
+        {(value?.aboutLong || value?.currentPosition) && <UserAbout value={value} />}
+        {value.workExp && value?.workExp?.length !== 0 && <UserExperience workExp={value.workExp} />}
+        {value.stack && value.stack?.length !== 0 && <UserStack stack={value.stack} />}
+        {value.education && value.education?.length !== 0 && <UserEducation education={value.education} />}
+        {value.contacts && value.contacts?.length !== 0 && <UserContacts contacts={value.contacts} />}
+        {value.subscribers && value.subscribers?.length !== 0 && <UserSubscribers subscribers={value.subscribers} />}
+        {value.subscription && value.subscription?.length !== 0 && <UserSubscription subscription={value.subscription} />}
+        {accessToken && userValue?.user?.id !== value?.id && <UserButton value={value} userValue={userValue} requestInAnotherUser={requestInAnotherUser} />}
       </div>}
     </div>
   );

@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import { useStore } from "effector-react";
 import { useRef } from "react";
 import { Header } from "../../header/organelles/Header";
@@ -9,16 +9,18 @@ import Background from '../../../assets/wallpaper/publication-background.svg'
 import '../styles/AppGeneral.css'
 
 export const AppGeneral = () => {
+    const location = useLocation();
     const AppGeneralRef = useRef<any>(null);
     const checkPublicationWriteOnDrag = useStore($checkPublicationWriteOnDrag);
+    const backgroundLocationPublicationWrite = "/user/publication/write"
     return (
         <div ref={AppGeneralRef} className="AppGeneral body">
-            <div className="AppGeneral__Background" style={{
+            {location.pathname === backgroundLocationPublicationWrite && <div className="AppGeneral__Background" style={{
                 backgroundImage: `url(${Background})`,
                 width: `${AppGeneralRef?.current?.offsetWidth}px`,
                 height: `${AppGeneralRef?.current?.offsetHeight}px`,
                 opacity: `${checkPublicationWriteOnDrag ? "1" : "0"}`
-            }}></div>
+            }}></div>}
             <div className="App__PhoneWallpaper"></div>
             <Header />
             <div className="App_Actual" >

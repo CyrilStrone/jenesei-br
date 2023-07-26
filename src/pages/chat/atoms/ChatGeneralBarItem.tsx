@@ -1,14 +1,16 @@
 import "../styles/ChatGeneralBarItem.css";
 import DefaultAvatarChat from '../../../assets/icon/chats/default-avatar.svg'
-
-export const ChatGeneralBarItem = () => {
-
+import { ApiImage } from "../../../ui/functions/axiosInstance";
+export interface IChatGeneralBarItem {
+    value: any
+}
+export const ChatGeneralBarItem = (params:IChatGeneralBarItem) => {
     return (
         <div className="ChatGeneralBarItem">
-            <img src={DefaultAvatarChat} className="ChatGeneralBarItem__Avatar" alt="" />
+            <img src={params.value.avatarPath ? ApiImage + params.value.avatarPath : DefaultAvatarChat} className="ChatGeneralBarItem__Avatar" alt="" />
             <div className="ChatGeneralBarItem__Info">
                 <div className="ChatGeneralBarItem__Info__Name">
-                    Данил Булгаков
+                    {params.value.firstName + " " + params.value.lastName}
                 </div>
                 <div className="ChatGeneralBarItem__Info__Preview">
                     Кирюха я там такой чатгпт написал...

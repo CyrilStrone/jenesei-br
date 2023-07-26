@@ -13,13 +13,13 @@ export const UserAbout = (params: IUserAbout) => {
           {params.value.currentPosition}
         </div>
       }
-      {params.value.user.aboutLong &&
+      {params.value.aboutLong &&
         <>
           <div className="UserAbout__SubTitle">
             Обо мне
           </div>
           <div className="UserAbout__Value">
-            {params.value.user.aboutLong}
+            {params.value.aboutLong}
           </div>
         </>
       }

@@ -36,7 +36,6 @@ export const UserLogout = () => {
   setUserLogin("");
   setRememberCheck("false");
 };
-
 $accessToken.updates.watch((value: any) => {
   console.log("WATCH. accessToken value:", value);
 });

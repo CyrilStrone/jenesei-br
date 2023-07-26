@@ -2,7 +2,7 @@ import { axiosInstance } from "../../../../ui/functions/axiosInstance";
 
 export const InAnotherUser = async (login: string) => {
     return axiosInstance.get(
-        `/user/${login}`)
+        `/profile/${login}`)
         .then((res: any) => {
             return res.data
         })
