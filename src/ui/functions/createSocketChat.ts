@@ -136,19 +136,3 @@ $userSocketChatReceiveMessage.updates.watch((message: any) => {
       ]);
   }
 });
-
-// author
-// :
-// "tazdinger"
-// avatarPath
-// :
-// "/image/profile/1/53be9c9a-8fce-4888-9891-415fda1e88d8.jpg"
-// chat_id
-// :
-// "79be6ca0-4e86-4bae-aa31-5f64a6744db7"
-// content
-// :
-// "Сообщение!!!"
-// createdAt
-// :
-// "2023-07-27T09:03:28.382Z"

@@ -3,6 +3,8 @@
   height: auto;
 }
 .ChatGeneralBar__Header {
+  padding-top: 12px;
+  padding-bottom: 12px;
 }
 .ChatGeneralBar__List {
   padding: 12px;

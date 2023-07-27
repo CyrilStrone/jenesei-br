@@ -17,6 +17,7 @@
   height: 40px;
   object-fit: cover;
   border-radius: 100%;
+  min-width: fit-content;
 }
 .ChatGeneralBarItem__Info {
   display: flex;
