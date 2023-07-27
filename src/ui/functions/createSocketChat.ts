@@ -46,7 +46,7 @@ const createSocketChat = (): Socket => {
     setUserSocketChatChoiceAllMessages(data);
   });
   socket.on("receive_message", (data: any) => {
-    setUserSocketChatReceiveMessage(data)
+    setUserSocketChatReceiveMessage(data);
   });
   socket.on("response_chat", (data: any) => {
     console.log("Socket.IO Chat Received response_chat:", data);
@@ -120,13 +120,35 @@ $userSocketChatListAllChats.updates.watch((chats: any) => {
 
 $userSocketChatChoiceAllMessages.updates.watch((chats: any) => {
   console.log("WATCH. userSocketChatChoiceAllMessages chats:", chats);
-  // if (chats && chats.length !== 0)
-    // setUserSocketChatListAllChats({
-    //   ...$userSocketChatListAllChats.getState(),
-    //   [$userSocketChatChoiceId.getState()]: [chats[0]],
-    // });
 });
 
-$userSocketChatReceiveMessage.updates.watch((chats: any) => {
-  console.log("WATCH. userSocketChatReceiveMessage chats:", chats);
+$userSocketChatReceiveMessage.updates.watch((message: any) => {
+  console.log("WATCH. userSocketChatReceiveMessage message:", message);
+  if (message && message.length !== 0) {
+    setUserSocketChatListAllChats({
+      ...$userSocketChatListAllChats.getState(),
+      [message.chat_id]: [message],
+    });
+    if (message.chat_id === $userSocketChatChoiceId.getState())
+      setUserSocketChatChoiceAllMessages([
+        ...$userSocketChatChoiceAllMessages.getState(),
+        message,
+      ]);
+  }
 });
+
+// author
+// :
+// "tazdinger"
+// avatarPath
+// :
+// "/image/profile/1/53be9c9a-8fce-4888-9891-415fda1e88d8.jpg"
+// chat_id
+// :
+// "79be6ca0-4e86-4bae-aa31-5f64a6744db7"
+// content
+// :
+// "Сообщение!!!"
+// createdAt
+// :
+// "2023-07-27T09:03:28.382Z"
