@@ -18,7 +18,7 @@ export const ChatGeneralBarItem = (params: IChatGeneralBarItem) => {
                     {params.value.firstName + " " + params.value.lastName}
                 </div>
                 {params.value.content && <div className="ChatGeneralBarItem__Info__Preview">
-                    {params.value.content}
+                    {params.value.content.message}
                 </div>}
             </div>
             {/* <div className="ChatGeneralBarItem__Message HeaderBarChat__List__Message">

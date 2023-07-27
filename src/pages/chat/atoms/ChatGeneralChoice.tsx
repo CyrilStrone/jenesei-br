@@ -2,7 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import "../styles/ChatGeneralChoice.css";
 import { sendMessages } from "../../../ui/functions/useSocketChat";
 import { useStore } from "effector-react";
-import { $userSocketChatChoiceAllMessages, $userSocketChatChoiceId, $userSocketChatListAllChats, setUserSocketChatChoiceAllMessages, updateUserSocketChatListAllChats } from "../../../ui/functions/createSocketChat";
+import { $userSocketChatChoiceAllMessages, $userSocketChatChoiceId, $userSocketChatListAllChats, updateUserSocketChatListAllChats, updateUserSocketChatListAllMessages } from "../../../ui/functions/createSocketChat";
+import SendIcon from '../../../assets/icon/chats/send.svg'
 export interface IChatGeneralChoice {
     userValue: any
 }
@@ -13,16 +14,20 @@ export const ChatGeneralChoice = (params: IChatGeneralChoice) => {
     const userSocketChatChoiceAllMessages = useStore($userSocketChatChoiceAllMessages);
     const handleSendMessages = () => {
         if (message) {
-            setUserSocketChatChoiceAllMessages([...userSocketChatChoiceAllMessages,
-            {
+            updateUserSocketChatListAllMessages({
+                chat_id:userSocketChatChoiceId,
                 author: params.userValue.user.login,
                 avatarPath: params.userValue.avatarPath,
                 content: message,
-                createdAt: `${new Date()}`
-            }
-            ])
+                createdAt: `${new Date().toISOString()}`
+            })
             sendMessages(userSocketChatChoiceId, message)
-            updateUserSocketChatListAllChats(message);
+            updateUserSocketChatListAllChats({
+                author: params.userValue.user.login,
+                avatarPath: params.userValue.avatarPath,
+                message: message,
+                createdAt: `${new Date().toISOString()}`
+            });
             setMessage(null)
         }
     };
@@ -73,7 +78,7 @@ export const ChatGeneralChoice = (params: IChatGeneralChoice) => {
                 </div>
                 <div className="ChatGeneralChoice__InputBar">
                     <input placeholder="Напишите ваше сообщение" className="ChatGeneralChoice__InputBar__Input" type="text" value={message || ""} onChange={(event: any) => setMessage(event.target.value)} />
-                    <button className="ChatGeneralChoice__InputBar__Button" onClick={handleSendMessages}></button>
+                    <img src={SendIcon} className="ChatGeneralChoice__InputBar__Button" onClick={handleSendMessages} />
                 </div>
             </div>
         </div>

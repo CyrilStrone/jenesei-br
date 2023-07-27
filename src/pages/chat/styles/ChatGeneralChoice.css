@@ -81,11 +81,12 @@
   border: 1px solid #0e8ac3;
 }
 .ChatGeneralChoice__InputBar__Button{
+  height: 26px;
+  width: 26px;
+  cursor: pointer;
+  object-fit: cover;
   display: flex;
-  height: 36px;
-  width: 36px;
-  border-radius: 100%;
-  border: 1px solid cornflowerblue;
+  align-items: center;
 }
 @media (orientation: portrait) {
   .ChatGeneralChoice__ListBar__Chat__Item {

@@ -1,7 +1,7 @@
 import { Socket, io } from "socket.io-client";
 import { ApiImage, accessTokenName } from "./axiosInstance";
 import { createEvent, createStore } from "effector";
-import { $userSocketChat } from "./hooks";
+import { $userSocketChat, $userValue } from "./hooks";
 import { createChat, requestAllMessages } from "./useSocketChat";
 
 const createSocketChat = (): Socket => {
@@ -94,11 +94,9 @@ $userSocketChatURLId.updates.watch((id: any) => {
   console.log("WATCH. userSocketChatURLId id:", +id);
   if (id) {
     //Поиск чата с списке чатов по id пользователя из url браузера
-    const chat = $userSocketChatListAllChats.getState().find(
-      (e:any) => {
-        return e.interlocutor_id === +id;
-      }
-    );
+    const chat = $userSocketChatListAllChats.getState().find((e: any) => {
+      return e.interlocutor_id === +id;
+    });
     if (chat) {
       //Если чат есть, добавляем ключ чата
       setUserSocketChatChoiceId(chat.chat_id);
@@ -121,31 +119,33 @@ $userSocketChatListAllChats.updates.watch((chats: any) => {
 });
 export const updateUserSocketChatListAllChats = (newMessage: any) => {
   const newUserSocketChatListAllChats = $userSocketChatListAllChats.getState();
-  const chatIndex = newUserSocketChatListAllChats.findIndex((chat: any) => chat.chat_id === $userSocketChatChoiceId.getState());
+  const chatIndex = newUserSocketChatListAllChats.findIndex(
+    (chat: any) => chat.chat_id === $userSocketChatChoiceId.getState()
+  );
   if (chatIndex !== -1) {
-      const updatedChat = newUserSocketChatListAllChats[chatIndex];
-      updatedChat.content = newMessage;
-      newUserSocketChatListAllChats.splice(chatIndex, 1);
-      newUserSocketChatListAllChats.unshift(updatedChat);
+    const updatedChat = newUserSocketChatListAllChats[chatIndex];
+    updatedChat.content = newMessage;
+    newUserSocketChatListAllChats.splice(chatIndex, 1);
+    newUserSocketChatListAllChats.unshift(updatedChat);
   }
   setUserSocketChatListAllChats([...newUserSocketChatListAllChats]);
 };
-
+export const updateUserSocketChatListAllMessages = (newMessage: any) => {
+  if (newMessage.chat_id === $userSocketChatChoiceId.getState()) {
+    setUserSocketChatChoiceAllMessages([
+      ...$userSocketChatChoiceAllMessages.getState(),
+      newMessage,
+    ]);
+  }
+};
 $userSocketChatChoiceAllMessages.updates.watch((chats: any) => {
   console.log("WATCH. userSocketChatChoiceAllMessages chats:", chats);
 });
 
 $userSocketChatReceiveMessage.updates.watch((message: any) => {
   console.log("WATCH. userSocketChatReceiveMessage message:", message);
-  // if (message && message.length !== 0) {
-  //   setUserSocketChatListAllChats({
-  //     ...$userSocketChatListAllChats.getState(),
-  //     [message.chat_id]: message,
-  //   });
-  //   if (message.chat_id === $userSocketChatChoiceId.getState())
-  //     setUserSocketChatChoiceAllMessages([
-  //       ...$userSocketChatChoiceAllMessages.getState(),
-  //       message,
-  //     ]);
-  // }
+  if (message && message.length !== 0) {
+    updateUserSocketChatListAllMessages(message);
+    updateUserSocketChatListAllChats(message);
+  }
 });
