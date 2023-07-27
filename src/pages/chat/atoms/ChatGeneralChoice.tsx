@@ -1,9 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import "../styles/ChatGeneralChoice.css";
-import { $userSocketChat, $userValue } from "../../../ui/functions/hooks";
 import { sendMessages } from "../../../ui/functions/useSocketChat";
 import { useStore } from "effector-react";
-import { $userSocketChatChoiceAllMessages, $userSocketChatChoiceId, setUserSocketChatChoiceAllMessages } from "../../../ui/functions/createSocketChat";
+import { $userSocketChatChoiceAllMessages, $userSocketChatChoiceId, $userSocketChatListAllChats, setUserSocketChatChoiceAllMessages, updateUserSocketChatListAllChats } from "../../../ui/functions/createSocketChat";
 export interface IChatGeneralChoice {
     userValue: any
 }
@@ -22,28 +21,52 @@ export const ChatGeneralChoice = (params: IChatGeneralChoice) => {
                 createdAt: `${new Date()}`
             }
             ])
-            sendMessages($userSocketChat.getState(), userSocketChatChoiceId, message)
+            sendMessages(userSocketChatChoiceId, message)
+            updateUserSocketChatListAllChats(message);
             setMessage(null)
         }
     };
+
     useEffect(() => {
         setMessage(null)
     }, [userSocketChatChoiceId])
     useEffect(() => {
         if (chat !== null && chat.current !== null)
             chat.current.scrollTop = chat.current.scrollHeight;
-    }, [message]);
+    }, [userSocketChatChoiceId, userSocketChatChoiceAllMessages]);
+    const formatDateTime = (dateTimeString: any) => {
+        const date = new Date(dateTimeString);
+        const now = new Date();
+
+        if (date.getFullYear() === now.getFullYear()) {
+            if (date.getMonth() === now.getMonth() && date.getDate() === now.getDate()) {
+                return date.toLocaleTimeString('ru-RU', { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' });
+            } else {
+                return date.toLocaleString('ru-RU', { hour12: false, month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' });
+            }
+        } else {
+            return date.toLocaleString('ru-RU', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' });
+        }
+    };
     return (
         <div className="ChatGeneralChoice Half__Block Block__NonActive">
             <div className="ChatGeneralBar__Header Half__Block__Header">
-                {userSocketChatChoiceId}
+                {$userSocketChatListAllChats.getState()?.map(
+                    (e: any) => e.chat_id === userSocketChatChoiceId && e.firstName + " " + e.lastName
+
+                )}
             </div>
             <div className="ChatGeneralChoice__Footer Half__Block__Footer">
                 <div className="ChatGeneralChoice__ListBar">
                     <div ref={chat} className="ChatGeneralChoice__ListBar__Chat">
-                        {userSocketChatChoiceAllMessages && userSocketChatChoiceAllMessages.map((e: any) =>
-                            <div className={`${e.author === params.userValue.user.login && "ChatGeneralChoice__ListBar__Chat__Item-User"} ChatGeneralChoice__ListBar__Chat__Item`}>
-                                {e.content}
+                        {userSocketChatChoiceAllMessages && userSocketChatChoiceAllMessages.map((e: any, id: number) =>
+                            <div key={id} className={`${e.author === params.userValue.user.login && "ChatGeneralChoice__ListBar__Chat__Item-User"} ChatGeneralChoice__ListBar__Chat__Item`}>
+                                <div className="ChatGeneralChoice__ListBar__Chat__Item__Content">
+                                    {e.content}
+                                </div>
+                                <div className="ChatGeneralChoice__ListBar__Chat__Item__Time">
+                                    {formatDateTime(e.createdAt)}
+                                </div>
                             </div>
                         )}
                     </div>

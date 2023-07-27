@@ -14,6 +14,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 20px;
 }
 .ChatGeneralChoice__ListBar {
 }
@@ -26,17 +27,27 @@
   scroll-behavior: smooth;
 }
 .ChatGeneralChoice__ListBar__Chat__Item {
-  font-size: 26%;
-  font-weight: 400;
   width: fit-content;
   display: flex;
+  gap:2px;
   padding-bottom: 4p;
   background: white;
   padding: 6px 10px 6px 10px;
   border-radius: 6px;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.ChatGeneralChoice__ListBar__Chat__Item__Content{
+  font-size: 26%;
+  font-weight: 400;
+}
+.ChatGeneralChoice__ListBar__Chat__Item__Time{
+  font-size: 16%;
+  font-weight: 400;
 }
 .ChatGeneralChoice__ListBar__Chat__Item-User {
   margin-left: auto;
+  align-items: flex-end;
 }
 .ChatGeneralChoice__InputBar__Input {
   display: inline-block;

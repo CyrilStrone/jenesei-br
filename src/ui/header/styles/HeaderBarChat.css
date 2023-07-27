@@ -52,6 +52,7 @@
   width: 38px;
   height: 38px;
   padding: 4px;
+  border-radius: 100%;
 }
 .HeaderBarChat__List__Message {
   margin-left: auto;
@@ -64,4 +65,8 @@
   align-items: center;
   justify-content: center;
   color: white;
+}
+.HeaderBarChat__List__Error{
+  font-size: 60%;
+  font-weight: 400;
 }

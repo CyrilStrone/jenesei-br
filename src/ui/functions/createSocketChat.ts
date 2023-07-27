@@ -26,11 +26,11 @@ const createSocketChat = (): Socket => {
     console.log("Socket.IO Chat error:", error);
   });
 
-  socket.on("new_chat_created", (data: any) => {
-    console.log("Socket.IO Chat Received new_chat_created:", data);
-    //Получаем ключ чата, если его не было
-    if (data.id) setUserSocketChatChoiceId(data.id);
-  });
+  // socket.on("new_chat_created", (data: any) => {
+  //   console.log("Socket.IO Chat Received new_chat_created:", data);
+  //   //Получаем ключ чата, если его не было
+  //   if (data.id) setUserSocketChatChoiceId(data.id);
+  // });
 
   socket.on("disconnect_notification", (data: any) => {
     console.log("Socket.IO Chat Received disconnect_notification:", data);
@@ -48,6 +48,8 @@ const createSocketChat = (): Socket => {
   socket.on("receive_message", (data: any) => {
     setUserSocketChatReceiveMessage(data);
   });
+
+  //Событие создания чата
   socket.on("response_chat", (data: any) => {
     console.log("Socket.IO Chat Received response_chat:", data);
   });
@@ -89,17 +91,17 @@ export const setUserSocketChatURLId = createEvent<any | null>();
 $userSocketChatURLId.on(setUserSocketChatURLId, (_, val) => val);
 
 $userSocketChatURLId.updates.watch((id: any) => {
-  console.log("WATCH. userSocketChatURLId id:", id);
+  console.log("WATCH. userSocketChatURLId id:", +id);
   if (id) {
     //Поиск чата с списке чатов по id пользователя из url браузера
-    const foundKey = Object.keys($userSocketChatListAllChats.getState()).find(
-      (e) => {
-        return $userSocketChatListAllChats.getState()[e][0].id === +id;
+    const chat = $userSocketChatListAllChats.getState().find(
+      (e:any) => {
+        return e.interlocutor_id === +id;
       }
     );
-    if (foundKey) {
+    if (chat) {
       //Если чат есть, добавляем ключ чата
-      setUserSocketChatChoiceId(foundKey);
+      setUserSocketChatChoiceId(chat.chat_id);
     } else {
       //Если чата нет, создаем чат
       createChat($userSocketChat.getState(), +id);
@@ -117,6 +119,17 @@ $userSocketChatChoiceId.updates.watch((id: any) => {
 $userSocketChatListAllChats.updates.watch((chats: any) => {
   console.log("WATCH. userSocketChatListAllChats chats:", chats);
 });
+export const updateUserSocketChatListAllChats = (newMessage: any) => {
+  const newUserSocketChatListAllChats = $userSocketChatListAllChats.getState();
+  const chatIndex = newUserSocketChatListAllChats.findIndex((chat: any) => chat.chat_id === $userSocketChatChoiceId.getState());
+  if (chatIndex !== -1) {
+      const updatedChat = newUserSocketChatListAllChats[chatIndex];
+      updatedChat.content = newMessage;
+      newUserSocketChatListAllChats.splice(chatIndex, 1);
+      newUserSocketChatListAllChats.unshift(updatedChat);
+  }
+  setUserSocketChatListAllChats([...newUserSocketChatListAllChats]);
+};
 
 $userSocketChatChoiceAllMessages.updates.watch((chats: any) => {
   console.log("WATCH. userSocketChatChoiceAllMessages chats:", chats);
@@ -124,15 +137,15 @@ $userSocketChatChoiceAllMessages.updates.watch((chats: any) => {
 
 $userSocketChatReceiveMessage.updates.watch((message: any) => {
   console.log("WATCH. userSocketChatReceiveMessage message:", message);
-  if (message && message.length !== 0) {
-    setUserSocketChatListAllChats({
-      ...$userSocketChatListAllChats.getState(),
-      [message.chat_id]: [message],
-    });
-    if (message.chat_id === $userSocketChatChoiceId.getState())
-      setUserSocketChatChoiceAllMessages([
-        ...$userSocketChatChoiceAllMessages.getState(),
-        message,
-      ]);
-  }
+  // if (message && message.length !== 0) {
+  //   setUserSocketChatListAllChats({
+  //     ...$userSocketChatListAllChats.getState(),
+  //     [message.chat_id]: message,
+  //   });
+  //   if (message.chat_id === $userSocketChatChoiceId.getState())
+  //     setUserSocketChatChoiceAllMessages([
+  //       ...$userSocketChatChoiceAllMessages.getState(),
+  //       message,
+  //     ]);
+  // }
 });

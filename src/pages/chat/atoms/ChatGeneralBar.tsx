@@ -9,7 +9,6 @@ export interface IChatGeneralBar {
 }
 export const ChatGeneralBar = (params: IChatGeneralBar) => {
     const userSocketChatListAllChats = useStore($userSocketChatListAllChats);
-
     const ref = useRef<HTMLDivElement>(null);
     const handleWheel = (e: any) => {
         if (ref.current) {
@@ -19,7 +18,7 @@ export const ChatGeneralBar = (params: IChatGeneralBar) => {
     return (
         <div className="ChatGeneralBar Half__Block Block__NonActive">
             <div className="ChatGeneralBar__Header Half__Block__Header">
-                {params.userValue.user.login}
+                {params.userValue.user.firstName + " " + params.userValue.user.lastName}
             </div>
             <div className="ChatGeneralBar__List Half__Block__Footer">
                 <input type="text" placeholder="Поиск" className="ChatGeneralBar__List__Input" />
@@ -27,8 +26,8 @@ export const ChatGeneralBar = (params: IChatGeneralBar) => {
 
                 <div className={`${userSocketChatListAllChats ? "ChatGeneralBarItem__YesList ChatGeneralBarItem__List" : "ChatGeneralBarItem__NoList"}`} ref={ref} onWheel={handleWheel}>
                     {userSocketChatListAllChats ?
-                        Object.keys(userSocketChatListAllChats).map((e: any, id: any) =>
-                            <ChatGeneralBarItem chatKey={e} key={id} value={userSocketChatListAllChats[e][0]} />
+                        userSocketChatListAllChats.map((e: any, id: any) =>
+                            <ChatGeneralBarItem key={id} value={e} />
                         ) :
                         <SpinningCircles height="2em" fill="#0E8AC3" stroke="#000" strokeOpacity={.125} speed={1} />
                     }
