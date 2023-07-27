@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { InSubDelete, InSubPost } from "../logics/InSub";
 import "../styles/UserButton.css";
+import { Link } from "react-router-dom";
 interface IUserButton {
     value: any
     userValue: any
@@ -11,7 +12,7 @@ export const UserButton = (params: IUserButton) => {
     const [checkYourSub, setCheckYourSub] = useState<boolean>(false)
     useEffect(() => {
         params?.value?.subscribers?.map((e: any) => {
-            if (e?.id == params?.userValue?.user.id) {
+            if (e?.id == params?.userValue?.user?.id) {
                 setCheckMySub(true)
             }
         })
@@ -23,10 +24,10 @@ export const UserButton = (params: IUserButton) => {
     }, [params.value, params.userValue])
     const handleApiSub = async () => {
         try {
-            const result = await InSubPost(params.value.user.id);
+            const result = await InSubPost(params.value.id);
             if (result) {
                 setCheckMySub(true);
-                params.requestInAnotherUser(params.value.user.login)
+                params.requestInAnotherUser(params.value.login)
             } else {
                 setCheckMySub(false);
             }
@@ -36,10 +37,10 @@ export const UserButton = (params: IUserButton) => {
     }
     const handleApiUnSub = async () => {
         try {
-            const result = await InSubDelete(params.value.user.id);
+            const result = await InSubDelete(params.value.id);
             if (result) {
                 setCheckMySub(false);
-                params.requestInAnotherUser(params.value.user.login)
+                params.requestInAnotherUser(params.value.login)
             } else {
                 setCheckMySub(true);
             }
@@ -47,14 +48,15 @@ export const UserButton = (params: IUserButton) => {
             console.log("handleApiUnSub error", error)
         }
     }
+
     return (
         <div className="UserButton">
             <div className={checkMySub ? "UserButton__Item__Active UserButton__Item UserButton__MySub Block__Active" : "UserButton__Item UserButton__MySub Block__Active"} onClick={() => checkMySub ? handleApiUnSub() : handleApiSub()}>
                 {checkMySub ? "Отписаться" : "Подписаться"}
             </div>
-            <div className="UserButton__Item UserButton__Chat Block__Active">
+            <Link to={`/chat/${params.value.id}`} className="UserButton__Item UserButton__Chat Block__Active">
                 Начать чат
-            </div>
+            </Link>
             {checkYourSub &&
                 <div className="UserButton__Item__NotHover UserButton__YourChat Block__Active">
                     Ваш подписчик

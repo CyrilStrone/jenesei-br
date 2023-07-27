@@ -61,7 +61,10 @@ export function App() {
             <>
               <Route index element={<Navigate to="/home/top" />} />
               <Route path="*" element={<Navigate to="/home/top" />} />
-              <Route path="chat" element={<Chat />} />
+              <Route path="chat">
+                <Route index element={<Chat />} />
+                <Route path=":id" element={<Chat />} />
+              </Route>
               <Route path="search" element={<Search />} />
               <Route path="user" element={<UserMore />}>
                 <Route index element={<Navigate to="/user/login/" />} />

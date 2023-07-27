@@ -6,9 +6,9 @@ export const accessTokenName = "BusinessRouletteToken"
 
 export const ApiLocation = "https://data-api.oxilor.com"
 export const ApiLocationAnother = "https://dataservice.accuweather.com"
-export const ApiImage = "https://businessroulette.ru:3000"
+export const ApiImage = "http://192.168.0.25:3000"
 export const axiosInstance = axios.create({
-  baseURL: "https://businessroulette.ru:3000/api",
+  baseURL: "http://192.168.0.25:3000/api",
   timeout: 1000,
   withCredentials: true,
   headers: {

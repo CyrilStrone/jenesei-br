@@ -1,6 +1,6 @@
 .ChatGeneralBar {
   width: 400px;
-  height: 100%;
+  height: auto;
 }
 .ChatGeneralBar__Header {
 }
@@ -27,7 +27,7 @@
   position: relative;
   text-align: left;
   vertical-align: top;
-  width: 100%;
+  width: auto;
 }
 .ChatGeneralBar__List__Input:focus {
   border: 1px solid #0e8ac3;
@@ -35,13 +35,25 @@
   z-index: 2;
 }
 .ChatGeneralBarItem__List {
+  height: auto;
+}
+.ChatGeneralBarItem__NoList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-height: 200px;
+  transition: all 0.5s ease-out;
+}
+.ChatGeneralBarItem__YesList {
   display: flex;
   flex-direction: column;
   gap: 6px;
-  height: 700px;
   overflow-y: auto;
+  max-height: 700px;
+  transition: all 0.5s ease-in;
 }
-.ChatGeneralBarItem__List::-webkit-scrollbar {
+.ChatGeneralBarItem__YesList::-webkit-scrollbar {
   width: 0;
   height: 0;
 }
@@ -53,7 +65,7 @@
   .ChatGeneralBar__List__Input {
     display: none;
   }
-  .ChatGeneralBarItem__List {
+  .ChatGeneralBarItem__YesList {
     display: flex;
     flex-direction: row;
     height: 52px;

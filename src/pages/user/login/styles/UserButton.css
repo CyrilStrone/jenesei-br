@@ -9,7 +9,10 @@
   border-radius: 7px;
   background: #ffffff;
   padding: 8px 10px 8px 10px;
+  text-decoration: none;
   cursor: pointer;
+  color: var(--br-full-black);;
+  
 }
 .UserButton__Item__Active {
   background: #0e8ac3;

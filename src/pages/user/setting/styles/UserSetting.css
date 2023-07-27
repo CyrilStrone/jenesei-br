@@ -29,6 +29,7 @@
   font-size: 25%;
   font-weight: 400;
   color: #666666;
+  word-wrap: break-word;
 }
 .Setting__Card__Short__Image {
   position: absolute;

@@ -19,6 +19,7 @@
   display: flex;
   height: min-content;
   white-space: pre-line;
+  overflow-wrap: anywhere;
 }
 @media (orientation: portrait) {
   .UserAbout {

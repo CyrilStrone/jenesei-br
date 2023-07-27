@@ -1,4 +1,18 @@
 .ChatGeneralChoice {
   height: 100% !important;
   min-height: 300px;
+  flex-direction: column;
+}
+.ChatGeneralChoice__Bar{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.ChatGeneralChoice__List {
+  display: flex;
+  flex-direction: column;
+}
+.ChatGeneralChoice__List__Item{
+  font-size: 30%;
+  font-weight: 600;
 }
