@@ -2,12 +2,12 @@ import "../styles/Chat.css";
 import { ChatGeneral } from "../molecules/ChatGeneral";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { setUserSocketChatURLId } from "../../../ui/functions/createSocketChat";
 
 export const Chat = () => {
   const { id } = useParams();
-  const [chatId, setChatId] = useState<any | null>(null)
   useEffect(() => {
-    setChatId(id)
+    setUserSocketChatURLId(id)
   }, [id])
   return (
     <div className="Chat">
@@ -16,7 +16,7 @@ export const Chat = () => {
           Чат
         </div>
       </div>
-      <ChatGeneral chatId={chatId} setChatId={setChatId} />
+      <ChatGeneral/>
     </div>
   );
 };

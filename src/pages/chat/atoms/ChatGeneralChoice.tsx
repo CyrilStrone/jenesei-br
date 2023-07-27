@@ -1,31 +1,36 @@
 import { useEffect, useState } from "react";
 import "../styles/ChatGeneralChoice.css";
-import { $userSocketChat, $userSocketChatChoice, $userSocketChatList } from "../../../ui/functions/hooks";
+import { $userSocketChat, $userValue } from "../../../ui/functions/hooks";
 import { sendMessages } from "../../../ui/functions/useSocketChat";
 import { useStore } from "effector-react";
+import { $userSocketChatChoiceAllMessages, $userSocketChatChoiceId, setUserSocketChatChoiceAllMessages } from "../../../ui/functions/createSocketChat";
 export interface IChatGeneralChoice {
-    chatId: any
+
 }
 export const ChatGeneralChoice = (params: IChatGeneralChoice) => {
     const [message, setMessage] = useState<string | null>(null);
-    const [messageList, setMessageList] = useState<any | null>(null);
-    const userSocketChatChoice = useStore($userSocketChatChoice);
+    const userSocketChatChoiceId = useStore($userSocketChatChoiceId);
+    const userSocketChatChoiceAllMessages = useStore($userSocketChatChoiceAllMessages);
+    const userValue = useStore($userValue);
     const handleSendMessages = () => {
-        if (message) {
-            const foundKey = Object.keys($userSocketChatList.getState()).find((e) => {
-                return $userSocketChatList.getState()[e][0].id === +params.chatId;
-            });
-            sendMessages($userSocketChat.getState(), foundKey, message)
+        setUserSocketChatChoiceAllMessages([...userSocketChatChoiceAllMessages,
+        {
+            author: userValue.user.login,
+            avatarPath: userValue.avatarPath,
+            content: message,
+            createdAt: `${new Date()}`
         }
+        ])
+        sendMessages($userSocketChat.getState(), userSocketChatChoiceId, message)
     };
     useEffect(() => {
-        setMessageList(userSocketChatChoice)
-    }, [userSocketChatChoice])
+        setMessage(null)
+    }, [userSocketChatChoiceId])
     return (
         <div className="ChatGeneralChoice Transparent__Block Block__NonActive">
 
             <div className="ChatGeneralChoice__List">
-                {messageList && messageList.map((e: any) =>
+                {userSocketChatChoiceAllMessages && userSocketChatChoiceAllMessages.map((e: any) =>
                     <div className="ChatGeneralChoice__List__Item">
                         {e.content}
                     </div>

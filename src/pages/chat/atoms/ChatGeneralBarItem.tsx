@@ -1,12 +1,14 @@
 import "../styles/ChatGeneralBarItem.css";
 import DefaultAvatarChat from '../../../assets/icon/chats/default-avatar.svg'
 import { ApiImage } from "../../../ui/functions/axiosInstance";
+import { setUserSocketChatChoiceId } from "../../../ui/functions/createSocketChat";
 export interface IChatGeneralBarItem {
     value: any
+    chatKey: string
 }
-export const ChatGeneralBarItem = (params:IChatGeneralBarItem) => {
+export const ChatGeneralBarItem = (params: IChatGeneralBarItem) => {
     return (
-        <div className="ChatGeneralBarItem">
+        <div className="ChatGeneralBarItem" onClick={() => setUserSocketChatChoiceId(params.chatKey)}>
             <img src={params.value.avatarPath ? ApiImage + params.value.avatarPath : DefaultAvatarChat} className="ChatGeneralBarItem__Avatar" alt="" />
             <div className="ChatGeneralBarItem__Info">
                 <div className="ChatGeneralBarItem__Info__Name">

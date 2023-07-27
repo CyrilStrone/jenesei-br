@@ -1,6 +1,8 @@
 import { Socket, io } from "socket.io-client";
 import { ApiImage, accessTokenName } from "./axiosInstance";
-import { setUserSocketChatChoice, setUserSocketChatList } from "./hooks";
+import { createEvent, createStore } from "effector";
+import { $userSocketChat } from "./hooks";
+import { createChat, requestAllMessages } from "./useSocketChat";
 
 const createSocketChat = (): Socket => {
   const socket = io(ApiImage, {
@@ -17,15 +19,17 @@ const createSocketChat = (): Socket => {
 
   socket.on("disconnect", () => {
     console.log("Socket.IO Chat disconnected");
-    setUserSocketChatList(null)
+    setUserSocketChatListAllChats(null);
   });
 
   socket.on("error", (error: any) => {
     console.log("Socket.IO Chat error:", error);
   });
 
-  socket.on("create_chat", (data: any) => {
-    console.log("Socket.IO Chat Received create_chat:", data);
+  socket.on("new_chat_created", (data: any) => {
+    console.log("Socket.IO Chat Received new_chat_created:", data);
+    //Получаем ключ чата, если его не было
+    if (data.id) setUserSocketChatChoiceId(data.id);
   });
 
   socket.on("disconnect_notification", (data: any) => {
@@ -36,22 +40,93 @@ const createSocketChat = (): Socket => {
   });
 
   socket.on("response_all_chats", (data: any) => {
-    console.log("Socket.IO Chat Received response_all_chats:", data);
-    setUserSocketChatList(data)
+    setUserSocketChatListAllChats(data);
   });
   socket.on("response_all_messages", (data: any) => {
-    console.log("Socket.IO Chat Received response_all_messages:", data);
-    setUserSocketChatChoice(data)
+    setUserSocketChatChoiceAllMessages(data);
   });
   socket.on("receive_message", (data: any) => {
-    console.log("Socket.IO Chat Received receive_message:", data);
+    setUserSocketChatReceiveMessage(data)
   });
-
-  socket.on("new_chat_created", (data: any) => {
-    console.log("Socket.IO Chat Received new_chat_created:", data);
+  socket.on("response_chat", (data: any) => {
+    console.log("Socket.IO Chat Received response_chat:", data);
   });
 
   return socket;
 };
 
 export default createSocketChat;
+
+//Новое сообщение от любого пользователя
+export const $userSocketChatReceiveMessage = createStore<any | null>(null);
+export const setUserSocketChatReceiveMessage = createEvent<any | null>();
+$userSocketChatReceiveMessage.on(
+  setUserSocketChatReceiveMessage,
+  (_, val) => val
+);
+
+//Id последнего актуального чата (для апи)
+export const $userSocketChatChoiceId = createStore<any | null>(null);
+export const setUserSocketChatChoiceId = createEvent<any | null>();
+$userSocketChatChoiceId.on(setUserSocketChatChoiceId, (_, val) => val);
+
+//Все сообщения выбранного чата
+export const $userSocketChatChoiceAllMessages = createStore<any | null>(null);
+export const setUserSocketChatChoiceAllMessages = createEvent<any | null>();
+$userSocketChatChoiceAllMessages.on(
+  setUserSocketChatChoiceAllMessages,
+  (_, val) => val
+);
+
+//Все сообщения при авторизации на сайте
+export const $userSocketChatListAllChats = createStore<any | null>(null);
+export const setUserSocketChatListAllChats = createEvent<any | null>();
+$userSocketChatListAllChats.on(setUserSocketChatListAllChats, (_, val) => val);
+
+//url Id в чатах
+export const $userSocketChatURLId = createStore<any | null>(null);
+export const setUserSocketChatURLId = createEvent<any | null>();
+$userSocketChatURLId.on(setUserSocketChatURLId, (_, val) => val);
+
+$userSocketChatURLId.updates.watch((id: any) => {
+  console.log("WATCH. userSocketChatURLId id:", id);
+  if (id) {
+    //Поиск чата с списке чатов по id пользователя из url браузера
+    const foundKey = Object.keys($userSocketChatListAllChats.getState()).find(
+      (e) => {
+        return $userSocketChatListAllChats.getState()[e][0].id === +id;
+      }
+    );
+    if (foundKey) {
+      //Если чат есть, добавляем ключ чата
+      setUserSocketChatChoiceId(foundKey);
+    } else {
+      //Если чата нет, создаем чат
+      createChat($userSocketChat.getState(), +id);
+    }
+  }
+});
+
+$userSocketChatChoiceId.updates.watch((id: any) => {
+  console.log("WATCH. userSocketChatChoiceId id:", id);
+  if (id) {
+    requestAllMessages($userSocketChat.getState(), id);
+  }
+});
+
+$userSocketChatListAllChats.updates.watch((chats: any) => {
+  console.log("WATCH. userSocketChatListAllChats chats:", chats);
+});
+
+$userSocketChatChoiceAllMessages.updates.watch((chats: any) => {
+  console.log("WATCH. userSocketChatChoiceAllMessages chats:", chats);
+  // if (chats && chats.length !== 0)
+    // setUserSocketChatListAllChats({
+    //   ...$userSocketChatListAllChats.getState(),
+    //   [$userSocketChatChoiceId.getState()]: [chats[0]],
+    // });
+});
+
+$userSocketChatReceiveMessage.updates.watch((chats: any) => {
+  console.log("WATCH. userSocketChatReceiveMessage chats:", chats);
+});

@@ -11,3 +11,4 @@ export const requestAllMessages = (socket: Socket, id: any) => {
 export const sendMessages = (socket: Socket, id: any, content: any) => {
   socket.emit("send_message", { chat_id: id, content: content });
 };
+
