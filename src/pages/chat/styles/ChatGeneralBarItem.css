@@ -10,15 +10,14 @@
   border-radius: 8px;
   transition: all 0.3s ease;
 }
-.ChatGeneralBarItem:hover {
-  background-color: rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-}
 .ChatGeneralBarItem__Avatar {
   width: 40px;
   height: 40px;
   object-fit: cover;
   border-radius: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 2px;
+  box-sizing: border-box;
 }
 .ChatGeneralBarItem__Info {
   display: flex;
@@ -45,7 +44,13 @@
 }
 .ChatGeneralBarItem-Choice {
   color: #fff;
-  background-color: var(--br-product);
+  background-color: var(--br-product) !important;
+}
+@media (orientation: landscape) {
+  .ChatGeneralBarItem:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
 }
 @media (orientation: portrait) {
   .ChatGeneralBarItem {
@@ -56,6 +61,7 @@
     width: 30px;
     gap: 0;
     padding: 4px;
+    background-color: rgba(0, 0, 0, 0.1);
   }
   .ChatGeneralBarItem__YesList{
     height: 38px;

@@ -1,7 +1,7 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import { useEffect } from "react";
 import { useStore } from "effector-react";
-import { $accessToken, UserLogout, setAccessToken, setRememberCheck } from "./ui/functions/accessToken";
+import { $accessToken, setAccessToken, setRememberCheck } from "./ui/functions/accessToken";
 import { Major } from "./pages/major/organelles/Major";
 import { Registration } from "./pages/registration/organelles/Registration";
 import { Login } from "./pages/login/organelles/Login";
@@ -23,6 +23,7 @@ import { HomeSubscription } from "./pages/home/subscription/organelles/HomeSubsc
 import { UserSecurity } from "./pages/user/security/organelles/UserSecurity";
 import { RememberRefreshName, accessTokenName } from "./ui/functions/axiosInstance";
 import { AppGeneral } from "./ui/appGeneral/organelles/AppGeneral";
+import Notifications from "react-push-notification/dist/notifications/Notifications";
 
 export function App() {
   const accessToken = useStore($accessToken);
@@ -37,6 +38,7 @@ export function App() {
   }, [])
   return (
     <div className="App">
+      <Notifications />
       <Routes>
         <Route path="/" element={<AppGeneral />}>
           {(accessToken && userValue) ?

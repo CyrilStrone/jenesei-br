@@ -4,6 +4,7 @@ import { createEvent, createStore } from "effector";
 import { $userSocketChat } from "./hooks";
 import { createChat, requestAllMessages } from "./useSocketChat";
 import { UserLogout } from "./accessToken";
+import addNotification from "react-push-notification";
 
 const createSocketChat = (): Socket => {
   const socket = io(ApiImage, {
@@ -119,7 +120,7 @@ $userSocketChatChoiceId.updates.watch((id: any) => {
 });
 $userSocketChatResponseChat.updates.watch((chat: any) => {
   console.log("WATCH. userSocketChatResponseChat chat:", chat);
-  setUserSocketChatChoiceId(chat.chat_id)
+  setUserSocketChatChoiceId(chat.chat_id);
   setUserSocketChatListAllChats([
     chat,
     ...$userSocketChatListAllChats.getState(),
@@ -157,8 +158,18 @@ export const updateUserSocketChatListAllMessages = (newMessage: any) => {
 $userSocketChatChoiceAllMessages.updates.watch((chats: any) => {
   console.log("WATCH. userSocketChatChoiceAllMessages chats:", chats);
 });
-
+export const pushNotification = (newMessage: any) => {
+  addNotification({
+    title: "Business Roulette. "+ newMessage.author,
+    message: newMessage.content,
+    icon: ApiImage + newMessage.avatarPath,
+    vibrate:1,
+    native: true, // when using native, your OS will handle theming.
+  });
+};
 $userSocketChatReceiveMessage.updates.watch((message: any) => {
+  pushNotification(message
+    );
   console.log("WATCH. userSocketChatReceiveMessage message:", message);
   if (message && message.length !== 0) {
     updateUserSocketChatListAllMessages(message);

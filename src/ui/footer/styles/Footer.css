@@ -12,6 +12,7 @@
   box-sizing: border-box;
 }
 .FooterGeneral {
+  max-width: 100vw !important;
   display: flex;
   align-items: flex-start;
   flex-direction: row;

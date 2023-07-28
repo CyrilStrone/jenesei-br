@@ -98,6 +98,12 @@
 @media (orientation: portrait) {
   .ChatGeneralChoice__ListBar__Chat__Item {
   }
+  .ChatGeneralChoice__ListBar__Chat__Item__Content{
+    font-size: 36%;
+  }
+  .ChatGeneralChoice__ListBar__Chat__Item__Time{
+    font-size: 20%;
+  }
   .ChatGeneralChoice__ListBar__Chat {
     height: 500px;
   }
