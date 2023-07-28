@@ -159,7 +159,7 @@ $userSocketChatChoiceAllMessages.updates.watch((chats: any) => {
   console.log("WATCH. userSocketChatChoiceAllMessages chats:", chats);
 });
 export const pushNotification = (newMessage: any) => {
-  addNotification({
+  document.hidden && addNotification({
     title: "Business Roulette. "+ newMessage.author,
     message: newMessage.content,
     icon: ApiImage + newMessage.avatarPath,
