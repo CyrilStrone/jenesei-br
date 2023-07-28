@@ -120,10 +120,11 @@ $userSocketChatListAllChats.updates.watch((chats: any) => {
 export const updateUserSocketChatListAllChats = (newMessage: any) => {
   const newUserSocketChatListAllChats = $userSocketChatListAllChats.getState();
   const chatIndex = newUserSocketChatListAllChats.findIndex(
-    (chat: any) => chat.chat_id === $userSocketChatChoiceId.getState()
+    (chat: any) => chat.chat_id === newMessage.chat_id
   );
   if (chatIndex !== -1) {
     const updatedChat = newUserSocketChatListAllChats[chatIndex];
+    if (newMessage.content) newMessage.message = newMessage.content;
     updatedChat.content = newMessage;
     newUserSocketChatListAllChats.splice(chatIndex, 1);
     newUserSocketChatListAllChats.unshift(updatedChat);

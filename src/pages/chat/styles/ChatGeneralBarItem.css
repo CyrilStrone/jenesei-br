@@ -7,7 +7,7 @@
   min-height: 46px;
   padding-left: 8px;
   cursor: pointer;
-  border-radius: 16px;
+  border-radius: 8px;
   transition: all 0.3s ease;
 }
 .ChatGeneralBarItem:hover {
@@ -49,13 +49,20 @@
 }
 @media (orientation: portrait) {
   .ChatGeneralBarItem {
-    min-width: 40px;
-    max-width: 40px;
-    min-height: 40px;
-    max-height: 40px;
-    width: 40px;
+    min-width: 30px;
+    max-width: 30px;
+    min-height: 30px;
+    max-height: 30px;
+    width: 30px;
     gap: 0;
-    padding: 6px;
+    padding: 4px;
+  }
+  .ChatGeneralBarItem__YesList{
+    height: 38px;
+  }
+  .ChatGeneralBarItem__Avatar{
+    width: 30px;
+    height: 30px;
   }
   .ChatGeneralBarItem__Info {
     display: none;

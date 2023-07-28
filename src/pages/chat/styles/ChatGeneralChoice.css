@@ -90,8 +90,6 @@
 }
 @media (orientation: portrait) {
   .ChatGeneralChoice__ListBar__Chat__Item {
-    font-size: 30%;
-    font-weight: 400;
   }
   .ChatGeneralChoice__ListBar__Chat {
     height: 500px;

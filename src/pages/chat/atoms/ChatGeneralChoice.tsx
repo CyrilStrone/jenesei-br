@@ -21,13 +21,14 @@ export const ChatGeneralChoice = (params: IChatGeneralChoice) => {
                 content: message,
                 createdAt: `${new Date().toISOString()}`
             })
-            sendMessages(userSocketChatChoiceId, message)
             updateUserSocketChatListAllChats({
+                chat_id:userSocketChatChoiceId,
                 author: params.userValue.user.login,
                 avatarPath: params.userValue.avatarPath,
                 message: message,
                 createdAt: `${new Date().toISOString()}`
             });
+            sendMessages(userSocketChatChoiceId, message)
             setMessage(null)
         }
     };
