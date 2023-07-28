@@ -13,7 +13,7 @@ export const HeaderBarChat = () => {
         Чаты
       </div>
       <div className='HeaderBarChat__List'>
-        {userSocketChatListAllChats ?
+        {userSocketChatListAllChats && userSocketChatListAllChats.length !== 0 ?
           userSocketChatListAllChats.map((e: any, id: any) =>
             id < 6 && <NavLink key={id} to={`/chat/${e.interlocutor_id}`}>
               <img src={e.avatarPath ? ApiImage + e.avatarPath : DefaultAvatarChat} alt="DefaultAvatarChat" className='HeaderBarChat__List__Avatar' />

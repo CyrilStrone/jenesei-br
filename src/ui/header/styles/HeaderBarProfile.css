@@ -48,6 +48,7 @@
 .HeaderBarProfile__List__Logout {
   color: #eb0c00 !important;
   font-weight: 500 !important;
+  cursor: pointer;
 }
 .HeaderBarProfile__List__Settings {
   color: #0e8ac3 !important;

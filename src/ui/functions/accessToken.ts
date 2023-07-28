@@ -5,7 +5,7 @@ import {
   axiosInstance,
 } from "./axiosInstance";
 import { requestUser } from "./requestUser";
-import { setUserSocketChat } from "./hooks";
+import { disconnectChat } from "./useSocketChat";
 
 export const $accessToken = createStore<string>("");
 export const setAccessToken = createEvent<string>();
@@ -31,12 +31,12 @@ $rememberCheck.updates.watch((check) => {
 });
 
 export const UserLogout = () => {
-  setUserSocketChat(null)
   document.cookie = "name=<Refresh>; expires=-1";
   document.cookie = "name=<Session>; expires=-1";
   setAccessToken("");
   setUserLogin("");
   setRememberCheck("false");
+  disconnectChat()
 };
 $accessToken.updates.watch((value: any) => {
   console.log("WATCH. accessToken value:", value);

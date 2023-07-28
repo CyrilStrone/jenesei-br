@@ -9,7 +9,6 @@ export interface IUserSubscription {
 
 export const UserSubscription = (params: IUserSubscription) => {
     const ref = useRef<HTMLDivElement>(null);
-    console.log("params?.subscription",params?.subscription)
     const handleWheel = (e: any) => {
         if (ref.current) {
             ref.current.scrollLeft += e.deltaY;

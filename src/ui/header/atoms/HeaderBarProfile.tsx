@@ -58,10 +58,10 @@ export const HeaderBarProfile = () => {
           <img src={Setting} className="HeaderBarProfile__List__Image" alt="" />
           Настройки
         </NavLink>
-        <NavLink to={`/authorization`} onClick={UserLogout} className="HeaderBarProfile__List__Logout">
+        <a onClick={UserLogout} className="HeaderBarProfile__List__Logout">
           <img src={Logout} className="HeaderBarProfile__List__Image " alt="" />
           Выход
-        </NavLink>
+        </a>
       </div>
     </>
   );

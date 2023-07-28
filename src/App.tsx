@@ -30,8 +30,6 @@ export function App() {
   useEffect(() => {
     if (localStorage.getItem(accessTokenName)?.length) {
       setAccessToken(localStorage.getItem(accessTokenName) || "")
-    } else {
-      UserLogout()
     }
     if (localStorage.getItem(RememberRefreshName)?.length) {
       setRememberCheck((localStorage.getItem(RememberRefreshName)?.length && localStorage.getItem(RememberRefreshName) || "false"))
