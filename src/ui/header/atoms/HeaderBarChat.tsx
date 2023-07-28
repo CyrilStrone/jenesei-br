@@ -13,11 +13,13 @@ export const HeaderBarChat = () => {
         Чаты
       </div>
       <div className='HeaderBarChat__List'>
-        {userSocketChatListAllChats && userSocketChatListAllChats.length !== 0 ?
-          userSocketChatListAllChats.map((e: any, id: any) =>
-            id < 6 && <NavLink key={id} to={`/chat/${e.interlocutor_id}`}>
-              <img src={e.avatarPath ? ApiImage + e.avatarPath : DefaultAvatarChat} alt="DefaultAvatarChat" className='HeaderBarChat__List__Avatar' />
-              {e.firstName + " " + e.lastName}
+
+        {userSocketChatListAllChats && Object.keys(userSocketChatListAllChats) && Object.keys(userSocketChatListAllChats).length !== 0 ?
+          Object.keys(userSocketChatListAllChats).map((e: any, id: any) =>
+            //  <ChatGeneralBarItem key={id} value={userSocketChatListAllChats[e]} />
+            id < 6 && <NavLink key={id} to={`/chat/${userSocketChatListAllChats[e].interlocutor_id}`}>
+              <img src={userSocketChatListAllChats[e].avatarPath ? ApiImage + userSocketChatListAllChats[e].avatarPath : DefaultAvatarChat} alt="DefaultAvatarChat" className='HeaderBarChat__List__Avatar' />
+              {userSocketChatListAllChats[e].firstName + " " + userSocketChatListAllChats[e].lastName}
               {/* <div className='HeaderBarChat__List__Message'>12</div> */}
             </NavLink>
           ) :

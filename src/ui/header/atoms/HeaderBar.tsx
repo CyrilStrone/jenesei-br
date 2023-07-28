@@ -60,7 +60,7 @@ export const HeaderBar = () => {
         <div className="HeaderBar" ref={rootEl}>
             {userValue && list.map((e: any, id: number) =>
                 <div key={id} className="HeaderBar__Block">
-                    <img src={e.id === 2 ? ApiImage + userValue.avatarPath : e.image} alt="Navigation" className={e.id === 2 ? "HeaderBar__Avatar HeaderBar__Item" : "HeaderBar__Item"} id="HeaderBar" onClick={() => { toggleShow(e.id) }} />
+                    <img src={e.id === 2 ? ApiImage + userValue.user.avatarPath : e.image} alt="Navigation" className={e.id === 2 ? "HeaderBar__Avatar HeaderBar__Item" : "HeaderBar__Item"} id="HeaderBar" onClick={() => { toggleShow(e.id) }} />
                     <div style={{ display: e.show ? "flex" : "none" }} className={e.className + " " + "HeaderBar__Example__Bar" + " " + css(styles.fadeIn)}>
                         {e.element}
                     </div>

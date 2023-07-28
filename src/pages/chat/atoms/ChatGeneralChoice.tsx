@@ -4,7 +4,7 @@ import SendIcon from '../../../assets/icon/chats/send.svg'
 import { useEffect, useRef, useState } from "react";
 import { useStore } from "effector-react";
 
-import { $userSocketChatChoiceAllMessages, $userSocketChatChoiceId, $userSocketChatListAllChats, updateUserSocketChatListAllChats, updateUserSocketChatListAllMessages } from "../../../ui/functions/createSocketChat";
+import { $userSocketChatChoiceAllMessages, $userSocketChatChoiceId, $userSocketChatListAllChats } from "../../../ui/functions/createSocketChat";
 import { sendMessages } from "../../../ui/functions/useSocketChat";
 import { formatDateTime } from "../../../ui/functions/formatDateTime";
 
@@ -18,20 +18,6 @@ export const ChatGeneralChoice = (params: IChatGeneralChoice) => {
     const userSocketChatChoiceAllMessages = useStore($userSocketChatChoiceAllMessages);
     const handleSendMessages = () => {
         if (message) {
-            updateUserSocketChatListAllMessages({
-                chat_id: userSocketChatChoiceId,
-                author: params.userValue.user.login,
-                avatarPath: params.userValue.avatarPath,
-                content: message,
-                createdAt: `${new Date().toISOString()}`
-            })
-            updateUserSocketChatListAllChats({
-                chat_id: userSocketChatChoiceId,
-                author: params.userValue.user.login,
-                avatarPath: params.userValue.avatarPath,
-                message: message,
-                createdAt: `${new Date().toISOString()}`
-            });
             sendMessages(userSocketChatChoiceId, message)
             setMessage(null)
         }
@@ -49,15 +35,15 @@ export const ChatGeneralChoice = (params: IChatGeneralChoice) => {
     return (
         <div className="ChatGeneralChoice Half__Block Block__NonActive">
             <div className="ChatGeneralBar__Header Half__Block__Header">
-                {$userSocketChatListAllChats.getState()?.map(
-                    (e: any) => e.chat_id === userSocketChatChoiceId && e.firstName + " " + e.lastName
+                {Object.keys($userSocketChatListAllChats.getState())?.map(
+                    (e: any) => e === userSocketChatChoiceId && $userSocketChatListAllChats.getState()[e].firstName + " " + $userSocketChatListAllChats.getState()[e].lastName
                 )}
             </div>
             <div className="ChatGeneralChoice__Footer Half__Block__Footer">
                 <div className="ChatGeneralChoice__ListBar">
                     <div ref={chat} className="ChatGeneralChoice__ListBar__Chat">
                         {userSocketChatChoiceAllMessages && userSocketChatChoiceAllMessages.map((e: any, id: number) =>
-                            <div key={id} className={`${e.author === params.userValue.user.login && "ChatGeneralChoice__ListBar__Chat__Item-User"} ChatGeneralChoice__ListBar__Chat__Item`}>
+                            <div key={id} className={`${e.login === params.userValue.user.login && "ChatGeneralChoice__ListBar__Chat__Item-User"} ChatGeneralChoice__ListBar__Chat__Item`}>
                                 <div className="ChatGeneralChoice__ListBar__Chat__Item__Content">
                                     {e.content}
                                 </div>

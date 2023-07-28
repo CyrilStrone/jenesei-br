@@ -26,12 +26,12 @@ export const UserSettingPersonalInformation = (params: IUserSettingPersonalInfor
                 Персональная информация
             </div>
             <div className="UserSetting__Blocks__List">
-                <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => params.handleCheck({ value: ApiImage + userValue.avatarPath, title: "Аватар", keyName: "avatarPath" })}>
+                <div className="UserSetting__Blocks__List__Item Setting__Card__Short" onClick={() => params.handleCheck({ value: ApiImage + userValue.user.avatarPath, title: "Аватар", keyName: "avatarPath" })}>
                     <div className="UserSetting__Blocks__List__Item__Title">
                         Аватар
                     </div>
                     <div className="Setting__Card__Short__Value">
-                        <img className="Setting__Card__Short__Value__Avatar" src={ApiImage + userValue.avatarPath} alt="Avatar" />
+                        <img className="Setting__Card__Short__Value__Avatar" src={ApiImage + userValue.user.avatarPath} alt="Avatar" />
                     </div>
                     <img src={Avatar} alt="Avatar" className="Setting__Card__Short__Image" />
                 </div>

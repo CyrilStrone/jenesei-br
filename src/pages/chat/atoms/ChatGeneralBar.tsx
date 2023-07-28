@@ -27,8 +27,8 @@ export const ChatGeneralBar = (params: IChatGeneralBar) => {
                 <input type="text" placeholder="Поиск" className="ChatGeneralBar__List__Input" />
                 <div className={`${userSocketChatListAllChats ? "ChatGeneralBarItem__YesList ChatGeneralBarItem__List" : "ChatGeneralBarItem__NoList"}`} ref={ref} onWheel={handleWheel}>
                     {userSocketChatListAllChats ?
-                        userSocketChatListAllChats.map((e: any, id: any) =>
-                            <ChatGeneralBarItem key={id} value={e} />
+                        Object.keys(userSocketChatListAllChats).map((e: any, id: any) =>
+                            <ChatGeneralBarItem chatId={e} key={id} value={userSocketChatListAllChats[e]} />
                         ) :
                         <SpinningCircles height="2em" fill="#0E8AC3" stroke="#000" strokeOpacity={.125} speed={1} />
                     }
