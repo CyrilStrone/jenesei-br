@@ -12,12 +12,12 @@ export const UserButton = (params: IUserButton) => {
     const [checkYourSub, setCheckYourSub] = useState<boolean>(false)
     useEffect(() => {
         params?.value?.subscribers?.map((e: any) => {
-            if (e?.id == params?.userValue?.user?.id) {
+            if (e?.login == params?.userValue?.user?.login) {
                 setCheckMySub(true)
             }
         })
         params?.value?.subscription?.map((e: any) => {
-            if (e?.id == params?.userValue?.user?.id) {
+            if (e?.login == params?.userValue?.user?.login) {
                 setCheckYourSub(true)
             }
         })

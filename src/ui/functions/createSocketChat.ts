@@ -3,6 +3,7 @@ import { ApiImage, accessTokenName } from "./axiosInstance";
 import { createEvent, createStore } from "effector";
 import { $userSocketChat, $userValue } from "./hooks";
 import { createChat, requestAllMessages } from "./useSocketChat";
+import { UserLogout } from "./accessToken";
 
 const createSocketChat = (): Socket => {
   const socket = io(ApiImage, {
@@ -24,33 +25,31 @@ const createSocketChat = (): Socket => {
 
   socket.on("error", (error: any) => {
     console.log("Socket.IO Chat error:", error);
+    UserLogout();
   });
-
-  // socket.on("new_chat_created", (data: any) => {
-  //   console.log("Socket.IO Chat Received new_chat_created:", data);
-  //   //Получаем ключ чата, если его не было
-  //   if (data.id) setUserSocketChatChoiceId(data.id);
-  // });
 
   socket.on("disconnect_notification", (data: any) => {
     console.log("Socket.IO Chat Received disconnect_notification:", data);
   });
+
   socket.on("online_notification", (data: any) => {
     console.log("Socket.IO Chat Received online_notification:", data);
   });
 
   socket.on("response_all_chats", (data: any) => {
+    //Событие получения всех сообщений при входе в приложение
     setUserSocketChatListAllChats(data);
   });
   socket.on("response_all_messages", (data: any) => {
+    //Событие получения всех сообщений при входе в чат
     setUserSocketChatChoiceAllMessages(data);
   });
   socket.on("receive_message", (data: any) => {
+    //Событие получения нового сообщения
     setUserSocketChatReceiveMessage(data);
   });
-
-  //Событие создания чата
   socket.on("response_chat", (data: any) => {
+    //Событие создания чата
     setUserSocketChatResponseChat(data);
   });
 
@@ -59,12 +58,12 @@ const createSocketChat = (): Socket => {
 
 export default createSocketChat;
 
-//Новое чат
+//Событие создания чата
 export const $userSocketChatResponseChat = createStore<any | null>(null);
 export const setUserSocketChatResponseChat = createEvent<any | null>();
 $userSocketChatResponseChat.on(setUserSocketChatResponseChat, (_, val) => val);
 
-//Новое сообщение от любого пользователя
+//Событие получения нового сообщения
 export const $userSocketChatReceiveMessage = createStore<any | null>(null);
 export const setUserSocketChatReceiveMessage = createEvent<any | null>();
 $userSocketChatReceiveMessage.on(
@@ -77,7 +76,7 @@ export const $userSocketChatChoiceId = createStore<any | null>(null);
 export const setUserSocketChatChoiceId = createEvent<any | null>();
 $userSocketChatChoiceId.on(setUserSocketChatChoiceId, (_, val) => val);
 
-//Все сообщения выбранного чата
+//Событие получения всех сообщений при входе в чат
 export const $userSocketChatChoiceAllMessages = createStore<any | null>(null);
 export const setUserSocketChatChoiceAllMessages = createEvent<any | null>();
 $userSocketChatChoiceAllMessages.on(
@@ -85,7 +84,7 @@ $userSocketChatChoiceAllMessages.on(
   (_, val) => val
 );
 
-//Все сообщения при авторизации на сайте
+//Событие получения всех сообщений при входе в приложение
 export const $userSocketChatListAllChats = createStore<any | null>(null);
 export const setUserSocketChatListAllChats = createEvent<any | null>();
 $userSocketChatListAllChats.on(setUserSocketChatListAllChats, (_, val) => val);

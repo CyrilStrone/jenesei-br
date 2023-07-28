@@ -1,9 +1,12 @@
 import "../styles/ChatGeneralBarItem.css";
+
+import { useNavigate } from "react-router-dom";
+import { useStore } from "effector-react";
+
 import DefaultAvatarChat from '../../../assets/icon/chats/default-avatar.svg'
 import { ApiImage } from "../../../ui/functions/axiosInstance";
-import { useNavigate } from "react-router-dom";
 import { $userSocketChatChoiceId } from "../../../ui/functions/createSocketChat";
-import { useStore } from "effector-react";
+
 export interface IChatGeneralBarItem {
     value: any
 }

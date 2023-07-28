@@ -1,9 +1,12 @@
 import "../styles/ChatGeneralBar.css";
+
 import { useRef } from "react";
-import { ChatGeneralBarItem } from "./ChatGeneralBarItem";
 import { useStore } from "effector-react";
 import { SpinningCircles } from "react-loading-icons";
+
+import { ChatGeneralBarItem } from "./ChatGeneralBarItem";
 import { $userSocketChatListAllChats } from "../../../ui/functions/createSocketChat";
+
 export interface IChatGeneralBar {
     userValue:any
 }
@@ -22,8 +25,6 @@ export const ChatGeneralBar = (params: IChatGeneralBar) => {
             </div>
             <div className="ChatGeneralBar__List Half__Block__Footer">
                 <input type="text" placeholder="Поиск" className="ChatGeneralBar__List__Input" />
-
-
                 <div className={`${userSocketChatListAllChats ? "ChatGeneralBarItem__YesList ChatGeneralBarItem__List" : "ChatGeneralBarItem__NoList"}`} ref={ref} onWheel={handleWheel}>
                     {userSocketChatListAllChats ?
                         userSocketChatListAllChats.map((e: any, id: any) =>
@@ -32,8 +33,6 @@ export const ChatGeneralBar = (params: IChatGeneralBar) => {
                         <SpinningCircles height="2em" fill="#0E8AC3" stroke="#000" strokeOpacity={.125} speed={1} />
                     }
                 </div>
-
-
             </div>
         </div>
     );

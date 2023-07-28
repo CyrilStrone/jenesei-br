@@ -1,8 +1,10 @@
 import "../styles/Chat.css";
-import { ChatGeneral } from "../molecules/ChatGeneral";
+
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+
 import { setUserSocketChatURLId } from "../../../ui/functions/createSocketChat";
+import { ChatGeneral } from "../molecules/ChatGeneral";
 
 export const Chat = () => {
   const { id } = useParams();

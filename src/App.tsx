@@ -1,7 +1,3 @@
-import "./App.css";
-import "./Font.css";
-import "./Variables.css";
-import "./ui/generalStyles/Blocks.css";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { useEffect } from "react";
 import { useStore } from "effector-react";
@@ -31,13 +27,11 @@ import { AppGeneral } from "./ui/appGeneral/organelles/AppGeneral";
 
 export async function requestUser() {
   try {
-    let result = await inUser();
+    const result = await inUser();
     if (result) {
       setUserValue(result)
     }
-  } catch {
-
-  }
+  } catch { /* empty */ }
 }
 
 export function App() {

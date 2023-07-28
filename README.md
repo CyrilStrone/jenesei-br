@@ -27,7 +27,7 @@ branch-name - this is the name of your branch
 
 ```terminal
 # development 
-npm run start
+npm run dev
 
 # production 
 npm run build

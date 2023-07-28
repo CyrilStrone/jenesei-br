@@ -1,8 +1,10 @@
 import "../styles/ChatGeneral.css";
+
+import { useStore } from "effector-react";
+
 import { ChatGeneralBar } from "../atoms/ChatGeneralBar";
 import { ChatGeneralChoice } from "../atoms/ChatGeneralChoice";
 import { $userValue } from "../../../ui/functions/hooks";
-import { useStore } from "effector-react";
 
 export const ChatGeneral = () => {
     const userValue = useStore($userValue);
