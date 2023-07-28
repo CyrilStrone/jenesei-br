@@ -1,7 +1,7 @@
 import { Socket, io } from "socket.io-client";
 import { ApiImage, accessTokenName } from "./axiosInstance";
 import { createEvent, createStore } from "effector";
-import { $userSocketChat, $userValue } from "./hooks";
+import { $userSocketChat } from "./hooks";
 import { createChat, requestAllMessages } from "./useSocketChat";
 import { UserLogout } from "./accessToken";
 

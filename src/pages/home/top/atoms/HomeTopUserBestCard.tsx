@@ -1,10 +1,6 @@
 import "../styles/HomeTopUserBestCard.css";
 
-interface IHomeTopUserBestCard {
-  id: number
-}
-
-export const HomeTopUserBestCard = (params: IHomeTopUserBestCard) => {
+export const HomeTopUserBestCard = () => {
 
 
   return (

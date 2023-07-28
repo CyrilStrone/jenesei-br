@@ -1,10 +1,6 @@
 import "../styles/UserPublicationWriteGeneralDescription.css";
 
-export interface IUserPublicationWriteGeneralDescription {
-    publication: any
-}
-
-export const UserPublicationWriteGeneralDescription = (params:IUserPublicationWriteGeneralDescription) => {
+export const UserPublicationWriteGeneralDescription = () => {
 
     return (
         <div className="UserPublicationWriteGeneralDescription">

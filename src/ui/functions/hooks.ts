@@ -23,7 +23,7 @@ $userSocketChat.on(setUserSocketChat, (_, val) => val);
 
 $userValue.updates.watch((value: any) => {
   console.log("WATCH. userValue value:", value);
-  if(value){
+  if(value && $userSocketChat.getState() == null){
     setUserSocketChat(createSocketChat())
   }
 });

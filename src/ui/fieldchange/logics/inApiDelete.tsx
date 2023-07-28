@@ -1,5 +1,5 @@
-import { requestUser } from "../../../App";
 import { axiosInstance } from "../../functions/axiosInstance";
+import { requestUser } from "../../functions/requestUser";
 
 export interface IinApiDeleteContact {
     name: string

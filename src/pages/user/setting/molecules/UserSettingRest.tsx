@@ -1,16 +1,8 @@
 import "../styles/UserSettingRest.css";
 import { useStore } from "effector-react";
 import { $userValue } from "../../../../ui/functions/hooks";
-import { IFieldChange } from "../../../../ui/fieldChange/organelles/FieldChange";
 
-export interface IUserSettingRest {
-    handleCheck: (params: IFieldChange) => void
-    title: string | undefined
-    keyName: string | undefined
-    value: any
-}
-
-export const UserSettingRest = (params: IUserSettingRest) => {
+export const UserSettingRest = () => {
     const userValue = useStore($userValue);
     return (
         <div className="UserSettingRest UserSetting__Blocks">

@@ -39,7 +39,7 @@ export const UserSetting = () => {
         <UserSettingStack handleCheck={handleCheck} title={title} keyName={keyName} value={value} />
         <UserSettingEducation handleCheck={handleCheck} title={title} keyName={keyName} value={value} />
         <UserSettingWorkExp handleCheck={handleCheck} title={title} keyName={keyName} value={value} />
-        <UserSettingRest handleCheck={handleCheck} title={title} keyName={keyName} value={value} />
+        <UserSettingRest />
       </div>
       {userSetting && <FieldChange keyName={keyName} title={title} value={value} setValue={setValue} />}
     </>

@@ -3,12 +3,8 @@ import { useEffect, useState } from 'react';
 import { SearchBarFilterItem } from '../atoms/SearchBarFilterItem';
 import { inStack } from '../../../ui/fieldChange/logics/inStack';
 
-interface ISearchBarFilter {
-    setValue?: React.Dispatch<any>
-    value?: any
-}
 
-export const SearchBarFilter = (params: ISearchBarFilter) => {
+export const SearchBarFilter = () => {
     const [valueApi, setValueApi] = useState<any[]>()
     const [filter, setFilter] = useState<any>();
 
@@ -24,7 +20,7 @@ export const SearchBarFilter = (params: ISearchBarFilter) => {
     }
 
     const ItemClick = (id: number, localCheck: boolean) => {
-        let updatedFilter = filter.map((obj: any) => ({ ...obj, localCheck: false })).map((obj: any, index: any) => {
+        const updatedFilter = filter.map((obj: any) => ({ ...obj, localCheck: false })).map((obj: any, index: any) => {
             if (index === id) {
                 return {
                     ...obj,

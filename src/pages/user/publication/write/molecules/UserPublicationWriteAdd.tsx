@@ -12,7 +12,7 @@ export interface IUserPublicationWriteAdd {
     changePublication: (params: IChangePublication) => void
 }
 export const UserPublicationWriteAdd = (params: IUserPublicationWriteAdd) => {
-    const [value, setValue] = useState<IUserPublicationWriteAddItem[] | null>(
+    const [value] = useState<IUserPublicationWriteAddItem[] | null>(
         [
             { id: 0, icon: headline, title: "Заголовок", type: "headline" },
             { id: 1, icon: text, title: "Абзац", type: "text" },

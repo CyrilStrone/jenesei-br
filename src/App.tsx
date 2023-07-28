@@ -8,8 +8,7 @@ import { Login } from "./pages/login/organelles/Login";
 import { Forgot } from "./pages/forgot/organelles/Forgot";
 import { Chat } from "./pages/chat/organelles/Chat";
 import { Search } from "./pages/search/organelles/Search";
-import { inUser } from "./ui/functions/inUser";
-import { $userValue, setUserValue } from "./ui/functions/hooks";
+import { $userValue } from "./ui/functions/hooks";
 import { UserMore } from "./pages/user/index/organelles/userMore";
 import { UserLogin } from "./pages/user/login/organelles/User";
 import { UserSubscription } from "./pages/user/subscription/organelles/UserSubscription";
@@ -24,15 +23,6 @@ import { HomeSubscription } from "./pages/home/subscription/organelles/HomeSubsc
 import { UserSecurity } from "./pages/user/security/organelles/UserSecurity";
 import { RememberRefreshName, accessTokenName } from "./ui/functions/axiosInstance";
 import { AppGeneral } from "./ui/appGeneral/organelles/AppGeneral";
-
-export async function requestUser() {
-  try {
-    const result = await inUser();
-    if (result) {
-      setUserValue(result)
-    }
-  } catch { /* empty */ }
-}
 
 export function App() {
   const accessToken = useStore($accessToken);

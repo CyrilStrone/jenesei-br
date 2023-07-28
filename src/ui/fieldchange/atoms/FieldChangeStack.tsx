@@ -16,7 +16,7 @@ export const FieldChangeStack = (params: IFieldChange) => {
     const [valueApiChoice, setValueApiChoice] = useState<any>({ value: "", label: "" })
     const [oldValue, setOldValue] = useState<any | null>(null)
 
-    const handleApiChoiceChange = (event: any, type: any) => {
+    const handleApiChoiceChange = (event: any) => {
         setValueApiChoice({ value: event?.value, label: event?.value })
     };
 
@@ -98,7 +98,7 @@ export const FieldChangeStack = (params: IFieldChange) => {
                     </div>
                     <div className="FieldChange__Inputs">
                         {params.value?.name && valueApiChoice.value && <Select
-                            onChange={(event: any) => handleApiChoiceChange(event, "contacts")}
+                            onChange={(event: any) => handleApiChoiceChange(event)}
                             defaultValue={valueApiChoice}
                             isSearchable
                             options={valueApi}
@@ -111,7 +111,7 @@ export const FieldChangeStack = (params: IFieldChange) => {
 
                         />}
                         {!params.value?.name && <Select
-                            onChange={(event: any) => handleApiChoiceChange(event, "contacts")}
+                            onChange={(event: any) => handleApiChoiceChange(event)}
                             isSearchable
                             options={valueApi}
                             className="Input__Select"

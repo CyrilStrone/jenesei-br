@@ -26,10 +26,17 @@
   overflow-y: scroll;
   scroll-behavior: smooth;
 }
+.ChatGeneralChoice__ListBar__Chat::-webkit-scrollbar {
+  width: 0;
+}
+.ChatGeneralChoice__ListBar__Chat {
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+}
 .ChatGeneralChoice__ListBar__Chat__Item {
   width: fit-content;
   display: flex;
-  gap:2px;
+  gap: 2px;
   padding-bottom: 4p;
   background: white;
   padding: 6px 10px 6px 10px;
@@ -37,11 +44,11 @@
   flex-direction: column;
   align-items: flex-start;
 }
-.ChatGeneralChoice__ListBar__Chat__Item__Content{
+.ChatGeneralChoice__ListBar__Chat__Item__Content {
   font-size: 28%;
   font-weight: 400;
 }
-.ChatGeneralChoice__ListBar__Chat__Item__Time{
+.ChatGeneralChoice__ListBar__Chat__Item__Time {
   font-size: 16%;
   font-weight: 400;
 }
@@ -80,7 +87,7 @@
   outline: none;
   border: 1px solid #0e8ac3;
 }
-.ChatGeneralChoice__InputBar__Button{
+.ChatGeneralChoice__InputBar__Button {
   height: 26px;
   width: 26px;
   cursor: pointer;

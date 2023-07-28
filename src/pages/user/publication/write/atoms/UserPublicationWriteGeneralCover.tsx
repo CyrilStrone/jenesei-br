@@ -1,9 +1,6 @@
 import "../styles/UserPublicationWriteGeneralCover.css";
 
-export interface IUserPublicationWriteGeneralCover {
-    publication: any
-}
-export const UserPublicationWriteGeneralCover = (params:IUserPublicationWriteGeneralCover) => {
+export const UserPublicationWriteGeneralCover = () => {
 
     return (
         <div className="UserPublicationWriteGeneralCover">

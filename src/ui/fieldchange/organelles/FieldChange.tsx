@@ -75,7 +75,7 @@ export const FieldChange = (params: IFieldChange) => {
                                                 (params.keyName === "aboutLong") ?
                                                     <FieldChangeAboutLong title={params.title} keyName={params.keyName} value={params.value} newValue={newValue} setNewValue={setNewValue} check={check} setCheck={setCheck} /> :
                                                     (params.keyName === "isVerified") ?
-                                                        <FieldChangeIsVerified title={params.title} keyName={params.keyName} value={params.value} newValue={newValue} setNewValue={setNewValue} check={check} setCheck={setCheck} /> :
+                                                        <FieldChangeIsVerified  /> :
                                                         (params.keyName === "contacts") ?
                                                             <FieldChangeContacts title={params.title} keyName={params.keyName} value={params.value} newValue={newValue} setNewValue={setNewValue} check={check} setCheck={setCheck} /> :
                                                             (params.keyName === "stack") ?

@@ -22,14 +22,14 @@ export const UserPublicationWrite = () => {
       ]));
     }
     if (params.typeOp === "Delete") {
-      setPublication((prevArray: any) => prevArray.filter((item: any, id: number) => id !== params?.id));
+      setPublication((prevArray: any) => prevArray.filter((_: any, id: number) => id !== params?.id));
     }
   }
   return (
     <div className="UserPublicationWrite UserSetting__Blocks">
       <UserPublicationWriteTitle />
       <UserPublicationWriteDrafts />
-      <UserPublicationWriteGeneral publication={publication} />
+      <UserPublicationWriteGeneral />
       <UserPublicationWriteInfo setPublication={setPublication} publication={publication} changePublication={changePublication} />
       <UserPublicationWriteAdd changePublication={changePublication} />
     </div>
