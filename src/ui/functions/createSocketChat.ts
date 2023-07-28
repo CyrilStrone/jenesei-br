@@ -51,13 +51,18 @@ const createSocketChat = (): Socket => {
 
   //Событие создания чата
   socket.on("response_chat", (data: any) => {
-    console.log("Socket.IO Chat Received response_chat:", data);
+    setUserSocketChatResponseChat(data);
   });
 
   return socket;
 };
 
 export default createSocketChat;
+
+//Новое чат
+export const $userSocketChatResponseChat = createStore<any | null>(null);
+export const setUserSocketChatResponseChat = createEvent<any | null>();
+$userSocketChatResponseChat.on(setUserSocketChatResponseChat, (_, val) => val);
 
 //Новое сообщение от любого пользователя
 export const $userSocketChatReceiveMessage = createStore<any | null>(null);
@@ -113,7 +118,14 @@ $userSocketChatChoiceId.updates.watch((id: any) => {
     requestAllMessages($userSocketChat.getState(), id);
   }
 });
-
+$userSocketChatResponseChat.updates.watch((chat: any) => {
+  console.log("WATCH. userSocketChatResponseChat chat:", chat);
+  setUserSocketChatChoiceId(chat.chat_id)
+  setUserSocketChatListAllChats([
+    chat,
+    ...$userSocketChatListAllChats.getState(),
+  ]);
+});
 $userSocketChatListAllChats.updates.watch((chats: any) => {
   console.log("WATCH. userSocketChatListAllChats chats:", chats);
 });
@@ -133,10 +145,14 @@ export const updateUserSocketChatListAllChats = (newMessage: any) => {
 };
 export const updateUserSocketChatListAllMessages = (newMessage: any) => {
   if (newMessage.chat_id === $userSocketChatChoiceId.getState()) {
-    setUserSocketChatChoiceAllMessages([
-      ...$userSocketChatChoiceAllMessages.getState(),
-      newMessage,
-    ]);
+    if ($userSocketChatChoiceAllMessages.getState()) {
+      setUserSocketChatChoiceAllMessages([
+        ...$userSocketChatChoiceAllMessages.getState(),
+        newMessage,
+      ]);
+    } else {
+      setUserSocketChatChoiceAllMessages([newMessage]);
+    }
   }
 };
 $userSocketChatChoiceAllMessages.updates.watch((chats: any) => {

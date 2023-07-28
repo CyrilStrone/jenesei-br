@@ -15,14 +15,14 @@ export const ChatGeneralChoice = (params: IChatGeneralChoice) => {
     const handleSendMessages = () => {
         if (message) {
             updateUserSocketChatListAllMessages({
-                chat_id:userSocketChatChoiceId,
+                chat_id: userSocketChatChoiceId,
                 author: params.userValue.user.login,
                 avatarPath: params.userValue.avatarPath,
                 content: message,
                 createdAt: `${new Date().toISOString()}`
             })
             updateUserSocketChatListAllChats({
-                chat_id:userSocketChatChoiceId,
+                chat_id: userSocketChatChoiceId,
                 author: params.userValue.user.login,
                 avatarPath: params.userValue.avatarPath,
                 message: message,
@@ -77,10 +77,13 @@ export const ChatGeneralChoice = (params: IChatGeneralChoice) => {
                         )}
                     </div>
                 </div>
-                <div className="ChatGeneralChoice__InputBar">
-                    <input placeholder="Напишите ваше сообщение" className="ChatGeneralChoice__InputBar__Input" type="text" value={message || ""} onChange={(event: any) => setMessage(event.target.value)} />
-                    <img src={SendIcon} className="ChatGeneralChoice__InputBar__Button" onClick={handleSendMessages} />
-                </div>
+                <form onSubmit={e => { e.preventDefault(); handleSendMessages() }} className="ChatGeneralChoice__InputBar">
+                    <input required placeholder="Напишите ваше сообщение" className="ChatGeneralChoice__InputBar__Input" type="text" value={message || ""} onChange={(event: any) => setMessage(event.target.value)} />
+                    <label htmlFor="save">
+                        <img src={SendIcon} alt="SendIcon" className="ChatGeneralChoice__InputBar__Button" />
+                    </label>
+                    <input type="submit" id="save" style={{display: "none"}} value="Отправить" />
+                </form>
             </div>
         </div>
     );
