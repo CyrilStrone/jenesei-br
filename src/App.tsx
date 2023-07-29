@@ -1,8 +1,8 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import { useStore } from "effector-react";
 
-import { $accessToken, setAccessToken, setRememberCheck } from "./ui/functions/accessToken";
-import { RememberRefreshName, accessTokenName } from "./ui/functions/axiosInstance";
+import { setRememberCheck } from "./ui/functions/accessToken";
+import { rememberRefreshName, accessTokenName } from "./ui/functions/axiosInstance";
 import { AppGeneral } from "./ui/appGeneral/organelles/AppGeneral";
 
 import Notifications from "react-push-notification/dist/notifications/Notifications";
@@ -26,22 +26,25 @@ import { HomeRecommendation } from "./pages/home/recommendation/organelles/HomeR
 import { HomeTop } from "./pages/home/top/organelles/HomeTop";
 import { HomeSubscription } from "./pages/home/subscription/organelles/HomeSubscription";
 import { UserSecurity } from "./pages/user/security/organelles/UserSecurity";
+import { requestUser } from "./ui/functions/requestUser";
+import { useEffect } from "react";
 
 export function App() {
-  const accessToken = useStore($accessToken);
   const userValue = useStore($userValue);
-  if (localStorage.getItem(accessTokenName)?.length) {
-    setAccessToken(localStorage.getItem(accessTokenName) || "")
-  }
-  if (localStorage.getItem(RememberRefreshName)?.length) {
-    setRememberCheck((localStorage.getItem(RememberRefreshName)?.length && localStorage.getItem(RememberRefreshName) || "false"))
-  }
+  useEffect(() => {
+    if (localStorage.getItem(accessTokenName)?.length) {
+      requestUser()
+    }
+    if (localStorage.getItem(rememberRefreshName)?.length) {
+      setRememberCheck((localStorage.getItem(rememberRefreshName)?.length && localStorage.getItem(rememberRefreshName) || "false"))
+    }
+  }, [])
   return (
     <div className="App">
       <Notifications />
       <Routes>
         <Route path="/" element={<AppGeneral />}>
-          {(accessToken && userValue) ?
+          {(userValue) ?
             <>
               <Route index element={<Navigate to="/home/top" />} />
               <Route path="*" element={<Navigate to="/home/top" />} />

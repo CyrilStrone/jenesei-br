@@ -6,6 +6,8 @@ import { setCustomValidityShow } from "../../../ui/customValidity/organelles/Cus
 import { SpinningCircles } from "react-loading-icons";
 import { setRememberCheck } from "../../../ui/functions/accessToken";
 import JeneseiLogo from '../../../assets/logo/JeneseiLogo.svg'
+import { saveTokensToLocalStorage } from "../../../ui/functions/axiosInstance";
+import { requestUser } from "../../../ui/functions/requestUser";
 
 export const Login = () => {
     const [loginValue, setLoginValue] = useState<ILoginUser>({ login: "", password: "", checked: false });
@@ -18,7 +20,8 @@ export const Login = () => {
             setCheck(true)
             const result = await loginUser(loginValue);
             if (result) {
-
+                saveTokensToLocalStorage(result)
+                requestUser()
             } else {
                 setCheck(false)
                 setCustomValidityShow("Не правильный логин или пароль")

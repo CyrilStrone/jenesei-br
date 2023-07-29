@@ -5,6 +5,9 @@ import { IRegistrationUser, registrationUser } from "../logics/registrationUser"
 import { setCustomValidityShow } from "../../../ui/customValidity/organelles/CustomValidity";
 import { SpinningCircles } from "react-loading-icons";
 import JeneseiLogo from '../../../assets/logo/JeneseiLogo.svg'
+import { saveTokensToLocalStorage } from "../../../ui/functions/axiosInstance";
+import { setRememberCheck } from "../../../ui/functions/accessToken";
+import { requestUser } from "../../../ui/functions/requestUser";
 
 export const Registration = () => {
     const [registrationValue, setRegistrationValue] = useState<IRegistrationUser>({ email: "", password: "", firstName: "", lastName: "", login: "", date: "" });
@@ -18,7 +21,12 @@ export const Registration = () => {
         if (registrationValue.password === resetPassword.password) {
             try {
                 setCheck(true)
-                await registrationUser(registrationValue);
+                const result = await registrationUser(registrationValue);
+                if(result){
+                    setRememberCheck("true")
+                    saveTokensToLocalStorage(result)
+                    requestUser()
+                }
             } catch (error) {
                 setCheck(false)
                 setCustomValidityShow("Такой аккаунт уже существует")

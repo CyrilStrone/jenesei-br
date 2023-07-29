@@ -1,8 +1,8 @@
 import { createEvent, createStore } from "effector";
 import createSocketChat from "./createSocketChat";
 
-export const $userValue = createStore<any>(null);
-export const setUserValue = createEvent<any>();
+export const $userValue = createStore<any | null>(null);
+export const setUserValue = createEvent<any | null>();
 $userValue.on(setUserValue, (_, val) => val);
 
 export const $userSetting = createStore<boolean>(false);

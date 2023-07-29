@@ -1,4 +1,3 @@
-import { setAccessToken } from "../../../ui/functions/accessToken"
 import { axiosInstance } from "../../../ui/functions/axiosInstance"
 
 export interface ILoginUser {
@@ -15,7 +14,6 @@ export const loginUser = async (params: ILoginUser) => {
     })
         .then((res: any) => {
             if (res.data.token) {
-                setAccessToken(res.data.token);
                 return res.data.token
             }
         })

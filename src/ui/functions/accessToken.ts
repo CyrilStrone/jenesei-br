@@ -1,46 +1,31 @@
 import { createEvent, createStore } from "effector";
 import {
-  RememberRefreshName,
-  accessTokenName,
-  axiosInstance,
+  rememberRefreshName,
 } from "./axiosInstance";
-import { requestUser } from "./requestUser";
 import { disconnectChat } from "./useSocketChat";
-
-export const $accessToken = createStore<string>("");
-export const setAccessToken = createEvent<string>();
-$accessToken.on(setAccessToken, (_, val) => val);
+import { setUserValue } from "./hooks";
 
 export const $rememberCheck = createStore<string>("");
 export const setRememberCheck = createEvent<string>();
 $rememberCheck.on(setRememberCheck, (_, val) => val);
 
-export const $userLogin = createStore<string>("");
-export const setUserLogin = createEvent<string>();
+export const $userLogin = createStore<string | null>("");
+export const setUserLogin = createEvent<string | null>();
 $userLogin.on(setUserLogin, (_, val) => val);
 
-$accessToken.updates.watch((token) => {
-  localStorage.setItem(accessTokenName, token);
-  axiosInstance.defaults.headers.authorization = `Bearer ${token}`;
-  if (token) {
-    requestUser();
-  }
-});
 $rememberCheck.updates.watch((check) => {
-  localStorage.setItem(RememberRefreshName, check);
+  localStorage.setItem(rememberRefreshName, check);
 });
 
 export const UserLogout = () => {
   document.cookie = "name=<Refresh>; expires=-1";
   document.cookie = "name=<Session>; expires=-1";
-  setAccessToken("");
-  setUserLogin("");
+  setUserLogin(null);
+  setUserValue(null)
   setRememberCheck("false");
   disconnectChat()
 };
-$accessToken.updates.watch((value: any) => {
-  console.log("WATCH. accessToken value:", value);
-});
+
 $rememberCheck.updates.watch((check: any) => {
   console.log("WATCH. rememberCheck check:", check);
 });

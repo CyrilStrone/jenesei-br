@@ -13,12 +13,10 @@ import { useParams } from "react-router-dom";
 import { UserContacts } from "../molecules/UserContacts";
 import { UserButton } from "../molecules/UserButton";
 import { $userValue } from "../../../../ui/functions/hooks";
-import { $accessToken } from "../../../../ui/functions/accessToken";
 import { setCustomValidityShow } from "../../../../ui/customValidity/organelles/CustomValidity";
 
 export const UserLogin = () => {
   const userValue = useStore($userValue);
-  const accessToken = useStore($accessToken);
   const [value, setValue] = useState<any>()
   const { login } = useParams();
   const requestInAnotherUser = async (login: string) => {
@@ -50,7 +48,7 @@ export const UserLogin = () => {
         {value.contacts && value.contacts?.length !== 0 && <UserContacts contacts={value.contacts} />}
         {value.subscribers && value.subscribers?.length !== 0 && <UserSubscribers subscribers={value.subscribers} />}
         {value.subscription && value.subscription?.length !== 0 && <UserSubscription subscription={value.subscription} />}
-        {accessToken && userValue?.user?.id !== value?.id && <UserButton value={value} userValue={userValue} requestInAnotherUser={requestInAnotherUser} />}
+        {userValue && userValue?.user?.id !== value?.id && <UserButton value={value} userValue={userValue} requestInAnotherUser={requestInAnotherUser} />}
       </div>}
     </div>
   );

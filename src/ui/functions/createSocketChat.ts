@@ -1,5 +1,5 @@
 import { Socket, io } from "socket.io-client";
-import { ApiImage, accessTokenName } from "./axiosInstance";
+import { ApiImage, accessTokenName, refreshTokenChat } from "./axiosInstance";
 import { createEvent, createStore } from "effector";
 import { $userSocketChat } from "./hooks";
 import {
@@ -7,7 +7,6 @@ import {
   createChat,
   requestAllMessages,
 } from "./useSocketChat";
-import { UserLogout } from "./accessToken";
 // import addNotification from "react-push-notification";
 
 const createSocketChat = (): Socket => {
@@ -35,7 +34,7 @@ const createSocketChat = (): Socket => {
 
   socket.on("error", (error: any) => {
     console.log("Socket.IO Chat error:", error);
-    UserLogout();
+    refreshTokenChat()
   });
 
   socket.on("disconnect_notification", (data: any) => {
