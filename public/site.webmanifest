@@ -2,7 +2,7 @@
     "name": "BR",
     "short_name": "BR",
     "description":"Социальная сеть для поиска и установления деловых контактов.",
-    "start_url": "https://businessroulette.ru/",
+    "start_url": "./",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
@@ -13,6 +13,12 @@
             "src": "/android-chrome-512x512.png",
             "sizes": "512x512",
             "type": "image/png"
+        },
+        {
+            "src": "./maskable_icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
         }
     ],
     "theme_color": "#0975a6",

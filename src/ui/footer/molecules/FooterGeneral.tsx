@@ -1,7 +1,6 @@
 import { NavLink } from "react-router-dom";
 
 export const FooterGeneral = () => {
-
   return (
     <div className="FooterGeneral">
       <div className="FooterGeneral__Info">

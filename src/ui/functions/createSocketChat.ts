@@ -1,12 +1,13 @@
 import { Socket, io } from "socket.io-client";
 import { ApiImage, accessTokenName, refreshTokenChat } from "./axiosInstance";
 import { createEvent, createStore } from "effector";
-import { $userSocketChat } from "./hooks";
+import { $userSocketChat, $userValue } from "./hooks";
 import {
   connectChatAfterResponse,
   createChat,
   requestAllMessages,
 } from "./useSocketChat";
+import addNotification from "react-push-notification";
 // import addNotification from "react-push-notification";
 
 const createSocketChat = (): Socket => {
@@ -34,7 +35,7 @@ const createSocketChat = (): Socket => {
 
   socket.on("error", (error: any) => {
     console.log("Socket.IO Chat error:", error);
-    refreshTokenChat()
+    refreshTokenChat();
   });
 
   socket.on("disconnect_notification", (data: any) => {
@@ -134,16 +135,18 @@ $userSocketChatChoiceAllMessages.updates.watch((chats: any) => {
   console.log("WATCH. userSocketChatChoiceAllMessages chats:", chats);
 });
 
+// Уведомления для ПК
 export const pushNotification = (newMessage: any) => {
   console.log("WATCH. pushNotification newMessage:", newMessage);
-  // document.hidden &&
-  //   addNotification({
-  //     title: "Business Roulette. " + newMessage.author,
-  //     message: newMessage.content,
-  //     icon: ApiImage + newMessage.avatarPath,
-  //     vibrate: 1,
-  //     native: true, // when using native, your OS will handle theming.
-  //   });
+  if (document.hidden) {
+      addNotification({
+        title: "Business Roulette. Вам пишет " + newMessage.author + ".",
+        message: newMessage.message,
+        icon: ApiImage + newMessage.avatarPath,
+        vibrate: 1,
+        native: true, // when using native, your OS will handle theming.
+      });
+  }
 };
 $userSocketChatReceiveMessage.updates.watch((message: any) => {
   console.log("WATCH. userSocketChatReceiveMessage message:", message);
@@ -176,6 +179,8 @@ const updateAllChatsAndAllMessages = (message: any) => {
       }
     });
   if (key && keyObject) {
+    if(keyObject.login !== $userValue.getState().user.login)
+    pushNotification(keyObject)
     const newUserSocketChatListAllChats = moveKeyToFirstPlace(
       {
         ...$userSocketChatListAllChats.getState(),

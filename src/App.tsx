@@ -1,5 +1,6 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import { useStore } from "effector-react";
+import { useEffect } from "react";
 
 import { accessTokenName } from "./ui/functions/axiosInstance";
 import { AppGeneral } from "./ui/appGeneral/organelles/AppGeneral";
@@ -26,7 +27,6 @@ import { HomeTop } from "./pages/home/top/organelles/HomeTop";
 import { HomeSubscription } from "./pages/home/subscription/organelles/HomeSubscription";
 import { UserSecurity } from "./pages/user/security/organelles/UserSecurity";
 import { requestUser } from "./ui/functions/requestUser";
-import { useEffect } from "react";
 
 export function App() {
   const userValue = useStore($userValue);
