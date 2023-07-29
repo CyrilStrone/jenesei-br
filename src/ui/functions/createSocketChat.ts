@@ -2,7 +2,11 @@ import { Socket, io } from "socket.io-client";
 import { ApiImage, accessTokenName } from "./axiosInstance";
 import { createEvent, createStore } from "effector";
 import { $userSocketChat } from "./hooks";
-import { createChat, requestAllMessages } from "./useSocketChat";
+import {
+  connectChatAfterResponse,
+  createChat,
+  requestAllMessages,
+} from "./useSocketChat";
 import { UserLogout } from "./accessToken";
 // import addNotification from "react-push-notification";
 
@@ -17,6 +21,11 @@ const createSocketChat = (): Socket => {
 
   socket.on("connect", () => {
     console.log("Socket.IO Chat connected");
+    if ($userSocketChatChoiceId.getState())
+      requestAllMessages(
+        $userSocketChat.getState(),
+        $userSocketChatChoiceId.getState()
+      );
   });
 
   socket.on("disconnect", () => {
@@ -116,7 +125,7 @@ $userSocketChatChoiceId.updates.watch((id: any) => {
 
 $userSocketChatResponseChat.updates.watch((chat: any) => {
   console.log("WATCH. userSocketChatResponseChat chat:", chat);
-  updateAllChats(chat)
+  updateAllChats(chat);
 });
 $userSocketChatListAllChats.updates.watch((chats: any) => {
   console.log("WATCH. userSocketChatListAllChats chats:", chats);
@@ -178,9 +187,7 @@ const updateAllChatsAndAllMessages = (message: any) => {
       },
       key
     );
-    if (
-      $userSocketChatChoiceId.getState() == $userSocketChatChoiceId.getState()
-    ) {
+    if (key == $userSocketChatChoiceId.getState()) {
       setUserSocketChatChoiceAllMessages([
         ...$userSocketChatChoiceAllMessages.getState(),
         keyObject,
@@ -216,7 +223,10 @@ const updateAllChats = (message: any) => {
       keyObject = message[e];
     });
   if (key && keyObject) {
-    setUserSocketChatChoiceId(key);
+    connectChatAfterResponse(key);
+    if ($userSocketChatChoiceId.getState() == null) {
+      setUserSocketChatChoiceId(key);
+    }
     const newUserSocketChatListAllChats = moveKeyToFirstPlace(
       {
         ...$userSocketChatListAllChats.getState(),

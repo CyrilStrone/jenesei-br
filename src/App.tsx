@@ -1,7 +1,12 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import { useEffect } from "react";
 import { useStore } from "effector-react";
+
 import { $accessToken, setAccessToken, setRememberCheck } from "./ui/functions/accessToken";
+import { RememberRefreshName, accessTokenName } from "./ui/functions/axiosInstance";
+import { AppGeneral } from "./ui/appGeneral/organelles/AppGeneral";
+
+import Notifications from "react-push-notification/dist/notifications/Notifications";
+
 import { Major } from "./pages/major/organelles/Major";
 import { Registration } from "./pages/registration/organelles/Registration";
 import { Login } from "./pages/login/organelles/Login";
@@ -21,21 +26,16 @@ import { HomeRecommendation } from "./pages/home/recommendation/organelles/HomeR
 import { HomeTop } from "./pages/home/top/organelles/HomeTop";
 import { HomeSubscription } from "./pages/home/subscription/organelles/HomeSubscription";
 import { UserSecurity } from "./pages/user/security/organelles/UserSecurity";
-import { RememberRefreshName, accessTokenName } from "./ui/functions/axiosInstance";
-import { AppGeneral } from "./ui/appGeneral/organelles/AppGeneral";
-import Notifications from "react-push-notification/dist/notifications/Notifications";
 
 export function App() {
   const accessToken = useStore($accessToken);
   const userValue = useStore($userValue);
-  useEffect(() => {
-    if (localStorage.getItem(accessTokenName)?.length) {
-      setAccessToken(localStorage.getItem(accessTokenName) || "")
-    }
-    if (localStorage.getItem(RememberRefreshName)?.length) {
-      setRememberCheck((localStorage.getItem(RememberRefreshName)?.length && localStorage.getItem(RememberRefreshName) || "false"))
-    }
-  }, [])
+  if (localStorage.getItem(accessTokenName)?.length) {
+    setAccessToken(localStorage.getItem(accessTokenName) || "")
+  }
+  if (localStorage.getItem(RememberRefreshName)?.length) {
+    setRememberCheck((localStorage.getItem(RememberRefreshName)?.length && localStorage.getItem(RememberRefreshName) || "false"))
+  }
   return (
     <div className="App">
       <Notifications />
