@@ -5,8 +5,7 @@ import { IRegistrationUser, registrationUser } from "../logics/registrationUser"
 import { setCustomValidityShow } from "../../../ui/customValidity/organelles/CustomValidity";
 import { SpinningCircles } from "react-loading-icons";
 import JeneseiLogo from '../../../assets/logo/JeneseiLogo.svg'
-import { saveTokensToLocalStorage } from "../../../ui/functions/axiosInstance";
-import { setRememberCheck } from "../../../ui/functions/accessToken";
+import { changeAccessTokenToLocalStorage } from "../../../ui/functions/axiosInstance";
 import { requestUser } from "../../../ui/functions/requestUser";
 
 export const Registration = () => {
@@ -23,8 +22,7 @@ export const Registration = () => {
                 setCheck(true)
                 const result = await registrationUser(registrationValue);
                 if(result){
-                    setRememberCheck("true")
-                    saveTokensToLocalStorage(result)
+                    changeAccessTokenToLocalStorage(result)
                     requestUser()
                 }
             } catch (error) {

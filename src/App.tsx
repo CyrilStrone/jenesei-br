@@ -1,8 +1,7 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import { useStore } from "effector-react";
 
-import { setRememberCheck } from "./ui/functions/accessToken";
-import { rememberRefreshName, accessTokenName } from "./ui/functions/axiosInstance";
+import { accessTokenName } from "./ui/functions/axiosInstance";
 import { AppGeneral } from "./ui/appGeneral/organelles/AppGeneral";
 
 import Notifications from "react-push-notification/dist/notifications/Notifications";
@@ -34,9 +33,6 @@ export function App() {
   useEffect(() => {
     if (localStorage.getItem(accessTokenName)?.length) {
       requestUser()
-    }
-    if (localStorage.getItem(rememberRefreshName)?.length) {
-      setRememberCheck((localStorage.getItem(rememberRefreshName)?.length && localStorage.getItem(rememberRefreshName) || "false"))
     }
   }, [])
   return (

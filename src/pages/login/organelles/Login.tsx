@@ -4,13 +4,12 @@ import { ILoginUser, loginUser } from "../logics/loginUser";
 import { NavLink } from "react-router-dom";
 import { setCustomValidityShow } from "../../../ui/customValidity/organelles/CustomValidity";
 import { SpinningCircles } from "react-loading-icons";
-import { setRememberCheck } from "../../../ui/functions/accessToken";
 import JeneseiLogo from '../../../assets/logo/JeneseiLogo.svg'
-import { saveTokensToLocalStorage } from "../../../ui/functions/axiosInstance";
+import { changeAccessTokenToLocalStorage, changeCheckRefreshToLocalStorage } from "../../../ui/functions/axiosInstance";
 import { requestUser } from "../../../ui/functions/requestUser";
 
 export const Login = () => {
-    const [loginValue, setLoginValue] = useState<ILoginUser>({ login: "", password: "", checked: false });
+    const [loginValue, setLoginValue] = useState<ILoginUser>({ login: "", password: "", checked: true });
     const [check, setCheck] = useState<boolean>(false)
     const handleCheck = () => {
         setLoginValue({ ...loginValue, "checked": !(loginValue.checked) })
@@ -20,7 +19,7 @@ export const Login = () => {
             setCheck(true)
             const result = await loginUser(loginValue);
             if (result) {
-                saveTokensToLocalStorage(result)
+                changeAccessTokenToLocalStorage(result)
                 requestUser()
             } else {
                 setCheck(false)
@@ -38,9 +37,9 @@ export const Login = () => {
     }
     useEffect(() => {
         if (loginValue.checked) {
-            setRememberCheck("true")
+            changeCheckRefreshToLocalStorage("true")
         } else {
-            setRememberCheck("false")
+            changeCheckRefreshToLocalStorage("false")
         }
     }, [loginValue.checked])
     return (

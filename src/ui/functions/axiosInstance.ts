@@ -1,10 +1,9 @@
 import axios, { AxiosError } from "axios";
-import { UserLogout } from "./accessToken";
-import { connectChat } from "./useSocketChat";
+import { connectChat, disconnectChat } from "./useSocketChat";
 import createSocketChat from "./createSocketChat";
-import { setUserSocketChat } from "./hooks";
+import { setUserSocketChat, setUserValue } from "./hooks";
 
-export const rememberRefreshName = "BusinessRouletteRememberRefresh";
+export const checkRefreshName = "BusinessRouletteRefreshCheck";
 export const accessTokenName = "BusinessRouletteToken";
 
 export const ApiLocation = "https://data-api.oxilor.com";
@@ -16,8 +15,12 @@ export const axiosInstance = axios.create({
   withCredentials: true,
 });
 
-export const saveTokensToLocalStorage = (accessToken: string) => {
+export const changeAccessTokenToLocalStorage = (accessToken: string) => {
   localStorage.setItem(accessTokenName, accessToken);
+};
+
+export const changeCheckRefreshToLocalStorage = (check: string) => {
+  localStorage.setItem(checkRefreshName, check);
 };
 
 axiosInstance.interceptors.request.use(
@@ -37,7 +40,7 @@ axiosInstance.interceptors.response.use(
     const originalRequest: any = error.config;
     if (error?.response?.status === 401) {
       if (
-        localStorage.getItem(rememberRefreshName) === "true" &&
+        localStorage.getItem(checkRefreshName) === "true" &&
         localStorage.getItem(accessTokenName)?.length &&
         process.env.NODE_ENV !== "development"
       ) {
@@ -45,7 +48,7 @@ axiosInstance.interceptors.response.use(
           originalRequest._retry = true;
           const result = await refreshToken();
           if (result) {
-            saveTokensToLocalStorage(result);
+            changeAccessTokenToLocalStorage(result);
             originalRequest.headers["Authorization"] = `Bearer ${result}`;
             connectChat();
             return axiosInstance(originalRequest);
@@ -74,10 +77,22 @@ export const refreshToken = async () => {
       return false;
     });
 };
+
 export const refreshTokenChat = async () => {
-  const result = await refreshToken();
-  if (result) {
-    saveTokensToLocalStorage(result);
-    setUserSocketChat(createSocketChat());
+  if (localStorage.getItem(accessTokenName)?.length) {
+    const result = await refreshToken();
+    if (result) {
+      changeAccessTokenToLocalStorage(result);
+      setUserSocketChat(createSocketChat());
+    }
   }
+};
+
+export const UserLogout = () => {
+  document.cookie = "name=<Refresh>; expires=-1";
+  document.cookie = "name=<Session>; expires=-1";
+  setUserValue(null);
+  changeAccessTokenToLocalStorage("");
+  changeCheckRefreshToLocalStorage("true");
+  disconnectChat();
 };
