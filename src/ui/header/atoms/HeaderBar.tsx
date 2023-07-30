@@ -16,7 +16,7 @@ import { useStore } from 'effector-react'
 
 export const HeaderBar = () => {
     const userValue = useStore($userValue);
-    const rootEl = useRef<HTMLElement>(null);
+    const rootEl = useRef<HTMLDivElement>(null);
     const [list, setList] = useState<any>([
         { className: "HeaderBar__Menu", image: Navigation, show: false, id: 0, element: <HeaderBarMenu /> },
         { className: "HeaderBar__Chat", image: Chat, show: false, id: 1, element: <HeaderBarChat /> },
