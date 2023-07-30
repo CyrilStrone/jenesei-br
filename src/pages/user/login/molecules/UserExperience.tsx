@@ -21,7 +21,7 @@ export const UserExperience = (params: IUserExperience) => {
               {e.position}
             </div>
             <div className="UserExperience__Item__date">
-              {new Date(e.workStart).getFullYear()}{e.workEnd && (" - " + new Date(e.workEnd).getFullYear())}
+              {new Date(e.workStart).getFullYear()}{e.workEnd ? (" - " + new Date(e.workEnd).getFullYear()) : " - по настоящее время"}
             </div>
           </div>
         )}

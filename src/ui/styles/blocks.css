@@ -43,7 +43,6 @@
     -webkit-transform 0.2s cubic-bezier(0.32, 0.08, 0.24, 1);
   border-radius: 16px;
   image-rendering: optimizeQuality;
-  z-index: 1;
 }
 .Block__Active:hover {
   -webkit-box-shadow: 20px 20px 41px rgba(10, 10, 10, 0.32);
@@ -90,7 +89,7 @@
   justify-content: flex-start;
   font-size: 37%;
   font-weight: 500;
-  padding: 28px;
+  padding: 16px;
   box-sizing: border-box;
   -webkit-user-select: none;
   user-select: none;
@@ -160,7 +159,7 @@
     padding: 20px;
   }
   .Half__Block__Header {
-    padding: 20px;
+    padding: 12px;
   }
   .Translucent__Block {
     padding: 20px;

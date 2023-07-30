@@ -8,11 +8,14 @@ import { CustomValidity } from "../../customValidity/organelles/CustomValidity";
 import { Footer } from "../../footer/organelles/Footer";
 import { $checkPublicationWriteOnDrag } from "../../functions/hooks";
 
-import Background from '../../../assets/wallpaper/publication-background.svg'
-
 import '../styles/AppGeneral.css'
+import '../styles/Wallpaper.css'
+import '../styles/PWA.css'
+
+import useIsMobileDevice from "../../functions/useIsMobileDevice";
 
 export const AppGeneral = () => {
+    const isMobileDevice = useIsMobileDevice();
     const location = useLocation();
     const AppGeneralRef = useRef<HTMLDivElement>(null);
     const checkPublicationWriteOnDrag = useStore($checkPublicationWriteOnDrag);
@@ -20,17 +23,26 @@ export const AppGeneral = () => {
     const install = usePWAInstall()
 
     return (
-        <div ref={AppGeneralRef} className="AppGeneral body">
-            {install && <div className="AppGeneral__PWA Block__Active" onClick={install}>Добавить Business Roulette на главный экран</div>}
-            {location.pathname === backgroundLocationPublicationWrite && <div className="AppGeneral__Background" style={{
-                backgroundImage: `url(${Background})`,
-                width: `${AppGeneralRef?.current?.offsetWidth}px`,
-                height: `${AppGeneralRef?.current?.offsetHeight}px`,
-                opacity: `${checkPublicationWriteOnDrag ? "1" : "0"}`
-            }}></div>}
-            <div className="App__PhoneWallpaper"></div>
+        <div ref={AppGeneralRef} className="AppGeneral">
+            {
+                isMobileDevice && install &&
+                <div className="AppGeneral__PWA Block__Active" onClick={install}>Добавить Business Roulette на главный экран</div>
+            }
+            {
+                location.pathname === backgroundLocationPublicationWrite &&
+                <div className="AppGeneral__Wallpaper-PublicationWrite" style={{
+                    opacity: `${checkPublicationWriteOnDrag ? "1" : "0"}`
+                }}>
+                </div>
+            }
+            {
+                isMobileDevice ?
+                    <div className="AppGeneral__Wallpaper-Phone"></div>
+                    :
+                    <div className="AppGeneral__Wallpaper-PC"></div>
+            }
             <Header />
-            <div className="App_Actual" >
+            <div className="AppGeneral__Actual" >
                 <CustomValidity />
                 <Outlet />
             </div>

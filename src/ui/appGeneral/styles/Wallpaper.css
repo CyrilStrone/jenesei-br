@@ -1,0 +1,48 @@
+.AppGeneral__Wallpaper-Phone {
+  -webkit-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100dvh;
+  background-size: cover;
+  background-image: url("../../../assets/wallpaper/wallpaper-phone.png");
+  background-position: center;
+}
+.AppGeneral__Wallpaper-PC {
+  -webkit-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100dvh;
+  background-position: left bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-image: url("../../../assets/wallpaper/wallpaper-default.png");
+}
+.AppGeneral__Wallpaper-PublicationWrite {
+  -webkit-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100dvh;
+  background-position: left bottom;
+  background-size: auto;
+  background-repeat: inherit;
+  background-attachment: fixed;
+  background-image: url("../../../assets/wallpaper/publication-background.svg");
+}
+.AppGeneral:has(.UserMore),.AppGeneral:has(.Major){
+    .AppGeneral__Wallpaper-PC{
+        display: none;
+    }
+    .AppGeneral__Wallpaper-Phone{
+        display: none;
+    }
+}

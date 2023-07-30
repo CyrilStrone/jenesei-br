@@ -12,7 +12,6 @@
   border-radius: 16px;
   box-shadow: 17px 20px 40px rgba(0, 0, 0, 0.21);
   image-rendering: optimizeQuality;
-  z-index: 1;
 }
 .UserPublicationWriteInfoGeneralStyle__Title {
   font-size: 30%;

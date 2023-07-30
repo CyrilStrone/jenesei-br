@@ -1,34 +1,32 @@
-.AppGeneral__Background {
-  position: absolute;
-  -webkit-transition: opacity 0.2s ease-in-out;
-  transition: opacity 0.2s ease-in-out;
-}
 .AppGeneral {
   position: relative;
-  overflow: hidden;
 }
-.AppGeneral__PWA {
-  width: 92%;
-  background: #0e8ac3;
-  color: #ffffff;
-  cursor: pointer;
-  left: 50%;
-  transform: translateX(-50%) !important;
-  position: fixed;
+.AppGeneral__Actual {
+  padding-top: 64px;
+  padding-bottom: 34px;
+  height: 100%;
+  width: 1400px;
   display: flex;
-  bottom: 1%;
-  z-index: 999 !important;
-  border-radius: 11px;
-  box-shadow: 17px 20px 40px rgba(0, 0, 0, 0.21) !important;
-  align-items: center;
   justify-content: center;
-  font-size: 80%;
-  font-weight: 600;
-  max-width: 500px;
-  height: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  min-height: 100dvh;
+  box-sizing: border-box;
 }
-@media (orientation: landscape) {
-  .AppGeneral__PWA {
-    display: none;
+
+@media (max-width: 1500px) {
+  .AppGeneral__Actual {
+    width: 1100px;
+  }
+}
+@media (max-width: 1200px) {
+  .AppGeneral__Actual {
+    width: 900px;
+  }
+}
+@media (orientation: portrait) {
+  .AppGeneral__Actual {
+    width: 96%;
   }
 }

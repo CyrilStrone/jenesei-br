@@ -4,7 +4,7 @@ export const FooterGeneral = () => {
   return (
     <div className="FooterGeneral">
       <div className="FooterGeneral__Info">
-        <NavLink to={"/"} className="FooterGeneral__Info__Title">
+        <NavLink to={"/other/team"} className="FooterGeneral__Info__Title">
           Команда
         </NavLink>
         <div className="FooterGeneral__Info__Line">

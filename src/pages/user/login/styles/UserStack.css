@@ -9,7 +9,6 @@
   left: 0;
   height: 100%;
   width: 100%;
-  z-index: 2;
   border-radius: 6px;
 }
 .User__Content__Item__List {

@@ -23,7 +23,6 @@
 .Forgot__Block__Content {
   width: 62%;
   background-color: #fff;
-  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;

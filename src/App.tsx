@@ -27,6 +27,7 @@ import { HomeTop } from "./pages/home/top/organelles/HomeTop";
 import { HomeSubscription } from "./pages/home/subscription/organelles/HomeSubscription";
 import { UserSecurity } from "./pages/user/security/organelles/UserSecurity";
 import { requestUser } from "./ui/functions/requestUser";
+import { Team } from "./pages/team/organelles/Team";
 
 export function App() {
   const userValue = useStore($userValue);
@@ -70,6 +71,9 @@ export function App() {
                 <Route path="recommendations" element={<HomeRecommendation />} />
                 <Route path="top" element={<HomeTop />} />
                 <Route path="subscription" element={<HomeSubscription />} />
+              </Route>
+              <Route path="other">
+                <Route path="team" element={<Team />} />
               </Route>
             </> :
             <>

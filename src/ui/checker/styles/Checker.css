@@ -3,8 +3,7 @@
   box-sizing: border-box;
   width: 26px;
   height: 15px;
-  padding: 1px 1px 1px 1px;
-  border-radius: 11px;
+    border-radius: 11px;
   align-items: center;
   cursor: pointer;
   transition: all 400ms;
@@ -35,7 +34,7 @@
   box-shadow: 0px 0.20000000298023224px 0.25px 0px rgba(0, 0, 0, 0.12);
 }
 .Checker__Circle__True {
-  margin-left: 0px;
+  margin-left: 1px;
 }
 .Checker__Circle__False {
   margin-left: 46%;
