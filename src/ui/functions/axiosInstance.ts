@@ -1,4 +1,4 @@
-import axios, { AxiosError } from "axios";
+import axios from "axios";
 import { connectChat, disconnectChat } from "./useSocketChat";
 import createSocketChat from "./createSocketChat";
 import { setUserSocketChat, setUserValue } from "./hooks";
@@ -36,13 +36,14 @@ axiosInstance.interceptors.request.use(
 
 axiosInstance.interceptors.response.use(
   (response) => response,
-  async (error: AxiosError) => {
+  async (error: any) => {
     const originalRequest: any = error.config;
     if (error?.response?.status === 401) {
       if (
         localStorage.getItem(checkRefreshName) === "true" &&
         localStorage.getItem(accessTokenName)?.length &&
-        process.env.NODE_ENV !== "development"
+        process.env.NODE_ENV !== "development" &&
+        error?.response?.data?.message !== "Unauthorized"
       ) {
         try {
           originalRequest._retry = true;
