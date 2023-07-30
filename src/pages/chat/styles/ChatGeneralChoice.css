@@ -1,7 +1,8 @@
 .ChatGeneralChoice {
-  height: 100% !important;
   min-height: 300px;
   flex-direction: column;
+  display: flex;
+  justify-content: space-between;
 }
 .ChatGeneralChoice__Footer {
   display: flex;
@@ -9,22 +10,25 @@
   gap: 10px;
   background-color: hsla(0, 0%, 100%, 0.9);
   flex-direction: column;
+  height: -webkit-fill-available;
+  justify-content: space-between;
 }
 .ChatGeneralChoice__InputBar {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 20px;
+  position: relative;
 }
 .ChatGeneralChoice__ListBar {
+  height: 620px !important;
 }
 .ChatGeneralChoice__ListBar__Chat {
   display: flex;
   flex-direction: column;
   gap: 4px;
-  height: 600px;
   overflow-y: scroll;
-  scroll-behavior: smooth;
+  height: 100%;
 }
 .ChatGeneralChoice__ListBar__Chat::-webkit-scrollbar {
   width: 0;
@@ -43,10 +47,14 @@
   border-radius: 6px;
   flex-direction: column;
   align-items: flex-start;
+  max-width: 70%;
 }
 .ChatGeneralChoice__ListBar__Chat__Item__Content {
   font-size: 28%;
   font-weight: 400;
+  width: 100%;
+  word-break: break-all;
+  white-space: break-spaces;
 }
 .ChatGeneralChoice__ListBar__Chat__Item__Time {
   font-size: 16%;
@@ -56,7 +64,9 @@
   margin-left: auto;
   align-items: flex-end;
 }
-.ChatGeneralChoice__InputBar__Input {
+.ChatGeneralChoice__InputBar_TextArea {
+  font-family: "Montserrat";
+  font-style: normal;
   display: inline-block;
   box-sizing: border-box;
   vertical-align: top;
@@ -64,6 +74,7 @@
   height: 36px;
   padding-left: 15px;
   padding-right: 15px;
+  padding-top: 12px;
   color: #333;
   text-align: left;
   border: 1px solid #d6d6d6;
@@ -75,17 +86,28 @@
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
-  min-width: 250px;
+  max-height: 300px;
+  min-height: 46px;
+  resize: none;
+  overflow: auto;
+  transition: height 0.15s ease-out;
 }
-.ChatGeneralChoice__InputBar__Input::placeholder {
+.ChatGeneralChoice__InputBar_TextArea:focus {
+  outline: none;
+  border: 1px solid #0e8ac3;
+}
+.ChatGeneralChoice__InputBar_TextArea::placeholder {
   font-weight: 300;
   color: #666666;
   font-family: "Montserrat";
   font-style: normal;
 }
-.ChatGeneralChoice__InputBar__Input:focus {
-  outline: none;
-  border: 1px solid #0e8ac3;
+.ChatGeneralChoice__InputBar__MessageLength {
+  font-size: 28%;
+  font-weight: 400;
+  position: absolute;
+  right: 52px;
+  bottom: 6px;
 }
 .ChatGeneralChoice__InputBar__Button {
   height: 26px;
@@ -94,17 +116,31 @@
   object-fit: cover;
   display: flex;
   align-items: center;
+  margin-top: 12px;
+}
+.ChatGeneralBar__NoChatChoiceId {
+  font-size: 28%;
+  font-weight: 400;
+  color: #fff;
+}
+.ChatGeneralBar__Header__Image{
+
+}
+.ChatGeneralBar__Header__Name{
+  
 }
 @media (orientation: portrait) {
   .ChatGeneralChoice__ListBar__Chat__Item {
   }
-  .ChatGeneralChoice__ListBar__Chat__Item__Content{
+  .ChatGeneralChoice__ListBar__Chat__Item__Content {
     font-size: 36%;
   }
-  .ChatGeneralChoice__ListBar__Chat__Item__Time{
+  .ChatGeneralChoice__ListBar__Chat__Item__Time {
     font-size: 20%;
   }
   .ChatGeneralChoice__ListBar__Chat {
-    height: 500px;
+  }
+  .ChatGeneralChoice__ListBar {
+    height: 500px !important;
   }
 }

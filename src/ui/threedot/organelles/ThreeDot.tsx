@@ -1,18 +1,28 @@
 import "../styles/ThreeDot.css";
+
 import Ellipse from '../../../assets/icon/threeDot/ellipse.svg'
+import { useEffect, useState } from "react";
 
-interface IThreeDot {
-  id?: number
-  dotCheck: boolean
-  setDotCheck: React.Dispatch<React.SetStateAction<boolean>>
-}
+export const ThreeDot = () => {
+  const [animationIndex, setAnimationIndex] = useState(0);
 
-export const ThreeDot = (params: IThreeDot) => {
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setAnimationIndex((prevIndex) => (prevIndex + 1) % 3);
+    }, 200); // Интервал времени между сменой элементов в миллисекундах (400ms в данном примере)
+
+    return () => clearInterval(interval);
+  }, []);
   return (
-    <div onClick={() => { params.setDotCheck(!params.dotCheck) }} className={"ThreeDot"} >
-      <img src={Ellipse} alt="Ellipse" />
-      <img src={Ellipse} alt="Ellipse" />
-      <img src={Ellipse} alt="Ellipse" />
+    <div className={"ThreeDot"} >
+      {[0, 1, 2].map((index) => (
+        <img
+          key={index}
+          src={Ellipse}
+          alt="Ellipse"
+          className={index === animationIndex ? "animated" : ""}
+        />
+      ))}
     </div>
   );
 };

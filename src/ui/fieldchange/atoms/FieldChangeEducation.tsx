@@ -1,14 +1,16 @@
 import { useEffect, useRef, useState } from "react";
+import axios from "axios";
+import AsyncSelect from 'react-select/async';
+
 import { ApiLocationAnother } from "../../functions/axiosInstance";
 import { inApiSaveEducation } from "../logics/inApiSave";
 import { inApiDeleteEducation } from "../logics/inApiDelete";
 import { setUserSetting } from "../../functions/hooks";
 import { IFieldChange } from "../organelles/FieldChange";
-import AsyncSelect from 'react-select/async';
+
 import Arrow from '../../../assets/icon/personalInformation/arrow-left-br-full-black.svg'
 import Setting from '../../../assets/icon/personalInformation/settings-br-full-black.svg'
 import Delete from '../../../assets/icon/personalInformation/delete-br-full-black.svg'
-import axios from "axios";
 
 export const createArray = (start: number, end: number) => {
     let arr = [];

@@ -1,17 +1,20 @@
 import { Outlet, useLocation } from "react-router-dom";
 import { useStore } from "effector-react";
 import { useRef } from "react";
+import { usePWAInstall } from "react-use-pwa-install";
+
 import { Header } from "../../header/organelles/Header";
 import { CustomValidity } from "../../customValidity/organelles/CustomValidity";
 import { Footer } from "../../footer/organelles/Footer";
 import { $checkPublicationWriteOnDrag } from "../../functions/hooks";
+
 import Background from '../../../assets/wallpaper/publication-background.svg'
+
 import '../styles/AppGeneral.css'
-import { usePWAInstall } from "react-use-pwa-install";
 
 export const AppGeneral = () => {
     const location = useLocation();
-    const AppGeneralRef = useRef<any | null>(null);
+    const AppGeneralRef = useRef<HTMLDivElement>(null);
     const checkPublicationWriteOnDrag = useStore($checkPublicationWriteOnDrag);
     const backgroundLocationPublicationWrite = "/user/publication/write"
     const install = usePWAInstall()

@@ -1,7 +1,9 @@
 import { setUserSetting } from "../../functions/hooks";
 import { IFieldChange } from "../organelles/FieldChange";
-import { useEffect, useState } from "react";
 import { inApiSaveDefault } from "../logics/inApiSave";
+
+import { useEffect, useState } from "react";
+
 import Arrow from '../../../assets/icon/personalInformation/arrow-left-br-full-black.svg'
 import birthDate from '../../../assets/icon/personalInformation/date-of-birth-br-full-black.svg'
 

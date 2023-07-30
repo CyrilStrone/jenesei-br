@@ -4,6 +4,7 @@ import { requestUser } from "../../functions/requestUser";
 export interface IinApiDeleteContact {
     name: string
 }
+
 export const inApiDeleteContact = async (params: IinApiDeleteContact) => {
     return axiosInstance.delete(
         '/contact', {
@@ -23,6 +24,7 @@ export const inApiDeleteContact = async (params: IinApiDeleteContact) => {
 export interface IinApiDeleteStack {
     name: string
 }
+
 export const inApiDeleteStack = async (params: IinApiDeleteStack) => {
     return axiosInstance.delete(
         '/stack', {
@@ -42,6 +44,7 @@ export const inApiDeleteStack = async (params: IinApiDeleteStack) => {
 export interface IinApiDeleteEducation {
     id: string
 }
+
 export const inApiDeleteEducation = async (params: IinApiDeleteEducation) => {
     return axiosInstance.delete(
         '/education', {
@@ -61,6 +64,7 @@ export const inApiDeleteEducation = async (params: IinApiDeleteEducation) => {
 export interface IinApiDeleteWorkExpn {
     id: string
 }
+
 export const inApiDeleteWorkExp = async (params: IinApiDeleteWorkExpn) => {
     return axiosInstance.delete(
         '/work-exp', {

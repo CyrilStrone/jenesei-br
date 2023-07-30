@@ -1,11 +1,13 @@
-import { $userValue, setUserSetting } from "../../functions/hooks";
 import { useEffect, useState } from "react";
+import { useStore } from "effector-react";
+import Select from "react-select";
+
+import { $userValue, setUserSetting } from "../../functions/hooks";
 import { IFieldChange } from "../organelles/FieldChange";
 import { inContact } from "../logics/inContact";
 import { inApiSaveContact } from "../logics/inApiSave";
-import { useStore } from "effector-react";
 import { inApiDeleteContact } from "../logics/inApiDelete";
-import Select from "react-select";
+
 import Delete from '../../../assets/icon/personalInformation/delete-br-full-black.svg'
 import Arrow from '../../../assets/icon/personalInformation/arrow-left-br-full-black.svg'
 import Setting from '../../../assets/icon/personalInformation/settings-br-full-black.svg'

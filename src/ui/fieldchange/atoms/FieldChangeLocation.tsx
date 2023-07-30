@@ -1,10 +1,12 @@
 import { setUserSetting } from "../../functions/hooks";
-import { useEffect, useState } from "react";
 import { IFieldChange } from "../organelles/FieldChange";
 import { inLocationCity, inLocationCountry, inLocationState } from "../logics/inLocation";
 import { inApiSaveLocation } from "../logics/inApiSave";
+
 import { SpinningCircles } from "react-loading-icons";
 import Select from "react-select";
+import { useEffect, useState } from "react";
+
 import Arrow from '../../../assets/icon/personalInformation/arrow-left-br-full-black.svg'
 import Setting from '../../../assets/icon/personalInformation/settings-br-full-black.svg'
 

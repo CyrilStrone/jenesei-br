@@ -1,8 +1,11 @@
 import '../styles/HeaderBarChat.css'
+
 import { NavLink } from 'react-router-dom';
-import DefaultAvatarChat from '../../../assets/icon/header/default-avatar.svg'
-import { $userSocketChatListAllChats } from '../../functions/createSocketChat';
 import { useStore } from 'effector-react';
+
+import DefaultAvatarChat from '../../../assets/icon/header/default-avatar.svg'
+
+import { $userSocketChatListAllChats } from '../../functions/createSocketChat';
 import { ApiImage } from '../../functions/axiosInstance';
 
 export const HeaderBarChat = () => {

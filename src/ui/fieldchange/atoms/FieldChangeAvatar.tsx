@@ -1,10 +1,12 @@
 import { useEffect } from "react";
-import { setUserSetting } from "../../functions/hooks";
 import AvatarEditor from 'react-avatar-editor'
+
+import { setUserSetting } from "../../functions/hooks";
 import { IFieldChange } from "../organelles/FieldChange";
+import { inApiSaveAvatar } from "../logics/inApiSave";
+
 import Arrow from '../../../assets/icon/personalInformation/arrow-left-br-full-black.svg'
 import Avatar from '../../../assets/icon/personalInformation/avatar-br-full-black.svg'
-import { inApiSaveAvatar } from "../logics/inApiSave";
 
 export const FieldChangeAvatar = (params: IFieldChange) => {
     const handleApiSave = async () => {

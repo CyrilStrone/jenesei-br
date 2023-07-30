@@ -1,5 +1,6 @@
 import { createEvent, createStore } from "effector";
 import createSocketChat from "./createSocketChat";
+import { Socket } from "socket.io-client";
 
 export const $userValue = createStore<any | null>(null);
 export const setUserValue = createEvent<any | null>();
@@ -16,8 +17,8 @@ $checkPublicationWriteOnDrag.on(
   (_, val) => val
 );
 // Веб сокеты //
-export const $userSocketChat = createStore<any | null>(null);
-export const setUserSocketChat = createEvent<any | null>();
+export const $userSocketChat = createStore<Socket | null>(null);
+export const setUserSocketChat = createEvent<Socket | null>();
 $userSocketChat.on(setUserSocketChat, (_, val) => val);
 // Веб сокеты //
 

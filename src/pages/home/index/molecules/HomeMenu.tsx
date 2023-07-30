@@ -7,7 +7,7 @@ export const HomeMenu = () => {
   const [leftSlider, setLeftSlider] = useState<number | null>(null)
   const [widthSlider, setWidthSlider] = useState<number | null>(null)
   const location = useLocation();
-  const parentRef = useRef(null);
+  const parentRef = useRef<HTMLDivElement>(null);
   const { width, height } = useWindowDimensions()
 
   useEffect(() => {

@@ -135,19 +135,6 @@ $userSocketChatChoiceAllMessages.updates.watch((chats: any) => {
   console.log("WATCH. userSocketChatChoiceAllMessages chats:", chats);
 });
 
-// Уведомления для ПК
-export const pushNotification = (newMessage: any) => {
-  console.log("WATCH. pushNotification newMessage:", newMessage);
-  if (document.hidden) {
-      addNotification({
-        title: "Business Roulette. Вам пишет " + newMessage.author + ".",
-        message: newMessage.message,
-        icon: ApiImage + newMessage.avatarPath,
-        vibrate: 1,
-        native: true, // when using native, your OS will handle theming.
-      });
-  }
-};
 $userSocketChatReceiveMessage.updates.watch((message: any) => {
   console.log("WATCH. userSocketChatReceiveMessage message:", message);
   updateAllChatsAndAllMessages(message);
@@ -239,5 +226,17 @@ const updateAllChats = (message: any) => {
       key
     );
     setUserSocketChatListAllChats(newUserSocketChatListAllChats);
+  }
+};
+const pushNotification = (newMessage: any) => {
+  console.log("WATCH. pushNotification newMessage:", newMessage);
+  if (document.hidden) {
+      addNotification({
+        title: "Business Roulette. Вам пишет " + newMessage.author + ".",
+        message: newMessage.message,
+        icon: ApiImage + newMessage.avatarPath,
+        vibrate: 1,
+        native: true, // when using native, your OS will handle theming.
+      });
   }
 };

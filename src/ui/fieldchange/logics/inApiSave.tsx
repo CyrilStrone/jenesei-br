@@ -5,6 +5,7 @@ export interface IinApiSaveContact {
     name: string
     link: string
 }
+
 export const inApiSaveContact = async (params: IinApiSaveContact) => {
     return axiosInstance.put(
         '/contact', {
@@ -24,6 +25,7 @@ export interface IinApiSaveStack {
     name: string
     level: number
 }
+
 export const inApiSaveStack = async (params: IinApiSaveStack) => {
     return axiosInstance.put(
         '/stack', {
@@ -44,6 +46,7 @@ export interface IinApiSaveLocation {
     state: string
     city: string
 }
+
 export const inApiSaveLocation = async (params: IinApiSaveLocation) => {
     return axiosInstance.put(
         '/profile', {
@@ -64,6 +67,7 @@ export interface IinApiSaveDefault {
     value: any
     keyName: any
 }
+
 export const inApiSaveDefault = async (params: IinApiSaveDefault) => {
     return axiosInstance.put(
         '/profile', {
@@ -81,6 +85,7 @@ export const inApiSaveDefault = async (params: IinApiSaveDefault) => {
 export interface IinApiSaveAvatar {
     file: any;
 }
+
 export const inApiSaveAvatar = async (params: IinApiSaveAvatar) => {
     const formData = new FormData();
     formData.append("image", params.file);
@@ -109,6 +114,7 @@ export interface IinApiSaveEducation {
     studyStart: string,
     studyEnd: string
 }
+
 export const inApiSaveEducation = async (params: IinApiSaveEducation) => {
     return axiosInstance.put(
         '/education', {
@@ -143,6 +149,7 @@ export interface IinApiSaveWorkExp {
     workStart: string,
     workEnd: string
 }
+
 export const inApiSaveWorkExp = async (params: IinApiSaveWorkExp) => {
     return axiosInstance.put(
         '/work-exp', {
@@ -169,6 +176,7 @@ export interface IinApiChangePassword {
     currentPassword: string
     newPassword: string
 }
+
 export const inApiChangePassword = async (params: IinApiChangePassword) => {
     return axiosInstance.put(
         '/profile/updPass', {

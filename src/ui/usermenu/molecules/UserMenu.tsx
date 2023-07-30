@@ -1,22 +1,22 @@
-import { useEffect, useRef, useState } from "react";
 import "../styles/UserMenu.css";
+
+import { useEffect, useRef, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
+
 import useWindowDimensions from "../../functions/useWindowDimensions";
 
 export const UserMenu = () => {
   const [leftSlider, setLeftSlider] = useState<number | null>(null)
   const [widthSlider, setWidthSlider] = useState<number | null>(null)
   const location = useLocation();
-  const parentRef = useRef(null);
+  const parentRef = useRef<HTMLDivElement>(null);
   const { width, height } = useWindowDimensions()
 
   useEffect(() => {
     const parentElement = parentRef.current;
     if (parentElement) {
-      //@ts-ignore
       const activeNavLink = parentElement.querySelector('.UserMenu__Navs__Active');
       if (activeNavLink) {
-        //@ts-ignore
         const parentLeft = parentElement.getBoundingClientRect().left;
         const activeLeft = activeNavLink.getBoundingClientRect().left;
         setLeftSlider(activeLeft - parentLeft)

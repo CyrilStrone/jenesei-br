@@ -1,7 +1,9 @@
 import "../styles/FieldChange.css"
 import "../styles/FieldChangeObject.css"
 import "../styles/SelectSearchInput.css"
+
 import { useEffect, useState } from "react";
+
 import { FieldChangeAvatar } from "../atoms/FieldChangeAvatar";
 import { FieldChangeCurrentPosition } from "../atoms/FieldChangeCurrentPosition";
 import { FieldChangeFirstName } from "../atoms/FieldChangeFirstName";
@@ -35,7 +37,7 @@ export interface IFieldChange {
 //TODO:дата не правильно если вводить
 export const FieldChange = (params: IFieldChange) => {
     const [check, setCheck] = useState<boolean>(false)
-    const [newValue, setNewValue] = useState<any | undefined>();
+    const [newValue, setNewValue] = useState<any | null>(null);
 
     useEffect(() => {
         if (newValue !== params.value) {
@@ -47,7 +49,7 @@ export const FieldChange = (params: IFieldChange) => {
     
     useEffect(() => {
         return () => {
-            setNewValue(undefined)
+            setNewValue(null)
             setCheck(false)
         }
     }, [])

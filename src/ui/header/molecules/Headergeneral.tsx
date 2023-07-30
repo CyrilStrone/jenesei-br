@@ -1,4 +1,5 @@
 import { useStore } from "effector-react";
+
 import { HeaderLogo } from "../atoms/HeaderLogo";
 import { HeaderBar } from "../atoms/HeaderBar";
 import { $userValue } from "../../functions/hooks";

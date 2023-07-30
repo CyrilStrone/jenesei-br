@@ -8,4 +8,10 @@
 .ThreeDot img {
   width: 6px;
   height: 6px;
+  opacity: 0.3; /* Начальная прозрачность изображений */
+  transition: opacity 0.3s ease-in-out; /* Анимация появления/тускления */
+}
+
+.ThreeDot img.animated {
+  opacity: 1; /* Полная прозрачность активного изображения */
 }

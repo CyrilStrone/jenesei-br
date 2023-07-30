@@ -1,19 +1,22 @@
 import '../styles/HeaderBar.css'
+
 import Navigation from '../../../assets/icon/header/navigation-br-half-white.svg'
 import Chat from '../../../assets/icon/header/chats-br-half-white.svg'
-import { useEffect, useRef, useState } from 'react';
+
 import { HeaderBarMenu } from './HeaderBarMenu';
 import { HeaderBarChat } from './HeaderBarChat';
-import { HeaderBarProfile } from './HeaderBarProfile';
+import { HeaderBarProfile } from './HeaderBarProfile'
+;import { $userValue } from '../../functions/hooks'
+import { ApiImage } from '../../functions/axiosInstance';
+
+import { useEffect, useRef, useState } from 'react';
 import { fadeIn } from 'react-animations';
 import { StyleSheet, css } from 'aphrodite';
 import { useStore } from 'effector-react'
-import { $userValue } from '../../functions/hooks'
-import { ApiImage } from '../../functions/axiosInstance';
 
 export const HeaderBar = () => {
     const userValue = useStore($userValue);
-    const rootEl = useRef(null);
+    const rootEl = useRef<HTMLElement>(null);
     const [list, setList] = useState<any>([
         { className: "HeaderBar__Menu", image: Navigation, show: false, id: 0, element: <HeaderBarMenu /> },
         { className: "HeaderBar__Chat", image: Chat, show: false, id: 1, element: <HeaderBarChat /> },

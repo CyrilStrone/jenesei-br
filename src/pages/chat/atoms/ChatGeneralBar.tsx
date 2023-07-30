@@ -6,9 +6,10 @@ import { SpinningCircles } from "react-loading-icons";
 
 import { ChatGeneralBarItem } from "./ChatGeneralBarItem";
 import { $userSocketChatListAllChats } from "../../../ui/functions/createSocketChat";
+import { ThreeDot } from "../../../ui/threeDot/organelles/ThreeDot";
 
 export interface IChatGeneralBar {
-    userValue:any
+    userValue: any
 }
 export const ChatGeneralBar = (params: IChatGeneralBar) => {
     const userSocketChatListAllChats = useStore($userSocketChatListAllChats);
@@ -25,14 +26,18 @@ export const ChatGeneralBar = (params: IChatGeneralBar) => {
             </div>
             <div className="ChatGeneralBar__List Half__Block__Footer">
                 <input type="text" placeholder="Поиск" className="ChatGeneralBar__List__Input" />
-                <div className={`${userSocketChatListAllChats ? "ChatGeneralBarItem__YesList ChatGeneralBarItem__List" : "ChatGeneralBarItem__NoList"}`} ref={ref} onWheel={handleWheel}>
-                    {userSocketChatListAllChats ?
-                        Object.keys(userSocketChatListAllChats).map((e: any, id: any) =>
-                            <ChatGeneralBarItem chatId={e} key={id} value={userSocketChatListAllChats[e]} />
-                        ) :
-                        <SpinningCircles height="2em" fill="#0E8AC3" stroke="#000" strokeOpacity={.125} speed={1} />
-                    }
-                </div>
+                {userSocketChatListAllChats ?
+                    <div className={`${userSocketChatListAllChats ? "ChatGeneralBarItem__YesList ChatGeneralBarItem__List" : "ChatGeneralBarItem__NoList"}`} ref={ref} onWheel={handleWheel}>
+                        {userSocketChatListAllChats ?
+                            Object.keys(userSocketChatListAllChats).map((e: any, id: any) =>
+                                <ChatGeneralBarItem chatId={e} key={id} value={userSocketChatListAllChats[e]} />
+                            ) :
+                            <SpinningCircles height="2em" fill="#0E8AC3" stroke="#000" strokeOpacity={.125} speed={1} />
+                        }
+                    </div>
+                    :
+                    <ThreeDot />
+                }
             </div>
         </div>
     );

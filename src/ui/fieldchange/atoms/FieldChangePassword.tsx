@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
+
 import { setUserSetting } from "../../functions/hooks";
 import { IFieldChange } from "../organelles/FieldChange";
 import { inApiChangePassword } from "../logics/inApiSave";
 import { setCustomValidityShow } from "../../customValidity/organelles/CustomValidity";
+
 import Arrow from '../../../assets/icon/personalInformation/arrow-left-br-full-black.svg'
 import Password from '../../../assets/icon/personalInformation/password-br-full-black.svg'
 

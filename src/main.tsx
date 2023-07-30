@@ -7,6 +7,7 @@ import './ui/styles/blocks.css';
 import './ui/styles/font.css';
 import './ui/styles/index.css';
 import './ui/styles/variables.css';
+import './ui/styles/dowlandBackground.css'
 
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';

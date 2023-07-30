@@ -15,7 +15,6 @@
   height: 40px;
   object-fit: cover;
   border-radius: 100%;
-  background-color: rgba(0, 0, 0, 0.1);
   padding: 2px;
   box-sizing: border-box;
 }
@@ -26,6 +25,7 @@
   justify-content: center;
   gap: 5px;
   height: -webkit-fill-available;
+  width: 100%;
 }
 .ChatGeneralBarItem__Info__Name {
   font-size: 32%;
@@ -38,9 +38,15 @@
   font-weight: 300;
   overflow: hidden;
   text-overflow: ellipsis;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
-.ChatGeneralBarItem__Message {
-  font-size: 30%;
+.ChatGeneralBarItem__Info__Preview__Message{
+  width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 12px;
 }
 .ChatGeneralBarItem-Choice {
   color: #fff;
@@ -71,9 +77,6 @@
     height: 30px;
   }
   .ChatGeneralBarItem__Info {
-    display: none;
-  }
-  .ChatGeneralBarItem__Message {
     display: none;
   }
 }

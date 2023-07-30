@@ -1,9 +1,10 @@
 import "../styles/CustomValidity.css";
+
 import { createEvent, createStore } from "effector";
 import { useStore } from "effector-react";
 import { useEffect } from "react";
 
-export const $customValidityShow = createStore("")
+export const $customValidityShow = createStore<string>("")
 export const setCustomValidityShow = createEvent<string>()
 $customValidityShow.on(setCustomValidityShow, (_, val) => val)
 
@@ -20,7 +21,6 @@ export const CustomValidity = () => {
                     {customValidityShow}
                 </div>
             </div>
-
             : null
     );
 };
