@@ -60,6 +60,7 @@
 @media (orientation: portrait) {
   .ChatGeneralBarItem {
     background-color: rgba(0, 0, 0, 0.1);
+    width: 52px;
   }
   .ChatGeneralBarItem__YesList {
     height: 100%;

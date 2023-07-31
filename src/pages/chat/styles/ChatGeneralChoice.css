@@ -142,6 +142,9 @@
   .ChatGeneralChoice__ListBar__Chat__Item__Time {
     font-size: 20%;
   }
+  .ChatGeneralChoice__InputBar{
+    max-height: 40%;
+  }
   .ChatGeneralChoice__ListBar__Chat {
   }
   .ChatGeneralChoice__ListBar {
@@ -149,10 +152,10 @@
     max-height: 90%;
   }
   .ChatGeneralChoice {
-    height: 80% !important;
+    height: 100% !important;
   }
   .ChatGeneralChoice__Footer {
-    height: 100%;
+    height: calc(100% - 38px);
     gap: 10px;
   }
   .ChatGeneralChoice__InputBar_TextArea{

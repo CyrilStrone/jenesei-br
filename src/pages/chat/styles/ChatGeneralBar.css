@@ -69,23 +69,12 @@
   height: 0;
 }
 @media (orientation: portrait) {
+  .ChatGeneralBar__Header{
+    height: 38px;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
   .ChatGeneralBar {
-    width: 100%;
-    height: 15% !important;
-  }
-  .ChatGeneralBar__List{
-    justify-content: center;
-    height: -webkit-fill-available;
-    padding: 8px;
-  }
-  .ChatGeneralBar__List__Input {
     display: none;
-  }
-  .ChatGeneralBarItem__YesList {
-    display: flex;
-    flex-direction: row;
-    height: 52px;
-    overflow-y: hidden;
-    overflow-x: auto;
   }
 }

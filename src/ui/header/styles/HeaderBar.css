@@ -49,7 +49,10 @@
   .HeaderBar__Block {
     position: static;
   }
+  .HeaderBar__Example__Bar {
+    margin-right: 2%;
+    margin-top: 10px;
+  }
   .HeaderBar {
-    position: relative;
   }
 }

@@ -6,7 +6,7 @@ import Chat from '../../../assets/icon/header/chats-br-half-white.svg'
 import { HeaderBarMenu } from './HeaderBarMenu';
 import { HeaderBarChat } from './HeaderBarChat';
 import { HeaderBarProfile } from './HeaderBarProfile'
-;import { $userValue } from '../../functions/hooks'
+    ; import { $userValue } from '../../functions/hooks'
 import { ApiImage } from '../../functions/axiosInstance';
 
 import { useEffect, useRef, useState } from 'react';
@@ -17,18 +17,6 @@ import { useStore } from 'effector-react'
 export const HeaderBar = () => {
     const userValue = useStore($userValue);
     const rootEl = useRef<HTMLDivElement>(null);
-    const [list, setList] = useState<any>([
-        { className: "HeaderBar__Menu", image: Navigation, show: false, id: 0, element: <HeaderBarMenu /> },
-        { className: "HeaderBar__Chat", image: Chat, show: false, id: 1, element: <HeaderBarChat /> },
-        { className: "HeaderBar__Profile", image: null, show: false, id: 2, element: <HeaderBarProfile /> }
-    ])
-    const styles = StyleSheet.create({
-        fadeIn: {
-            animationName: fadeIn,
-            animationDuration: '0.5s'
-        }
-    })
-
     const toggleShow = (id: number) => {
         const newList = list.map((item: any) => {
             if (item.id === id) {
@@ -45,6 +33,17 @@ export const HeaderBar = () => {
         });
         setList(newList);
     };
+    const [list, setList] = useState<any>([
+        { className: "HeaderBar__Menu", image: Navigation, show: false, id: 0, element: <HeaderBarMenu /> },
+        { className: "HeaderBar__Chat", image: Chat, show: false, id: 1, element: <HeaderBarChat toggleShow={toggleShow} /> },
+        { className: "HeaderBar__Profile", image: null, show: false, id: 2, element: <HeaderBarProfile /> }
+    ])
+    const styles = StyleSheet.create({
+        fadeIn: {
+            animationName: fadeIn,
+            animationDuration: '0.5s'
+        }
+    })
 
     useEffect(() => {
         //@ts-ignore

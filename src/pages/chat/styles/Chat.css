@@ -22,10 +22,15 @@
   .Chat {
     font-size: 32px;
     gap: 8px;
-    height: 100%;
+    height: calc(100% - 64px - 34px);
+    position: absolute;
+    top: 64px;
+    bottom: 34px;
+    box-sizing: border-box;
   }
   .App:has(.Chat),.AppGeneral__Actual:has(.Chat) {
-    overflow: hidden;
     height: 100dvh;
+    padding: 0;
+    justify-content: flex-end;
   }
 }
