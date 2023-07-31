@@ -63,6 +63,7 @@
   }
   .ChatGeneralBarItem__YesList {
     height: 100%;
+    width: fit-content;
   }
   .ChatGeneralBarItem__Avatar {
     width: 100%;
