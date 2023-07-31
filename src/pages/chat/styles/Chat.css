@@ -24,7 +24,8 @@
     gap: 8px;
     height: 100%;
   }
-  .AppGeneral__Actual:has(.Chat) {
+  .App:has(.Chat),.AppGeneral__Actual:has(.Chat) {
+    overflow: hidden;
     height: 100dvh;
   }
 }

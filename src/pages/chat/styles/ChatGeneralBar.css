@@ -76,6 +76,7 @@
   .ChatGeneralBar__List{
     justify-content: center;
     height: -webkit-fill-available;
+    padding: 8px;
   }
   .ChatGeneralBar__List__Input {
     display: none;
