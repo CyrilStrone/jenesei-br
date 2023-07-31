@@ -14,9 +14,8 @@ export interface IChatGeneralChoice {
 }
 export const ChatGeneralChoice = (params: IChatGeneralChoice) => {
     const isMobileDevice = useIsMobileDevice();
-
     const textAreaRef = useRef<HTMLTextAreaElement>(null);
-    const chat = useRef<HTMLDivElement>(null);
+    const chatGeneralChoiceBarChat = useRef<HTMLDivElement>(null);
     const [message, setMessage] = useState<string | null>(null);
     const [user, setUser] = useState<any | null>(null);
     const userSocketChatChoiceId = useStore($userSocketChatChoiceId);
@@ -39,11 +38,13 @@ export const ChatGeneralChoice = (params: IChatGeneralChoice) => {
             setUser(null)
             setMessage(null)
         }
-    }, [userSocketChatChoiceId])
+    }, [userSocketChatChoiceId]);
+
     useEffect(() => {
-        if (chat !== null && chat.current !== null)
-            chat.current.scrollTop = chat.current.scrollHeight;
+        if (chatGeneralChoiceBarChat !== null && chatGeneralChoiceBarChat.current !== null)
+            chatGeneralChoiceBarChat.current.scrollTop = chatGeneralChoiceBarChat.current.scrollHeight;
     }, [userSocketChatChoiceId, userSocketChatChoiceAllMessages]);
+
     useEffect(() => {
         if (textAreaRef && textAreaRef.current) {
             textAreaRef.current.style.height = 'auto';
@@ -60,7 +61,8 @@ export const ChatGeneralChoice = (params: IChatGeneralChoice) => {
                 textAreaRef.current.style.overflow = "hidden"
             }
         }
-    }, [message]);
+    }, [message, userSocketChatChoiceAllMessages, userSocketChatChoiceId]);
+
     return (
         <div className="ChatGeneralChoice Half__Block Block__NonActive">
             {userSocketChatChoiceId ?
@@ -74,9 +76,9 @@ export const ChatGeneralChoice = (params: IChatGeneralChoice) => {
                             </>
                         }
                     </div>
-                    <div className="ChatGeneralChoice__Footer Half__Block__Footer">
-                        <div className="ChatGeneralChoice__ListBar">
-                            <div ref={chat} className="ChatGeneralChoice__ListBar__Chat">
+                    <div  className="ChatGeneralChoice__Footer Half__Block__Footer">
+                        <div  className="ChatGeneralChoice__ListBar">
+                            <div ref={chatGeneralChoiceBarChat} className="ChatGeneralChoice__ListBar__Chat">
                                 {userSocketChatChoiceAllMessages && userSocketChatChoiceAllMessages.map((e: any, id: number) =>
                                     <div key={id} className={`${e.login === params.userValue.user.login && "ChatGeneralChoice__ListBar__Chat__Item-User"} ChatGeneralChoice__ListBar__Chat__Item`}>
                                         <div className="ChatGeneralChoice__ListBar__Chat__Item__Content">
@@ -89,10 +91,8 @@ export const ChatGeneralChoice = (params: IChatGeneralChoice) => {
                                 )}
                             </div>
                         </div>
-                        <form onSubmit={e => { e.preventDefault(); handleSendMessages() }} className="ChatGeneralChoice__InputBar">
-                            {/* <input required placeholder="Напишите ваше сообщение" className="ChatGeneralChoice__InputBar__Input" type="text" value={message || ""} onChange={(event: any) => setMessage(event.target.value)} /> */}
+                        <form  onSubmit={e => { e.preventDefault(); handleSendMessages() }} className="ChatGeneralChoice__InputBar">
                             <textarea ref={textAreaRef} placeholder="Напишите ваше сообщение" required className="ChatGeneralChoice__InputBar_TextArea" value={message || ""} onChange={(event: any) => { setMessage(event.target.value); }} >
-
                             </textarea>
                             <div className="ChatGeneralChoice__InputBar__MessageLength">
                                 {message && message.length}

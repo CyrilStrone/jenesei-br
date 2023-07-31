@@ -5,12 +5,14 @@ import { useEffect } from "react";
 
 import { setUserSocketChatChoiceAllMessages, setUserSocketChatChoiceId, setUserSocketChatURLId } from "../../../ui/functions/createSocketChat";
 import { ChatGeneral } from "../molecules/ChatGeneral";
+import useIsMobileDevice from "../../../ui/functions/useIsMobileDevice";
 
 export const Chat = () => {
   const { id } = useParams();
+  const isMobileDevice = useIsMobileDevice();
   useEffect(() => {
     setUserSocketChatURLId(id)
-    return () =>{
+    return () => {
       setUserSocketChatChoiceAllMessages(null)
       setUserSocketChatChoiceId(null)
       setUserSocketChatURLId(null)
@@ -18,12 +20,12 @@ export const Chat = () => {
   }, [id])
   return (
     <div className="Chat">
-      <div className="Chat__Header Translucent__Block  Block__NonActive">
+      {!isMobileDevice && <div className="Chat__Header Translucent__Block  Block__NonActive">
         <div className="Chat__Title">
           Чат
         </div>
-      </div>
-      <ChatGeneral/>
+      </div>}
+      <ChatGeneral />
     </div>
   );
 };

@@ -21,5 +21,10 @@
 @media (orientation: portrait) {
   .Chat {
     font-size: 32px;
+    gap: 8px;
+    height: 100%;
+  }
+  .AppGeneral__Actual:has(.Chat) {
+    height: 100dvh;
   }
 }

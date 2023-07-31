@@ -9,5 +9,7 @@
   .ChatGeneral {
     flex-direction: column;
     align-items: flex-start;
+    gap: inherit;
+    height: 100%;
   }
 }

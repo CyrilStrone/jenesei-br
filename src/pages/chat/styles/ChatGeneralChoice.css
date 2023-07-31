@@ -19,9 +19,10 @@
   justify-content: space-between;
   gap: 20px;
   position: relative;
+  max-height: 46%;
 }
 .ChatGeneralChoice__ListBar {
-  height: 620px !important;
+  height: 620px;
 }
 .ChatGeneralChoice__ListBar__Chat {
   display: flex;
@@ -144,6 +145,17 @@
   .ChatGeneralChoice__ListBar__Chat {
   }
   .ChatGeneralChoice__ListBar {
-    height: 500px !important;
+    min-height: 50%;
+    max-height: 90%;
+  }
+  .ChatGeneralChoice {
+    height: 80% !important;
+  }
+  .ChatGeneralChoice__Footer {
+    height: 100%;
+    gap: 10px;
+  }
+  .ChatGeneralChoice__InputBar_TextArea{
+    max-height: 100%;
   }
 }
