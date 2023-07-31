@@ -76,8 +76,15 @@ export const ChatGeneralChoice = (params: IChatGeneralChoice) => {
                             </>
                         }
                     </div>
-                    <div  className="ChatGeneralChoice__Footer Half__Block__Footer">
-                        <div  className="ChatGeneralChoice__ListBar">
+                    <div className="ChatGeneralChoice__Footer Half__Block__Footer">
+                        {userSocketChatChoiceAllMessages && userSocketChatChoiceAllMessages.length == 0 &&
+                            <div className="ChatGeneralChoice__NoListBar">
+                                <div>
+                                    Список сообщений пуст
+                                </div>
+                            </div>
+                        }
+                        <div className="ChatGeneralChoice__ListBar">
                             <div ref={chatGeneralChoiceBarChat} className="ChatGeneralChoice__ListBar__Chat">
                                 {userSocketChatChoiceAllMessages && userSocketChatChoiceAllMessages.map((e: any, id: number) =>
                                     <div key={id} className={`${e.login === params.userValue.user.login && "ChatGeneralChoice__ListBar__Chat__Item-User"} ChatGeneralChoice__ListBar__Chat__Item`}>
@@ -91,7 +98,7 @@ export const ChatGeneralChoice = (params: IChatGeneralChoice) => {
                                 )}
                             </div>
                         </div>
-                        <form  onSubmit={e => { e.preventDefault(); handleSendMessages() }} className="ChatGeneralChoice__InputBar">
+                        <form onSubmit={e => { e.preventDefault(); handleSendMessages() }} className="ChatGeneralChoice__InputBar">
                             <textarea ref={textAreaRef} placeholder="Напишите ваше сообщение" required className="ChatGeneralChoice__InputBar_TextArea" value={message || ""} onChange={(event: any) => { setMessage(event.target.value); }} >
                             </textarea>
                             <div className="ChatGeneralChoice__InputBar__MessageLength">

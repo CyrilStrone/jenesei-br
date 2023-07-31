@@ -7,8 +7,10 @@ import Recommendations from '../../../assets/icon/header/navigation/recommendati
 import Subscription from '../../../assets/icon/header/navigation/subscriptions-br-full-black.svg'
 import Chat from '../../../assets/icon/header/navigation/сhats-br-full-black.svg'
 import Search from '../../../assets/icon/header/navigation/search-br-full-black.svg'
+import useIsMobileDevice from '../../functions/useIsMobileDevice';
 
 export const HeaderBarMenu = () => {
+  const isMobileDevice = useIsMobileDevice();
   return (
     <>
       <div className='HeaderBarMenu__Title'>
@@ -27,10 +29,10 @@ export const HeaderBarMenu = () => {
           <img src={Subscription} className="HeaderBarMenu__List__Image" alt="" />
           Подписки
         </NavLink>
-        <NavLink to={"/chat"}>
+        {!isMobileDevice && <NavLink to={"/chat"}>
           <img src={Chat} className="HeaderBarMenu__List__Image" alt="" />
           Чат
-        </NavLink>
+        </NavLink>}
         <NavLink to={"/search"}>
           <img src={Search} className="HeaderBarMenu__List__Image" alt="" />
           Поиск

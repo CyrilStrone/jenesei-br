@@ -9,6 +9,7 @@
 }
 @media (orientation: portrait) {
   .HomeSubscription {
-    grid-template-columns: 1fr;
+    display: flex;
+    align-items: flex-start;
   }
 }

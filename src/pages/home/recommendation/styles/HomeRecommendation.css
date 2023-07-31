@@ -7,3 +7,9 @@
   display: grid;
   grid-template-columns: 1fr;
 }
+@media (orientation: portrait) {
+  .HomeRecommendation {
+    display: flex;
+    align-items: flex-start;
+  }
+}
