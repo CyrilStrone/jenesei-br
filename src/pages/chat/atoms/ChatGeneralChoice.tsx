@@ -4,7 +4,7 @@ import SendIcon from '../../../assets/icon/chats/send.svg'
 import { useEffect, useRef, useState } from "react";
 import { useStore } from "effector-react";
 
-import { $userSocketChatChoiceAllMessages, $userSocketChatChoiceId, $userSocketChatListAllChats, $userSocketInterlocutorStatus } from "../../../ui/functions/createSocketChat";
+import { $userSocketChatChoiceAllMessages, $userSocketChatChoiceId, $userSocketChatListAllChats } from "../../../ui/functions/createSocketChat";
 import { sendMessages } from "../../../ui/functions/useSocketChat";
 import { formatDateTime } from "../../../ui/functions/formatDateTime";
 import useIsMobileDevice from "../../../ui/functions/useIsMobileDevice";
@@ -22,7 +22,6 @@ export const ChatGeneralChoice = (params: IChatGeneralChoice) => {
     const [user, setUser] = useState<any | null>(null);
     const userSocketChatChoiceId = useStore($userSocketChatChoiceId);
     const userSocketChatChoiceAllMessages = useStore($userSocketChatChoiceAllMessages);
-    const userSocketInterlocutorStatus = useStore($userSocketInterlocutorStatus);
     const handleSendMessages = () => {
         if (message) {
             sendMessages(userSocketChatChoiceId, message)
