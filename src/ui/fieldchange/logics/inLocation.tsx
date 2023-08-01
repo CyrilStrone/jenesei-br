@@ -10,9 +10,9 @@ export const inLocationCountry = async () => {
                 Authorization: `Bearer OvYpl3TQBd8Mpru2SQScq-h_9lPFkW`
             }
         })
-        .then((res: any) => { return (res.data) })
+        .then((res: any) => { return res.data })
         .catch((error) => {
-            throw new Error(error.response.data.message);
+            throw error;
         })
 }
 
@@ -29,9 +29,9 @@ export const inLocationState = async (countryCode: string) => {
                 type: "division1"
             }
         })
-        .then((res: any) => { return (res.data) })
+        .then((res: any) => { return res.data })
         .catch((error) => {
-            throw new Error(error.response.data.message);
+            throw error;
         })
 }
 
@@ -49,9 +49,9 @@ export const inLocationCity = async (countryCode: string, division1Code: string)
                 type: "city"
             }
         })
-        .then((res: any) => { return (res.data) })
+        .then((res: any) => { return res.data })
         .catch((error) => {
-            throw new Error(error.response.data.message);
+            throw error;
         })
 }
 
@@ -65,8 +65,8 @@ export const inLocationCityAnother = async (value: string) => {
                 language: "ru-ru",
             }
         })
-        .then((res: any) => { return (res.data) })
+        .then((res: any) => { return res.data })
         .catch((error) => {
-            throw new Error(error.response.data.message);
+            throw error;
         })
 }

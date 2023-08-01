@@ -14,12 +14,14 @@ export const requestAllChats = (socket: Socket) => {
 };
 
 export const sendMessages = (id: any, content: any) => {
-  $userSocketChat.getState().emit("send_message", { chat_id: id, content: content });
+  $userSocketChat
+    .getState()
+    .emit("send_message", { chat_id: id, content: content });
 };
 
 export const disconnectChat = () => {
-  $userSocketChat.getState().disconnect();
-  setUserSocketChat(null)
+  if ($userSocketChat.getState()) $userSocketChat.getState().disconnect();
+  setUserSocketChat(null);
 };
 
 export const connectChat = () => {
@@ -27,5 +29,5 @@ export const connectChat = () => {
 };
 
 export const connectChatAfterResponse = (chat_id: any) => {
-  $userSocketChat.getState().emit("chat_join",{chat_id});
+  $userSocketChat.getState().emit("chat_join", { chat_id });
 };

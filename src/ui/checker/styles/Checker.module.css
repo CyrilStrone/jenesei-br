@@ -1,0 +1,12 @@
+.Checker {
+  display: flex;
+  box-sizing: border-box;
+  align-items: center;
+  cursor: pointer;
+  transition: all 400ms;
+  background-blend-mode: overlay, normal;
+}
+.Checker__Circle {
+  transition: all 200ms ease-in-out;
+  flex-shrink: 0;
+}

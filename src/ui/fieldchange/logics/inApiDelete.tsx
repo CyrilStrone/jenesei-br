@@ -1,5 +1,4 @@
 import { axiosInstance } from "../../functions/axiosInstance";
-import { requestUser } from "../../functions/requestUser";
 
 export interface IinApiDeleteContact {
     name: string
@@ -13,11 +12,10 @@ export const inApiDeleteContact = async (params: IinApiDeleteContact) => {
         }
     })
         .then((res: any) => {
-            requestUser();
             return res.data
         })
         .catch((error) => {
-            throw new Error(error.response.data.message);
+            throw error;
         })
 }
 
@@ -33,11 +31,10 @@ export const inApiDeleteStack = async (params: IinApiDeleteStack) => {
         }
     })
         .then((res: any) => {
-            requestUser();
             return res.data
         })
         .catch((error) => {
-            throw new Error(error.response.data.message);
+            throw error;
         })
 }
 
@@ -53,11 +50,10 @@ export const inApiDeleteEducation = async (params: IinApiDeleteEducation) => {
         }
     })
         .then((res: any) => {
-            requestUser();
             return res.data
         })
         .catch((error) => {
-            throw new Error(error.response.data.message);
+            throw error;
         })
 }
 
@@ -73,10 +69,9 @@ export const inApiDeleteWorkExp = async (params: IinApiDeleteWorkExpn) => {
         }
     })
         .then((res: any) => {
-            requestUser();
             return res.data
         })
         .catch((error) => {
-            throw new Error(error.response.data.message);
+            throw error;
         })
 }

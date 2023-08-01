@@ -1,6 +1,8 @@
 import { setUserSetting } from "../../functions/hooks";
 import { IFieldChange } from "../organelles/FieldChange";
 import { inApiSaveDefault } from "../logics/inApiSave";
+import { requestUser } from "../../functions/requestUser";
+import { setCustomValidityShow } from "../../customValidity/organelles/CustomValidity";
 
 import { useEffect, useRef } from "react";
 
@@ -14,12 +16,14 @@ export const FieldChangeAboutShort = (params: IFieldChange) => {
         try {
             const result = await inApiSaveDefault({ value: params.newValue, keyName: params.keyName });
             if (result) {
+                requestUser();
                 setUserSetting(false);
-            }else{
+            } else {
                 setUserSetting(false);
             }
         } catch (error) {
-            console.log("handleApiSave error", error)
+            setCustomValidityShow("Произошла непредвиденная ошибка.");
+            setUserSetting(false);
         }
     }
 
@@ -37,7 +41,7 @@ export const FieldChangeAboutShort = (params: IFieldChange) => {
             textAreaRef.current.style.height = `${textAreaRef.current.scrollHeight}px`;
         }
     }, [params.value, params.newValue]);
-    
+
     useEffect(() => {
         params.setNewValue && params.setNewValue(params.value)
     }, [])
@@ -58,7 +62,7 @@ export const FieldChangeAboutShort = (params: IFieldChange) => {
                     <div className="FieldChange__Inputs">
                         <textarea
                             ref={textAreaRef}
-                            value={params?.newValue}
+                            value={params?.newValue || ""}
                             onChange={handleNewValue}
                             placeholder="Расскажите самое важное о себе"
                             required maxLength={30} minLength={2}

@@ -7,6 +7,6 @@ export const InAnotherUser = async (login: string) => {
             return res.data
         })
         .catch((error) => {
-            throw new Error(error.response.data.message);
+            throw error;
         })
 }

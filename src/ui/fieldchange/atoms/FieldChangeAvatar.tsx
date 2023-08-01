@@ -4,6 +4,8 @@ import AvatarEditor from 'react-avatar-editor'
 import { setUserSetting } from "../../functions/hooks";
 import { IFieldChange } from "../organelles/FieldChange";
 import { inApiSaveAvatar } from "../logics/inApiSave";
+import { setCustomValidityShow } from "../../customValidity/organelles/CustomValidity";
+import { requestUser } from "../../functions/requestUser";
 
 import Arrow from '../../../assets/icon/personalInformation/arrow-left-br-full-black.svg'
 import Avatar from '../../../assets/icon/personalInformation/avatar-br-full-black.svg'
@@ -14,12 +16,14 @@ export const FieldChangeAvatar = (params: IFieldChange) => {
 
             const result = await inApiSaveAvatar({ file: params.newValue });
             if (result) {
+                requestUser();
                 setUserSetting(false);
             } else {
                 setUserSetting(false);
             }
         } catch (error) {
-            console.log("handleApiSave error", error);
+            setCustomValidityShow("Произошла непредвиденная ошибка.");
+            setUserSetting(false);
         }
     }
 

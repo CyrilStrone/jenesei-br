@@ -6,6 +6,7 @@
   top: 10%;
   opacity: 0;
   animation: ani 4s forwards;
+  z-index: 11;
 }
 .CustomValidity {
   display: flex;

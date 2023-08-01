@@ -1,6 +1,8 @@
 import { setUserSetting } from "../../functions/hooks";
 import { IFieldChange } from "../organelles/FieldChange";
 import { inApiSaveDefault } from "../logics/inApiSave";
+import { requestUser } from "../../functions/requestUser";
+import { setCustomValidityShow } from "../../customValidity/organelles/CustomValidity";
 
 import { useEffect, useRef } from "react";
 
@@ -9,17 +11,19 @@ import Setting from '../../../assets/icon/personalInformation/settings-br-full-b
 
 export const FieldChangeAboutLong = (params: IFieldChange) => {
     const textAreaRef = useRef<HTMLTextAreaElement>(null);
-    
+
     const handleApiSave = async () => {
         try {
             const result = await inApiSaveDefault({ value: params.newValue, keyName: params.keyName });
             if (result) {
+                requestUser();
                 setUserSetting(false);
-            }else{
+            } else {
                 setUserSetting(false);
             }
         } catch (error) {
-            console.log("handleApiSave error", error)
+            setCustomValidityShow("Произошла непредвиденная ошибка.");
+            setUserSetting(false);
         }
     }
 
@@ -57,7 +61,7 @@ export const FieldChangeAboutLong = (params: IFieldChange) => {
                     </div>
 
                     <div className="FieldChange__Inputs">
-                        <textarea ref={textAreaRef} maxLength={220} required value={params?.newValue} onChange={handleNewValue} placeholder={"Расскажите о себе"}></textarea>
+                        <textarea ref={textAreaRef} maxLength={220} required value={params?.newValue || ""} onChange={handleNewValue} placeholder={"Расскажите о себе"}></textarea>
                     </div>
                 </div>
                 <div className="FieldChange__Button__Group">

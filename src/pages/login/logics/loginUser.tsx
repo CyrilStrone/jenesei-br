@@ -8,17 +8,12 @@ export interface ILoginUser {
 
 export const loginUser = async (params: ILoginUser) => {
     return axiosInstance.post(
-        '/auth/login', {
-        "login": params.login,
-        "password": params.password,
-    })
+        '/auth/login', { ...params })
         .then((res: any) => {
-            if (res.data.token) {
-                return res.data.token
-            }
+            return res.data?.token
         })
         .catch((error) => {
-            throw new Error(error.response.data.message);
+            throw error;
         })
 }
 

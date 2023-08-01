@@ -25,6 +25,6 @@ export const registrationUser = async (params: IRegistrationUser) => {
             }
         })
         .catch((error) => {
-            throw new Error(error.response.data.message);
+            throw error;
         })
 }

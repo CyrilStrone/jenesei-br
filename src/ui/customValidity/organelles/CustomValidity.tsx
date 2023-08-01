@@ -4,8 +4,8 @@ import { createEvent, createStore } from "effector";
 import { useStore } from "effector-react";
 import { useEffect } from "react";
 
-export const $customValidityShow = createStore<string>("")
-export const setCustomValidityShow = createEvent<string>()
+export const $customValidityShow = createStore<any | null>(null)
+export const setCustomValidityShow = createEvent<any>()
 $customValidityShow.on(setCustomValidityShow, (_, val) => val)
 
 export const CustomValidity = () => {

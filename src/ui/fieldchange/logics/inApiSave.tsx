@@ -1,5 +1,4 @@
 import { axiosInstance } from "../../functions/axiosInstance";
-import { requestUser } from "../../functions/requestUser";
 
 export interface IinApiSaveContact {
     name: string
@@ -13,11 +12,10 @@ export const inApiSaveContact = async (params: IinApiSaveContact) => {
         link: params.link
     })
         .then((res: any) => {
-            requestUser();
-            return (res.data)
+            return res.data
         })
         .catch((error) => {
-            throw new Error(error.response.data.message);
+            throw error;
         })
 }
 
@@ -33,11 +31,10 @@ export const inApiSaveStack = async (params: IinApiSaveStack) => {
         level: params.level
     })
         .then((res: any) => {
-            requestUser();
-            return (res.data)
+            return res.data
         })
         .catch((error) => {
-            throw new Error(error.response.data.message);
+            throw error;
         })
 }
 
@@ -55,11 +52,10 @@ export const inApiSaveLocation = async (params: IinApiSaveLocation) => {
         city: params.city,
     })
         .then((res: any) => {
-            requestUser();
-            return (res.data)
+            return res.data
         })
         .catch((error) => {
-            throw new Error(error.response.data.message);
+            throw error;
         })
 }
 
@@ -74,11 +70,10 @@ export const inApiSaveDefault = async (params: IinApiSaveDefault) => {
         [params.keyName]: params.value
     })
         .then((res: any) => {
-            requestUser();
-            return (res.data)
+            return res.data
         })
         .catch((error) => {
-            throw new Error(error.response.data.message);
+            throw error;
         })
 }
 
@@ -94,11 +89,10 @@ export const inApiSaveAvatar = async (params: IinApiSaveAvatar) => {
         formData
     )
         .then((res: any) => {
-            requestUser();
-            return (res.data)
+            return res.data
         })
         .catch((error) => {
-            throw new Error(error.response.data.message);
+            throw error;
         })
 }
 
@@ -130,11 +124,10 @@ export const inApiSaveEducation = async (params: IinApiSaveEducation) => {
         studyEnd: params.studyEnd
     })
         .then((res: any) => {
-            requestUser();
-            return (res.data)
+            return res.data
         })
         .catch((error) => {
-            throw new Error(error.response.data.message);
+            throw error;
         })
 }
 
@@ -164,11 +157,10 @@ export const inApiSaveWorkExp = async (params: IinApiSaveWorkExp) => {
         workEnd: params.workEnd
     })
         .then((res: any) => {
-            requestUser();
-            return (res.data)
+            return res.data
         })
         .catch((error) => {
-            throw new Error(error.response.data.message);
+            throw error;
         })
 }
 
@@ -184,9 +176,9 @@ export const inApiChangePassword = async (params: IinApiChangePassword) => {
         newPassword: params.newPassword
     })
         .then((res: any) => {
-            return (res.data)
+            return res.data
         })
         .catch((error) => {
-            throw new Error(error.response.data.message);
+            throw error;
         })
 }

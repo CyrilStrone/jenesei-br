@@ -33,7 +33,6 @@ axiosInstance.interceptors.request.use(
   },
   (error) => Promise.reject(error)
 );
-
 axiosInstance.interceptors.response.use(
   (response) => response,
   async (error: any) => {
@@ -62,6 +61,8 @@ axiosInstance.interceptors.response.use(
       } else {
         UserLogout();
       }
+    } else if (error?.response?.status === 0) {
+      console.error("Ошибка CORS:", error.message);
     }
   }
 );

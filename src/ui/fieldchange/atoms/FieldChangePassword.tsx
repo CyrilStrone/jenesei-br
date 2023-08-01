@@ -15,11 +15,13 @@ export const FieldChangePassword = (params: IFieldChange) => {
         try {
             const result = await inApiChangePassword({ currentPassword: params.newValue?.oldPassword, newPassword: params.newValue?.newPassowrd });
             if (result) {
-                setCustomValidityShow("Пароль обновлен")
+                setCustomValidityShow("Пароль обновлен.")
                 setUserSetting(false);
+            }else{
+                setCustomValidityShow("Ошибка смены пароля.");
             }
         } catch (error) {
-            setCustomValidityShow("Ошибка смены пароля")
+            setCustomValidityShow("Произошла непредвиденная ошибка.")
         }
     }
 
@@ -55,21 +57,21 @@ export const FieldChangePassword = (params: IFieldChange) => {
                         <input
                             type={"password"}
                             required
-                            value={params.newValue?.oldPassword}
+                            value={params.newValue?.oldPassword || ""}
                             onChange={(event: any) => handleNewValue(event, "oldPassword")}
                             placeholder={"Введите старый пароль"}
                         />
                         <input
                             type={"password"}
                             required
-                            value={params.newValue?.againNewPassword}
+                            value={params.newValue?.againNewPassword || ""}
                             onChange={(event: any) => handleNewValue(event, "againNewPassword")}
                             placeholder={"Введите новый пароль"}
                         />
                         <input
                             type={"password"}
                             required
-                            value={params.newValue?.newPassowrd}
+                            value={params.newValue?.newPassowrd || ""}
                             onChange={(event: any) => handleNewValue(event, "newPassowrd")}
                             placeholder={"Повторите новый пароль"}
                         />

@@ -7,6 +7,8 @@ import { inStack } from "../logics/inStack";
 import { IFieldChange } from "../organelles/FieldChange";
 import { inApiSaveStack } from "../logics/inApiSave";
 import { inApiDeleteStack } from "../logics/inApiDelete";
+import { setCustomValidityShow } from "../../customValidity/organelles/CustomValidity";
+import { requestUser } from "../../functions/requestUser";
 
 import Delete from '../../../assets/icon/personalInformation/delete-br-full-black.svg'
 import Arrow from '../../../assets/icon/personalInformation/arrow-left-br-full-black.svg'
@@ -29,7 +31,7 @@ export const FieldChangeStack = (params: IFieldChange) => {
                 setValueApi(result.map((e: any) => ({ value: e.name, label: e.name })))
             }
         } catch (error) {
-            console.log("handleValueApi", handleValueApi)
+            setCustomValidityShow("Произошла непредвиденная ошибка.")
         }
     }
 
@@ -61,12 +63,13 @@ export const FieldChangeStack = (params: IFieldChange) => {
         try {
             const result = await inApiDeleteStack({ name: valueApiChoice.value });
             if (result) {
+                requestUser();
                 setUserSetting(false);
             } else {
                 setUserSetting(false);
             }
         } catch (error) {
-            console.log("handleApiDelete error", error)
+            setCustomValidityShow("Произошла непредвиденная ошибка.")
         }
 
     }
@@ -75,12 +78,14 @@ export const FieldChangeStack = (params: IFieldChange) => {
         try {
             const result = await inApiSaveStack({ name: valueApiChoice.value, level: params.newValue });
             if (result) {
+                requestUser();
                 setUserSetting(false);
             } else {
                 setUserSetting(false);
             }
         } catch (error) {
-            console.log("handleApiSave error", error)
+            setCustomValidityShow("Произошла непредвиденная ошибка.");
+            setUserSetting(false);
         }
     };
     return (

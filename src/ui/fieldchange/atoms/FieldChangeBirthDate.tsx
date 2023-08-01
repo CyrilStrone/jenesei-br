@@ -1,6 +1,8 @@
 import { setUserSetting } from "../../functions/hooks";
 import { IFieldChange } from "../organelles/FieldChange";
 import { inApiSaveDefault } from "../logics/inApiSave";
+import { requestUser } from "../../functions/requestUser";
+import { setCustomValidityShow } from "../../customValidity/organelles/CustomValidity";
 
 import { useEffect, useState } from "react";
 
@@ -14,12 +16,14 @@ export const FieldChangeBirthDate = (params: IFieldChange) => {
         try {
             const result = await inApiSaveDefault({ value: params.newValue, keyName: params.keyName });
             if (result) {
+                requestUser();
                 setUserSetting(false);
             } else {
                 setUserSetting(false);
             }
         } catch (error) {
-            console.log("handleApiSave error", error)
+            setCustomValidityShow("Произошла непредвиденная ошибка.");
+            setUserSetting(false);
         }
     }
     const handleNewValue = (event: any) => {

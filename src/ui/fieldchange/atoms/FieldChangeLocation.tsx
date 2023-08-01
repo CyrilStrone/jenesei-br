@@ -2,6 +2,8 @@ import { setUserSetting } from "../../functions/hooks";
 import { IFieldChange } from "../organelles/FieldChange";
 import { inLocationCity, inLocationCountry, inLocationState } from "../logics/inLocation";
 import { inApiSaveLocation } from "../logics/inApiSave";
+import { setCustomValidityShow } from "../../customValidity/organelles/CustomValidity";
+import { requestUser } from "../../functions/requestUser";
 
 import { SpinningCircles } from "react-loading-icons";
 import Select from "react-select";
@@ -18,12 +20,14 @@ export const FieldChangeLocation = (params: IFieldChange) => {
         try {
             const result = await inApiSaveLocation({ country: (valueLocationChoice.country).split(',')[1], state: (valueLocationChoice.state).split(',')[1], city: (valueLocationChoice.city).split(',')[1] });
             if (result) {
+                requestUser();
                 setUserSetting(false);
             } else {
                 setUserSetting(false);
             }
         } catch (error) {
-            console.log("error", error)
+            setCustomValidityShow("Произошла непредвиденная ошибка.");
+            setUserSetting(false);
         }
     }
 
@@ -56,7 +60,7 @@ export const FieldChangeLocation = (params: IFieldChange) => {
                 setValueLocation({ ...valueLocation, country: result })
             }
         } catch (error) {
-            console.log("handleCountry", error)
+            console.log("handleCountry error", error)
         }
     }
 
@@ -67,7 +71,7 @@ export const FieldChangeLocation = (params: IFieldChange) => {
                 setValueLocation({ ...valueLocation, state: result })
             }
         } catch (error) {
-            console.log("handleState", error)
+            console.log("handleState error", error)
         }
     }
 
@@ -78,7 +82,7 @@ export const FieldChangeLocation = (params: IFieldChange) => {
                 setValueLocation({ ...valueLocation, city: result })
             }
         } catch (error) {
-            console.log("handleCity", error)
+            console.log("handleCity error", error)
         }
     }
 

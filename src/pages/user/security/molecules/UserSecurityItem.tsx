@@ -1,6 +1,9 @@
 import { useState } from "react";
-import { Checker } from "../../../../ui/checker/organelles/Checker";
+
+import  Checker from "../../../../ui/checker/organelles/Checker";
+
 import "../styles/UserSecurityItem.css";
+
 export interface IUserSecurityItem {
   title: string
   key: string

@@ -15,3 +15,39 @@ image - картинка(не иконка)
 ------
 Название директорий
 !Всегда с маленькой буквы 
+------
+Api <---> Component
+
+/--- Api ---
+export const goApi = async (params: IGoApi) => {
+    return axiosInstance.post(
+        '/.../...', {
+        ...params
+    })
+        .then((res: any) => {
+            return res.data;
+        })
+        .catch((error) => {
+            throw error;
+        })
+}
+--- Api ---/
+export interface IGoApi {
+    ...
+}
+/--- Component ---
+const handleGoApi = async (params: IGoApi) => {
+        try {
+            const result = await goApi({...params});
+            if (result) {
+                console.log("Ok)
+            } else {
+                console.log("Произошла ошибка.")
+            }
+        } catch (error: any) {
+            console.log(error.message || "Произошла ошибка.");
+        }
+    }
+--- Component ---/
+
+

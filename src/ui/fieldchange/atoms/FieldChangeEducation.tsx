@@ -7,6 +7,8 @@ import { inApiSaveEducation } from "../logics/inApiSave";
 import { inApiDeleteEducation } from "../logics/inApiDelete";
 import { setUserSetting } from "../../functions/hooks";
 import { IFieldChange } from "../organelles/FieldChange";
+import { setCustomValidityShow } from "../../customValidity/organelles/CustomValidity";
+import { requestUser } from "../../functions/requestUser";
 
 import Arrow from '../../../assets/icon/personalInformation/arrow-left-br-full-black.svg'
 import Setting from '../../../assets/icon/personalInformation/settings-br-full-black.svg'
@@ -44,12 +46,13 @@ export const FieldChangeEducation = (params: IFieldChange) => {
         try {
             const result = await inApiDeleteEducation({ id: params.value.id });
             if (result) {
+                requestUser();
                 setUserSetting(false);
             } else {
                 setUserSetting(false);
             }
         } catch (error) {
-            console.log("handleApiDelete error", error)
+            setCustomValidityShow("Произошла непредвиденная ошибка.");
         }
     }
 
@@ -70,12 +73,14 @@ export const FieldChangeEducation = (params: IFieldChange) => {
                 }
             );
             if (result) {
+                requestUser();
                 setUserSetting(false);
             } else {
                 setUserSetting(false);
             }
         } catch (error) {
-            console.log("handleApiSave error", error)
+            setCustomValidityShow("Произошла непредвиденная ошибка.");
+            setUserSetting(false);
         }
     };
 
@@ -135,19 +140,19 @@ export const FieldChangeEducation = (params: IFieldChange) => {
                             <div className="FieldChange__Inputs__Education__Blocks__Title">
                                 Название учебного заведения
                             </div>
-                            <input required minLength={2} type="text" value={params.newValue?.name} onChange={(event: any) => handleNewValue(event, "name")} />
+                            <input required minLength={2} type="text" value={params.newValue?.name || ""} onChange={(event: any) => handleNewValue(event, "name")} />
                         </div>
                         <div className="FieldChange__Inputs__Education__Blocks">
                             <div className="FieldChange__Inputs__Education__Blocks__Title">
                                 Степень
                             </div>
-                            <input required minLength={2} type="text" value={params.newValue?.degree} onChange={(event: any) => handleNewValue(event, "degree")} />
+                            <input required minLength={2} type="text" value={params.newValue?.degree || ""} onChange={(event: any) => handleNewValue(event, "degree")} />
                         </div>
                         <div className="FieldChange__Inputs__Education__Blocks">
                             <div className="FieldChange__Inputs__Education__Blocks__Title">
                                 Направление
                             </div>
-                            <input required minLength={2} type="text" value={params.newValue?.specialization} onChange={(event: any) => handleNewValue(event, "specialization")} />
+                            <input required minLength={2} type="text" value={params.newValue?.specialization || ""} onChange={(event: any) => handleNewValue(event, "specialization")} />
                         </div>
                         <div className="FieldChange__Inputs__Education__Blocks">
                             <div className="FieldChange__Inputs__Education__Blocks__Title">
@@ -198,7 +203,7 @@ export const FieldChangeEducation = (params: IFieldChange) => {
                             <div className="FieldChange__Inputs__Education__Blocks__Title">
                                 Описание
                             </div>
-                            <textarea required minLength={2} ref={textAreaRef} placeholder={"Расскажите о своем опыте"} value={params.newValue?.text} onChange={(event: any) => handleNewValue(event, "text")} />
+                            <textarea required minLength={2} ref={textAreaRef} placeholder={"Расскажите о своем опыте"} value={params.newValue?.text || ""} onChange={(event: any) => handleNewValue(event, "text")} />
                         </div>
                     </div>
                 </div>

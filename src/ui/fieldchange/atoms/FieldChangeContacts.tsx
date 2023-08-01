@@ -7,6 +7,8 @@ import { IFieldChange } from "../organelles/FieldChange";
 import { inContact } from "../logics/inContact";
 import { inApiSaveContact } from "../logics/inApiSave";
 import { inApiDeleteContact } from "../logics/inApiDelete";
+import { setCustomValidityShow } from "../../customValidity/organelles/CustomValidity";
+import { requestUser } from "../../functions/requestUser";
 
 import Delete from '../../../assets/icon/personalInformation/delete-br-full-black.svg'
 import Arrow from '../../../assets/icon/personalInformation/arrow-left-br-full-black.svg'
@@ -29,7 +31,7 @@ export const FieldChangeContacts = (params: IFieldChange) => {
                 setValueApi(result.map((e: any) => ({ value: e.name, label: e.name })))
             }
         } catch (error) {
-            console.log("handleValueApi error", error)
+            setCustomValidityShow("Произошла непредвиденная ошибка.");
         }
     }
 
@@ -61,12 +63,13 @@ export const FieldChangeContacts = (params: IFieldChange) => {
         try {
             const result = await inApiDeleteContact({ name: valueApiChoice.value });
             if (result) {
+                requestUser();
                 setUserSetting(false);
             } else {
                 setUserSetting(false);
             }
         } catch (error) {
-            console.log("handleApiDelete error", error)
+            setCustomValidityShow("Произошла непредвиденная ошибка.");
         }
 
     }
@@ -75,12 +78,14 @@ export const FieldChangeContacts = (params: IFieldChange) => {
         try {
             const result = await inApiSaveContact({ name: valueApiChoice.value, link: params.newValue });
             if (result) {
+                requestUser();
                 setUserSetting(false);
             } else {
                 setUserSetting(false);
             }
         } catch (error) {
-            console.log("handleApiSave error", error)
+            setCustomValidityShow("Произошла непредвиденная ошибка.");
+            setUserSetting(false);
         }
     };
 
@@ -126,7 +131,7 @@ export const FieldChangeContacts = (params: IFieldChange) => {
 
                         />}
                         {valueApiChoice.value &&
-                            <input required type="url" placeholder="Вставьте ссылку" value={params.newValue} onChange={(event: any) => { params.setNewValue && params.setNewValue(event.target.value) }} />
+                            <input required type="url" placeholder="Вставьте ссылку" value={params.newValue || ""} onChange={(event: any) => { params.setNewValue && params.setNewValue(event.target.value) }} />
                         }
                     </div>
                 </div>

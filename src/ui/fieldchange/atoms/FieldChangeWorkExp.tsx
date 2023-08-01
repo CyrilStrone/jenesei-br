@@ -7,6 +7,8 @@ import { IFieldChange } from "../organelles/FieldChange";
 import { ApiLocationAnother } from "../../functions/axiosInstance";
 import { inApiSaveWorkExp } from "../logics/inApiSave";
 import { inApiDeleteWorkExp } from "../logics/inApiDelete";
+import { setCustomValidityShow } from "../../customValidity/organelles/CustomValidity";
+import { requestUser } from "../../functions/requestUser";
 
 import Arrow from '../../../assets/icon/personalInformation/arrow-left-br-full-black.svg'
 import Setting from '../../../assets/icon/personalInformation/settings-br-full-black.svg'
@@ -42,12 +44,13 @@ export const FieldChangeWorkExp = (params: IFieldChange) => {
         try {
             const result = await inApiDeleteWorkExp({ id: params.value.id });
             if (result) {
+                requestUser();
                 setUserSetting(false);
             } else {
                 setUserSetting(false);
             }
         } catch (error) {
-            console.log("handleApiDelete error", error)
+            setCustomValidityShow("Произошла непредвиденная ошибка.")
         }
     }
     const handleApiSave = async () => {
@@ -66,12 +69,14 @@ export const FieldChangeWorkExp = (params: IFieldChange) => {
                 }
             );
             if (result) {
+                requestUser();
                 setUserSetting(false);
             } else {
                 setUserSetting(false);
             }
         } catch (error) {
-            console.log("handleApiSave error", error)
+            setCustomValidityShow("Произошла непредвиденная ошибка.");
+            setUserSetting(false);
         }
     };
     const loadOptions = (query: string): any => {
@@ -127,13 +132,13 @@ export const FieldChangeWorkExp = (params: IFieldChange) => {
                             <div className="FieldChange__Inputs__Education__Blocks__Title">
                                 Название компании
                             </div>
-                            <input required minLength={2} type="text" value={params.newValue?.name} onChange={(event: any) => handleNewValue(event, "name")} />
+                            <input required minLength={2} type="text" value={params.newValue?.name || ""} onChange={(event: any) => handleNewValue(event, "name")} />
                         </div>
                         <div className="FieldChange__Inputs__Education__Blocks">
                             <div className="FieldChange__Inputs__Education__Blocks__Title">
                                 Должность
                             </div>
-                            <input required minLength={2} type="text" value={params.newValue?.position} onChange={(event: any) => handleNewValue(event, "position")} />
+                            <input required minLength={2} type="text" value={params.newValue?.position || ""} onChange={(event: any) => handleNewValue(event, "position")} />
                         </div>
                         <div className="FieldChange__Inputs__Education__Blocks">
                             <div className="FieldChange__Inputs__Education__Blocks__Title">
@@ -161,7 +166,7 @@ export const FieldChangeWorkExp = (params: IFieldChange) => {
                             </div>
                             <select required value={new Date(params.newValue?.workStart).getFullYear()} onChange={(event: any) => { handleNewValue(event, "workStart") }}>
                                 {createArray(1960, new Date().getFullYear()).map((e: any, id: number) =>
-                                    <option key={id}  value={e}>{e}</option>
+                                    <option key={id} value={e}>{e}</option>
                                 )}
                             </select>
                         </div>
@@ -173,7 +178,7 @@ export const FieldChangeWorkExp = (params: IFieldChange) => {
                                 <select required value={(new Date(params.newValue?.workEnd).getFullYear())} onChange={(event: any) => { handleNewValue(event, "workEnd") }}>
                                     <option value={"Нет даты"}>Нет даты</option>
                                     {createArray(new Date(params.newValue?.workStart).getFullYear() || 1960, new Date().getFullYear()).map((e: any, id: number) =>
-                                        <option key={id}  value={e}>{e}</option>
+                                        <option key={id} value={e}>{e}</option>
                                     )}
                                 </select>
                                 <div className="FieldChange__Inputs__Education__Blocks__SubTitle">
@@ -185,7 +190,7 @@ export const FieldChangeWorkExp = (params: IFieldChange) => {
                             <div className="FieldChange__Inputs__Education__Blocks__Title">
                                 Описание
                             </div>
-                            <textarea required minLength={2} ref={textAreaRef} placeholder={"Расскажите о своем опыте"} value={params.newValue?.text} onChange={(event: any) => handleNewValue(event, "text")} />
+                            <textarea required minLength={2} ref={textAreaRef} placeholder={"Расскажите о своем опыте"} value={params.newValue?.text || ""} onChange={(event: any) => handleNewValue(event, "text")} />
                         </div>
                     </div>
                 </div>

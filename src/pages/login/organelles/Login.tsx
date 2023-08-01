@@ -7,7 +7,7 @@ import { ILoginUser, loginUser } from "../logics/loginUser";
 import { setCustomValidityShow } from "../../../ui/customValidity/organelles/CustomValidity";
 import { changeAccessTokenToLocalStorage, changeCheckRefreshToLocalStorage } from "../../../ui/functions/axiosInstance";
 import { requestUser } from "../../../ui/functions/requestUser";
-import { Checker } from "../../../ui/checker/organelles/Checker";
+import  Checker from "../../../ui/checker/organelles/Checker";
 
 import JeneseiLogo from '../../../assets/logo/JeneseiLogo.svg'
 
@@ -26,11 +26,11 @@ export const Login = () => {
                 requestUser()
             } else {
                 setCheck(false)
-                setCustomValidityShow("Не правильный логин или пароль")
+                setCustomValidityShow("Не удалось выполнить вход. Пожалуйста, проверьте логин и пароль.")
             }
-        } catch (error) {
+        } catch (error: any) {
             setCheck(false)
-            setCustomValidityShow("Не правильный логин или пароль")
+            setCustomValidityShow(error.message || "Произошла ошибка во время входа.");
         }
     }
     const handleKeyPress = (event: { key: string; }) => {

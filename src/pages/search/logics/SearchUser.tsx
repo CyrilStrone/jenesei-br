@@ -6,6 +6,6 @@ export const SearchUser = async () => {
         '/user')
         .then((res: any) => { return (res.data) })
         .catch((error) => {
-            throw new Error(error.response.data.message);
+            throw error;
         })
 }

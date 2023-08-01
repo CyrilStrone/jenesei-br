@@ -7,7 +7,7 @@ export const InSubPost = async (userId: string) => {
             return res.data
         })
         .catch((error) => {
-            throw new Error(error.response.data.message);
+            throw error;
         })
 }
 
@@ -18,6 +18,6 @@ export const InSubDelete = async (userId: string) => {
             return res.data
         })
         .catch((error) => {
-            throw new Error(error.response.data.message);
+            throw error;
         })
 }
