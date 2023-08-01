@@ -1,5 +1,5 @@
 import { Socket, io } from "socket.io-client";
-import { ApiImage, accessTokenName, refreshTokenChat } from "./axiosInstance";
+import { ApiImage, refreshTokenChat } from "./axiosInstance";
 import { createEvent, createStore } from "effector";
 import { $userSocketChat, $userValue } from "./hooks";
 import {
@@ -8,6 +8,7 @@ import {
   requestAllMessages,
 } from "./useSocketChat";
 import addNotification from "react-push-notification";
+import { accessTokenName } from "./localStorage";
 // import addNotification from "react-push-notification";
 
 const createSocketChat = (): Socket => {

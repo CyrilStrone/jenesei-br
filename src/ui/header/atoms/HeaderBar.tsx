@@ -46,6 +46,7 @@ export const HeaderBar = () => {
     })
 
     useEffect(() => {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         //@ts-ignore
         const onClick = (e: any) => rootEl.current.contains(e.target) || toggleShow(3);
         document.addEventListener('click', onClick);
@@ -53,6 +54,7 @@ export const HeaderBar = () => {
     }, []);
 
     useEffect(() => {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         //@ts-ignore
         const onScroll = (e: any) => rootEl.current.contains(e.target) || toggleShow(3);
         window.addEventListener('scroll', onScroll);

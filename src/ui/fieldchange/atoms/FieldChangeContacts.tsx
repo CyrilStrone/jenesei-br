@@ -45,8 +45,9 @@ export const FieldChangeContacts = (params: IFieldChange) => {
 
     useEffect(() => {
         let result = ""
-        for (let i = 0; i < userValue.contacts.length; i++) {
-            const object = userValue.contacts[i];
+        if(userValue)
+        for (let i = 0; i < userValue?.contacts.length; i++) {
+            const object = userValue?.contacts[i];
             if (object && object.contact_name && object.contact_name === valueApiChoice.value) {
                 result = object.link
             }

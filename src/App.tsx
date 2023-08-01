@@ -2,7 +2,6 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import { useStore } from "effector-react";
 import { useEffect } from "react";
 
-import { accessTokenName } from "./ui/functions/axiosInstance";
 import { AppGeneral } from "./ui/appGeneral/organelles/AppGeneral";
 
 import Notifications from "react-push-notification/dist/notifications/Notifications";
@@ -28,6 +27,7 @@ import { HomeSubscription } from "./pages/home/subscription/organelles/HomeSubsc
 import { UserSecurity } from "./pages/user/security/organelles/UserSecurity";
 import { requestUser } from "./ui/functions/requestUser";
 import { Team } from "./pages/team/organelles/Team";
+import { accessTokenName } from "./ui/functions/localStorage";
 
 export function App() {
   const userValue = useStore($userValue);
@@ -41,7 +41,7 @@ export function App() {
       <Notifications />
       <Routes>
         <Route path="/" element={<AppGeneral />}>
-          {(userValue) ?
+          {(localStorage.getItem(accessTokenName)?.length) || userValue ?
             <>
               <Route index element={<Navigate to="/home/top" />} />
               <Route path="*" element={<Navigate to="/home/top" />} />

@@ -18,7 +18,7 @@ import { $userValue } from '../../functions/hooks';
 export const HeaderBarProfile = () => {
   const userValue = useStore($userValue);
   return (
-    <>
+    userValue && <>
       <div className='HeaderBarProfile__Title'>
         <div className='HeaderBarProfile__Title__Header'>
           {userValue.user.firstName + " " + userValue.user.lastName}

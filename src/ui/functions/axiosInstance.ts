@@ -2,9 +2,7 @@ import axios from "axios";
 import { connectChat, disconnectChat } from "./useSocketChat";
 import createSocketChat from "./createSocketChat";
 import { setUserSocketChat, setUserValue } from "./hooks";
-
-export const checkRefreshName = "BusinessRouletteRefreshCheck";
-export const accessTokenName = "BusinessRouletteToken";
+import { accessTokenName, changeAccessTokenToLocalStorage, changeCheckRefreshToLocalStorage, checkRefreshName } from "./localStorage";
 
 export const ApiLocation = "https://data-api.oxilor.com";
 export const ApiLocationAnother = "https://dataservice.accuweather.com";
@@ -15,13 +13,6 @@ export const axiosInstance = axios.create({
   withCredentials: true,
 });
 
-export const changeAccessTokenToLocalStorage = (accessToken: string) => {
-  localStorage.setItem(accessTokenName, accessToken);
-};
-
-export const changeCheckRefreshToLocalStorage = (check: string) => {
-  localStorage.setItem(checkRefreshName, check);
-};
 
 axiosInstance.interceptors.request.use(
   (config) => {

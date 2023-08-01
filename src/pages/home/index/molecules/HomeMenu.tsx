@@ -9,14 +9,20 @@ export const HomeMenu = () => {
   const location = useLocation();
   const parentRef = useRef<HTMLDivElement>(null);
   const { width, height } = useWindowDimensions()
-
+  const changeTitle = (): string => {
+    if (location.pathname === '/home/top') {
+      return "Топ"
+    } else if (location.pathname === '/home/recommendations') {
+      return "Рекомендации"
+    } else if (location.pathname === '/home/subscription') {
+      return "Подписки"
+    } else { return "" }
+  }
   useEffect(() => {
     const parentElement = parentRef.current;
     if (parentElement) {
-      //@ts-ignore
       const activeNavLink = parentElement.querySelector('.HomeMenu__Navs__Active');
       if (activeNavLink) {
-        //@ts-ignore
         const parentLeft = parentElement.getBoundingClientRect().left;
         const activeLeft = activeNavLink.getBoundingClientRect().left;
         setLeftSlider(activeLeft - parentLeft)
@@ -51,11 +57,7 @@ export const HomeMenu = () => {
         }} />
       </div>
       <div className="HomeMenu__Title">
-        {location.pathname === '/home/top' ?
-          "Топ" : location.pathname === '/home/recommendations' ?
-            "Рекомендации" : location.pathname === '/home/subscription' ?
-              "Подписки" : null
-        }
+        {changeTitle()}
       </div>
     </div>
   );

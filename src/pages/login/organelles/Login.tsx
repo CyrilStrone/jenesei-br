@@ -5,11 +5,11 @@ import { SpinningCircles } from "react-loading-icons";
 
 import { ILoginUser, loginUser } from "../logics/loginUser";
 import { setCustomValidityShow } from "../../../ui/customValidity/organelles/CustomValidity";
-import { changeAccessTokenToLocalStorage, changeCheckRefreshToLocalStorage } from "../../../ui/functions/axiosInstance";
 import { requestUser } from "../../../ui/functions/requestUser";
 import  Checker from "../../../ui/checker/organelles/Checker";
 
 import JeneseiLogo from '../../../assets/logo/JeneseiLogo.svg'
+import { changeAccessTokenToLocalStorage, changeCheckRefreshToLocalStorage } from "../../../ui/functions/localStorage";
 
 export const Login = () => {
     const [loginValue, setLoginValue] = useState<ILoginUser>({ login: "", password: "", checked: true });

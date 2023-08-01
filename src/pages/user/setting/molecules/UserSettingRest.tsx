@@ -14,7 +14,7 @@ export const UserSettingRest = () => {
                     <div className="UserSetting__Blocks__List__Item__Title">
                         Дата регистрации
                     </div>
-                    {userValue.user.createdDate &&
+                    {userValue?.user?.createdDate &&
                         <div className="Setting__Card__Short__Value">
                             {new Date(userValue.user.createdDate).toLocaleDateString('en-US', {
                                 day: '2-digit',

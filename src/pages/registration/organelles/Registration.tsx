@@ -5,8 +5,8 @@ import { IRegistrationUser, registrationUser } from "../logics/registrationUser"
 import { setCustomValidityShow } from "../../../ui/customValidity/organelles/CustomValidity";
 import { SpinningCircles } from "react-loading-icons";
 import JeneseiLogo from '../../../assets/logo/JeneseiLogo.svg'
-import { changeAccessTokenToLocalStorage } from "../../../ui/functions/axiosInstance";
 import { requestUser } from "../../../ui/functions/requestUser";
+import { changeAccessTokenToLocalStorage } from "../../../ui/functions/localStorage";
 
 export const Registration = () => {
     const [registrationValue, setRegistrationValue] = useState<IRegistrationUser>({ email: "", password: "", firstName: "", lastName: "", login: "", date: "" });

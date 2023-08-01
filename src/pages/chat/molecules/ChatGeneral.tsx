@@ -10,8 +10,13 @@ export const ChatGeneral = () => {
     const userValue = useStore($userValue);
     return (
         <div className="ChatGeneral ">
-            <ChatGeneralBar userValue={userValue}/>
-            <ChatGeneralChoice userValue={userValue}/>
+            {userValue ?
+                <>
+                    <ChatGeneralBar userValue={userValue} />
+                    <ChatGeneralChoice userValue={userValue} />
+                </>
+                :
+                null}
         </div>
     );
 };

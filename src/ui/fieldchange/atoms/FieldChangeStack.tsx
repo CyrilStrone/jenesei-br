@@ -45,12 +45,13 @@ export const FieldChangeStack = (params: IFieldChange) => {
 
     useEffect(() => {
         let result = ""
-        for (let i = 0; i < userValue.stack.length; i++) {
-            const object = userValue.stack[i];
-            if (object && object.name && object.name === valueApiChoice.value) {
-                result = object.level
+        if (userValue)
+            for (let i = 0; i < userValue?.stack.length; i++) {
+                const object = userValue?.stack[i];
+                if (object && object.name && object.name === valueApiChoice.value) {
+                    result = object.level
+                }
             }
-        }
         if (params.setNewValue) {
             params.setNewValue(result)
             setOldValue(result)

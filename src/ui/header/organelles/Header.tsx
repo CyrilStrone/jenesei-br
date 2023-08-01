@@ -4,7 +4,7 @@ import { HeaderGeneral } from "../molecules/HeaderGeneral";
 
 export const Header = () => {
   return (
-    <div className="Header" >
+    <div className="Header Header-background_mobile Header-background" >
       <HeaderGeneral />
     </div>
   );

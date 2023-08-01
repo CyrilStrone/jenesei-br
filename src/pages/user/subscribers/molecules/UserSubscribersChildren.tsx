@@ -11,7 +11,7 @@ export const UserSubscribersChildren = () => {
   const userValue = useStore($userValue);
   return (
     <div className="UserSubscribersChildren">
-      {userValue.subscribers?.map((e: any, id: number) =>
+      {userValue?.subscribers?.map((e: any, id: number) =>
         <div key={id} className="UserSubscribersChildren__Item Half__Block Block__Active">
           <div className="UserSubscribersChildren__Item__Header Half__Block__Header">
             <img src={ApiImage + e?.avatarPath} alt="Avatar" className="UserSubscribersChildren__Item__Header__Avatar" />
