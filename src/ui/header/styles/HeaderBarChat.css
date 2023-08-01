@@ -70,6 +70,7 @@
   font-size: 60%;
   font-weight: 400;
 }
+
 @media (orientation: portrait) {
   .HeaderBar__Chat {
     width: 96%;
