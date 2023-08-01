@@ -7,6 +7,7 @@ import DefaultAvatarChat from '../../../assets/icon/chats/default-avatar.svg'
 import { ApiImage } from "../../../ui/functions/axiosInstance";
 import { $userSocketChatChoiceId } from "../../../ui/functions/createSocketChat";
 import { formatDateTime } from "../../../ui/functions/formatDateTime";
+import { OnlineStatus } from "../../../ui/onlineStatus/organelles/OnlineStatus";
 
 export interface IChatGeneralBarItem {
     value: any
@@ -20,7 +21,10 @@ export const ChatGeneralBarItem = (params: IChatGeneralBarItem) => {
             <img src={params.value.avatarPath ? ApiImage + params.value.avatarPath : DefaultAvatarChat} className="ChatGeneralBarItem__Avatar dowlandBackground-userImage" alt="" />
             <div className="ChatGeneralBarItem__Info">
                 <div className="ChatGeneralBarItem__Info__Name">
-                    {params.value.firstName + " " + params.value.lastName}
+                    <div className="ChatGeneralBarItem__Info__Name__FullName">
+                        {params.value.firstName + " " + params.value.lastName}
+                    </div>
+                    {userSocketChatChoiceId !== params.chatId && <OnlineStatus login={params.value.login} />}
                 </div>
                 {params.value.content && <div className="ChatGeneralBarItem__Info__Preview">
                     <div className="ChatGeneralBarItem__Info__Preview__Message">

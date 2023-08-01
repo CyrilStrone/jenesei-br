@@ -1,0 +1,22 @@
+.OnlineStatus {
+  width: 6px;
+  height: 6px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  animation: colorChangeAnimation 3s ease infinite;
+}
+
+@keyframes colorChangeAnimation {
+  0% {
+    background-color: #ffffff;
+  }
+  25% {
+    background-color: #0e8ac3;
+  }
+  50% {
+    background-color: #ffffff;
+  }
+  75% {
+    background-color: #0e8ac3;
+  }
+}

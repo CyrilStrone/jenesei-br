@@ -66,11 +66,28 @@ const createSocketChat = (): Socket => {
     //Событие доставки моего сообщения
     setUserSocketChatMyMessage(data);
   });
+  socket.on("notification", (data: any) => {
+    //Событие уведомления
+    setUserSocketNotification(data);
+  });
 
   return socket;
 };
 
 export default createSocketChat;
+
+//Событие Массив статуса собеседников
+export const $userSocketInterlocutorStatus = createStore<any | null>(null);
+export const setUserSocketInterlocutorStatus = createEvent<any | null>();
+$userSocketInterlocutorStatus.on(
+  setUserSocketInterlocutorStatus,
+  (_, val) => val
+);
+
+//Событие Уведомления
+export const $userSocketNotification = createStore<any | null>(null);
+export const setUserSocketNotification = createEvent<any | null>();
+$userSocketNotification.on(setUserSocketNotification, (_, val) => val);
 
 //Событие доставки моего сообщения
 export const $userSocketChatMyMessage = createStore<any | null>(null);
@@ -143,6 +160,16 @@ $userSocketChatMyMessage.updates.watch((message: any) => {
   console.log("WATCH. userSocketChatMyMessage message:", message);
   updateAllChatsAndAllMessages(message);
 });
+$userSocketNotification.updates.watch((notification: any) => {
+  console.log("WATCH. userSocketNotification notification:", notification);
+  pushNotification(notification);
+});
+$userSocketInterlocutorStatus.updates.watch((locutorStatus: any) => {
+  console.log(
+    "WATCH. userSocketInterlocutorStatus locutorStatus:",
+    locutorStatus
+  );
+});
 const moveKeyToFirstPlace = <T extends Record<string, any>>(
   obj: T,
   keyToMove: keyof T
@@ -166,8 +193,6 @@ const updateAllChatsAndAllMessages = (message: any) => {
       }
     });
   if (key && keyObject) {
-    if(keyObject.login !== $userValue.getState().user.login)
-    pushNotification(keyObject)
     const newUserSocketChatListAllChats = moveKeyToFirstPlace(
       {
         ...$userSocketChatListAllChats.getState(),
@@ -228,15 +253,42 @@ const updateAllChats = (message: any) => {
     setUserSocketChatListAllChats(newUserSocketChatListAllChats);
   }
 };
-const pushNotification = (newMessage: any) => {
-  console.log("WATCH. pushNotification newMessage:", newMessage);
-  if (document.hidden) {
-      addNotification({
-        title: "Business Roulette. Вам пишет " + newMessage.author + ".",
-        message: newMessage.message,
-        icon: ApiImage + newMessage.avatarPath,
-        vibrate: 1,
-        native: true, // when using native, your OS will handle theming.
-      });
+const pushNotification = (notification: any) => {
+  if (notification.type == "online") {
+    setUserSocketInterlocutorStatus(
+      $userSocketInterlocutorStatus.getState()
+        ? [
+            ...$userSocketInterlocutorStatus.getState(),
+            notification.message.split(" ")[0],
+          ]
+        : [notification.message.split(" ")[0]]
+    );
+  }
+  if (
+    notification.type == "disconnect" &&
+    $userSocketInterlocutorStatus.getState()
+  ) {
+    const newUserSocketInterlocutorStatus = $userSocketInterlocutorStatus
+      .getState()
+      .filter((item: any) => item !== notification.message.split(" ")[0]);
+    setUserSocketInterlocutorStatus(newUserSocketInterlocutorStatus);
+  }
+
+  if (notification.type == "message") {
+    let keyObject: any | null = null;
+    Object.keys(notification).map((e: any) => {
+      keyObject = notification[e];
+    });
+    if (keyObject.login !== $userValue.getState().user.login) {
+      if (document.hidden && keyObject) {
+        addNotification({
+          title: "Business Roulette. Вам пишет " + keyObject.login + ".",
+          message: keyObject.message,
+          icon: ApiImage + keyObject.avatarPath,
+          vibrate: 1,
+          native: true, // when using native, your OS will handle theming.
+        });
+      }
+    }
   }
 };

@@ -8,6 +8,7 @@ import DefaultAvatarChat from '../../../assets/icon/header/default-avatar.svg'
 import { $userSocketChatListAllChats } from '../../functions/createSocketChat';
 import { ApiImage } from '../../functions/axiosInstance';
 import useIsMobileDevice from '../../functions/useIsMobileDevice';
+import { OnlineStatus } from '../../onlineStatus/organelles/OnlineStatus';
 interface IHeaderBarChat{
   toggleShow:any
 }
@@ -27,7 +28,7 @@ export const HeaderBarChat = (params:IHeaderBarChat) => {
             (id < 6 || isMobileDevice) && <NavLink onClick={()=>params.toggleShow(3)} key={id} to={`/chat/${userSocketChatListAllChats[e].interlocutor_id}`}>
               <img src={userSocketChatListAllChats[e].avatarPath ? ApiImage + userSocketChatListAllChats[e].avatarPath : DefaultAvatarChat} alt="DefaultAvatarChat" className='HeaderBarChat__List__Avatar' />
               {userSocketChatListAllChats[e].firstName + " " + userSocketChatListAllChats[e].lastName}
-              {/* <div className='HeaderBarChat__List__Message'>12</div> */}
+              <OnlineStatus login={userSocketChatListAllChats[e].login}/>
             </NavLink>
           ) :
           <div className='HeaderBarChat__List__Error'>

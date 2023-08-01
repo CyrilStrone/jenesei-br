@@ -133,6 +133,13 @@
 }
 .ChatGeneralBar__Header__Name {
 }
+.ChatGeneralBar__Header__Avatar {
+  width: 26px;
+  height: 26px;
+  object-fit: cover;
+  border-radius: 100%;
+  box-sizing: border-box;
+}
 @media (orientation: portrait) {
   .ChatGeneralChoice__ListBar__Chat__Item {
   }
@@ -142,7 +149,7 @@
   .ChatGeneralChoice__ListBar__Chat__Item__Time {
     font-size: 20%;
   }
-  .ChatGeneralChoice__InputBar{
+  .ChatGeneralChoice__InputBar {
     max-height: 40%;
   }
   .ChatGeneralChoice__ListBar__Chat {
@@ -159,7 +166,7 @@
     gap: 10px;
     position: relative;
   }
-  .ChatGeneralChoice__NoListBar{
+  .ChatGeneralChoice__NoListBar {
     position: absolute;
     font-size: 37%;
     font-weight: 500;
@@ -171,7 +178,7 @@
     align-items: center;
     justify-content: center;
   }
-  .ChatGeneralChoice__InputBar_TextArea{
+  .ChatGeneralChoice__InputBar_TextArea {
     max-height: 100%;
   }
 }

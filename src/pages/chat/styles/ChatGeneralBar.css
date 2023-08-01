@@ -5,6 +5,9 @@
 .ChatGeneralBar__Header {
   padding-top: 12px;
   padding-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 .ChatGeneralBar__List {
   padding: 12px;
@@ -68,8 +71,9 @@
   width: 0;
   height: 0;
 }
+
 @media (orientation: portrait) {
-  .ChatGeneralBar__Header{
+  .ChatGeneralBar__Header {
     height: 38px;
     padding-top: 0;
     padding-bottom: 0;
